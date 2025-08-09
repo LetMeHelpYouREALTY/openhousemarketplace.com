@@ -7,6 +7,7 @@ import Image from 'next/image'
 import OptimizedImage from './OptimizedImage'
 import { Calendar, Home, Star, Phone, Award } from 'lucide-react'
 import { REALSCOUT_OFFICE_PRICE_RANGE_LABEL } from '@/config/realscout-office-bands'
+import StickySearchBar from './StickySearchBar'
 import RealScoutSearchCard from './RealScoutSearchCard'
 import RealScoutWidgetFrame from '@/components/conversion/RealScoutWidgetFrame'
 import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
@@ -65,6 +66,7 @@ const SummerlinOpenHouseWebsite = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <StickySearchBar />
       {/* Hero Section */}
        <section className={`${brandHeroGradientClass} py-10 sm:py-12 lg:py-16 rounded-b-3xl`}>
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
