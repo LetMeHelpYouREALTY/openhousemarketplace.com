@@ -48,7 +48,12 @@ export default function BookTourPage() {
         }}
       />
 
-      <main className="min-h-screen bg-gray-50">
+      <MarketingHero
+        title="Schedule a private showing"
+        description="Pick a time that works for you — tour Summerlin homes with Dr. Jan Duffy. No signup required."
+        showCtas={false}
+      />
+      <main className="min-h-screen bg-brand-surface/40">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
             <ol className="flex flex-wrap gap-x-2 gap-y-1">
@@ -64,15 +69,6 @@ export default function BookTourPage() {
             </ol>
           </nav>
 
-          <header className="mb-8 text-center">
-            <h1 className="page-title-speakable text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Schedule a private showing
-            </h1>
-            <p className="speakable-summary text-lg text-gray-600 max-w-xl mx-auto">
-              Book a private showing with Dr. Jan Duffy in Summerlin West. Choose a date and time below—no signup required—or call (702) 200-3422.
-            </p>
-          </header>
-
           <section className="mb-8 prose prose-gray max-w-none text-gray-700">
             <h2 className="text-xl font-semibold text-gray-900">Private tours in Summerlin and Las Vegas</h2>
             <p>
@@ -87,7 +83,8 @@ export default function BookTourPage() {
             </p>
           </section>
 
-          <section aria-label="Schedule a private showing" className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 md:p-6">
+          <section aria-label="Schedule a private showing" className={`${brandCardClass} border-2 border-brand-teal/30`}>
+            <h2 className="text-xl font-bold text-brand-plum mb-4 text-center">Choose your showing time</h2>
             <CalendlyInlineWidget
               minWidth={320}
               height={700}
