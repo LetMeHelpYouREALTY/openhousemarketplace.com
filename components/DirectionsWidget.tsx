@@ -175,13 +175,13 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
                 value={origin}
                 onChange={(e) => setOrigin(e.target.value)}
                 placeholder="e.g. Las Vegas, NV or 123 Main St"
-                className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
               />
               <button
                 type="button"
                 onClick={handleUseMyLocation}
                 disabled={loading}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-50"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-brand-teal text-white text-sm font-medium hover:bg-brand-plum disabled:opacity-50"
                 title="Use my location"
               >
                 <MapPin className="h-4 w-4" />
@@ -198,7 +198,7 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
               id="directions-destination"
               value={destinationId}
               onChange={(e) => setDestinationId(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
             >
               {destinations.map((d) => (
                 <option key={d.id} value={d.id}>
@@ -218,8 +218,8 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
                   onClick={() => setTravelMode(opt.value)}
                   className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border text-sm font-medium transition-colors ${
                     travelMode === opt.value
-                      ? 'border-blue-600 bg-blue-600 text-white'
-                      : 'border-gray-300 bg-white text-gray-700 hover:border-blue-400'
+                      ? 'border-brand-teal bg-brand-teal text-white'
+                      : 'border-gray-300 bg-white text-gray-700 hover:border-brand-teal'
                   }`}
                 >
                   {opt.icon}
@@ -233,13 +233,13 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
             type="button"
             onClick={handleGetDirections}
             disabled={loading || !origin.trim()}
-            className="w-full flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3 text-white font-semibold hover:bg-blue-700 disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 rounded-lg bg-brand-teal px-4 py-3 text-white font-semibold hover:bg-brand-plum disabled:opacity-50"
           >
             {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Navigation className="h-5 w-5" />}
             Get directions
           </button>
 
-          {error && <p className="text-sm text-red-600">{error}</p>}
+          {error && <p className="text-sm text-brand-teal">{error}</p>}
         </div>
 
         {/* Map + results */}
@@ -249,7 +249,7 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
             {!isLoaded && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
                 <div className="text-center">
-                  <Loader2 className="h-10 w-10 animate-spin text-blue-600 mx-auto mb-2" />
+                  <Loader2 className="h-10 w-10 animate-spin text-brand-teal mx-auto mb-2" />
                   <p className="text-sm text-gray-600">Loading map...</p>
                 </div>
               </div>

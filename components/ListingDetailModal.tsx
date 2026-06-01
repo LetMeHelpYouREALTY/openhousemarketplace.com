@@ -61,7 +61,7 @@ export function ListingDetailModal({
               {listing.neighborhood && NEIGHBORHOOD_URL_MAP[listing.neighborhood] ? (
                 <Link
                   href={NEIGHBORHOOD_URL_MAP[listing.neighborhood]!}
-                  className="font-medium text-blue-600 hover:text-blue-800"
+                  className="font-medium text-brand-teal hover:text-brand-plum"
                 >
                   {listing.neighborhood}
                 </Link>
@@ -123,7 +123,7 @@ export function ListingDetailModal({
                 <button
                   type="button"
                   onClick={handleTakeVirtualTour}
-                  className="mt-2 w-full rounded-lg bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-700"
+                  className="mt-2 w-full rounded-lg bg-brand-teal px-4 py-2 font-medium text-white hover:bg-brand-plum"
                 >
                   Take Virtual Tour (fullscreen)
                 </button>
@@ -146,7 +146,7 @@ export function ListingDetailModal({
               <button
                 type="button"
                 onClick={handleTakeVirtualTour}
-                className="flex-1 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
+                className="flex-1 rounded-lg bg-brand-teal px-4 py-2 text-sm font-medium text-white hover:bg-brand-plum disabled:opacity-50"
                 disabled={!listing.virtualTourUrl}
               >
                 Take Virtual Tour

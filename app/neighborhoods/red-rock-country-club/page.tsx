@@ -4,6 +4,7 @@ import { BASE_URL } from '@/lib/metadata-utils'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Red Rock Country Club | Luxury Golf Course Homes for Sale',
@@ -105,7 +106,7 @@ export default function RedRockCountryClubPage() {
               Club one of the most desirable communities for luxury real estate in Summerlin.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Red Rock Country Club.
+              View <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Red Rock Country Club.
             </p>
             <RelatedNeighborhoods currentSlug="red-rock-country-club" className="mb-4" />
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Luxury Real Estate Market in Red Rock Country Club</h3>
@@ -151,6 +152,7 @@ export default function RedRockCountryClubPage() {
         imageUrl="/images/red-rock-cc-hero.jpg"
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
+      <PageIndexingEnhancement path="/neighborhoods/red-rock-country-club" />
     </div>
     </>
   )

@@ -7,6 +7,7 @@ import StoreLocationsMap from '@/components/StoreLocationsMap'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Find Our Stores | Store Locations & Map | Dr. Jan Duffy Real Estate',
@@ -53,7 +54,7 @@ export default function StoreLocationsPage() {
           <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
             <ol className="flex flex-wrap gap-x-2 gap-y-1">
               <li>
-                <Link href="/" className="hover:text-blue-600 transition-colors">
+                <Link href="/" className="hover:text-brand-plum transition-colors">
                   Home
                 </Link>
               </li>
@@ -111,6 +112,7 @@ export default function StoreLocationsPage() {
           </div>
         </div>
       </main>
+      <PageIndexingEnhancement path="/store-locations" />
     </>
   )
 }

@@ -46,7 +46,7 @@ export default function OpenHouseGuideForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label htmlFor="guide-email" className="block text-sm font-medium text-gray-700 mb-1">
-          Email <span className="text-red-600">*</span>
+          Email <span className="text-brand-teal">*</span>
         </label>
         <input
           id="guide-email"
@@ -54,7 +54,7 @@ export default function OpenHouseGuideForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="you@example.com"
           disabled={status === 'submitting'}
         />
@@ -68,21 +68,21 @@ export default function OpenHouseGuideForm() {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="Your name"
           disabled={status === 'submitting'}
         />
       </div>
       {status === 'success' && (
-        <p className="text-green-700 font-medium">Thanks! We&apos;ll send your guide shortly.</p>
+        <p className="text-brand-plum font-medium">Thanks! We&apos;ll send your guide shortly.</p>
       )}
       {status === 'error' && (
-        <p className="text-red-600 font-medium">{errorMessage || 'Something went wrong. Please try again.'}</p>
+        <p className="text-brand-teal font-medium">{errorMessage || 'Something went wrong. Please try again.'}</p>
       )}
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="w-full rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+        className="w-full rounded-lg bg-brand-teal px-4 py-3 font-semibold text-white hover:bg-brand-plum disabled:opacity-50 transition-colors"
       >
         {status === 'submitting' ? 'Sending…' : 'Get My Free Guide'}
       </button>

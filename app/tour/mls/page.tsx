@@ -38,7 +38,7 @@ export default function TourMLSPage() {
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">MLS Property Search</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Search the full MLS database of homes for sale in Summerlin. Save favorites, get alerts, and schedule showings with Dr. Jan Duffy&apos;s home search. For this weekend&apos;s tours, see our <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link>.
+              Search the full MLS database of homes for sale in Summerlin. Save favorites, get alerts, and schedule showings with Dr. Jan Duffy&apos;s home search. For this weekend&apos;s tours, see our <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link>.
             </p>
           </div>
 
@@ -58,12 +58,12 @@ export default function TourMLSPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <ExternalLink
               href={REALSCOUT_SEARCH_URL}
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold"
+              className="inline-block bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-lg font-semibold"
               showIcon={false}
             >
               Open full search in new tab
             </ExternalLink>
-            <Link href="/contact" className="inline-block text-gray-700 hover:text-blue-600 font-medium">
+            <Link href="/contact" className="inline-block text-gray-700 hover:text-brand-plum font-medium">
               Contact Dr. Jan Duffy
             </Link>
           </div>

@@ -134,11 +134,11 @@ export default function AdminOpenHouseSignInPage() {
             required
             disabled={loginSubmitting}
           />
-          {loginError && <p className="text-red-600 text-sm mb-2">{loginError}</p>}
+          {loginError && <p className="text-brand-teal text-sm mb-2">{loginError}</p>}
           <button
             type="submit"
             disabled={loginSubmitting}
-            className="w-full rounded-lg bg-blue-600 text-white font-semibold py-2 hover:bg-blue-700 disabled:opacity-50"
+            className="w-full rounded-lg bg-brand-teal text-white font-semibold py-2 hover:bg-brand-plum disabled:opacity-50"
           >
             {loginSubmitting ? 'Logging in…' : 'Log in'}
           </button>
@@ -183,7 +183,7 @@ export default function AdminOpenHouseSignInPage() {
             <button
               type="submit"
               disabled={saveSubmitting}
-              className="rounded-lg bg-blue-600 text-white font-semibold px-4 py-2 hover:bg-blue-700 disabled:opacity-50"
+              className="rounded-lg bg-brand-teal text-white font-semibold px-4 py-2 hover:bg-brand-plum disabled:opacity-50"
             >
               {saveSubmitting ? 'Saving…' : 'Save & generate QR'}
             </button>
@@ -200,7 +200,7 @@ export default function AdminOpenHouseSignInPage() {
                 <a
                   href={qrUrl}
                   download={`open-house-signin-${listingId}.png`}
-                  className="text-blue-600 font-medium hover:underline"
+                  className="text-brand-teal font-medium hover:underline"
                 >
                   Download PNG
                 </a>
@@ -229,7 +229,7 @@ export default function AdminOpenHouseSignInPage() {
             </button>
           </form>
           {submissionsError && (
-            <p className="text-red-600 text-sm mb-2">{submissionsError}</p>
+            <p className="text-brand-teal text-sm mb-2">{submissionsError}</p>
           )}
           {submissions.length === 0 && !submissionsLoading && (
             <p className="text-gray-500 text-sm">Enter a listing ID and click Load.</p>

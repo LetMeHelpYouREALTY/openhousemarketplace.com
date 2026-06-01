@@ -11,6 +11,7 @@ import {
 import SummerlinOpenHouseWebsite from "components/SummerlinOpenHouseWebsite"
 import StructuredData from "@/components/StructuredData"
 import GoogleMyMapsSection from "@/components/GoogleMyMapsSection"
+import PageIndexingEnhancement from "@/components/PageIndexingEnhancement"
 
 export const revalidate = 3600 // ISR: revalidate every hour
 
@@ -71,6 +72,7 @@ export default function HomePage() {
           />
         </div>
       </div>
+      <PageIndexingEnhancement path="/" />
     </main>
   )
 }

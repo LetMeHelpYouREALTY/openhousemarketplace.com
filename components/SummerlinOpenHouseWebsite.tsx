@@ -60,7 +60,7 @@ const SummerlinOpenHouseWebsite = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-       <section className="bg-gradient-to-r from-blue-600 to-red-600 text-white py-10 sm:py-12 lg:py-16 rounded-b-3xl">
+       <section className="bg-gradient-to-r from-brand-plum to-brand-teal text-white py-10 sm:py-12 lg:py-16 rounded-b-3xl">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
              {/* Left Column - Content */}
@@ -86,7 +86,7 @@ const SummerlinOpenHouseWebsite = () => {
                    )}
                  </div>
                  <div>
-                   <p className="text-blue-200 text-sm font-medium">DR. JAN DUFFY</p>
+                   <p className="text-brand-mint text-sm font-medium">DR. JAN DUFFY</p>
                    <p className="text-white text-lg font-semibold">Your Local Research-Driven Expert</p>
                  </div>
                </div>
@@ -94,7 +94,7 @@ const SummerlinOpenHouseWebsite = () => {
                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                  {SEO_PRIMARY_KEYWORD}
                </h1>
-               <p className="text-lg sm:text-xl font-semibold text-blue-100 mb-4">
+               <p className="text-lg sm:text-xl font-semibold text-brand-mint/90 mb-4">
                  Your local research-driven expert for Summerlin West &amp; Las Vegas—Dr. Jan Duffy, {GBP.name}
                </p>
                <p className="text-base sm:text-xl mb-4 text-white">
@@ -122,7 +122,7 @@ const SummerlinOpenHouseWebsite = () => {
                {/* Primary CTA: RealScout / Search Listings */}
                <Link
                  href="/tour/mls"
-                 className="inline-flex items-center justify-center min-h-[44px] bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                 className="inline-flex items-center justify-center min-h-[44px] bg-white text-brand-teal hover:bg-gray-50 px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
                >
                  Search Summerlin Listings
                </Link>
@@ -155,7 +155,7 @@ const SummerlinOpenHouseWebsite = () => {
             ))}
           </dl>
           <p className="mt-8 text-center">
-            <Link href="/open-houses" className="font-semibold text-blue-600 hover:underline">
+            <Link href="/open-houses" className="font-semibold text-brand-teal hover:underline">
               Open Houses hub: tours, FAQs, and scheduling →
             </Link>
           </p>
@@ -171,23 +171,23 @@ const SummerlinOpenHouseWebsite = () => {
             </h2>
             <p className="text-lg text-gray-600">
               Browse{' '}
-              <a href="#office-listings-bands" className="font-semibold text-blue-600 hover:underline">
+              <a href="#office-listings-bands" className="font-semibold text-brand-teal hover:underline">
                 office MLS listings
               </a>{' '}
               ($400K–$900K), or use the full{' '}
-              <Link href="/tour/mls" className="font-semibold text-blue-600 hover:underline">
+              <Link href="/tour/mls" className="font-semibold text-brand-teal hover:underline">
                 MLS property search
               </Link>{' '}
               and{' '}
-              <Link href="/open-houses" className="font-semibold text-blue-600 hover:underline">
+              <Link href="/open-houses" className="font-semibold text-brand-teal hover:underline">
                 open houses hub
               </Link>
               . For market context, see the{' '}
-              <Link href="/market-report" className="font-semibold text-blue-600 hover:underline">
+              <Link href="/market-report" className="font-semibold text-brand-teal hover:underline">
                 market report
               </Link>{' '}
               or{' '}
-              <Link href="/book-tour" className="font-semibold text-blue-600 hover:underline">
+              <Link href="/book-tour" className="font-semibold text-brand-teal hover:underline">
                 schedule a showing
               </Link>
               .
@@ -251,20 +251,20 @@ const SummerlinOpenHouseWebsite = () => {
                   </Link>
                   <div className="p-6">
                     <Link href={neighborhoodUrl}>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600">{neighborhood.name}</h3>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-brand-teal">{neighborhood.name}</h3>
                     </Link>
                     <p className="text-gray-600 mb-3">{neighborhood.description}</p>
-                    <p className="text-blue-600 font-semibold mb-3">{neighborhood.priceRange}</p>
+                    <p className="text-brand-teal font-semibold mb-3">{neighborhood.priceRange}</p>
                     <div className="flex flex-wrap gap-2 mb-3">
                       {neighborhood.highlights.map(highlight => (
-                        <span key={highlight} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
+                        <span key={highlight} className="bg-brand-mint text-brand-plum px-2 py-1 rounded text-sm">
                           {highlight}
                         </span>
                       ))}
                     </div>
                     <Link 
                       href={neighborhoodUrl}
-                      className="inline-block text-blue-600 hover:text-blue-800 font-medium text-sm"
+                      className="inline-block text-brand-teal hover:text-brand-plum font-medium text-sm"
                     >
                       Explore {neighborhood.name} →
                     </Link>
@@ -274,10 +274,10 @@ const SummerlinOpenHouseWebsite = () => {
             })}
           </div>
           <div className="text-center mt-6 flex flex-wrap justify-center gap-x-4 gap-y-1">
-            <Link href="/neighborhoods" className="text-blue-600 font-semibold hover:underline">
+            <Link href="/neighborhoods" className="text-brand-teal font-semibold hover:underline">
               Explore all neighborhoods →
             </Link>
-            <Link href="/sitemap" className="text-blue-600 font-semibold hover:underline">
+            <Link href="/sitemap" className="text-brand-teal font-semibold hover:underline">
               Browse full sitemap
             </Link>
           </div>
@@ -290,20 +290,20 @@ const SummerlinOpenHouseWebsite = () => {
           <p className="text-lg text-gray-700 italic max-w-2xl mx-auto mb-2">
             &ldquo;Dr. Jan found us the perfect home in The Ridges within 2 weeks. Her market knowledge is incredible!&rdquo; — Sarah & Mike Johnson
           </p>
-          <Link href="/review-us" className="text-blue-600 font-semibold hover:underline">
+          <Link href="/review-us" className="text-brand-teal font-semibold hover:underline">
             Read more reviews
           </Link>
         </div>
       </section>
 
       {/* Compact RealScout CTA band */}
-      <section className="bg-blue-600 text-white py-8 sm:py-10">
+      <section className="bg-brand-plum text-white py-8 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-2xl font-bold mb-2">Never miss your dream home</h3>
           <p className="text-white mb-4">Get instant alerts for new listings, price drops, and open houses in Summerlin West.</p>
           <Link
             href="/tour/mls"
-            className="inline-flex items-center justify-center min-h-[44px] bg-white text-blue-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-bold transition-colors"
+            className="inline-flex items-center justify-center min-h-[44px] bg-white text-brand-teal hover:bg-gray-50 px-6 py-3 rounded-lg font-bold transition-colors"
           >
             Search Listings & Get Alerts
           </Link>
@@ -319,11 +319,11 @@ const SummerlinOpenHouseWebsite = () => {
           </p>
           <p className="text-gray-400 text-sm mb-4">{GBP.address.street}, {GBP.address.locality}, {GBP.address.region} {GBP.address.postalCode}</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href={`tel:${GBP.phoneE164}`} className="inline-flex items-center justify-center min-h-[44px] gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-lg font-medium">
+            <a href={`tel:${GBP.phoneE164}`} className="inline-flex items-center justify-center min-h-[44px] gap-2 bg-brand-teal hover:bg-brand-mint hover:text-brand-plum px-5 py-2.5 rounded-lg font-medium">
               <Phone className="h-4 w-4" aria-hidden />
               Call {GBP.phone}
             </a>
-            <Link href="/book-tour" className="inline-flex items-center justify-center min-h-[44px] gap-2 bg-[#0069ff] hover:bg-[#0052cc] px-5 py-2.5 rounded-lg font-medium text-white">
+            <Link href="/book-tour" className="inline-flex items-center justify-center min-h-[44px] gap-2 bg-brand-teal hover:bg-brand-plum px-5 py-2.5 rounded-lg font-medium text-white">
               <Calendar className="h-4 w-4" aria-hidden />
               Schedule a showing
             </Link>

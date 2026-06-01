@@ -108,7 +108,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
         <div className="flex flex-col gap-3">
           <a
             href="/open-houses"
-            className="block w-full text-center rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-3 transition-colors"
+            className="block w-full text-center rounded-lg bg-brand-teal hover:bg-brand-plum text-white font-semibold px-4 py-3 transition-colors"
           >
             Browse more open houses
           </a>
@@ -117,7 +117,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           </CalendlyPopupLink>
           <a
             href="/open-houses"
-            className="block w-full text-center text-blue-600 font-medium hover:underline"
+            className="block w-full text-center text-brand-teal font-medium hover:underline"
           >
             View open houses
           </a>
@@ -130,7 +130,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
         <label htmlFor="oh-fullName" className="block text-sm font-medium text-gray-700 mb-1">
-          Full name <span className="text-red-600">*</span>
+          Full name <span className="text-brand-teal">*</span>
         </label>
         <input
           id="oh-fullName"
@@ -138,15 +138,15 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="Jane Smith"
           disabled={status === 'submitting'}
         />
-        {errors.fullName && <p className="mt-1 text-sm text-red-600">{errors.fullName}</p>}
+        {errors.fullName && <p className="mt-1 text-sm text-brand-teal">{errors.fullName}</p>}
       </div>
       <div>
         <label htmlFor="oh-email" className="block text-sm font-medium text-gray-700 mb-1">
-          Email <span className="text-red-600">*</span>
+          Email <span className="text-brand-teal">*</span>
         </label>
         <input
           id="oh-email"
@@ -154,15 +154,15 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="jane@example.com"
           disabled={status === 'submitting'}
         />
-        {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+        {errors.email && <p className="mt-1 text-sm text-brand-teal">{errors.email}</p>}
       </div>
       <div>
         <label htmlFor="oh-phone" className="block text-sm font-medium text-gray-700 mb-1">
-          Phone <span className="text-red-600">*</span>
+          Phone <span className="text-brand-teal">*</span>
         </label>
         <input
           id="oh-phone"
@@ -170,11 +170,11 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={phone}
           onChange={handlePhoneChange}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="(702) 555-1234"
           disabled={status === 'submitting'}
         />
-        {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
+        {errors.phone && <p className="mt-1 text-sm text-brand-teal">{errors.phone}</p>}
       </div>
       <div>
         <p className="block text-sm font-medium text-gray-700 mb-2">Are you working with an agent?</p>
@@ -208,21 +208,21 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
             value={agentName}
             onChange={(e) => setAgentName(e.target.value)}
             placeholder="Agent name (optional)"
-            className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
             disabled={status === 'submitting'}
           />
         )}
       </div>
       <div>
         <label htmlFor="oh-hearAbout" className="block text-sm font-medium text-gray-700 mb-1">
-          How did you hear about this open house? <span className="text-red-600">*</span>
+          How did you hear about this open house? <span className="text-brand-teal">*</span>
         </label>
         <select
           id="oh-hearAbout"
           required
           value={hearAboutSource}
           onChange={(e) => setHearAboutSource(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           disabled={status === 'submitting'}
         >
           <option value="">Select...</option>
@@ -233,12 +233,12 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           ))}
         </select>
         {errors.hearAboutSource && (
-          <p className="mt-1 text-sm text-red-600">{errors.hearAboutSource}</p>
+          <p className="mt-1 text-sm text-brand-teal">{errors.hearAboutSource}</p>
         )}
       </div>
       <div>
         <p className="block text-sm font-medium text-gray-700 mb-2">
-          Are you pre-approved for a mortgage? <span className="text-red-600">*</span>
+          Are you pre-approved for a mortgage? <span className="text-brand-teal">*</span>
         </p>
         <div className="flex flex-wrap gap-3">
           {PRE_APPROVED_OPTIONS.map((opt) => (
@@ -256,18 +256,18 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
             </label>
           ))}
         </div>
-        {errors.preApproved && <p className="mt-1 text-sm text-red-600">{errors.preApproved}</p>}
+        {errors.preApproved && <p className="mt-1 text-sm text-brand-teal">{errors.preApproved}</p>}
       </div>
       <div>
         <label htmlFor="oh-timeline" className="block text-sm font-medium text-gray-700 mb-1">
-          What is your timeline to purchase? <span className="text-red-600">*</span>
+          What is your timeline to purchase? <span className="text-brand-teal">*</span>
         </label>
         <select
           id="oh-timeline"
           required
           value={purchaseTimeline}
           onChange={(e) => setPurchaseTimeline(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           disabled={status === 'submitting'}
         >
           <option value="">Select...</option>
@@ -278,7 +278,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           ))}
         </select>
         {errors.purchaseTimeline && (
-          <p className="mt-1 text-sm text-red-600">{errors.purchaseTimeline}</p>
+          <p className="mt-1 text-sm text-brand-teal">{errors.purchaseTimeline}</p>
         )}
       </div>
       <div>
@@ -301,12 +301,12 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
         </div>
       </div>
       {status === 'error' && (
-        <p className="text-red-600 font-medium">{errorMessage}</p>
+        <p className="text-brand-teal font-medium">{errorMessage}</p>
       )}
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="w-full rounded-lg bg-blue-600 px-4 py-4 text-lg font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+        className="w-full rounded-lg bg-brand-teal px-4 py-4 text-lg font-semibold text-white hover:bg-brand-plum disabled:opacity-50 transition-colors"
       >
         {status === 'submitting' ? 'Submitting…' : 'Submit'}
       </button>

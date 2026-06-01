@@ -88,9 +88,9 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
         <div class="p-3 min-w-[200px]">
           <div class="font-semibold text-gray-900 mb-1">${loc.name}</div>
           <div class="text-sm text-gray-600 mb-2">${loc.address}, ${loc.city}, ${loc.state} ${loc.zip}</div>
-          ${loc.phone ? `<div class="text-sm mb-2"><a href="tel:+1${loc.phone.replace(/\D/g, '')}" class="text-blue-600 hover:underline">${loc.phone}</a></div>` : ''}
+          ${loc.phone ? `<div class="text-sm mb-2"><a href="tel:+1${loc.phone.replace(/\D/g, '')}" class="text-brand-teal hover:underline">${loc.phone}</a></div>` : ''}
           ${loc.hours ? `<div class="text-xs text-gray-500 mb-2">${loc.hours}</div>` : ''}
-          <a href="${loc.directionsUrl}" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-blue-600 hover:underline">Get directions</a>
+          <a href="${loc.directionsUrl}" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-brand-teal hover:underline">Get directions</a>
         </div>
       `
       marker.addListener('click', () => {
@@ -125,13 +125,13 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
           >
             <h3 className="font-semibold text-gray-900 mb-2">{loc.name}</h3>
             <div className="flex items-start gap-2 text-sm text-gray-600 mb-2">
-              <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-blue-600" aria-hidden />
+              <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-brand-teal" aria-hidden />
               <span>{loc.address}, {loc.city}, {loc.state} {loc.zip}</span>
             </div>
             {loc.phone && (
               <div className="flex items-center gap-2 text-sm mb-2">
-                <Phone className="h-4 w-4 shrink-0 text-blue-600" aria-hidden />
-                <a href={`tel:+1${loc.phone.replace(/\D/g, '')}`} className="text-blue-600 hover:underline">
+                <Phone className="h-4 w-4 shrink-0 text-brand-teal" aria-hidden />
+                <a href={`tel:+1${loc.phone.replace(/\D/g, '')}`} className="text-brand-teal hover:underline">
                   {loc.phone}
                 </a>
               </div>
@@ -146,7 +146,7 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
               href={loc.directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-800"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-teal hover:text-brand-plum"
             >
               <Navigation className="h-4 w-4" aria-hidden />
               Get directions
@@ -165,7 +165,7 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
         {!isLoaded && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-xl">
             <div className="text-center">
-              <div className="animate-spin rounded-full h-10 w-10 border-2 border-blue-600 border-t-transparent mx-auto mb-3" />
+              <div className="animate-spin rounded-full h-10 w-10 border-2 border-brand-teal border-t-transparent mx-auto mb-3" />
               <p className="text-sm text-gray-600">Loading map...</p>
             </div>
           </div>

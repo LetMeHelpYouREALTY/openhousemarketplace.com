@@ -197,7 +197,7 @@ const validResources: Record<string, {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                <Link href="/builders/toll-brothers" className="text-blue-600 hover:text-blue-800">
+                <Link href="/builders/toll-brothers" className="text-brand-teal hover:text-brand-plum">
                   Toll Brothers
                 </Link>
               </h3>
@@ -205,7 +205,7 @@ const validResources: Record<string, {
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                <Link href="/builders/lennar" className="text-blue-600 hover:text-blue-800">
+                <Link href="/builders/lennar" className="text-brand-teal hover:text-brand-plum">
                   Lennar
                 </Link>
               </h3>
@@ -213,7 +213,7 @@ const validResources: Record<string, {
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                <Link href="/builders/pulte" className="text-blue-600 hover:text-blue-800">
+                <Link href="/builders/pulte" className="text-brand-teal hover:text-brand-plum">
                   Pulte Homes
                 </Link>
               </h3>
@@ -317,7 +317,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
       />
       <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] bg-gradient-to-r from-blue-600 to-red-600">
+      <section className="relative h-[40vh] min-h-[300px] bg-gradient-to-r from-brand-teal to-brand-plum">
         <div className="absolute inset-0 bg-black bg-opacity-40" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-4xl mx-auto px-4">
@@ -364,7 +364,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
                         {'url' in step && step.url ? (
                           <>
                             {' '}
-                            <Link href={step.url} className="text-blue-600 font-semibold hover:underline">
+                            <Link href={step.url} className="text-brand-teal font-semibold hover:underline">
                               Learn more
                             </Link>
                           </>
@@ -407,12 +407,12 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
         </div>
 
         {/* CTA */}
-        <div className="bg-blue-600 rounded-lg shadow-md p-8 text-center text-white">
+        <div className="bg-brand-teal rounded-lg shadow-md p-8 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-6">Contact us for personalized assistance with your real estate needs</p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
+            className="inline-block bg-white text-brand-teal px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
           >
             Contact Dr. Jan Duffy
           </Link>

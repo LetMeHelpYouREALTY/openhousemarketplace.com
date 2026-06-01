@@ -83,7 +83,7 @@ export default function SchoolsPage() {
       />
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] bg-gradient-to-r from-blue-600 to-red-600">
+      <section className="relative h-[40vh] min-h-[300px] bg-gradient-to-r from-brand-teal to-brand-plum">
         <div className="absolute inset-0 bg-black bg-opacity-40" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-4xl mx-auto px-4">
@@ -136,7 +136,7 @@ export default function SchoolsPage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">{school.name}</h3>
                   <p className="text-gray-600">{school.type}</p>
                 </div>
-                <div className="flex items-center bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
+                <div className="flex items-center bg-brand-mint text-brand-plum px-3 py-1 rounded-full">
                   <Award className="h-4 w-4 mr-1" />
                   <span className="font-semibold">{school.rating}/10</span>
                 </div>
@@ -144,15 +144,15 @@ export default function SchoolsPage() {
 
               <div className="space-y-3 mb-4">
                 <div className="flex items-center text-gray-600">
-                  <BookOpen className="h-5 w-5 mr-2 text-blue-600" />
+                  <BookOpen className="h-5 w-5 mr-2 text-brand-teal" />
                   <span>Grades: {school.grades}</span>
                 </div>
                 <div className="flex items-center text-gray-600">
-                  <Users className="h-5 w-5 mr-2 text-blue-600" />
+                  <Users className="h-5 w-5 mr-2 text-brand-teal" />
                   <span>Enrollment: {school.enrollment.toLocaleString()}</span>
                 </div>
                 <div className="flex items-center text-gray-600">
-                  <School className="h-5 w-5 mr-2 text-blue-600" />
+                  <School className="h-5 w-5 mr-2 text-brand-teal" />
                   <span>Distance: {school.distance}</span>
                 </div>
               </div>
@@ -244,20 +244,20 @@ export default function SchoolsPage() {
               Use our detailed zip code pages to explore schools serving specific areas within Summerlin West:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Link href="/zip/89135" className="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-colors">
+              <Link href="/zip/89135" className="block bg-brand-mint/40 p-4 rounded-lg hover:bg-brand-mint transition-colors">
                 <h4 className="font-semibold text-gray-900 mb-2">Zip Code 89135</h4>
                 <p className="text-sm text-gray-600">The Ridges, Red Rock Country Club</p>
-                <span className="text-blue-600 text-sm mt-2 inline-block">View Schools →</span>
+                <span className="text-brand-teal text-sm mt-2 inline-block">View Schools →</span>
               </Link>
-              <Link href="/zip/89138" className="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-colors">
+              <Link href="/zip/89138" className="block bg-brand-mint/40 p-4 rounded-lg hover:bg-brand-mint transition-colors">
                 <h4 className="font-semibold text-gray-900 mb-2">Zip Code 89138</h4>
                 <p className="text-sm text-gray-600">Summerlin Centre, The Trails</p>
-                <span className="text-blue-600 text-sm mt-2 inline-block">View Schools →</span>
+                <span className="text-brand-teal text-sm mt-2 inline-block">View Schools →</span>
               </Link>
-              <Link href="/zip/89144" className="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-colors">
+              <Link href="/zip/89144" className="block bg-brand-mint/40 p-4 rounded-lg hover:bg-brand-mint transition-colors">
                 <h4 className="font-semibold text-gray-900 mb-2">Zip Code 89144</h4>
                 <p className="text-sm text-gray-600">Sun City Summerlin</p>
-                <span className="text-blue-600 text-sm mt-2 inline-block">View Schools →</span>
+                <span className="text-brand-teal text-sm mt-2 inline-block">View Schools →</span>
               </Link>
             </div>
           </div>
@@ -306,17 +306,17 @@ export default function SchoolsPage() {
         </div>
 
         {/* CTA */}
-        <div className="bg-blue-600 rounded-lg shadow-md p-8 text-center text-white">
+        <div className="bg-brand-teal rounded-lg shadow-md p-8 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Find the Perfect Home Near Great Schools</h2>
           <p className="text-xl mb-6">Let us help you find a home in the right school district for your family.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white text-brand-teal px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
             >
               Get Started Today
             </Link>
-            <CalendlyPopupLink className="inline-flex items-center gap-2 bg-[#0069ff] hover:bg-[#0052cc] text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
+            <CalendlyPopupLink className="inline-flex items-center gap-2 bg-brand-teal hover:bg-brand-plum text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
               <Calendar className="h-5 w-5" aria-hidden />
               Schedule a private showing
             </CalendlyPopupLink>

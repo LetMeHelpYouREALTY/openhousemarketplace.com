@@ -117,7 +117,7 @@ export default function LuxuryHomesPage() {
               enjoy the benefits of master-planned community living alongside exclusive amenities and services.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including luxury homes in The Ridges and Red Rock Country Club.
+              View <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link> this weekend, including luxury homes in The Ridges and Red Rock Country Club.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Luxury Real Estate Market in Summerlin</h3>
             <p className="text-gray-700 leading-relaxed mb-4">

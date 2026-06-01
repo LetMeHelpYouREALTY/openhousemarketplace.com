@@ -5,6 +5,7 @@ import Link from 'next/link'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Schedule a Free Consultation | Dr. Jan Duffy Real Estate',
@@ -51,7 +52,7 @@ export default function ScheduleConsultationPage() {
           <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
             <ol className="flex flex-wrap gap-x-2 gap-y-1">
               <li>
-                <Link href="/" className="hover:text-blue-600 transition-colors">
+                <Link href="/" className="hover:text-brand-plum transition-colors">
                   Home
                 </Link>
               </li>
@@ -69,7 +70,7 @@ export default function ScheduleConsultationPage() {
             <p className="text-lg text-gray-600 max-w-xl mx-auto mb-6">
               Discuss your real estate goals with Dr. Jan Duffy—buying, selling, or scheduling a private showing. No obligation.
             </p>
-            <CalendlyPopupLink className="inline-flex items-center justify-center bg-[#0069ff] hover:bg-[#0052cc] text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg">
+            <CalendlyPopupLink className="inline-flex items-center justify-center bg-brand-teal hover:bg-brand-plum text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg">
               Schedule a free consultation
             </CalendlyPopupLink>
           </header>
@@ -84,14 +85,15 @@ export default function ScheduleConsultationPage() {
           </section>
 
           <p className="mt-6 text-center text-sm text-gray-500">
-            Prefer to call? <a href="tel:+17022003422" className="text-blue-600 hover:underline">(702) 200-3422</a>
+            Prefer to call? <a href="tel:+17022003422" className="text-brand-teal hover:underline">(702) 200-3422</a>
             {' · '}
-            <Link href="/book-tour" className="text-blue-600 hover:underline">Schedule a private showing</Link>
+            <Link href="/book-tour" className="text-brand-teal hover:underline">Schedule a private showing</Link>
             {' · '}
-            <Link href="/review-us" className="text-blue-600 hover:underline">Review us on Google</Link>
+            <Link href="/review-us" className="text-brand-teal hover:underline">Review us on Google</Link>
           </p>
         </div>
       </main>
+      <PageIndexingEnhancement path="/schedule-consultation" />
     </>
   )
 }

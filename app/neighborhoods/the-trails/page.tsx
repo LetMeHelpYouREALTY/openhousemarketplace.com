@@ -103,7 +103,7 @@ export default function TheTrailsPage() {
               The Trails a highly sought-after area for families looking to purchase               real estate in Summerlin.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in The Trails.
+              View <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in The Trails.
             </p>
             <RelatedNeighborhoods currentSlug="the-trails" className="mb-4" />
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Real Estate in The Trails</h3>

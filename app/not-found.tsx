@@ -23,7 +23,7 @@ export default function NotFound() {
         <nav className="flex flex-col sm:flex-row gap-4 justify-center" aria-label="Helpful links">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-xl font-semibold transition-colors"
           >
             <Home className="h-5 w-5" aria-hidden />
             Home

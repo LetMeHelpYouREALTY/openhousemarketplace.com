@@ -189,7 +189,7 @@ export default function AmenityMap() {
     <div className="relative w-full">
       <div className="flex flex-wrap gap-2 mb-4 p-3 bg-gray-50 rounded-lg border border-gray-200">
         <span className="text-sm font-medium text-gray-700 flex items-center gap-1.5 w-full sm:w-auto">
-          <MapPin className="h-4 w-4 text-blue-600" aria-hidden />
+          <MapPin className="h-4 w-4 text-brand-teal" aria-hidden />
           Show nearby:
         </span>
         {AMENITY_TYPES.map(({ type, label, icon }) => (
@@ -197,8 +197,8 @@ export default function AmenityMap() {
             key={type}
             className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg border cursor-pointer text-sm font-medium transition-colors ${
               selectedTypes.has(type)
-                ? 'bg-blue-600 text-white border-blue-600'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-blue-400'
+                ? 'bg-brand-teal text-white border-brand-teal'
+                : 'bg-white text-gray-700 border-gray-300 hover:border-brand-teal'
             }`}
           >
             <input
@@ -218,7 +218,7 @@ export default function AmenityMap() {
         aria-label="Map showing nearby amenities"
       />
       {noResultsForCurrentSelection && (
-        <p className="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2" role="status">
+        <p className="mt-3 text-sm text-brand-plum bg-brand-mint/40 border border-brand-mint rounded-lg px-3 py-2" role="status">
           No places found in this area. Try different types or zoom out.
         </p>
       )}
@@ -230,7 +230,7 @@ export default function AmenityMap() {
           aria-label="Loading map"
         >
           <div className="text-center">
-            <div className="animate-spin rounded-full h-10 w-10 border-2 border-blue-600 border-t-transparent mx-auto mb-3" />
+            <div className="animate-spin rounded-full h-10 w-10 border-2 border-brand-teal border-t-transparent mx-auto mb-3" />
             <p className="text-sm text-gray-600">Loading map...</p>
           </div>
         </div>
@@ -245,7 +245,7 @@ export default function AmenityMap() {
           <button
             type="button"
             onClick={handleRetry}
-            className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="px-4 py-2 bg-brand-teal text-white font-medium rounded-lg hover:bg-brand-plum focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2"
           >
             Retry
           </button>

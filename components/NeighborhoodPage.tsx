@@ -29,7 +29,7 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({ neighborhood }) => 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-96 bg-gradient-to-r from-blue-600 to-red-600">
+      <section className="relative h-96 bg-gradient-to-r from-brand-teal to-brand-plum">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center text-white">
@@ -55,7 +55,7 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({ neighborhood }) => 
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center space-x-2 py-4 px-2 border-b-2 font-medium text-sm ${
                     activeTab === tab.id
-                      ? 'border-blue-600 text-blue-600'
+                      ? 'border-brand-teal text-brand-teal'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                   }`}
                 >
@@ -144,10 +144,10 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({ neighborhood }) => 
                     <div className="bg-white p-6 rounded-lg shadow-sm border">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="text-xl font-semibold text-gray-900">This Weekend's Open Houses</h3>
-                        <Clock className="h-5 w-5 text-blue-600" />
+                        <Clock className="h-5 w-5 text-brand-teal" />
                       </div>
                       <p className="text-gray-600 mb-4">Discover current open houses in {neighborhood.name}.</p>
-                      <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium">
+                      <button className="bg-brand-teal hover:bg-brand-plum text-white px-6 py-2 rounded-lg font-medium">
                         View All Open Houses
                       </button>
                     </div>
@@ -165,25 +165,25 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({ neighborhood }) => 
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact Dr. Jan Duffy</h3>
                   <div className="space-y-4">
                                          <div className="flex items-center">
-                       <Phone className="h-4 w-4 text-blue-600 mr-3" />
+                       <Phone className="h-4 w-4 text-brand-teal mr-3" />
                        <a 
                          href={`tel:${GBP.phoneE164}`}
-                         className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+                         className="text-gray-600 hover:text-brand-plum transition-colors cursor-pointer"
                          title={`Call ${GBP.phone}`}
                        >
                          {GBP.phone}
                        </a>
                      </div>
                     <div className="flex items-center">
-                      <Mail className="h-4 w-4 text-blue-600 mr-3" />
+                      <Mail className="h-4 w-4 text-brand-teal mr-3" />
                       <span className="text-gray-600">jan@summerlinexpert.com</span>
                     </div>
                     <div className="flex items-center">
-                      <Award className="h-4 w-4 text-blue-600 mr-3" />
+                      <Award className="h-4 w-4 text-brand-teal mr-3" />
                       <span className="text-gray-600">Certified Luxury Specialist</span>
                     </div>
                   </div>
-                  <button className="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium mt-4">
+                  <button className="w-full bg-brand-teal hover:bg-brand-plum text-white px-4 py-2 rounded-lg font-medium mt-4">
                     Schedule a private showing
                   </button>
                 </div>
