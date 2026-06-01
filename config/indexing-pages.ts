@@ -3,7 +3,7 @@
  * Visible FAQs + speakable summaries (AEO) and internal links (SEO).
  */
 import type { FaqItem } from '@/lib/json-ld'
-import { GBP } from '@/config/gbp'
+import { GBP, GBP_SERVICE_AREA } from '@/config/gbp'
 import { AGENT_LICENSE, AGENT_MEMBER_OF, AGENT_NAME, SEO_PRIMARY_KEYWORD } from '@/config/seo'
 
 export type IndexingPageContent = {
@@ -530,6 +530,199 @@ export const INDEXING_PAGE_CONTENT: Record<string, IndexingPageContent> = {
     'willows',
     '89138',
     'tree-lined streets and walkable blocks'
+  ),
+  '/': {
+    speakableSummary: `${SEO_PRIMARY_KEYWORD} in Summerlin West and Las Vegas—weekend tours, MLS search, and private showings with ${AGENT} at ${SITE}.`,
+    faqs: [
+      {
+        question: 'Where can I find Summerlin Las Vegas open houses this weekend?',
+        answer: `Browse featured listings on the homepage, visit /open-houses, or search MLS at /tour/mls. Call ${PHONE} or book at /book-tour for a private showing.`,
+      },
+      {
+        question: 'Who is Dr. Jan Duffy?',
+        answer: `${AGENT} is a licensed Nevada real estate professional (${AGENT_LICENSE}) specializing in Summerlin West open houses, luxury homes, and buyer representation.`,
+      },
+      {
+        question: 'What areas does Open House Market Place serve?',
+        answer: `Summerlin West, Summerlin villages, and Las Vegas zip codes ${GBP_SERVICE_AREA.zipCodes.join(', ')}—plus Henderson and North Las Vegas via MLS search.`,
+      },
+    ],
+    relatedLinks: [
+      { href: '/open-houses', label: 'Open houses hub' },
+      { href: '/book-tour', label: 'Schedule a showing' },
+      { href: '/tour/mls', label: 'MLS search' },
+      { href: '/market-report', label: 'Market report' },
+    ],
+  },
+  '/open-houses': {
+    speakableSummary: `Browse ${SEO_PRIMARY_KEYWORD} with weekend tour times, neighborhood context, and links to schedule a private showing with ${AGENT}.`,
+    faqs: [
+      {
+        question: 'When are Summerlin open houses usually held?',
+        answer: 'Most open houses run Saturday and Sunday; hours vary by listing. Check each property for posted times or book a private tour.',
+      },
+      {
+        question: 'How do I schedule a private showing instead of an open house?',
+        answer: `Use /book-tour or call ${PHONE}. Private tours can be arranged for many Summerlin listings outside public open house hours.`,
+      },
+      {
+        question: 'Which Summerlin neighborhoods have the most open houses?',
+        answer: 'Activity varies weekly—The Ridges, Red Rock Country Club, Summerlin Centre, The Trails, and 89138 corridors often have tours.',
+      },
+    ],
+    relatedLinks: [
+      { href: '/open-house-guide', label: 'Open house guide 2026' },
+      { href: '/luxury-homes', label: 'Luxury homes' },
+      ...CORE_LINKS,
+    ],
+  },
+  '/open-house-guide': {
+    speakableSummary: `2026 open house guide for Summerlin buyers: NAR disclosure rules, what to expect at tours, and how to book a consultation with ${AGENT}—no signup form required.`,
+    faqs: [
+      {
+        question: 'Do I need a buyer agreement before an open house in 2026?',
+        answer: 'Open houses remain exempt from signing buyer representation before viewing. You may see disclosure forms at the door; representation is discussed when you are ready.',
+      },
+      {
+        question: 'How do I get the open house touring guide?',
+        answer: `Schedule a consultation on this page via Calendly or call ${PHONE}. Dr. Jan Duffy can share the guide during your appointment.`,
+      },
+    ],
+    relatedLinks: [
+      { href: '/open-houses', label: 'Weekend open houses' },
+      { href: '/book-tour', label: 'Book a tour' },
+      { href: '/resources/home-buying-guide', label: 'Home buying guide' },
+      ...CORE_LINKS,
+    ],
+  },
+  '/schedule-consultation': {
+    speakableSummary: `Schedule a free real estate consultation with ${AGENT} at ${SITE}. Discuss buying, selling, or investing in Summerlin—choose a Calendly time online.`,
+    faqs: [
+      {
+        question: 'Is a consultation with Dr. Jan Duffy free?',
+        answer: 'Yes. Initial consultations are complimentary. Buyer or seller representation terms are explained before you sign any agreement.',
+      },
+      {
+        question: 'What should I prepare for a consultation?',
+        answer: 'Bring questions about neighborhoods, budget, timeline, and any listings you have seen. Pre-approval helps if you plan to buy soon.',
+      },
+    ],
+    relatedLinks: [
+      { href: '/book-tour', label: 'Book a private showing' },
+      { href: '/market-report', label: 'Market report' },
+      ...CORE_LINKS,
+    ],
+  },
+  '/neighborhoods': {
+    speakableSummary: `Explore Summerlin West neighborhoods—from luxury The Ridges and Red Rock Country Club to family-friendly Summerlin Centre and 55+ Sun City—with guides from ${AGENT}.`,
+    faqs: [
+      {
+        question: 'How many neighborhoods are in Summerlin West?',
+        answer: 'Summerlin includes villages such as The Ridges, Red Rock Country Club, Summerlin Centre, Sun City Summerlin, The Trails, Willows, Mesa Ridge, Siena, and Regency.',
+      },
+      {
+        question: 'How do I compare Summerlin neighborhoods?',
+        answer: 'Use each neighborhood page for lifestyle and price context, then search MLS or call for a tailored tour plan.',
+      },
+    ],
+    relatedLinks: [
+      { href: '/neighborhoods/the-ridges', label: 'The Ridges' },
+      { href: '/neighborhoods/summerlin-centre', label: 'Summerlin Centre' },
+      { href: '/zip/89138', label: 'Zip 89138' },
+      ...CORE_LINKS,
+    ],
+  },
+  '/amenity-map': {
+    speakableSummary: `Interactive amenity map near ${SITE} in Summerlin West—restaurants, parks, groceries, and services around ${GBP.address.street}—plus area map and showing scheduler.`,
+    faqs: [
+      {
+        question: 'What amenities are near Summerlin West?',
+        answer: 'Downtown Summerlin shopping, trails, parks, golf, medical offices, and dining cluster within a short drive of 89135–89144.',
+      },
+      {
+        question: 'How do I use the amenity map?',
+        answer: 'Toggle categories on the map to see nearby places. For home tours, book at /book-tour or call the office.',
+      },
+    ],
+    relatedLinks: [
+      { href: '/directions', label: 'Directions to our office' },
+      { href: '/resources/lifestyle-guide', label: 'Lifestyle guide' },
+      ...CORE_LINKS,
+    ],
+  },
+  '/store-locations': {
+    speakableSummary: `${SITE} office at ${GBP.address.street}, ${GBP.address.locality}, NV ${GBP.address.postalCode}. View the map, hours, and book a visit with ${AGENT}.`,
+    faqs: [
+      {
+        question: 'Where is the Open House Market Place office?',
+        answer: `${GBP.name}, ${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}. Open daily 9 AM–5 PM per Google Business Profile.`,
+      },
+      {
+        question: 'Do I need an appointment to visit the office?',
+        answer: `Walk-ins welcome during business hours; scheduling at /book-tour ensures ${AGENT} is available for a focused consultation.`,
+      },
+    ],
+    relatedLinks: [
+      { href: '/directions', label: 'Get directions' },
+      { href: '/contact', label: 'Contact' },
+      ...CORE_LINKS,
+    ],
+  },
+  '/sitemap': {
+    speakableSummary: `HTML sitemap for ${SITE}: open houses, neighborhoods, buyer tools, builders, and legal pages for Summerlin West real estate.`,
+    faqs: [
+      {
+        question: 'Where is the XML sitemap for search engines?',
+        answer: 'Submit https://www.openhousemarketplace.com/sitemap.xml in Google Search Console for crawl coverage.',
+      },
+    ],
+    relatedLinks: [
+      { href: '/open-houses', label: 'Open houses' },
+      { href: '/neighborhoods', label: 'Neighborhoods' },
+      { href: '/contact', label: 'Contact' },
+    ],
+  },
+  '/disclaimer': {
+    speakableSummary: `Legal disclaimer for ${SITE} and MLS listing data provided by ${AGENT}. Verify all property, school, and HOA information independently.`,
+    faqs: [
+      {
+        question: 'Is MLS data on this site guaranteed accurate?',
+        answer: 'Listing status, price, and features can change without notice. Confirm all details with your agent and official sources before contracting.',
+      },
+      {
+        question: 'Who should I contact with legal questions about the site?',
+        answer: `Email ${GBP.email} or call ${PHONE}. For representation terms, schedule a consultation with ${AGENT}.`,
+      },
+    ],
+    relatedLinks: [
+      { href: '/terms-of-service', label: 'Terms of service' },
+      { href: '/privacy-policy', label: 'Privacy policy' },
+      { href: '/contact', label: 'Contact' },
+    ],
+  },
+  '/neighborhoods/the-ridges': neighborhoodContent(
+    'The Ridges',
+    'the-ridges',
+    '89135',
+    'luxury gated custom estates and Red Rock views'
+  ),
+  '/neighborhoods/red-rock-country-club': neighborhoodContent(
+    'Red Rock Country Club',
+    'red-rock-country-club',
+    '89135',
+    'golf course homes and guard-gated luxury'
+  ),
+  '/neighborhoods/summerlin-centre': neighborhoodContent(
+    'Summerlin Centre',
+    'summerlin-centre',
+    '89138',
+    'Downtown Summerlin shopping and family-friendly villages'
+  ),
+  '/neighborhoods/sun-city-summerlin': neighborhoodContent(
+    'Sun City Summerlin',
+    'sun-city-summerlin',
+    '89144',
+    '55+ active adult living with golf and recreation'
   ),
 }
 

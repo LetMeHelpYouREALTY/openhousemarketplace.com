@@ -6,6 +6,7 @@ import AmenityMap from '@/components/AmenityMap'
 import ExternalLink from '@/components/ExternalLink'
 import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Amenity Map | Nearby Restaurants, Parks, Parking & More | Summerlin',
@@ -132,6 +133,7 @@ export default function AmenityMapPage() {
           </div>
         </div>
       </main>
+      <PageIndexingEnhancement path="/amenity-map" />
     </>
   )
 }

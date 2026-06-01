@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
+import { GBP } from '@/config/gbp'
 
 export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
 
@@ -122,7 +124,7 @@ export default function DisclaimerPage() {
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">9. Contact Information</h2>
               <p>For questions about this disclaimer, please contact:</p>
               <p>
-                <strong>Email:</strong> contact@openhousemarketplace.com<br />
+                <strong>Email:</strong> {GBP.email}<br />
                 <strong>Phone:</strong> (702) 200-3422
               </p>
             </section>
@@ -130,6 +132,7 @@ export default function DisclaimerPage() {
         </div>
       </div>
     </div>
+    <PageIndexingEnhancement path="/disclaimer" />
     </>
   )
 }

@@ -12,6 +12,10 @@ This site implements all three layers in one stack:
 
 NAP, hours, and service area: **[`config/gbp.ts`](../config/gbp.ts)** only.
 
+Brand palette (UI): **[`config/brand.ts`](../config/brand.ts)** — Tailwind utilities `brand-plum`, `brand-teal`, `brand-mint`, `brand-stone`, `brand-surface`.
+
+Per-page AEO blocks: **[`components/PageIndexingEnhancement.tsx`](../components/PageIndexingEnhancement.tsx)** + **[`config/indexing-pages.ts`](../config/indexing-pages.ts)** on every marketing URL in the sitemap.
+
 ---
 
 ## SEO (Google Search)

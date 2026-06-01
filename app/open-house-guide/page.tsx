@@ -7,6 +7,7 @@ import FAQAccordion from '@/components/FAQAccordion'
 import { OPEN_HOUSE_GUIDE_FAQS, OPEN_HOUSE_GUIDE_HOWTO } from '@/config/seo'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Open House Guide 2026 | What Buyers Need to Know | Summerlin Las Vegas',
@@ -34,7 +35,7 @@ export default function OpenHouseGuidePage() {
       <OpenHouseGuideJsonLd />
       <div className="min-h-screen bg-gray-50">
         {/* Hero */}
-        <section className="bg-gradient-to-b from-blue-600 to-blue-700 text-white py-16 px-4">
+        <section className="bg-gradient-to-b from-brand-plum to-brand-teal text-white py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="page-title-speakable text-4xl md:text-5xl font-bold mb-4">
               What to Expect at a Summerlin Open House in 2026
@@ -44,7 +45,7 @@ export default function OpenHouseGuidePage() {
             </p>
             <Link
               href="/open-houses"
-              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+              className="inline-block bg-white text-brand-plum px-8 py-3 rounded-lg font-semibold hover:bg-brand-mint/30 transition-colors"
             >
               View This Weekend&apos;s Open Houses
             </Link>
@@ -160,7 +161,7 @@ export default function OpenHouseGuidePage() {
             <p className="text-gray-600 text-center mb-8 max-w-xl mx-auto">
               Schedule a free consultation with Dr. Jan Duffy and we&apos;ll send you the Open House Touring Guide. Choose a time below—no form required.
             </p>
-            <CalendlyPopupLink className="flex items-center justify-center gap-2 w-full max-w-sm mx-auto mb-8 bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-4 rounded-xl font-bold text-lg transition-colors">
+            <CalendlyPopupLink className="flex items-center justify-center gap-2 w-full max-w-sm mx-auto mb-8 bg-brand-teal hover:bg-brand-plum text-white px-6 py-4 rounded-xl font-bold text-lg transition-colors">
               Schedule a private showing
             </CalendlyPopupLink>
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
@@ -174,8 +175,9 @@ export default function OpenHouseGuidePage() {
         </section>
 
         <p className="text-center text-sm text-gray-500 py-8">
-          Enjoyed our guide? <Link href="/review-us" className="text-blue-600 hover:underline font-medium">Leave a review on Google</Link>
+          Enjoyed our guide? <Link href="/review-us" className="text-brand-teal hover:underline font-medium">Leave a review on Google</Link>
         </p>
+        <PageIndexingEnhancement path="/open-house-guide" />
       </div>
     </>
   )

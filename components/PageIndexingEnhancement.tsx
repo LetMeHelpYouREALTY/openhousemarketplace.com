@@ -33,13 +33,13 @@ export default function PageIndexingEnhancement({
     <>
       <JsonLd data={speakable} />
       <section
-        className={`border-t border-gray-200 bg-gray-50 py-10 ${className}`}
+        className={`border-t border-brand-mint bg-brand-surface/60 py-10 ${className}`}
         aria-labelledby={`indexing-enhance-${path.replace(/\//g, '-')}`}
       >
         <div className="max-w-4xl mx-auto px-4">
           <h2
             id={`indexing-enhance-${path.replace(/\//g, '-')}`}
-            className="text-2xl font-bold text-gray-900 mb-3"
+            className="text-2xl font-bold text-brand-plum mb-3"
           >
             Quick answers
           </h2>
@@ -51,13 +51,13 @@ export default function PageIndexingEnhancement({
             className="indexing-related-links mb-10"
             aria-label="Related pages"
           >
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Explore next</h3>
+            <h3 className="text-lg font-semibold text-brand-plum mb-3">Explore next</h3>
             <ul className="flex flex-wrap gap-2">
               {content.relatedLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-block rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-50 transition-colors"
+                    className="inline-block rounded-full border border-brand-mint bg-white px-4 py-2 text-sm font-medium text-brand-teal hover:bg-brand-mint/40 transition-colors"
                   >
                     {link.label}
                   </Link>

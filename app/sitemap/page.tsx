@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Sitemap | Open House Market Place',
@@ -147,6 +148,7 @@ export default function SitemapPage() {
         </div>
       </div>
     </div>
+    <PageIndexingEnhancement path="/sitemap" />
     </>
   )
 }

@@ -7,6 +7,7 @@ import ExternalLink from '@/components/ExternalLink'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import GoogleMapsNeighborhoodDiscoverySection from '@/components/GoogleMapsNeighborhoodDiscoverySection'
 import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const revalidate = 86400 // ISR: revalidate daily
 
@@ -168,6 +169,7 @@ export default function NeighborhoodsIndexPage() {
           </section>
         </div>
       </div>
+      <PageIndexingEnhancement path="/neighborhoods" />
     </>
   )
 }

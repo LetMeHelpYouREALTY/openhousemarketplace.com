@@ -4,6 +4,7 @@ import { BASE_URL } from '@/lib/metadata-utils'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Red Rock Country Club | Luxury Golf Course Homes for Sale',
@@ -151,6 +152,7 @@ export default function RedRockCountryClubPage() {
         imageUrl="/images/red-rock-cc-hero.jpg"
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
+      <PageIndexingEnhancement path="/neighborhoods/red-rock-country-club" />
     </div>
     </>
   )

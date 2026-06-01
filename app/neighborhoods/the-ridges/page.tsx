@@ -5,6 +5,7 @@ import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'The Ridges Summerlin | Luxury Homes for Sale & Real Estate',
@@ -186,6 +187,7 @@ export default function TheRidgesPage() {
         imageUrl="/images/the-ridges-hero.jpg"
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
+      <PageIndexingEnhancement path="/neighborhoods/the-ridges" />
     </div>
     </>
   )

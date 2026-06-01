@@ -5,6 +5,7 @@ import Link from 'next/link'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Schedule a Free Consultation | Dr. Jan Duffy Real Estate',
@@ -92,6 +93,7 @@ export default function ScheduleConsultationPage() {
           </p>
         </div>
       </main>
+      <PageIndexingEnhancement path="/schedule-consultation" />
     </>
   )
 }

@@ -10,6 +10,7 @@ import {
 import Link from 'next/link'
 import RealScoutWidget from '@/components/RealScoutWidget'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
@@ -215,6 +216,7 @@ export default function OpenHousesPage() {
         imageUrl="/images/open-houses-hero.jpg"
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
+      <PageIndexingEnhancement path="/open-houses" />
     </div>
     </>
   )

@@ -4,6 +4,7 @@ import { BASE_URL } from '@/lib/metadata-utils'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Sun City Summerlin | 55+ Active Adult Homes for Sale',
@@ -149,6 +150,7 @@ export default function SunCitySummerlinPage() {
         imageUrl="/images/sun-city-hero.jpg"
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
+      <PageIndexingEnhancement path="/neighborhoods/sun-city-summerlin" />
     </div>
     </>
   )
