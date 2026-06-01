@@ -49,7 +49,7 @@ export function getGbpAggregateRating():
 }
 
 /** Geocode for 760 Windover Ct (office pin; matches NAP). */
-export const OFFICE_GEO = { lat: 36.1907406, lng: -115.3661118 } as const
+export const OFFICE_GEO = { lat: 36.19100705245607, lng: -115.36619992711324 } as const
 
 /**
  * Hyperlocal service area — visible copy + schema. Mirror GBP → “Service area” when you configure it there.
