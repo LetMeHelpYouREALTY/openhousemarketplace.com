@@ -15,7 +15,7 @@ Internal reference for **content, UX copy, and AI-assisted writing** on [openhou
 | Name | **Dr. Jan Duffy** — never "Janet" or casual wrong variants in marketing copy. |
 | License | Nevada **S.0197614.LLC** — use where license disclosure is required. |
 | Brokerage | **Berkshire Hathaway HomeServices Nevada Properties** when citing affiliation. |
-| NAP | Match GBP exactly: phone **(702) 200-3422**, address **760 Windover Ct, Las Vegas, NV 89138**. Do not invent alternate numbers or addresses. |
+| NAP | Match GBP exactly: phone **(702) 200-3422**, email **DrJanSells@OpenHouseMarketplace.com**, address **760 Windover Ct, Las Vegas, NV 89138**. Do not invent alternate numbers, emails, or addresses. |
 | Website vs GBP | GBP may list apex `openhousemarketplace.com`; canonical site is **www** (redirect). |
 
 ## Voice & tone

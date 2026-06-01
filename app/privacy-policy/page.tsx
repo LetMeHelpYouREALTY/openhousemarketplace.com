@@ -136,7 +136,7 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">8. Contact Us</h2>
               <p>If you have questions about this Privacy Policy, please contact us at:</p>
               <p>
-                <strong>Email:</strong> privacy@openhousemarketplace.com<br />
+                <strong>Email:</strong> {GBP.email}<br />
                 <strong>Phone:</strong> (702) 200-3422<br />
                 <strong>Address:</strong> {GBP.address.street}, {GBP.address.locality}, {GBP.address.region} {GBP.address.postalCode}
               </p>

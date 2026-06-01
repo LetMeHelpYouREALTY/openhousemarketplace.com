@@ -97,7 +97,7 @@ export function buildSiteEntityGraph(baseUrl: string = getSiteUrl()) {
     },
     image: `${baseUrl}/images/dr-jan-duffy.jpg`,
     telephone: GBP.phoneE164,
-    email: 'jan@openhousemarketplace.com',
+    email: GBP.email,
     address: {
       '@type': 'PostalAddress',
       streetAddress: GBP.address.street,
@@ -116,6 +116,7 @@ export function buildSiteEntityGraph(baseUrl: string = getSiteUrl()) {
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: GBP.phoneE164,
+      email: GBP.email,
       contactType: 'customer service',
       areaServed: 'US',
       availableLanguage: 'English',
@@ -151,7 +152,7 @@ export function buildSiteEntityGraph(baseUrl: string = getSiteUrl()) {
     url: `${baseUrl}/about`,
     image: `${baseUrl}/images/dr-jan-duffy.jpg`,
     telephone: GBP.phoneE164,
-    email: 'jan@openhousemarketplace.com',
+    email: GBP.email,
     description:
       'Licensed Nevada real estate professional serving Summerlin West and the Las Vegas Valley. Expert in open houses, luxury homes, and new construction.',
     worksFor: { '@id': organizationId },

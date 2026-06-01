@@ -317,7 +317,12 @@ const SummerlinOpenHouseWebsite = () => {
           <p className="text-gray-300 mb-4 max-w-xl mx-auto">
             Your trusted Summerlin West real estate expert. Summerlin West & Las Vegas · Certified Luxury Home Specialist
           </p>
-          <p className="text-gray-400 text-sm mb-4">{GBP.address.street}, {GBP.address.locality}, {GBP.address.region} {GBP.address.postalCode}</p>
+          <p className="text-gray-400 text-sm mb-2">{GBP.address.street}, {GBP.address.locality}, {GBP.address.region} {GBP.address.postalCode}</p>
+          <p className="text-gray-400 text-sm mb-4">
+            <a href={`mailto:${GBP.email}`} className="hover:text-white transition-colors">
+              {GBP.email}
+            </a>
+          </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href={`tel:${GBP.phoneE164}`} className="inline-flex items-center justify-center min-h-[44px] gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-lg font-medium">
               <Phone className="h-4 w-4" aria-hidden />

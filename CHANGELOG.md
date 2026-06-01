@@ -4,6 +4,7 @@
 
 ### Site update (June 2026)
 
+* **Contact:** Single public email **DrJanSells@OpenHouseMarketplace.com** in `config/gbp.ts` (NAP, footer, schema, legal pages). No public forms—scheduling via Calendly only; `/api/contact`, `/api/leads` POST, and open-house sign-in POST return 410.
 * **Vercel deploy audit:** Document repo transfer (LetMeHelpYouREALTY vs DrJanDuffy), correct `prj_UH4vlCl7EkB4ipEIvu7kflQN3p2E`, stale production SHA; GitHub Actions guard for drjanduffy project ID.
 * **GSC canonical:** `/index`, `/index/`, `/index.html` → **301** to `/` (Vercel edge, `next.config`, middleware, `app/index/route.ts`) — fixes “Duplicate without user-selected canonical”.
 * **GSC indexing:** `PageIndexingEnhancement` + `config/indexing-pages.ts` (FAQs, speakable summaries, internal links) on 28 discovered URLs; privacy/terms set to `index`; sitemap `lastModified`; home-buying HowTo.

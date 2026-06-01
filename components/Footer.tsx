@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Home, Phone, MapPin, Calendar } from 'lucide-react'
+import { Home, Phone, MapPin, Calendar, Mail } from 'lucide-react'
 import { useState } from 'react'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import ExternalLink from '@/components/ExternalLink'
@@ -13,6 +13,8 @@ const BUSINESS = {
   name: GBP.name,
   phone: GBP.phone,
   phoneLink: `tel:${GBP.phoneE164}`,
+  email: GBP.email,
+  emailLink: `mailto:${GBP.email}`,
   address: `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`,
   directionsUrl: getGoogleMapsDirectionsUrlToOffice(),
   serviceArea: GBP_SERVICE_AREA.label,
@@ -40,6 +42,12 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0 text-red-500" aria-hidden />
                 <a href={BUSINESS.phoneLink} className="min-h-[44px] inline-flex items-center hover:text-white">{BUSINESS.phone}</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 shrink-0 text-red-500" aria-hidden />
+                <a href={BUSINESS.emailLink} className="min-h-[44px] inline-flex items-center hover:text-white break-all">
+                  {BUSINESS.email}
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 shrink-0 text-red-500 mt-0.5" aria-hidden />
