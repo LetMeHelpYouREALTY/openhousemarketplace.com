@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import Script from 'next/script'
 
+import { BRAND_COLORS } from '@/config/brand'
 import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
 
 const CALENDLY_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js'
@@ -11,7 +12,7 @@ const CALENDLY_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js'
 const BADGE_CONFIG = {
   url: CALENDLY_OPEN_HOUSE_TOUR_URL,
   text: 'Schedule a private showing',
-  color: '#0069ff',
+  color: BRAND_COLORS.teal,
   textColor: '#ffffff',
   branding: true,
 } as const

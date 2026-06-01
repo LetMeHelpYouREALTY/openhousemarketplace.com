@@ -175,7 +175,7 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
                 value={origin}
                 onChange={(e) => setOrigin(e.target.value)}
                 placeholder="e.g. Las Vegas, NV or 123 Main St"
-                className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
               />
               <button
                 type="button"
@@ -198,7 +198,7 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
               id="directions-destination"
               value={destinationId}
               onChange={(e) => setDestinationId(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
             >
               {destinations.map((d) => (
                 <option key={d.id} value={d.id}>

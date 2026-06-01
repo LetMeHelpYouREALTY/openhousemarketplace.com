@@ -174,7 +174,7 @@ export default function FeaturedOpenHouses() {
                   >
                     <Heart
                       className={`h-5 w-5 ${
-                        favorites.includes(house.id) ? 'fill-current text-red-500' : 'text-gray-600'
+                        favorites.includes(house.id) ? 'fill-current text-brand-teal' : 'text-gray-600'
                       }`}
                     />
                   </button>

@@ -54,7 +54,7 @@ export default function OpenHouseGuideForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="you@example.com"
           disabled={status === 'submitting'}
         />
@@ -68,7 +68,7 @@ export default function OpenHouseGuideForm() {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="Your name"
           disabled={status === 'submitting'}
         />

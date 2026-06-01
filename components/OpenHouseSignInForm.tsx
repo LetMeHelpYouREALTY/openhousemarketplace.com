@@ -138,7 +138,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="Jane Smith"
           disabled={status === 'submitting'}
         />
@@ -154,7 +154,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="jane@example.com"
           disabled={status === 'submitting'}
         />
@@ -170,7 +170,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={phone}
           onChange={handlePhoneChange}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="(702) 555-1234"
           disabled={status === 'submitting'}
         />
@@ -208,7 +208,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
             value={agentName}
             onChange={(e) => setAgentName(e.target.value)}
             placeholder="Agent name (optional)"
-            className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
             disabled={status === 'submitting'}
           />
         )}
@@ -222,7 +222,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={hearAboutSource}
           onChange={(e) => setHearAboutSource(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           disabled={status === 'submitting'}
         >
           <option value="">Select...</option>
@@ -267,7 +267,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={purchaseTimeline}
           onChange={(e) => setPurchaseTimeline(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           disabled={status === 'submitting'}
         >
           <option value="">Select...</option>

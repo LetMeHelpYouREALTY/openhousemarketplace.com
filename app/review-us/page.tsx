@@ -131,7 +131,7 @@ export default function ReviewUsPage() {
           <div className="flex flex-col items-center mt-6">
             <ExternalLink
               href={REVIEW_URL}
-              className="block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
+              className="block focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 rounded-lg"
               ariaLabel="Open Google review page for Dr. Jan Duffy Real Estate"
               showIcon={false}
             >

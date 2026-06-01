@@ -104,7 +104,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
             type="text"
             value={propertyAddressState}
             onChange={(e) => setPropertyAddressState(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-brand-teal"
             placeholder="Enter property address"
           />
         </div>
@@ -116,7 +116,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
           <select
             value={downloadFormat}
             onChange={(e) => setDownloadFormat(e.target.value as 'png' | 'svg')}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-brand-teal"
             aria-label="Select download format"
             title="Select download format"
           >

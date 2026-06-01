@@ -88,7 +88,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
                 href={href}
                 className={
                   primary
-                    ? 'block px-4 py-2 text-red-600 hover:bg-red-50 font-semibold'
+                    ? 'block px-4 py-2 text-brand-teal hover:bg-brand-mint/40 font-semibold'
                     : 'block px-4 py-2 text-gray-700 hover:bg-brand-mint/40 hover:text-brand-teal font-medium'
                 }
                 onClick={() => setOpen(false)}

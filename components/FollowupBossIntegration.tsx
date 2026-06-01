@@ -139,7 +139,7 @@ const FollowupBossIntegration: React.FC<FollowupBossIntegrationProps> = ({
               onChange={handleInputChange}
               required
               autoComplete="name"
-              className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
+              className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-brand-teal focus:outline-none"
             />
           </div>
         </div>
@@ -155,7 +155,7 @@ const FollowupBossIntegration: React.FC<FollowupBossIntegrationProps> = ({
               onChange={handleInputChange}
               required
               autoComplete="email"
-              className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
+              className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-brand-teal focus:outline-none"
             />
           </div>
         </div>
@@ -171,7 +171,7 @@ const FollowupBossIntegration: React.FC<FollowupBossIntegrationProps> = ({
                 value={formData.phone}
                 onChange={handleInputChange}
                 autoComplete="tel"
-                className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
+                className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-brand-teal focus:outline-none"
               />
             </div>
           </div>
@@ -187,7 +187,7 @@ const FollowupBossIntegration: React.FC<FollowupBossIntegrationProps> = ({
               required
               aria-label="Select interested neighborhood"
               title="Select interested neighborhood"
-              className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:border-blue-500 focus:outline-none"
+              className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:border-brand-teal focus:outline-none"
             >
               <option value="">Select Neighborhood</option>
               {neighborhoods.map((neighborhood) => (
@@ -207,7 +207,7 @@ const FollowupBossIntegration: React.FC<FollowupBossIntegrationProps> = ({
               value={formData.message}
               onChange={handleInputChange}
               rows={3}
-              className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
+              className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-brand-teal focus:outline-none"
             />
           </div>
         )}

@@ -177,7 +177,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
               key={property.id}
               className={`p-3 rounded-lg border cursor-pointer transition-colors ${
                 selectedProperty?.id === property.id
-                  ? 'border-blue-500 bg-brand-mint/40'
+                  ? 'border-brand-teal bg-brand-mint/40'
                   : 'border-gray-200 hover:border-gray-300'
               }`}
               onClick={() => {
