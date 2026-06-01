@@ -44,7 +44,7 @@ export default function TestForm() {
       <div className="space-y-4 mb-6">
         <button
           onClick={testEnv}
-          className="bg-brand-mint/400 text-white px-4 py-2 rounded"
+          className="bg-brand-teal text-white px-4 py-2 rounded"
         >
           Test Environment Variables
         </button>

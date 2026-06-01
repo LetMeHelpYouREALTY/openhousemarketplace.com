@@ -115,7 +115,7 @@ export default function BuyerToolsSection({ searchListingsHref }: BuyerToolsSect
 
           {/* School Finder */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-            <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4">
+            <div className="bg-gradient-to-r from-brand-teal to-brand-plum p-4">
               <h3 className="text-white font-bold text-lg flex items-center">
                 <svg className="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path d="M12 14l9-5-9-5-9 5 9 5z" />

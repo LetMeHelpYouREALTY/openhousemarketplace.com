@@ -127,7 +127,7 @@ export default function DirectionsPage() {
             </section>
           )}
 
-          <div className="mt-8 p-4 bg-brand-mint/40 rounded-lg border border-blue-100">
+          <div className="mt-8 p-4 bg-brand-mint/40 rounded-lg border border-brand-mint">
             <p className="text-sm text-gray-700">
               <strong>Tip:</strong> Click &quot;My location&quot; to use your current position as the starting point. You can also <Link href="/store-locations" className="text-brand-teal hover:underline">view all our store locations</Link> on a map.
             </p>

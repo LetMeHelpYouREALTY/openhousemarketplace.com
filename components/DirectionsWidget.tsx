@@ -219,7 +219,7 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
                   className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border text-sm font-medium transition-colors ${
                     travelMode === opt.value
                       ? 'border-brand-teal bg-brand-teal text-white'
-                      : 'border-gray-300 bg-white text-gray-700 hover:border-blue-400'
+                      : 'border-gray-300 bg-white text-gray-700 hover:border-brand-teal'
                   }`}
                 >
                   {opt.icon}

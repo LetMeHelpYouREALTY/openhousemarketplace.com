@@ -198,7 +198,7 @@ export default function AmenityMap() {
             className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg border cursor-pointer text-sm font-medium transition-colors ${
               selectedTypes.has(type)
                 ? 'bg-brand-teal text-white border-brand-teal'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-blue-400'
+                : 'bg-white text-gray-700 border-gray-300 hover:border-brand-teal'
             }`}
           >
             <input

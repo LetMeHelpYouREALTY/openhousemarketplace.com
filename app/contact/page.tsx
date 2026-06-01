@@ -155,7 +155,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="bg-brand-mint/40 border border-blue-100 rounded-lg p-6 mb-8 text-center">
+        <div className="bg-brand-mint/40 border border-brand-mint rounded-lg p-6 mb-8 text-center">
           <p className="text-gray-800 font-medium mb-2">Enjoyed working with us?</p>
           <Link href="/review-us" className="text-brand-teal hover:underline font-semibold">
             Leave a review on Google

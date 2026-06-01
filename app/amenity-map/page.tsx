@@ -89,7 +89,7 @@ export default function AmenityMapPage() {
             <AmenityMap />
           </section>
 
-          <div className="mt-8 p-4 bg-brand-mint/40 rounded-lg border border-blue-100">
+          <div className="mt-8 p-4 bg-brand-mint/40 rounded-lg border border-brand-mint">
             <p className="text-sm text-gray-700">
               <strong>Tip:</strong> This map shows places near Summerlin. Use the filters above to
               switch between restaurants, parks, cafes, grocery, gyms, and more. Click a marker for

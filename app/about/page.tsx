@@ -360,7 +360,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/open-houses"
-              className="inline-block bg-brand-mint/400 hover:bg-blue-400 text-white px-8 py-3 rounded-lg font-bold text-lg border-2 border-white/50 transition-colors"
+              className="inline-block bg-brand-teal hover:bg-brand-plum text-white px-8 py-3 rounded-lg font-bold text-lg border-2 border-white/50 transition-colors"
             >
               View Summerlin Open Houses
             </Link>

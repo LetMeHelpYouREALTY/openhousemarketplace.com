@@ -34,7 +34,7 @@ export default function OpenHouseGuidePage() {
       <OpenHouseGuideJsonLd />
       <div className="min-h-screen bg-gray-50">
         {/* Hero */}
-        <section className="bg-gradient-to-b from-brand-teal to-blue-700 text-white py-16 px-4">
+        <section className="bg-gradient-to-b from-brand-teal to-brand-plum text-white py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="page-title-speakable text-4xl md:text-5xl font-bold mb-4">
               What to Expect at a Summerlin Open House in 2026
