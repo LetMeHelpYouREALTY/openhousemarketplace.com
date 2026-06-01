@@ -96,7 +96,7 @@ export default function Footer() {
               <li><Link href="/review-us" className="hover:text-white transition-colors">Review us on Google</Link></li>
               <li><Link href="/open-house-guide" className="hover:text-white transition-colors">Open House Guide</Link></li>
               <li><Link href="/amenity-map" className="hover:text-white transition-colors">Amenity Map</Link></li>
-              <li><Link href="/store-locations" className="hover:text-white transition-colors">Find Our Stores</Link></li>
+              <li><Link href="/store-locations" className="hover:text-white transition-colors">Office & Map</Link></li>
               <li><Link href="/directions" className="hover:text-white transition-colors">Get Directions</Link></li>
               <li><Link href="/resources/home-buying-guide" className="hover:text-white transition-colors">Home Buying Guide</Link></li>
               <li><Link href="/schools" className="hover:text-white transition-colors">School Information</Link></li>

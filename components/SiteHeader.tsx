@@ -28,7 +28,7 @@ const NAV_GROUPS: NavGroup[] = [
   {
     label: 'Locations & Map',
     items: [
-      { href: '/store-locations', label: 'Find Our Stores' },
+      { href: '/store-locations', label: 'Office & Map' },
       { href: '/directions', label: 'Get Directions' },
       { href: '/amenity-map', label: 'Amenity Map' },
     ],

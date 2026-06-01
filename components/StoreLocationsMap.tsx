@@ -108,7 +108,10 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
   if (locations.length === 0) {
     return (
       <div className={`rounded-xl border border-gray-200 bg-gray-50 p-8 text-center ${className}`}>
-        <p className="text-gray-600">No store locations configured. Add locations in <code className="text-sm bg-gray-200 px-1 rounded">data/storeLocations.ts</code>.</p>
+        <p className="text-gray-600">
+          Office location details are temporarily unavailable. Please call or use the contact page and we
+          will help you plan your visit.
+        </p>
       </div>
     )
   }
@@ -117,7 +120,7 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
     <div className={`grid grid-cols-1 lg:grid-cols-3 gap-6 ${className}`}>
       {/* Location list */}
       <div className="lg:col-span-1 space-y-4 order-2 lg:order-1">
-        <h2 className="text-lg font-semibold text-gray-900">Our locations</h2>
+        <h2 className="text-lg font-semibold text-gray-900">Office details</h2>
         {locations.map((loc) => (
           <article
             key={loc.id}
@@ -160,7 +163,7 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
         <div
           ref={mapRef}
           className="w-full h-[400px] lg:h-[500px] rounded-xl border border-gray-200 shadow-lg bg-gray-100"
-          aria-label="Map showing store locations"
+          aria-label="Map showing Open House Market Place office location in Summerlin"
         />
         {!isLoaded && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-xl">

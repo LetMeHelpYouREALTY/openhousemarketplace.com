@@ -1,6 +1,6 @@
 /**
- * Store / office locations for the "Find our stores" map.
- * Add or edit entries to show all your locations on the website.
+ * Office locations for /store-locations (map + directions widgets).
+ * NAP fields should stay aligned with config/gbp.ts.
  */
 import { GBP, OFFICE_GEO, getGoogleMapsDirectionsUrlToOffice } from '@/config/gbp'
 

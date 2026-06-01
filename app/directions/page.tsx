@@ -12,7 +12,8 @@ import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Get Directions | Plan Your Visit | Dr. Jan Duffy Real Estate',
-  description: 'Add directions to your visit. Use Google Maps to plan your trip to our office. See estimated travel time for driving, transit, walking, and bicycling. Get started at no cost.',
+  description:
+    'Plan your trip to our Summerlin office at 760 Windover Ct. Driving, transit, walking, and biking directions with estimated travel time.',
   keywords: 'directions, get directions, plan your visit, travel time, driving transit walking bicycling, Summerlin office directions',
   robots: {
     index: true,
@@ -37,7 +38,8 @@ export default function DirectionsPage() {
         type="WebPage"
         data={{
           name: 'Get Directions | Plan Your Visit | Dr. Jan Duffy Real Estate',
-          description: 'Use directions from Google Maps Platform to help customers plan their visit. Show estimated travel time across different transportation modes.',
+          description:
+            'Directions to Open House Market Place in Summerlin West. Estimated travel time for driving, transit, walking, and bicycling.',
         }}
       />
       <StructuredData
@@ -68,10 +70,12 @@ export default function DirectionsPage() {
 
           <header className="mb-8">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Add directions to your visit
+              Directions to our Summerlin office
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl">
-              Use directions from Google Maps Platform to help you plan your visit. Enter your starting point, choose our location, and see estimated travel time for driving, transit, walking, and bicycling. Simply use the form below—get started at no cost.
+              Enter your starting point and see routes to Open House Market Place at 760 Windover Ct,
+              Las Vegas. Compare estimated travel time for driving, transit, walking, and bicycling before
+              your open house tour or consultation with Dr. Jan Duffy.
             </p>
           </header>
 
@@ -94,11 +98,11 @@ export default function DirectionsPage() {
           {storeLocations.length === 0 ? (
             <div className="p-6 rounded-xl border border-gray-200 bg-gray-50 text-center">
               <p className="text-gray-600">
-                No destinations configured. Add store locations in{' '}
-                <code className="text-sm bg-gray-200 px-1 rounded">data/storeLocations.ts</code> to enable directions.
+                Directions are temporarily unavailable. Visit our office page for the address and map, or
+                contact us for help planning your trip.
               </p>
               <Link href="/store-locations" className="mt-4 inline-block text-brand-teal font-medium hover:underline">
-                View store locations →
+                Office location &amp; map →
               </Link>
             </div>
           ) : (
@@ -129,7 +133,7 @@ export default function DirectionsPage() {
 
           <div className="mt-8 p-4 bg-brand-mint/40 rounded-lg border border-brand-mint">
             <p className="text-sm text-gray-700">
-              <strong>Tip:</strong> Click &quot;My location&quot; to use your current position as the starting point. You can also <Link href="/store-locations" className="text-brand-teal hover:underline">view all our store locations</Link> on a map.
+              <strong>Tip:</strong> Click &quot;My location&quot; to use your current position as the starting point. You can also <Link href="/store-locations" className="text-brand-teal hover:underline">view our Summerlin office on the map</Link> with hours and phone.
             </p>
           </div>
         </div>
