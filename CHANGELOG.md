@@ -4,7 +4,7 @@
 
 ### Site update (June 2026)
 
-* **Vercel:** Removed invalid `outputDirectory` from `vercel.json`; aligned install/build with pnpm; added GitHub Actions `vercel-deploy` workflow and `docs/VERCEL_DEPLOYMENT.md`.
+* **Vercel:** Removed invalid `outputDirectory` from `vercel.json`; aligned install/build with pnpm; GitHub Actions deploy uses `vercel@latest`, validates `VERCEL_PROJECT_ID` targets openhousemarketplace (not drjanduffy.com); `docs/VERCEL_DEPLOYMENT.md` audit table and repo-transfer notes.
 * **SEO / GEO / AEO (2026):** Sitewide `@graph` (`SiteEntityGraph`), HowTo + Speakable on open-house-guide, linked WebPage author/publisher `@id`s, `docs/SEO-GEO-AEO-2026.md`.
 * **Google Search Console:** Centralized marketing URLs in `config/sitemap-routes.ts`; trailing-slash 301s; `robots.txt` disallows `/test-form`; verify script checks live `sitemap.xml`; WebSite schema adds `SearchAction` for `/tour/mls`.
 * **Email:** Contact form and open house sign-in can send notifications via Resend when `RESEND_*` env vars are set; otherwise logs in dev (no simulated delay).
