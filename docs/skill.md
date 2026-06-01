@@ -17,7 +17,7 @@ Internal reference for **implementation** on this repo: stack, boundaries, and w
 
 - **Root metadata:** [`app/layout.tsx`](../app/layout.tsx) — `Metadata` API (not `next-seo`).
 - **Sitemap / robots:** [`app/sitemap.ts`](../app/sitemap.ts), [`app/robots.ts`](../app/robots.ts).
-- **JSON-LD:** [`components/GoogleEnhancement.tsx`](../components/GoogleEnhancement.tsx) (client, every route), [`components/StructuredData.tsx`](../components/StructuredData.tsx), [`components/WebSiteSchema.tsx`](../components/WebSiteSchema.tsx).
+- **JSON-LD:** [`components/SiteEntityGraph.tsx`](../components/SiteEntityGraph.tsx) (sitewide `@graph`), [`components/GoogleEnhancement.tsx`](../components/GoogleEnhancement.tsx) (per-route WebPage + LocalBusiness), [`lib/json-ld.ts`](../lib/json-ld.ts), [`components/StructuredData.tsx`](../components/StructuredData.tsx). See [SEO-GEO-AEO-2026.md](./SEO-GEO-AEO-2026.md).
 - **GBP / NAP / service area:** [`config/gbp.ts`](../config/gbp.ts) — single source; `OFFICE_GEO`, `GBP_SERVICE_AREA`, hours, special closures.
 
 ## Integrations

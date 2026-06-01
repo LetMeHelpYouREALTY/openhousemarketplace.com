@@ -3,9 +3,8 @@ import { Metadata, Viewport } from "next"
 import Script from "next/script"
 import SiteHeader from "@/components/SiteHeader"
 import Footer from "@/components/Footer"
-import WebSiteSchema from "@/components/WebSiteSchema"
+import SiteEntityGraph from "@/components/SiteEntityGraph"
 import GoogleEnhancement from "@/components/GoogleEnhancement"
-import StructuredData from "@/components/StructuredData"
 import CalendlyBadgeWidget from "@/components/CalendlyBadgeWidget"
 import CalendlyCSS from "@/components/CalendlyCSS"
 import { getSiteUrl } from "@/lib/site"
@@ -122,9 +121,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <CalendlyCSS />
         <FacebookPixel />
-        <WebSiteSchema />
+        <SiteEntityGraph />
         <GoogleEnhancement />
-        <StructuredData type="RealEstateAgent" />
         <CalendlyBadgeWidget />
         <SiteHeader />
         {children}

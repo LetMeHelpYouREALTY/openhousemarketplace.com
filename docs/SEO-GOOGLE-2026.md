@@ -2,6 +2,8 @@
 
 This doc covers optional env and data updates to complete the site’s Google 2026 SEO setup.
 
+For **SEO + GEO + AEO** architecture (entity graph, HowTo, speakable, robots), see **[SEO-GEO-AEO-2026.md](./SEO-GEO-AEO-2026.md)**.
+
 ## 1. Google Business Profile (GBP) link in schema
 
 **Purpose:** `sameAs` in Organization/LocalBusiness/WebSite publisher links the site to your Google Business Profile for E-E-A-T and knowledge panel.

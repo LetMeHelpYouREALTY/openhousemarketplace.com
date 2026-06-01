@@ -4,6 +4,7 @@
 
 ### Site update (June 2026)
 
+* **SEO / GEO / AEO (2026):** Sitewide `@graph` (`SiteEntityGraph`), HowTo + Speakable on open-house-guide, linked WebPage author/publisher `@id`s, `docs/SEO-GEO-AEO-2026.md`.
 * **Google Search Console:** Centralized marketing URLs in `config/sitemap-routes.ts`; trailing-slash 301s; `robots.txt` disallows `/test-form`; verify script checks live `sitemap.xml`; WebSite schema adds `SearchAction` for `/tour/mls`.
 * **Email:** Contact form and open house sign-in can send notifications via Resend when `RESEND_*` env vars are set; otherwise logs in dev (no simulated delay).
 * **SEO / GBP:** Default Google Business Profile URL in schema and UI from `config/gbp.ts`; optional `NEXT_PUBLIC_GBP_RATING` / `NEXT_PUBLIC_GBP_REVIEW_COUNT` for `aggregateRating` in LocalBusiness JSON-LD.

@@ -7,6 +7,11 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
+        userAgent: 'Googlebot',
+        allow: '/',
+        disallow: ['/api/', '/admin/', '/private/', '/open-house-signin/', '/test-form'],
+      },
+      {
         userAgent: '*',
         allow: '/',
         // Do not disallow /_next/static — Google needs JS/CSS to render; blanket /_next/ hurts GSC/crawl.
@@ -17,6 +22,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'CCBot', allow: '/' },
       { userAgent: 'anthropic-ai', allow: '/' },
       { userAgent: 'Claude-Web', allow: '/' },
+      // Google-Extended: optional control for Gemini training/grounding — does not affect Search ranking.
       { userAgent: 'Google-Extended', allow: '/' },
     ],
     sitemap: [`${baseUrl}/sitemap.xml`],
