@@ -17,6 +17,7 @@ import {
 } from "@/config/og"
 import { getFacebookAppId } from "@/config/facebook"
 import FacebookPixel from "@/components/FacebookPixel"
+import RealScoutScriptLoader from "@/components/RealScoutScriptLoader"
 import RealScoutOfficeListingsBandsDynamic from "@/components/RealScoutOfficeListingsBandsDynamic"
 import ScheduleTourBand from "@/components/conversion/ScheduleTourBand"
 import StickyMobileCta from "@/components/conversion/StickyMobileCta"
@@ -115,12 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
       <body className="overflow-x-hidden">
-        {/* RealScout: afterInteractive avoids render-blocking head script (PSI / LCP). Script once site-wide. */}
-        <Script
-          id="realscout-web-components"
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          strategy="afterInteractive"
-        />
+        <RealScoutScriptLoader />
         <CalendlyCSS />
         <FacebookPixel />
         <SiteEntityGraph />

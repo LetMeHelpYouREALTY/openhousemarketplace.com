@@ -1,44 +1,20 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useRef, useState, type FC } from 'react'
+import { useLayoutEffect, useRef, type FC } from 'react'
 import {
   REALSCOUT_OFFICE_AGENT_ID,
+  REALSCOUT_OFFICE_DEFAULT_LISTING_STATUS,
   REALSCOUT_OFFICE_DEFAULT_PRICE_MAX,
   REALSCOUT_OFFICE_DEFAULT_PRICE_MIN,
-  REALSCOUT_OFFICE_PROPERTY_TYPES,
+  REALSCOUT_OFFICE_DEFAULT_PROPERTY_TYPES,
+  REALSCOUT_OFFICE_DEFAULT_SORT_ORDER,
 } from '@/config/realscout-office-bands'
-import { createRealScoutOfficeListingsElement } from '@/lib/realscout-mount-office-listings'
-
-/** Shared readiness for `realscout-office-listings` (script in root layout). Use in multi-widget sections to poll once. */
-export function useRealScoutOfficeListingsReady(): boolean {
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const isDefined = () => window.customElements?.get?.('realscout-office-listings')
-    if (isDefined()) {
-      setReady(true)
-      return
-    }
-    const t = setInterval(() => {
-      if (isDefined()) {
-        clearInterval(t)
-        setReady(true)
-      }
-    }, 100)
-    const timeout = setTimeout(() => clearInterval(t), 12000)
-    return () => {
-      clearInterval(t)
-      clearTimeout(timeout)
-    }
-  }, [])
-
-  return ready
-}
+import { mountRealScoutOfficeListings } from '@/lib/realscout-mount-office-listings'
+import { useRealScoutOfficeListingsReady } from '@/lib/realscout-ready'
 
 /**
- * Office listings (`realscout-office-listings`). Script + global styles: root `app/layout.tsx` head.
- * Defaults: PRICE_LOW, For Sale, $500K–$950K (`REALSCOUT_OFFICE_DEFAULT_*` in config).
+ * Office listings (`realscout-office-listings`). Script + global styles: root layout.
+ * Defaults: PRICE_LOW, For Sale, SFR, $500K–$950K.
  */
 interface RealScoutWidgetProps {
   agentEncodedId?: string
@@ -52,8 +28,8 @@ interface RealScoutWidgetProps {
 
 const RealScoutWidget: FC<RealScoutWidgetProps> = ({
   agentEncodedId = REALSCOUT_OFFICE_AGENT_ID,
-  sortOrder = 'PRICE_LOW',
-  listingStatus = 'For Sale',
+  sortOrder = REALSCOUT_OFFICE_DEFAULT_SORT_ORDER,
+  listingStatus = REALSCOUT_OFFICE_DEFAULT_LISTING_STATUS,
   propertyTypes = REALSCOUT_OFFICE_PROPERTY_TYPES,
   priceMin = REALSCOUT_OFFICE_DEFAULT_PRICE_MIN,
   priceMax = REALSCOUT_OFFICE_DEFAULT_PRICE_MAX,
@@ -71,7 +47,7 @@ const RealScoutWidget: FC<RealScoutWidgetProps> = ({
       return
     }
 
-    const el = createRealScoutOfficeListingsElement({
+    mountRealScoutOfficeListings(container, {
       agentEncodedId,
       sortOrder,
       listingStatus,
@@ -79,15 +55,12 @@ const RealScoutWidget: FC<RealScoutWidgetProps> = ({
       priceMin,
       priceMax,
     })
-    container.innerHTML = ''
-    container.appendChild(el)
 
     return () => {
       container.innerHTML = ''
     }
   }, [ready, agentEncodedId, sortOrder, listingStatus, propertyTypes, priceMin, priceMax])
 
-  // Skeleton must NOT live inside hostContainerRef: React would clear imperative DOM on reconcile.
   return (
     <div className={`realScout-widget-container ${className}`}>
       {!ready ? (
@@ -99,7 +72,6 @@ const RealScoutWidget: FC<RealScoutWidgetProps> = ({
           <p className="text-center text-sm font-medium text-brand-plum">Loading MLS listings…</p>
         </div>
       ) : null}
-      {/* Only non-React children here (custom element); mount helper owns this node */}
       <div ref={hostContainerRef} className="min-h-[180px]" />
     </div>
   )

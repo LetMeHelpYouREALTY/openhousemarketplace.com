@@ -9,7 +9,6 @@ import {
 
 import Link from 'next/link'
 import { REALSCOUT_OFFICE_PRICE_RANGE_LABEL } from '@/config/realscout-office-bands'
-import RealScoutWidget from '@/components/RealScoutWidget'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
@@ -169,18 +168,24 @@ export default function OpenHousesPage() {
         </div>
       </div>
       <section className="bg-gray-50 border-t border-gray-200 py-10 sm:py-14">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-2 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="mb-2 text-2xl font-bold text-gray-900 sm:text-3xl">
             Homes for sale — office listings
           </h2>
-          <p className="mb-8 text-center text-gray-600">
-            Live MLS listings from Dr. Jan Duffy&apos;s office (sorted low to high, {REALSCOUT_OFFICE_PRICE_RANGE_LABEL} — same range as the site-wide office bands). For the full search experience, visit{' '}
+          <p className="mb-6 text-gray-600 max-w-2xl mx-auto">
+            Browse live MLS listings ({REALSCOUT_OFFICE_PRICE_RANGE_LABEL}) in the office grid at the bottom of
+            every page. For advanced search, visit{' '}
             <Link href="/tour/mls" className="font-semibold text-brand-teal hover:underline">
               MLS property search
             </Link>
             .
           </p>
-          <RealScoutWidget className="rounded-xl bg-white p-4 shadow-lg sm:p-6" />
+          <a
+            href="#office-listings-bands"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-brand-teal px-8 py-3 font-bold text-white hover:bg-brand-plum"
+          >
+            Jump to filtered MLS listings
+          </a>
         </div>
       </section>
       {/* Schedule a private showing - Calendly inline widget */}

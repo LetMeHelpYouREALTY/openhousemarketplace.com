@@ -1,6 +1,6 @@
 /**
- * Price bands for `realscout-office-listings` widgets ($500K–$950K).
- * Script loads once in root layout; each widget filters by price-min / price-max.
+ * RealScout `realscout-office-listings` defaults ($500K–$950K).
+ * Script loads once in root layout; filters use price-min / price-max on the custom element.
  */
 export type RealScoutOfficeBand = {
   id: string
@@ -21,8 +21,12 @@ export const REALSCOUT_OFFICE_LISTINGS_BANDS: readonly RealScoutOfficeBand[] = [
 ] as const
 
 export const REALSCOUT_OFFICE_AGENT_ID = 'QWdlbnQtMjI1MDUw'
-export const REALSCOUT_OFFICE_PROPERTY_TYPES = ',SFR,MF,TC,OTHER'
 
-/** Single `realscout-office-listings` embed (layout + page widgets). */
+/** Single-family only — avoids leading-comma split bug and cheap land/OTHER types. */
+export const REALSCOUT_OFFICE_PROPERTY_TYPES = 'SFR'
+
+export const REALSCOUT_OFFICE_DEFAULT_SORT_ORDER = 'PRICE_LOW' as const
+export const REALSCOUT_OFFICE_DEFAULT_LISTING_STATUS = 'For Sale' as const
+
 export const REALSCOUT_OFFICE_DEFAULT_PRICE_MIN = '500000'
 export const REALSCOUT_OFFICE_DEFAULT_PRICE_MAX = '950000'

@@ -5,7 +5,6 @@ import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import ExternalLink from '@/components/ExternalLink'
 import RealScoutSearchCard from '@/components/RealScoutSearchCard'
-import RealScoutWidget from '@/components/RealScoutWidget'
 import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 import MarketingHero from '@/components/conversion/MarketingHero'
 import RealScoutWidgetFrame from '@/components/conversion/RealScoutWidgetFrame'
@@ -67,15 +66,14 @@ export default function TourMLSPage() {
             </RealScoutWidgetFrame>
           </div>
 
-          <div className="mb-8">
-            <RealScoutWidgetFrame
-              id="mls-office-grid"
-              stepLabel="Browse"
-              title="Live Summerlin West listings"
-              description={`Office inventory (${REALSCOUT_OFFICE_PRICE_RANGE_LABEL}), sorted low to high. Open any listing to schedule a tour.`}
-            >
-              <RealScoutWidget className="min-h-[320px]" />
-            </RealScoutWidgetFrame>
+          <div className={`${brandCardClass} mb-8 text-center`}>
+            <p className="text-gray-600 mb-4">
+              Office MLS grid ({REALSCOUT_OFFICE_PRICE_RANGE_LABEL}) loads on every page —{' '}
+              <a href="#office-listings-bands" className="font-semibold text-brand-teal hover:text-brand-plum">
+                jump to live listings
+              </a>
+              .
+            </p>
           </div>
 
           <div className={`${brandCardClass} mb-8 text-center`}>
