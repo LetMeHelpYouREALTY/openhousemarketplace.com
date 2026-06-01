@@ -110,8 +110,46 @@ export type GBPConfig = typeof GBP
 
 /** Google Maps directions to the office address (encoded). */
 export function getGoogleMapsDirectionsUrlToOffice(): string {
-  const dest = `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
+  const dest = getOfficeAddressQuery()
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}`
+}
+
+/** Full formatted office address for map queries (NAP). */
+export function getOfficeAddressQuery(): string {
+  return `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
+}
+
+/** Default center for service-area / neighborhood map embeds (office pin). */
+export const SERVICE_AREA_MAP_CENTER = OFFICE_GEO
+
+/** Zoom for Summerlin-wide context on area maps. */
+export const SERVICE_AREA_MAP_ZOOM = 11
+
+/** Open the service area in Google Maps (new tab). */
+export function getGoogleMapsSummerlinSearchUrl(): string {
+  return 'https://www.google.com/maps/search/Summerlin,+Las+Vegas,+NV+89138'
+}
+
+/**
+ * iframe embed for the office (no Maps JavaScript API key required).
+ */
+export function getGoogleMapsOfficeEmbedUrl(): string {
+  const q = encodeURIComponent(getOfficeAddressQuery())
+  return `https://maps.google.com/maps?q=${q}&hl=en&z=15&output=embed`
+}
+
+/** iframe embed centered on coordinates (no API key). */
+export function getGoogleMapsEmbedUrlForCoords(lat: number, lng: number, zoom = 14): string {
+  return `https://maps.google.com/maps?q=${lat},${lng}&hl=en&z=${zoom}&output=embed`
+}
+
+/** Summerlin / service-area map for site-wide “area overview” sections. */
+export function getGoogleMapsServiceAreaEmbedUrl(): string {
+  return getGoogleMapsEmbedUrlForCoords(
+    SERVICE_AREA_MAP_CENTER.lat,
+    SERVICE_AREA_MAP_CENTER.lng,
+    SERVICE_AREA_MAP_ZOOM
+  )
 }
 
 /**
