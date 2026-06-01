@@ -6,7 +6,13 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import ExternalLink from '@/components/ExternalLink'
-import { GBP, GBP_SERVICE_AREA, getGoogleMapsDirectionsUrlToOffice, OFFICE_GEO } from '@/config/gbp'
+import {
+  GBP,
+  GBP_SERVICE_AREA,
+  getGoogleBusinessProfileUrl,
+  getGoogleMapsDirectionsUrlToOffice,
+  OFFICE_GEO,
+} from '@/config/gbp'
 
 interface GoogleBusinessProfileProps {
   className?: string
@@ -35,9 +41,9 @@ const BUSINESS_INFO = {
     weekends: 'Saturday - Sunday: 9:00 AM - 5:00 PM',
     note: 'Open 9 AM–5 PM every day (per Google Business Profile)'
   },
-  googleBusinessUrl: process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL || 'https://www.google.com/maps/place/?q=Open+House+Market+Place+Las+Vegas+NV',
+  googleBusinessUrl: getGoogleBusinessProfileUrl(),
   directionsUrl: getGoogleMapsDirectionsUrlToOffice(),
-  reviewsUrl: (process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL || 'https://www.google.com/maps/place/?q=Open+House+Market+Place+Las+Vegas+NV') + (process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL ? '' : '&action=reviews')
+  reviewsUrl: getGoogleBusinessProfileUrl(),
 }
 
 export default function GoogleBusinessProfile({ 

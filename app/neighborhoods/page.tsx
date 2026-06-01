@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Summerlin Neighborhoods | Communities & Areas',
     description: 'Explore Summerlin neighborhoods and find your perfect community. Homes, schools, amenities, and local expertise.',
     url: `${BASE_URL}/neighborhoods`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 

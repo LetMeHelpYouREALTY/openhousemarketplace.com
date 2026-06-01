@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import StructuredData from '@/components/StructuredData'
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'Disclaimer | Open House Market Place',
     description: 'Legal disclaimer for Open House Market Place. Important information about the use of our website and services.',
     url: `${BASE_URL}/disclaimer`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 

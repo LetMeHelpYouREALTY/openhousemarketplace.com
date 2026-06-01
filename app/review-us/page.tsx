@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: 'Review us on Google | Dr. Jan Duffy Real Estate',
     description: 'Leave a review for Dr. Jan Duffy. Share our review link or QR code.',
     url: `${BASE_URL}/review-us`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 

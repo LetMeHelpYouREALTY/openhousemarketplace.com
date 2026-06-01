@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: 'Open House Sign-In | Schedule a Tour | Dr. Jan Duffy',
       description: 'Schedule a private tour with Dr. Jan Duffy or sign in at the open house. Summerlin real estate.',
       url: `${BASE_URL}/open-house-signin/${listingId}`,
-      images: ['/images/og/og-image.jpg'],
+      images: [DEFAULT_OG_IMAGE_PATHS[0]],
     },
   }
 }

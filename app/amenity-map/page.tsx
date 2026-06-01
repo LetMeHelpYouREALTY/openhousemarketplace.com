@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import AmenityMap from '@/components/AmenityMap'
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Amenity Map | Nearby Places in Summerlin',
     description: 'Find restaurants, parks, parking, cafes, and more near Summerlin and Las Vegas.',
     url: `${BASE_URL}/amenity-map`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 

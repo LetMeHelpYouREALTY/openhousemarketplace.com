@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: 'MLS Property Search | Summerlin Real Estate',
     description: 'Search the full MLS database of homes for sale in Summerlin.',
     url: `${BASE_URL}/tour/mls`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 

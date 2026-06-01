@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import { storeLocations } from '@/data/storeLocations'
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: 'Get Directions | Plan Your Visit',
     description: 'Plan your visit with directions and estimated travel time across different transportation modes.',
     url: `${BASE_URL}/directions`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 

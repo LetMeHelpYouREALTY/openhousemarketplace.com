@@ -6,7 +6,7 @@
  * LocalBusiness data follows config/gbp.ts (site supports the Google Business Profile).
  */
 import { usePathname } from 'next/navigation'
-import { GBP, getAreaServedJsonLd, getBusinessSameAsUrls, OFFICE_GEO } from '@/config/gbp'
+import { GBP, getAreaServedJsonLd, getBusinessSameAsUrls, getGbpAggregateRating, OFFICE_GEO } from '@/config/gbp'
 import { getSiteUrl } from '@/lib/site'
 import { SEO_HOME_DESCRIPTION, SEO_OPEN_HOUSES_DESCRIPTION, SEO_PRIMARY_KEYWORD } from '@/config/seo'
 
@@ -133,6 +133,11 @@ export default function GoogleEnhancement() {
       'Home Selling',
     ],
     sameAs: getBusinessSameAsUrls(),
+    ...((): Record<string, unknown> => {
+      const rating = getGbpAggregateRating()
+      if (!rating) return {}
+      return { aggregateRating: { '@type': 'AggregateRating', ...rating } }
+    })(),
   }
 
   const webPage = {

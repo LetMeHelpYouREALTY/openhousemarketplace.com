@@ -1,6 +1,12 @@
 import { Metadata } from "next"
 import { BASE_URL } from '@/lib/metadata-utils'
 import { HOME_PAGE_FAQS, SEO_HOME_DESCRIPTION, SEO_HOME_TITLE } from '@/config/seo'
+import {
+  OG_IMAGE_DEFAULT_ALT,
+  OG_IMAGE_DEFAULT_HEIGHT,
+  OG_IMAGE_DEFAULT_PATH,
+  OG_IMAGE_DEFAULT_WIDTH,
+} from '@/config/og'
 
 import SummerlinOpenHouseWebsite from "components/SummerlinOpenHouseWebsite"
 import StructuredData from "@/components/StructuredData"
@@ -35,10 +41,10 @@ export const metadata: Metadata = {
     description: SEO_HOME_DESCRIPTION,
     images: [
       {
-        width: 1200,
-        height: 630,
-        url: `${BASE_URL}/images/og/og-image.jpg`,
-        alt: 'Summerlin Las Vegas Open Houses - Dr. Jan Duffy Real Estate',
+        url: `${BASE_URL}${OG_IMAGE_DEFAULT_PATH}`,
+        width: OG_IMAGE_DEFAULT_WIDTH,
+        height: OG_IMAGE_DEFAULT_HEIGHT,
+        alt: OG_IMAGE_DEFAULT_ALT,
       },
     ],
   },

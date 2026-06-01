@@ -21,14 +21,31 @@ export const GBP_WEBSITE_FIELD_URL = `${getSiteUrl()}/`
 /** Official Facebook Page (business profile). */
 export const FACEBOOK_PAGE_URL = 'https://www.facebook.com/OpenHouseMarketPlace' as const
 
-/** GBP + official social profiles for JSON-LD `sameAs` (GBP link from env when set). */
-export function getBusinessSameAsUrls(): string[] {
-  const urls: string[] = []
-  if (typeof process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL === 'string') {
-    urls.push(process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL)
+/** GBP share link documented on the profile (override with NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL in Vercel). */
+export const GBP_PROFILE_SHARE_URL = 'https://share.google/Jgb4vGEoabNywBkJW' as const
+
+/** Resolved GBP URL for maps, reviews, and schema `sameAs`. */
+export function getGoogleBusinessProfileUrl(): string {
+  const fromEnv = process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL
+  if (typeof fromEnv === 'string' && fromEnv.trim().length > 0) {
+    return fromEnv.trim()
   }
-  urls.push(FACEBOOK_PAGE_URL)
-  return urls
+  return GBP_PROFILE_SHARE_URL
+}
+
+/** GBP + official social profiles for JSON-LD `sameAs`. */
+export function getBusinessSameAsUrls(): string[] {
+  return [getGoogleBusinessProfileUrl(), FACEBOOK_PAGE_URL]
+}
+
+/** Optional aggregateRating from env (set when synced from GBP; omit from schema when unset). */
+export function getGbpAggregateRating():
+  | { ratingValue: string; reviewCount: string }
+  | undefined {
+  const ratingValue = process.env.NEXT_PUBLIC_GBP_RATING?.trim()
+  const reviewCount = process.env.NEXT_PUBLIC_GBP_REVIEW_COUNT?.trim()
+  if (!ratingValue || !reviewCount) return undefined
+  return { ratingValue, reviewCount }
 }
 
 /** Geocode for 11773 Cashmere Mist Ave (office pin; matches NAP). */

@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGES } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: 'Buyer Tools | Dr. Jan Duffy Real Estate',
     description: 'Mortgage calculator, schools, and buyer resources for Summerlin West.',
     url: `${BASE_URL}/buyers`,
-    images: [{ url: `${BASE_URL}/images/og/og-image.jpg`, width: 1200, height: 630, alt: 'Dr. Jan Duffy Real Estate' }],
+    images: [...DEFAULT_OG_IMAGES],
   },
 }
 

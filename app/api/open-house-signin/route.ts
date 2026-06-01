@@ -6,6 +6,8 @@ import {
   parseOpenHouseSignInBody,
   type OpenHouseSignIn,
 } from '@/lib/open-house-signin-schema'
+import { sendOpenHouseSignInEmail } from '@/lib/email'
+import { env } from '@/env.mjs'
 
 const LISTING_PREFIX = 'oh-signin:listing:'
 const SUBMISSIONS_PREFIX = 'oh-signin:submissions:'
@@ -94,9 +96,21 @@ export async function POST(request: NextRequest) {
       console.warn('FUB Registration event failed:', fubResult.error)
     }
 
-    // TODO: Send email notification to Dr. Jan Duffy (same pattern as app/api/contact/route.ts)
-    const emailContent = `Open House Sign-In: ${parsed.fullName} (${parsed.email}) at ${parsed.listingAddress || parsed.listingId}`
-    console.log('Open house sign-in (email stub):', emailContent)
+    if (env.RESEND_NOTIFY_EMAIL) {
+      const emailResult = await sendOpenHouseSignInEmail(
+        {
+          fullName: parsed.fullName,
+          email: parsed.email,
+          phone: parsed.phone,
+          listingAddress: parsed.listingAddress,
+          listingId: parsed.listingId,
+        },
+        env.RESEND_NOTIFY_EMAIL
+      )
+      if (!emailResult.success) {
+        console.warn('Open house sign-in email failed:', emailResult.error)
+      }
+    }
 
     return NextResponse.json({ success: true, id })
   } catch (err) {

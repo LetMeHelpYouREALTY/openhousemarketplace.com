@@ -10,6 +10,12 @@ import CalendlyBadgeWidget from "@/components/CalendlyBadgeWidget"
 import CalendlyCSS from "@/components/CalendlyCSS"
 import { getSiteUrl } from "@/lib/site"
 import { SEO_HOME_DESCRIPTION, SEO_HOME_TITLE } from "@/config/seo"
+import {
+  OG_IMAGE_DEFAULT_ALT,
+  OG_IMAGE_DEFAULT_HEIGHT,
+  OG_IMAGE_DEFAULT_PATH,
+  OG_IMAGE_DEFAULT_WIDTH,
+} from "@/config/og"
 import { getFacebookAppId } from "@/config/facebook"
 import FacebookPixel from "@/components/FacebookPixel"
 import RealScoutOfficeListingsBandsDynamic from "@/components/RealScoutOfficeListingsBandsDynamic"
@@ -51,7 +57,12 @@ export const metadata: Metadata = {
     siteName: 'Open House Market Place',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: [{ url: `${SITE_URL}/images/og/og-image.jpg`, width: 1200, height: 630, alt: 'Summerlin Las Vegas Open Houses - Dr. Jan Duffy Real Estate' }],
+    images: [{
+      url: `${SITE_URL}${OG_IMAGE_DEFAULT_PATH}`,
+      width: OG_IMAGE_DEFAULT_WIDTH,
+      height: OG_IMAGE_DEFAULT_HEIGHT,
+      alt: OG_IMAGE_DEFAULT_ALT,
+    }],
   },
   twitter: {
     card: 'summary_large_image',

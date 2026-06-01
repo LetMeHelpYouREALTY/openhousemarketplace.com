@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: 'Schedule a Free Consultation | Dr. Jan Duffy',
     description: 'Book a free consultation to discuss your real estate goals. No obligation.',
     url: `${BASE_URL}/schedule-consultation`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 

@@ -2,6 +2,12 @@
 
 ## 2026
 
+### Site update (June 2026)
+
+* **Email:** Contact form and open house sign-in can send notifications via Resend when `RESEND_*` env vars are set; otherwise logs in dev (no simulated delay).
+* **SEO / GBP:** Default Google Business Profile URL in schema and UI from `config/gbp.ts`; optional `NEXT_PUBLIC_GBP_RATING` / `NEXT_PUBLIC_GBP_REVIEW_COUNT` for `aggregateRating` in LocalBusiness JSON-LD.
+* **Social:** Open Graph images use `/images/dr-jan-duffy.jpg` fallback until `public/images/og/og-image.jpg` is added (shared via `config/og.ts`).
+
 ### Site audit and optimization
 
 * **CTAs:** Aligned remaining pages to primary goal—about, schools, market-report, new-construction, open-house-signin, and OpenHouseSignInForm now use “Schedule a private showing” instead of “Book Your Tour” / “Schedule a Free Consultation.”
