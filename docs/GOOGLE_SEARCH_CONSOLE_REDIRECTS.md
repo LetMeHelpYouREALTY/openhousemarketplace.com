@@ -5,6 +5,30 @@
 - **Primary domain:** **https://www.openhousemarketplace.com** (with `www`) — this is the canonical domain for indexing and branding.
 - **Both hostnames in use:** Users and links may use either `openhousemarketplace.com` or `www.openhousemarketplace.com`. Traffic that arrives on non-www (or HTTP) is redirected to the primary www URL so there is a single canonical version in search.
 
+## GSC “Validation details” — Failed (expected)
+
+If Search Console shows **Validation Failed** under **Page indexing → Page with redirect**, with examples like:
+
+| URL (redirect source) | Expected |
+|------------------------|----------|
+| `http://openhousemarketplace.com/` | 301 → `https://www.openhousemarketplace.com/` |
+| `https://openhousemarketplace.com/` | 301 → `https://www.openhousemarketplace.com/` |
+| `http://www.openhousemarketplace.com/` | 301 → `https://www.openhousemarketplace.com/` |
+
+**Do not run “Validate fix” again** for this issue. Google’s validator checks whether those URLs become **indexable**; they should **keep redirecting**, so validation will keep failing. That is not a site bug.
+
+**What to do instead:**
+
+1. Monitor the **`https://www.openhousemarketplace.com`** property (URL-prefix or domain property that treats **www** as canonical).
+2. In **Pages**, confirm **`https://www.openhousemarketplace.com/`** and key paths are **Indexed** (200, not redirect).
+3. Submit **`https://www.openhousemarketplace.com/sitemap.xml`** in that property (sitemap URLs are already **www** only).
+4. Set Google Business Profile **Website** to **`https://www.openhousemarketplace.com/`** so fewer crawls start on apex/http URLs.
+5. In the redirect report, use **Dismiss** / stop validating if Google offers it — or ignore the row count for intentional redirect sources.
+
+“Sitemap: All known pages” on this report only means Google associated those URLs with your site; it does **not** mean the sitemap lists non-www URLs ([`app/sitemap.ts`](../app/sitemap.ts) uses `getSiteUrl()` → **www** only).
+
+---
+
 ## Why you see "Page with redirect"
 
 The site is configured so **https://www.openhousemarketplace.com** is the only canonical domain. All other variants redirect to it with a **301 (permanent)** redirect:
