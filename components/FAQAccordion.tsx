@@ -36,7 +36,7 @@ export default function FAQAccordion({ faqs, title = 'Frequently Asked Questions
                 id={`faq-question-${index}`}
               >
                 <span className="text-lg font-semibold text-gray-900">
-                  <span className="text-blue-600 mr-2">Q:</span>
+                  <span className="text-brand-teal mr-2">Q:</span>
                   {faq.question}
                 </span>
                 <span className="shrink-0 text-gray-500 text-xl" aria-hidden>
@@ -51,7 +51,7 @@ export default function FAQAccordion({ faqs, title = 'Frequently Asked Questions
               >
                 <div className="px-6 pb-4 pt-0">
                   <p className="text-gray-700 leading-relaxed border-t border-gray-100 pt-4">
-                    <span className="text-red-600 mr-2 font-semibold">A:</span>
+                    <span className="text-brand-teal mr-2 font-semibold">A:</span>
                     {faq.answer}
                   </p>
                 </div>

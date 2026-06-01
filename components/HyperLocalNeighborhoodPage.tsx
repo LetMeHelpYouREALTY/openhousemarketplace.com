@@ -73,7 +73,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             <p className="text-xl text-gray-200 mb-8">{description}</p>
             <button
               onClick={handleRealScoutClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+              className="bg-brand-teal hover:bg-brand-plum text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
             >
               View Available Homes
             </button>
@@ -88,7 +88,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             <button
               onClick={() => setActiveTab('overview')}
               className={`px-6 py-4 font-medium ${
-                activeTab === 'overview' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'
+                activeTab === 'overview' ? 'text-brand-teal border-b-2 border-brand-teal' : 'text-gray-600'
               }`}
             >
               Overview
@@ -96,7 +96,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             <button
               onClick={() => setActiveTab('market')}
               className={`px-6 py-4 font-medium ${
-                activeTab === 'market' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'
+                activeTab === 'market' ? 'text-brand-teal border-b-2 border-brand-teal' : 'text-gray-600'
               }`}
             >
               Market Stats
@@ -104,7 +104,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             <button
               onClick={() => setActiveTab('schools')}
               className={`px-6 py-4 font-medium ${
-                activeTab === 'schools' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'
+                activeTab === 'schools' ? 'text-brand-teal border-b-2 border-brand-teal' : 'text-gray-600'
               }`}
             >
               Schools
@@ -112,7 +112,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             <button
               onClick={() => setActiveTab('amenities')}
               className={`px-6 py-4 font-medium ${
-                activeTab === 'amenities' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'
+                activeTab === 'amenities' ? 'text-brand-teal border-b-2 border-brand-teal' : 'text-gray-600'
               }`}
             >
               Amenities
@@ -137,19 +137,19 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Current Market Snapshot</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">{marketStats.medianPrice}</div>
+                      <div className="text-2xl font-bold text-brand-teal">{marketStats.medianPrice}</div>
                       <div className="text-sm text-gray-600">Median Price</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">{marketStats.daysOnMarket}</div>
+                      <div className="text-2xl font-bold text-brand-teal">{marketStats.daysOnMarket}</div>
                       <div className="text-sm text-gray-600">Days on Market</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">{marketStats.activeListings}</div>
+                      <div className="text-2xl font-bold text-brand-teal">{marketStats.activeListings}</div>
                       <div className="text-sm text-gray-600">Active Listings</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">{marketStats.pricePerSqFt}</div>
+                      <div className="text-2xl font-bold text-brand-teal">{marketStats.pricePerSqFt}</div>
                       <div className="text-sm text-gray-600">Price/Sq.Ft</div>
                     </div>
                   </div>
@@ -167,7 +167,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                       <div className="text-sm text-gray-600">Median Home Price</div>
                       <div className="text-xl font-bold text-gray-900">{marketStats.medianPrice}</div>
                     </div>
-                    <div className="text-sm text-green-600">
+                    <div className="text-sm text-brand-teal">
                       {marketStats.monthlyChange} from last month
                     </div>
                   </div>
@@ -177,7 +177,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                       <div className="text-sm text-gray-600">Average Days on Market</div>
                       <div className="text-xl font-bold text-gray-900">{marketStats.daysOnMarket} days</div>
                     </div>
-                    <Clock className="h-6 w-6 text-blue-600" />
+                    <Clock className="h-6 w-6 text-brand-teal" />
                   </div>
                   
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
@@ -185,7 +185,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                       <div className="text-sm text-gray-600">Active Listings</div>
                       <div className="text-xl font-bold text-gray-900">{marketStats.activeListings}</div>
                     </div>
-                    <Home className="h-6 w-6 text-blue-600" />
+                    <Home className="h-6 w-6 text-brand-teal" />
                   </div>
                   
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
@@ -193,7 +193,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                       <div className="text-sm text-gray-600">Price per Square Foot</div>
                       <div className="text-xl font-bold text-gray-900">{marketStats.pricePerSqFt}</div>
                     </div>
-                    <ChartBar className="h-6 w-6 text-blue-600" />
+                    <ChartBar className="h-6 w-6 text-brand-teal" />
                   </div>
                 </div>
               </div>
@@ -205,7 +205,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                 <div className="space-y-4">
                   {schools.map((school, index) => (
                     <div key={index} className="flex items-start p-4 bg-gray-50 rounded-lg">
-                      <School className="h-6 w-6 text-blue-600 mt-1 mr-4" />
+                      <School className="h-6 w-6 text-brand-teal mt-1 mr-4" />
                       <div>
                         <div className="font-medium text-gray-900">{school.name}</div>
                         <div className="text-sm text-gray-600">{school.type}</div>
@@ -225,9 +225,9 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                   {amenities.map((amenity, index) => (
                     <div key={index} className="flex items-start p-4 bg-gray-50 rounded-lg">
                       {amenity.type === 'park' ? (
-                        <Leaf className="h-6 w-6 text-green-600 mt-1 mr-4" />
+                        <Leaf className="h-6 w-6 text-brand-teal mt-1 mr-4" />
                       ) : (
-                        <MapPin className="h-6 w-6 text-blue-600 mt-1 mr-4" />
+                        <MapPin className="h-6 w-6 text-brand-teal mt-1 mr-4" />
                       )}
                       <div>
                         <div className="font-medium text-gray-900">{amenity.name}</div>
@@ -259,19 +259,19 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
               <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Facts</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Car className="h-5 w-5 text-blue-600 mr-3" />
+                  <Car className="h-5 w-5 text-brand-teal mr-3" />
                   <span className="text-gray-600">15 minutes to Downtown</span>
                 </div>
                 <div className="flex items-center">
-                  <School className="h-5 w-5 text-blue-600 mr-3" />
+                  <School className="h-5 w-5 text-brand-teal mr-3" />
                   <span className="text-gray-600">Top-rated schools nearby</span>
                 </div>
                 <div className="flex items-center">
-                  <Leaf className="h-5 w-5 text-blue-600 mr-3" />
+                  <Leaf className="h-5 w-5 text-brand-teal mr-3" />
                   <span className="text-gray-600">Multiple parks and trails</span>
                 </div>
                 <div className="flex items-center">
-                  <Home className="h-5 w-5 text-blue-600 mr-3" />
+                  <Home className="h-5 w-5 text-brand-teal mr-3" />
                   <span className="text-gray-600">Gated communities available</span>
                 </div>
               </div>
@@ -280,7 +280,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             {/* CTA Button */}
             <button
               onClick={handleRealScoutClick}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold text-lg shadow-lg"
+              className="w-full bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-lg font-bold text-lg shadow-lg"
             >
               View All {name} Listings
             </button>

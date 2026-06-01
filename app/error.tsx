@@ -18,7 +18,7 @@ export default function Error({
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 py-16">
       <div className="max-w-md w-full text-center">
-        <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" aria-hidden />
+        <AlertCircle className="h-16 w-16 text-brand-teal mx-auto mb-4" aria-hidden />
         <h1 className="text-2xl font-bold text-gray-900 mb-2">Something went wrong</h1>
         <p className="text-gray-600 mb-8">
           We couldn&apos;t load this page. Please try again or return home.
@@ -27,7 +27,7 @@ export default function Error({
           <button
             type="button"
             onClick={reset}
-            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-xl font-semibold transition-colors"
           >
             <RefreshCw className="h-5 w-5" aria-hidden />
             Try again

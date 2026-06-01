@@ -128,17 +128,17 @@ const ContactFormImproved: React.FC<ContactFormImprovedProps> = ({
       <CardContent>
         {/* Success Message */}
         {submitStatus === 'success' && (
-          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center">
-            <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-            <span className="text-green-800">Thank you! Your message has been sent. We'll get back to you soon.</span>
+          <div className="mb-6 p-4 bg-brand-mint/40 border border-brand-mint rounded-lg flex items-center">
+            <CheckCircle className="h-5 w-5 text-brand-teal mr-3" />
+            <span className="text-brand-plum">Thank you! Your message has been sent. We'll get back to you soon.</span>
           </div>
         )}
 
         {/* Error Message */}
         {submitStatus === 'error' && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center">
-            <AlertCircle className="h-5 w-5 text-red-500 mr-3" />
-            <span className="text-red-800">{errorMessage}</span>
+          <div className="mb-6 p-4 bg-brand-mint/40 border border-brand-mint rounded-lg flex items-center">
+            <AlertCircle className="h-5 w-5 text-brand-teal mr-3" />
+            <span className="text-brand-plum">{errorMessage}</span>
           </div>
         )}
         

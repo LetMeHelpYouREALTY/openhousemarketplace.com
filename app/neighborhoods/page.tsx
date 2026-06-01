@@ -74,7 +74,7 @@ export default function NeighborhoodsIndexPage() {
         }}
       />
       <div className="min-h-screen bg-gray-50">
-        <section className="relative bg-gradient-to-r from-blue-600 to-slate-700 text-white py-16 md:py-20 rounded-b-3xl">
+        <section className="relative bg-gradient-to-r from-brand-teal to-brand-plum text-white py-16 md:py-20 rounded-b-3xl">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Summerlin Neighborhoods
@@ -87,7 +87,7 @@ export default function NeighborhoodsIndexPage() {
 
         <div className="max-w-6xl mx-auto px-4 py-12">
           {/* Office / Search Listings first */}
-          <div className="mb-10 rounded-lg border border-blue-200 bg-blue-50 p-6">
+          <div className="mb-10 rounded-lg border border-brand-mint bg-brand-mint/40 p-6">
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Office</h2>
             <p className="text-gray-700 mb-4">
               Search all Summerlin listings with Dr. Jan Duffy&apos;s home search. Get alerts for new listings, price drops, and open houses.
@@ -95,7 +95,7 @@ export default function NeighborhoodsIndexPage() {
             <div className="flex flex-wrap gap-3">
               <ExternalLink
                 href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="inline-block bg-brand-teal text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-plum transition-colors"
                 showIcon={false}
               >
                 Search Listings
@@ -127,7 +127,7 @@ export default function NeighborhoodsIndexPage() {
               >
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{n.name}</h3>
                 <p className="text-gray-600">{n.shortDescription}</p>
-                <span className="inline-block mt-3 text-blue-600 font-medium">
+                <span className="inline-block mt-3 text-brand-teal font-medium">
                   View homes in {n.name} →
                 </span>
               </Link>
@@ -141,12 +141,12 @@ export default function NeighborhoodsIndexPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="inline-block bg-brand-teal text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-plum transition-colors"
             >
               Contact Dr. Jan Duffy
             </Link>
             <p className="text-sm text-gray-600 mt-4">
-              See <Link href="/sitemap" className="text-blue-600 hover:text-blue-800 font-medium">sitemap</Link> for all pages.
+              See <Link href="/sitemap" className="text-brand-teal hover:text-brand-plum font-medium">sitemap</Link> for all pages.
             </p>
           </div>
 

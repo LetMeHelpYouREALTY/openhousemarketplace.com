@@ -86,7 +86,7 @@ const SummerlinOpenHouseWebsite = () => {
                    )}
                  </div>
                  <div>
-                   <p className="text-blue-200 text-sm font-medium">DR. JAN DUFFY</p>
+                   <p className="text-brand-mint text-sm font-medium">DR. JAN DUFFY</p>
                    <p className="text-white text-lg font-semibold">Your Local Research-Driven Expert</p>
                  </div>
                </div>
@@ -94,7 +94,7 @@ const SummerlinOpenHouseWebsite = () => {
                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                  {SEO_PRIMARY_KEYWORD}
                </h1>
-               <p className="text-lg sm:text-xl font-semibold text-blue-100 mb-4">
+               <p className="text-lg sm:text-xl font-semibold text-brand-mint/90 mb-4">
                  Your local research-driven expert for Summerlin West &amp; Las Vegas—Dr. Jan Duffy, {GBP.name}
                </p>
                <p className="text-base sm:text-xl mb-4 text-white">
@@ -257,7 +257,7 @@ const SummerlinOpenHouseWebsite = () => {
                     <p className="text-brand-teal font-semibold mb-3">{neighborhood.priceRange}</p>
                     <div className="flex flex-wrap gap-2 mb-3">
                       {neighborhood.highlights.map(highlight => (
-                        <span key={highlight} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
+                        <span key={highlight} className="bg-brand-mint text-brand-plum px-2 py-1 rounded text-sm">
                           {highlight}
                         </span>
                       ))}

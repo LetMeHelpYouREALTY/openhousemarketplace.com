@@ -28,7 +28,7 @@ export default function RealScoutSearchCard() {
           <div className="animate-pulse">
             <div className="h-12 bg-gray-200 rounded-lg mb-3"></div>
             <div className="h-12 bg-gray-200 rounded-lg mb-3"></div>
-            <div className="h-12 bg-red-200 rounded-lg"></div>
+            <div className="h-12 bg-brand-mint rounded-lg"></div>
           </div>
         )}
         {/* @ts-expect-error - Web component is defined at runtime */}
@@ -41,15 +41,15 @@ export default function RealScoutSearchCard() {
 
       <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200 mt-6">
         <div className="text-center">
-          <div className="text-lg sm:text-2xl font-bold text-blue-600">6</div>
+          <div className="text-lg sm:text-2xl font-bold text-brand-teal">6</div>
           <div className="text-xs text-gray-600">Open Houses</div>
         </div>
         <div className="text-center">
-          <div className="text-lg sm:text-2xl font-bold text-blue-600">14</div>
+          <div className="text-lg sm:text-2xl font-bold text-brand-teal">14</div>
           <div className="text-xs text-gray-600">Avg Days</div>
         </div>
         <div className="text-center">
-          <div className="text-lg sm:text-2xl font-bold text-blue-600">98%</div>
+          <div className="text-lg sm:text-2xl font-bold text-brand-teal">98%</div>
           <div className="text-xs text-gray-600">Success Rate</div>
         </div>
       </div>
@@ -57,7 +57,7 @@ export default function RealScoutSearchCard() {
       <div className="mt-4 text-center">
         <ExternalLink
           href="https://drjanduffy.realscout.com"
-          className="inline-block py-2.5 text-sm text-blue-600 hover:text-blue-700 font-medium"
+          className="inline-block py-2.5 text-sm text-brand-teal hover:text-brand-plum font-medium"
           showIcon={false}
         >
           Advanced Search Options →

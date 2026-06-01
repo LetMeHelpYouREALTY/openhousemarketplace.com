@@ -20,7 +20,7 @@ export default function RealScoutOfficeListingsBands() {
           </h2>
           <p className="mt-2 text-gray-600">
             Live MLS listings from Dr. Jan Duffy — $400K to $900K, sorted low to high. For more filters, use the{' '}
-            <a href="/tour/mls" className="font-semibold text-blue-600 hover:underline">
+            <a href="/tour/mls" className="font-semibold text-brand-teal hover:underline">
               full MLS search
             </a>
             .

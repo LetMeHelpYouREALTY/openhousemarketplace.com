@@ -66,7 +66,7 @@ export default function OpenHouseGuidePage() {
                   {'url' in step && step.url ? (
                     <>
                       {' '}
-                      <Link href={step.url} className="text-blue-600 font-semibold hover:underline">
+                      <Link href={step.url} className="text-brand-teal font-semibold hover:underline">
                         Learn more
                       </Link>
                     </>
@@ -113,7 +113,7 @@ export default function OpenHouseGuidePage() {
                   agent-buyer relationship where that agent represents you in the transaction.
                 </li>
               </ol>
-              <p className="rounded-lg bg-blue-50 border border-blue-200 p-4 font-medium text-gray-900">
+              <p className="rounded-lg bg-brand-mint/40 border border-brand-mint p-4 font-medium text-gray-900">
                 <strong>Important:</strong> Open houses remain <strong>exempt</strong> from the
                 requirement to sign a buyer agreement before viewing. You do not have to commit to
                 an agent just to walk through an open house. That&apos;s a key advantage of
@@ -129,7 +129,7 @@ export default function OpenHouseGuidePage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">What This Means for You</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                You can still freely attend <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link>. You&apos;ll
+                You can still freely attend <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link>. You&apos;ll
                 typically be asked to sign in (digital or paper) for security and follow-up. The
                 agent at the open house represents the seller, not you.
               </p>
@@ -137,10 +137,10 @@ export default function OpenHouseGuidePage() {
                 Having your own buyer&apos;s agent gives you dedicated representation, negotiation
                 help, and access to off-market opportunities. Dr. Jan Duffy can serve as your
                 exclusive buyer&apos;s agent while you explore homes in{' '}
-                <Link href="/neighborhoods" className="text-blue-600 font-semibold hover:underline">Summerlin neighborhoods</Link> like The Ridges and Red Rock Country Club.
+                <Link href="/neighborhoods" className="text-brand-teal font-semibold hover:underline">Summerlin neighborhoods</Link> like The Ridges and Red Rock Country Club.
               </p>
               <p>
-                Questions? <Link href="/contact" className="text-blue-600 font-semibold hover:underline">Contact Dr. Jan Duffy</Link> for a no-pressure conversation about how
+                Questions? <Link href="/contact" className="text-brand-teal font-semibold hover:underline">Contact Dr. Jan Duffy</Link> for a no-pressure conversation about how
                 the new rules affect your home search.
               </p>
             </div>

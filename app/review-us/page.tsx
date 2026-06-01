@@ -51,7 +51,7 @@ export default function ReviewUsPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
         <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
           <ol className="flex flex-wrap gap-x-2 gap-y-1">
-            <li><Link href="/" className="hover:text-blue-600 transition-colors">Home</Link></li>
+            <li><Link href="/" className="hover:text-brand-plum transition-colors">Home</Link></li>
             <li aria-hidden>/</li>
             <li className="text-gray-700 font-medium" aria-current="page">Review us on Google</li>
           </ol>
@@ -76,7 +76,7 @@ export default function ReviewUsPage() {
           </p>
           <ExternalLink
             href={REVIEW_URL}
-            className="inline-flex items-center gap-2 bg-[#4285F4] hover:bg-[#3367D6] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center gap-2 bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-lg font-semibold transition-colors"
             showIcon={false}
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24" aria-hidden>
@@ -100,7 +100,7 @@ export default function ReviewUsPage() {
           <div className="flex flex-wrap gap-4">
             <ExternalLink
               href={whatsappShareUrl}
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-teal hover:bg-brand-plum text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
               ariaLabel="Share review link on WhatsApp"
               showIcon={false}
             >
@@ -111,7 +111,7 @@ export default function ReviewUsPage() {
             </ExternalLink>
             <ExternalLink
               href={facebookShareUrl}
-              className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#166FE5] text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-plum hover:bg-brand-teal text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
               ariaLabel="Share review link on Facebook"
               showIcon={false}
             >
@@ -131,7 +131,7 @@ export default function ReviewUsPage() {
           <div className="flex flex-col items-center mt-6">
             <ExternalLink
               href={REVIEW_URL}
-              className="block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
+              className="block focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 rounded-lg"
               ariaLabel="Open Google review page for Dr. Jan Duffy Real Estate"
               showIcon={false}
             >
@@ -157,7 +157,7 @@ export default function ReviewUsPage() {
             <li>
               <ExternalLink
                 href={GOOGLE_REVIEW_GUIDE}
-                className="text-blue-600 hover:underline font-medium"
+                className="text-brand-teal hover:underline font-medium"
                 ariaLabel="Share a link or QR code to request reviews (Google Help)"
               >
                 Share a link or QR code to request reviews (Google Help)
@@ -166,7 +166,7 @@ export default function ReviewUsPage() {
             <li>
               <ExternalLink
                 href={GOOGLE_TIPS_REVIEWS}
-                className="text-blue-600 hover:underline font-medium"
+                className="text-brand-teal hover:underline font-medium"
                 ariaLabel="Tips to get more reviews (Google Help)"
               >
                 Tips to get more reviews (Google Help)
@@ -176,7 +176,7 @@ export default function ReviewUsPage() {
         </section>
 
         <p className="mt-8 text-center">
-          <Link href="/contact" className="text-blue-600 hover:underline font-medium">
+          <Link href="/contact" className="text-brand-teal hover:underline font-medium">
             Contact Dr. Jan Duffy
           </Link>
         </p>

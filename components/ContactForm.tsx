@@ -125,17 +125,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
       
       {/* Success Message */}
       {submitStatus === 'success' && (
-        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center">
-          <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-          <span className="text-green-800">Thank you! Your message has been sent. We'll get back to you soon.</span>
+        <div className="mb-6 p-4 bg-brand-mint/40 border border-brand-mint rounded-lg flex items-center">
+          <CheckCircle className="h-5 w-5 text-brand-teal mr-3" />
+          <span className="text-brand-plum">Thank you! Your message has been sent. We'll get back to you soon.</span>
         </div>
       )}
 
       {/* Error Message */}
       {submitStatus === 'error' && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center">
-          <AlertCircle className="h-5 w-5 text-red-500 mr-3" />
-          <span className="text-red-800">{errorMessage}</span>
+        <div className="mb-6 p-4 bg-brand-mint/40 border border-brand-mint rounded-lg flex items-center">
+          <AlertCircle className="h-5 w-5 text-brand-teal mr-3" />
+          <span className="text-brand-plum">{errorMessage}</span>
         </div>
       )}
       
@@ -151,12 +151,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
               type="text"
               placeholder="Your Name"
               className={`w-full pl-10 pr-4 py-2 rounded-lg border text-gray-900 placeholder-gray-500 focus:outline-none ${
-                errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+                errors.name ? 'border-brand-plum focus:border-brand-plum' : 'border-gray-300 focus:border-brand-teal'
               }`}
             />
           </div>
           {errors.name && (
-            <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+            <p className="mt-1 text-sm text-brand-teal">{errors.name.message}</p>
           )}
         </div>
         
@@ -174,12 +174,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
               type="email"
               placeholder="Email Address"
               className={`w-full pl-10 pr-4 py-2 rounded-lg border text-gray-900 placeholder-gray-500 focus:outline-none ${
-                errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+                errors.email ? 'border-brand-plum focus:border-brand-plum' : 'border-gray-300 focus:border-brand-teal'
               }`}
             />
           </div>
           {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+            <p className="mt-1 text-sm text-brand-teal">{errors.email.message}</p>
           )}
         </div>
         
@@ -196,12 +196,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
               type="tel"
               placeholder="Phone Number (optional)"
               className={`w-full pl-10 pr-4 py-2 rounded-lg border text-gray-900 placeholder-gray-500 focus:outline-none ${
-                errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+                errors.phone ? 'border-brand-plum focus:border-brand-plum' : 'border-gray-300 focus:border-brand-teal'
               }`}
             />
           </div>
           {errors.phone && (
-            <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+            <p className="mt-1 text-sm text-brand-teal">{errors.phone.message}</p>
           )}
         </div>
 
@@ -211,7 +211,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               required: 'Please select how we can help you' 
             })}
             className={`w-full px-4 py-2 rounded-lg border text-gray-900 focus:outline-none ${
-              errors.contactType ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+              errors.contactType ? 'border-brand-plum focus:border-brand-plum' : 'border-gray-300 focus:border-brand-teal'
             }`}
           >
             <option value="">How can we help you?</option>
@@ -221,7 +221,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <option value="general">General inquiry</option>
           </select>
           {errors.contactType && (
-            <p className="mt-1 text-sm text-red-600">{errors.contactType.message}</p>
+            <p className="mt-1 text-sm text-brand-teal">{errors.contactType.message}</p>
           )}
         </div>
         
@@ -234,11 +234,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
             type="text"
             placeholder="Subject"
             className={`w-full px-4 py-2 rounded-lg border text-gray-900 placeholder-gray-500 focus:outline-none ${
-              errors.subject ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+              errors.subject ? 'border-brand-plum focus:border-brand-plum' : 'border-gray-300 focus:border-brand-teal'
             }`}
           />
           {errors.subject && (
-            <p className="mt-1 text-sm text-red-600">{errors.subject.message}</p>
+            <p className="mt-1 text-sm text-brand-teal">{errors.subject.message}</p>
           )}
         </div>
         
@@ -253,19 +253,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
               placeholder="Your message"
               rows={4}
               className={`w-full pl-10 pr-4 py-2 rounded-lg border text-gray-900 placeholder-gray-500 focus:outline-none resize-none ${
-                errors.message ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+                errors.message ? 'border-brand-plum focus:border-brand-plum' : 'border-gray-300 focus:border-brand-teal'
               }`}
             />
           </div>
           {errors.message && (
-            <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
+            <p className="mt-1 text-sm text-brand-teal">{errors.message.message}</p>
           )}
         </div>
         
         <button 
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center disabled:cursor-not-allowed"
+          className="w-full bg-brand-teal hover:bg-brand-plum disabled:bg-brand-stone text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>

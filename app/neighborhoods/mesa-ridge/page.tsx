@@ -104,7 +104,7 @@ export default function MesaRidgePage() {
               play without leaving home.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Mesa Ridge.
+              View <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Mesa Ridge.
             </p>
             <RelatedNeighborhoods currentSlug="mesa-ridge" className="mb-4" />
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Real Estate Opportunities in Mesa Ridge</h3>

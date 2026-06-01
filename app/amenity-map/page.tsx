@@ -56,7 +56,7 @@ export default function AmenityMapPage() {
           <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
             <ol className="flex flex-wrap gap-x-2 gap-y-1">
               <li>
-                <Link href="/" className="hover:text-blue-600 transition-colors">
+                <Link href="/" className="hover:text-brand-plum transition-colors">
                   Home
                 </Link>
               </li>
@@ -90,7 +90,7 @@ export default function AmenityMapPage() {
             <AmenityMap />
           </section>
 
-          <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-100">
+          <div className="mt-8 p-4 bg-brand-mint/40 rounded-lg border border-brand-mint">
             <p className="text-sm text-gray-700">
               <strong>Tip:</strong> This map shows places near Summerlin. Use the filters above to
               switch between restaurants, parks, cafes, grocery, gyms, and more. Click a marker for
@@ -104,27 +104,27 @@ export default function AmenityMapPage() {
               Summerlin West, Las Vegas, NV 89135
             </p>
             <p className="text-sm mb-3">
-              <a href="tel:+17022003422" className="text-blue-600 font-medium hover:underline">
+              <a href="tel:+17022003422" className="text-brand-teal font-medium hover:underline">
                 (702) 200-3422
               </a>
             </p>
             <div className="flex flex-wrap gap-3">
               <a
                 href="tel:+17022003422"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-teal hover:underline"
               >
                 Call
               </a>
               <ExternalLink
                 href="https://www.google.com/maps/dir/?api=1&destination=Summerlin+West,+Las+Vegas,+NV+89135"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-teal hover:underline"
                 showIcon={false}
               >
                 Directions
               </ExternalLink>
               <ExternalLink
                 href="https://www.google.com/maps/place/?q=Dr+Jan+Duffy+Real+Estate+Summerlin+West+Las+Vegas+NV&action=reviews"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-teal hover:underline"
                 showIcon={false}
               >
                 View Google Reviews

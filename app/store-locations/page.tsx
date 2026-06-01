@@ -54,7 +54,7 @@ export default function StoreLocationsPage() {
           <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
             <ol className="flex flex-wrap gap-x-2 gap-y-1">
               <li>
-                <Link href="/" className="hover:text-blue-600 transition-colors">
+                <Link href="/" className="hover:text-brand-plum transition-colors">
                   Home
                 </Link>
               </li>

@@ -42,7 +42,7 @@ export function PropertyCard({
           className="object-cover"
         />
         {openHouseDate && (
-          <Badge className="absolute top-2 right-2 bg-red-600 hover:bg-red-700">
+          <Badge className="absolute top-2 right-2 bg-brand-teal hover:bg-brand-plum">
             <Calendar className="h-3 w-3 mr-1" />
             Open House
           </Badge>
@@ -76,7 +76,7 @@ export function PropertyCard({
           </div>
         </div>
         {openHouseDate && (
-          <p className="mt-2 text-sm font-medium text-red-600">
+          <p className="mt-2 text-sm font-medium text-brand-teal">
             Open House: {openHouseDate}
           </p>
         )}

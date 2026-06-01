@@ -58,11 +58,11 @@ export default function BuyersPage() {
               description={
                 <>
                   Use the map to browse areas and context across Summerlin. For commute times, see{' '}
-                  <Link href="/directions" className="text-blue-600 font-medium hover:underline">
+                  <Link href="/directions" className="text-brand-teal font-medium hover:underline">
                     directions & commute explorer
                   </Link>
                   ; for community guides, see{' '}
-                  <Link href="/neighborhoods" className="text-blue-600 font-medium hover:underline">
+                  <Link href="/neighborhoods" className="text-brand-teal font-medium hover:underline">
                     all neighborhoods
                   </Link>
                   .
@@ -80,7 +80,7 @@ export default function BuyersPage() {
             </p>
             <Link
               href="/tour/mls"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-teal hover:bg-brand-plum text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors"
             >
               <Search className="h-5 w-5" aria-hidden />
               Search Listings

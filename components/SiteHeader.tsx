@@ -87,7 +87,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
                 href={href}
                 className={
                   primary
-                    ? 'block px-4 py-2 text-red-600 hover:bg-red-50 font-semibold'
+                    ? 'block px-4 py-2 text-brand-teal hover:bg-brand-mint/30 font-semibold'
                     : 'block px-4 py-2 text-gray-700 hover:bg-brand-mint/40 hover:text-brand-teal font-medium'
                 }
                 onClick={() => setOpen(false)}
@@ -121,7 +121,7 @@ export default function SiteHeader() {
             <Link href="/" className="px-3 py-2 rounded-lg text-gray-700 hover:text-brand-teal hover:bg-brand-mint/40 font-medium transition-colors">
               Home
             </Link>
-            <Link href="/tour/mls" className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 font-semibold transition-colors">
+            <Link href="/tour/mls" className="px-4 py-2 rounded-lg bg-brand-teal text-white hover:bg-brand-plum font-semibold transition-colors">
               Search Listings
             </Link>
             {NAV_GROUPS.map((group) => (
@@ -201,7 +201,7 @@ export default function SiteHeader() {
                   </Link>
                   <a
                     href={PHONE.href}
-                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-blue-600 text-white font-semibold"
+                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-brand-plum text-white font-semibold"
                   >
                     <Phone className="h-4 w-4" aria-hidden />
                     {PHONE.display}
@@ -230,7 +230,7 @@ export default function SiteHeader() {
                               onClick={() => setMobileOpen(false)}
                               className={
                                 primary
-                                  ? 'block px-3 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 font-semibold text-sm'
+                                  ? 'block px-3 py-2 rounded-lg bg-brand-teal text-white hover:bg-brand-plum font-semibold text-sm'
                                   : 'block px-3 py-2 rounded-lg text-gray-700 hover:bg-brand-mint/40 hover:text-brand-teal font-medium text-sm'
                               }
                             >

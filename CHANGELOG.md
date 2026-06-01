@@ -4,6 +4,8 @@
 
 ### Site update (June 2026)
 
+* **SEO / GEO / AEO sitewide:** `PageIndexingEnhancement` on all 41 marketing sitemap URLs; expanded `config/indexing-pages.ts` (home, open houses, neighborhoods hub, amenity map, store locations, consultation, sitemap, disclaimer, four luxury villages).
+* **Brand palette (sitewide):** `config/brand.ts`, `lib/brand-classes.ts`, Tailwind `brand-*` tokens; 70+ app pages and shared components migrated from legacy blue/red/green; RealScout widget CSS, Calendly badge, map markers, and `themeColor` use palette; header, footer, homepage, and enhancement sections updated.
 * **Vercel deploy audit:** Document repo transfer (LetMeHelpYouREALTY vs DrJanDuffy), correct `prj_UH4vlCl7EkB4ipEIvu7kflQN3p2E`, stale production SHA; GitHub Actions guard for drjanduffy project ID.
 * **GSC canonical:** `/index`, `/index/`, `/index.html` → **301** to `/` (Vercel edge, `next.config`, middleware, `app/index/route.ts`) — fixes “Duplicate without user-selected canonical”.
 * **GSC indexing:** `PageIndexingEnhancement` + `config/indexing-pages.ts` (FAQs, speakable summaries, internal links) on 28 discovered URLs; privacy/terms set to `index`; sitemap `lastModified`; home-buying HowTo.
