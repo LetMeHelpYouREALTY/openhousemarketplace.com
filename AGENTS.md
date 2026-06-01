@@ -14,3 +14,5 @@ Before substantive edits:
 NAP and business facts: **`config/gbp.ts`** is the source of truth.
 
 **Scheduling / leads:** Calendly is the primary UX; a **Follow Up Boss API key is not required** in Vercel for normal operation. Optional FUB env vars are documented in **[docs/klb-vercel-playbook.md](docs/klb-vercel-playbook.md)** and [`.env.example`](.env.example).
+
+**Deploy:** Always target **production** (`vercel deploy --prod`), not preview. See **[docs/VERCEL_DEPLOYMENT.md](docs/VERCEL_DEPLOYMENT.md)**. Merge agent work to **`main`** when possible; Vercel Git auto-builds only `main`.

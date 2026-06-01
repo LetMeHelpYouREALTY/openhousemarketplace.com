@@ -1,4 +1,5 @@
 # Backup deploy when Vercel Git integration does not run.
+# Always targets production (--prod), including cursor/* agent branches.
 # Secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID — see docs/VERCEL_DEPLOYMENT.md
 # VERCEL_PROJECT_ID must be the openhousemarketplace.com project (not drjanduffy.com).
 
@@ -79,15 +80,11 @@ jobs:
         if: steps.secrets.outputs.skip == 'false'
         run: npm install -g vercel@latest
 
-      - name: Deploy to Vercel (remote build)
+      - name: Deploy to Vercel production (remote build)
         if: steps.secrets.outputs.skip == 'false'
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
           set -euo pipefail
-          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            vercel deploy --prod --yes --token="${{ secrets.VERCEL_TOKEN }}"
-          else
-            vercel deploy --yes --token="${{ secrets.VERCEL_TOKEN }}"
-          fi
+          vercel deploy --prod --yes --token="${{ secrets.VERCEL_TOKEN }}"

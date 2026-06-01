@@ -76,20 +76,31 @@ Validation step should log: `VERCEL_PROJECT_ID resolves to Vercel project: openh
 
 ## Deploy paths
 
+### Production only (no preview URLs)
+
+| Mechanism | Behavior |
+|-----------|----------|
+| **Vercel Git** | Only **`main`** auto-builds (`vercel.json` → `git.deploymentEnabled`, `ignoreCommand` skips other branches). |
+| **GitHub Actions** | Runs on `main` and `cursor/**`; always **`vercel deploy --prod`** (never preview). |
+
+Agent branches (`cursor/*`) update production via Actions when secrets are set. Prefer merging to **`main`** so Vercel Git and Actions stay aligned.
+
+**Vercel dashboard (verify once):** Project → **Settings → Git** → Production Branch = **`main`**. Optionally disable **Automatic Preview Deployments**.
+
 ### A. Vercel Git integration (preferred after reconnect)
 
 Push to **`main`** → production deployment.
 
 ### B. GitHub Actions (backup)
 
-[`.github/workflows/vercel-deploy.yml`](../.github/workflows/vercel-deploy.yml) — `vercel deploy --prod` when secrets are correct.
+[`.github/workflows/vercel-deploy.yml`](../.github/workflows/vercel-deploy.yml) — `vercel deploy --prod` on every triggered branch when secrets are correct.
 
 ### C. Manual CLI
 
 ```bash
 pnpm install
 vercel link   # team + openhousemarketplace.com
-vercel deploy --prod --yes
+vercel deploy --prod --yes   # never omit --prod
 ```
 
 ---
