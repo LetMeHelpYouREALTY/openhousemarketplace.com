@@ -21,7 +21,7 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
   // Fallback center: office NAP (89138) when no locations
   const defaultCenter = firstLocation
     ? { lat: firstLocation.lat, lng: firstLocation.lng }
-    : { lat: 36.1907406, lng: -115.3661118 }
+    : { lat: OFFICE_GEO.lat, lng: OFFICE_GEO.lng }
   const defaultZoom = locations.length > 1 ? 11 : 14
 
   useEffect(() => {
