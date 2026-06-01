@@ -1,15 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import crypto from 'crypto'
 import { kv } from '@vercel/kv'
-import followupBossService from '@/lib/followupboss-service'
-import {
-  parseOpenHouseSignInBody,
-  type OpenHouseSignIn,
-} from '@/lib/open-house-signin-schema'
-import { sendOpenHouseSignInEmail } from '@/lib/email'
-import { env } from '@/env.mjs'
+import type { OpenHouseSignIn } from '@/lib/open-house-signin-schema'
+import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
+import { GBP } from '@/config/gbp'
 
-const LISTING_PREFIX = 'oh-signin:listing:'
 const SUBMISSIONS_PREFIX = 'oh-signin:submissions:'
 const SUBMISSION_PREFIX = 'oh-signin:submission:'
 const ADMIN_COOKIE = 'oh-admin-auth'
@@ -27,108 +22,16 @@ function isAdminAuthenticated(request: NextRequest): boolean {
   return !!expected && cookie === expected
 }
 
-function getClientIp(request: NextRequest): string | undefined {
-  return (
-    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
-    request.headers.get('x-real-ip') ??
-    undefined
+/** Public sign-in forms are disabled; QR pages use Calendly only. */
+export async function POST() {
+  return NextResponse.json(
+    {
+      error: 'Online sign-in forms are not available. Schedule a tour with Calendly or ask the agent at the open house.',
+      scheduleUrl: CALENDLY_OPEN_HOUSE_TOUR_URL,
+      email: GBP.email,
+    },
+    { status: 410 }
   )
-}
-
-export async function POST(request: NextRequest) {
-  try {
-    const body = await request.json()
-    const parsed = parseOpenHouseSignInBody(body)
-    const id = crypto.randomUUID()
-    const submittedAt = new Date().toISOString()
-    const ipAddress = getClientIp(request)
-
-    const record: OpenHouseSignIn = {
-      id,
-      listingId: parsed.listingId,
-      listingAddress: parsed.listingAddress ?? '',
-      fullName: parsed.fullName,
-      email: parsed.email,
-      phone: parsed.phone,
-      workingWithAgent: parsed.workingWithAgent,
-      agentName: parsed.agentName,
-      hearAboutSource: parsed.hearAboutSource,
-      preApproved: parsed.preApproved,
-      purchaseTimeline: parsed.purchaseTimeline,
-      interestedNeighborhoods: parsed.interestedNeighborhoods,
-      submittedAt,
-      ipAddress,
-    }
-
-    try {
-      await kv.set(`${SUBMISSION_PREFIX}${id}`, record)
-      await kv.lpush(`${SUBMISSIONS_PREFIX}${parsed.listingId}`, id)
-      if (parsed.listingAddress) {
-        await kv.set(`${LISTING_PREFIX}${parsed.listingId}`, {
-          listingAddress: parsed.listingAddress,
-        })
-      }
-    } catch (kvError) {
-      console.error('KV storage error:', kvError)
-      return NextResponse.json(
-        { error: 'Storage unavailable. Please try again.' },
-        { status: 503 }
-      )
-    }
-
-    const fubResult = await followupBossService.sendRegistrationEvent({
-      fullName: parsed.fullName,
-      email: parsed.email,
-      phone: parsed.phone,
-      listingAddress: parsed.listingAddress,
-      tags: ['Open House Lead', 'Summerlin'],
-      customFields: {
-        openHouseAddress: parsed.listingAddress ?? '',
-        preApproved: parsed.preApproved,
-        timeline: parsed.purchaseTimeline,
-        hearAbout: parsed.hearAboutSource,
-        workingWithAgent: parsed.workingWithAgent ? 'Yes' : 'No',
-        agentName: parsed.agentName ?? '',
-        interestedNeighborhoods: (parsed.interestedNeighborhoods ?? []).join(', '),
-      },
-    })
-    if (!fubResult.success) {
-      console.warn('FUB Registration event failed:', fubResult.error)
-    }
-
-    if (env.RESEND_NOTIFY_EMAIL) {
-      const emailResult = await sendOpenHouseSignInEmail(
-        {
-          fullName: parsed.fullName,
-          email: parsed.email,
-          phone: parsed.phone,
-          listingAddress: parsed.listingAddress,
-          listingId: parsed.listingId,
-        },
-        env.RESEND_NOTIFY_EMAIL
-      )
-      if (!emailResult.success) {
-        console.warn('Open house sign-in email failed:', emailResult.error)
-      }
-    }
-
-    return NextResponse.json({ success: true, id })
-  } catch (err) {
-    if (err && typeof err === 'object' && 'issues' in err) {
-      const msg = (err as { issues: { message: string }[] }).issues
-        ?.map((i) => i.message)
-        .join('; ')
-      return NextResponse.json(
-        { error: msg || 'Validation failed' },
-        { status: 400 }
-      )
-    }
-    console.error('Open house sign-in API error:', err)
-    return NextResponse.json(
-      { error: 'Failed to submit sign-in' },
-      { status: 500 }
-    )
-  }
 }
 
 export async function GET(request: NextRequest) {

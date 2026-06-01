@@ -25,7 +25,7 @@ Internal reference for **implementation** on this repo: stack, boundaries, and w
 | Integration | Notes |
 |-------------|--------|
 | **RealScout** | Script once in layout pattern; widgets use `dangerouslySetInnerHTML` where applicable. **CSP:** `em.realscout.com` + `www.realscout.com` in `script-src` and `connect-src` — see [`lib/csp-header.mjs`](../lib/csp-header.mjs). |
-| **Calendly** | Popup / inline widgets; **primary** scheduling and lead capture UX (replaces on-site forms for normal operation). |
+| **Calendly** | Popup / inline widgets; **only** public scheduling UX—no contact or sign-in forms on the site. Public contact email: `GBP.email` in [`config/gbp.ts`](../config/gbp.ts). |
 | **Google Analytics** | gtag in [`app/layout.tsx`](../app/layout.tsx); `afterInteractive` or as tuned for perf. |
 | **Google Maps** | API key via env; Maps Platform embeds (My Maps, Commutes, Neighborhood Discovery) URLs in `lib/google-*.ts`. |
 | **Follow Up Boss** | **Optional** legacy server integration [`lib/followupboss-service.ts`](../lib/followupboss-service.ts). No key required in Vercel unless you explicitly wire CRM sync. |

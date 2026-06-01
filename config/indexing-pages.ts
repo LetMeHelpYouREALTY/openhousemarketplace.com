@@ -294,7 +294,7 @@ export const INDEXING_PAGE_CONTENT: Record<string, IndexingPageContent> = {
       },
       {
         question: 'How do I contact you about privacy?',
-        answer: `Email jan@openhousemarketplace.com or call ${PHONE}. Our office is at ${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region}.`,
+        answer: `Email ${GBP.email} or call ${PHONE}. Our office is at ${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region}.`,
       },
     ],
     relatedLinks: [

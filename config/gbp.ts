@@ -7,6 +7,7 @@
  * - Name: Open House Market Place | Category: Real estate agent
  * - Phone: (702) 200-3422 | Chat/SMS: sms:+17022003422
  * - Website (GBP field): use **https://www.openhousemarketplace.com/** (canonical). If the profile still shows apex, update it in Google so it matches this site’s indexed URL.
+ * - Email: DrJanSells@OpenHouseMarketplace.com
  * - Address: 760 Windover Ct, Las Vegas, NV 89138
  * - Hours: daily 9:00 AM–5:00 PM. If Wednesday shows 5:00 AM in GBP, fix to 5:00 PM in Google Business Profile.
  * - Special: Apr 5, 2026 (Easter) — Closed
@@ -73,6 +74,8 @@ export const GBP = {
     postalCode: '89138',
     country: 'US',
   },
+  /** Public contact email (exact match to GBP / site contact) */
+  email: 'DrJanSells@OpenHouseMarketplace.com',
   /** Main phone (exact match to GBP) */
   phone: '(702) 200-3422',
   /** E.164 for tel: and schema */

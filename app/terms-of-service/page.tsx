@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { BASE_URL } from '@/lib/metadata-utils'
+import { GBP } from '@/config/gbp'
 
 import StructuredData from '@/components/StructuredData'
 import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
@@ -109,7 +110,7 @@ export default function TermsOfServicePage() {
                 If you have any questions about these Terms of Service, please contact us at:
               </p>
               <p>
-                <strong>Email:</strong> contact@openhousemarketplace.com<br />
+                <strong>Email:</strong> {GBP.email}<br />
                 <strong>Phone:</strong> (702) 200-3422
               </p>
             </section>

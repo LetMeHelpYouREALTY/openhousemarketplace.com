@@ -176,7 +176,12 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({ neighborhood }) => 
                      </div>
                     <div className="flex items-center">
                       <Mail className="h-4 w-4 text-blue-600 mr-3" />
-                      <span className="text-gray-600">jan@summerlinexpert.com</span>
+                      <a
+                        href={`mailto:${GBP.email}`}
+                        className="text-gray-600 hover:text-blue-600 transition-colors break-all"
+                      >
+                        {GBP.email}
+                      </a>
                     </div>
                     <div className="flex items-center">
                       <Award className="h-4 w-4 text-blue-600 mr-3" />

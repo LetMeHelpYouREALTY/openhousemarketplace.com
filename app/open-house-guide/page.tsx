@@ -128,8 +128,9 @@ export default function OpenHouseGuidePage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">What This Means for You</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                You can still freely attend <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link>. You&apos;ll
-                typically be asked to sign in (digital or paper) for security and follow-up. The
+                You can still freely attend <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link>. You may be
+                asked to sign in on paper at the door for security and follow-up, or you can{' '}
+                <Link href="/book-tour" className="text-blue-600 font-semibold hover:underline">schedule a private showing online</Link> with Dr. Jan Duffy. The
                 agent at the open house represents the seller, not you.
               </p>
               <p>

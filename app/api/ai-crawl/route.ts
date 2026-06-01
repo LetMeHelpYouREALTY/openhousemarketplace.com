@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { GBP } from '@/config/gbp'
 import { getSiteUrl } from '@/lib/site'
 
 export async function GET() {
@@ -49,7 +50,7 @@ export async function GET() {
     ],
     contact: {
       phone: '+1-702-200-3422',
-      email: 'jan@openhousemarketplace.com'
+      email: GBP.email
     },
     structuredData: {
       organization: true,
