@@ -26,7 +26,7 @@ const BUSINESS_INFO = {
   name: GBP.name,
   phone: GBP.phone,
   phoneLink: `tel:${GBP.phoneE164}`,
-  email: 'jan@openhousemarketplace.com',
+  email: GBP.email,
   address: {
     street: GBP.address.street,
     city: GBP.address.locality,

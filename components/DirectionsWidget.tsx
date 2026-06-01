@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { Navigation, Car, Footprints, Bike, Train, MapPin, Loader2 } from 'lucide-react'
 import { OFFICE_GEO } from '@/config/gbp'
 import type { StoreLocation } from '@/data/storeLocations'
@@ -29,7 +30,13 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
   if (destinations.length === 0) {
     return (
       <div className={`rounded-xl border border-gray-200 bg-gray-50 p-6 text-center ${className}`}>
-        <p className="text-gray-600">No destinations configured. Add locations in data/storeLocations.ts.</p>
+        <p className="text-gray-600">
+          Directions are temporarily unavailable.{' '}
+          <Link href="/store-locations" className="text-brand-teal font-medium hover:underline">
+            View our Summerlin office on the map
+          </Link>{' '}
+          or call us for help planning your visit.
+        </p>
       </div>
     )
   }

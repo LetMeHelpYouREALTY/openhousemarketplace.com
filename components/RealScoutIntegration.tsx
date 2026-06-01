@@ -76,7 +76,9 @@ const RealScoutIntegration = () => {
            </div>
           <div className="flex items-center">
             <Mail className="h-4 w-4 mr-1" />
-            <span>jan@summerlinexpert.com</span>
+            <a href={`mailto:${GBP.email}`} className="hover:text-brand-teal transition-colors">
+              {GBP.email}
+            </a>
           </div>
         </div>
       </div>

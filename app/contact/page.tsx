@@ -160,7 +160,7 @@ export default function ContactPage() {
           <Link href="/review-us" className="text-brand-teal hover:underline font-semibold">
             Leave a review on Google
           </Link>
-          <span className="text-gray-600"> — it helps other customers find us.</span>
+          <span className="text-gray-600"> — your review helps other buyers and sellers find us on Google.</span>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">

@@ -62,10 +62,12 @@ export default function ReviewUsPage() {
             Review us on Google
           </h1>
           <p className="text-lg text-gray-600">
-            Give customers a link to review your business on Google. Reviews build trust and help your Business Profile stand out to customers on Search and Maps.
+            If you toured an open house or worked with Dr. Jan Duffy, a Google review helps other Summerlin buyers and
+            sellers trust what they read on Search and Maps.
           </p>
           <p className="mt-2 text-gray-600">
-            Business Profiles with 5 or more reviews can get up to twice as many customers.
+            Profiles with more recent reviews often get stronger visibility when people search for a local real estate
+            agent.
           </p>
         </header>
 
@@ -95,7 +97,7 @@ export default function ReviewUsPage() {
         <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 md:p-8 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Share the review link</h2>
           <p className="text-gray-600 mb-4">
-            Share our review link on WhatsApp or Facebook so more customers can leave a review.
+            Share our review link on WhatsApp or Facebook so more buyers and sellers can leave a review.
           </p>
           <div className="flex flex-wrap gap-4">
             <ExternalLink
@@ -126,7 +128,7 @@ export default function ReviewUsPage() {
         <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 md:p-8 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Share your reviews QR code</h2>
           <p className="text-gray-600 mb-2">
-            Right-click the QR code and select &quot;Save Image As...&quot; so you can share your QR code with customers.
+            Right-click the QR code and select &quot;Save Image As...&quot; to share it after an open house or closing.
           </p>
           <div className="flex flex-col items-center mt-6">
             <ExternalLink

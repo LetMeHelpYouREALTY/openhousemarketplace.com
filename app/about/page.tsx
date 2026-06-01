@@ -375,7 +375,7 @@ export default function AboutPage() {
           <Link href="/review-us" className="text-brand-teal hover:underline font-semibold">
             Leave a review on Google
           </Link>
-          <span className="text-gray-600"> — reviews help other customers find us.</span>
+          <span className="text-gray-600"> — reviews help other buyers and sellers find us on Google.</span>
         </div>
 
         {/* Schedule consultation - Calendly inline widget */}

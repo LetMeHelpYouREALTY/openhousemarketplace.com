@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
+import { GBP, getGoogleBusinessProfileUrl, getGoogleMapsDirectionsUrlToOffice } from '@/config/gbp'
 import AmenityMap from '@/components/AmenityMap'
 import ExternalLink from '@/components/ExternalLink'
 import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
@@ -9,7 +10,8 @@ import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Amenity Map | Nearby Restaurants, Parks, Parking & More | Summerlin',
-  description: 'Explore nearby amenities in Summerlin and Las Vegas: restaurants, parks, parking, cafes, grocery stores, gyms, pharmacies, and more. Interactive map powered by Google Maps.',
+  description:
+    'Explore nearby amenities in Summerlin and Las Vegas: restaurants, parks, parking, cafes, grocery stores, gyms, pharmacies, and more near open house neighborhoods.',
   keywords: 'Summerlin amenities, nearby restaurants Summerlin, parks Las Vegas, parking Summerlin, cafes grocery gym pharmacy map',
   robots: {
     index: true,
@@ -73,7 +75,7 @@ export default function AmenityMapPage() {
             <p className="text-lg text-gray-600 max-w-2xl">
               Use the map below to find nearby places in Summerlin and Las Vegas. Select types such as
               restaurants, parks, parking, cafes, grocery stores, gas stations, gyms, and pharmacies.
-              Click a marker for the place name. Powered by Google Maps Platform.
+              Click a marker for details. Handy when you are touring open houses and want dining, parks, or errands nearby.
             </p>
           </header>
 
@@ -98,31 +100,32 @@ export default function AmenityMapPage() {
           </div>
 
           <div className="mt-8 p-4 rounded-lg border border-gray-200 bg-gray-50">
-            <h2 className="text-lg font-semibold text-gray-900 mb-2">Dr. Jan Duffy Real Estate</h2>
+            <h2 className="text-lg font-semibold text-gray-900 mb-2">{GBP.name}</h2>
             <p className="text-sm text-gray-700 mb-2">
-              Summerlin West, Las Vegas, NV 89135
+              {GBP.address.street}, {GBP.address.locality}, {GBP.address.region}{' '}
+              {GBP.address.postalCode}
             </p>
             <p className="text-sm mb-3">
-              <a href="tel:+17022003422" className="text-brand-teal font-medium hover:underline">
-                (702) 200-3422
+              <a href={`tel:${GBP.phoneE164}`} className="text-brand-teal font-medium hover:underline">
+                {GBP.phone}
               </a>
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href="tel:+17022003422"
+                href={`tel:${GBP.phoneE164}`}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-teal hover:underline"
               >
                 Call
               </a>
               <ExternalLink
-                href="https://www.google.com/maps/dir/?api=1&destination=Summerlin+West,+Las+Vegas,+NV+89135"
+                href={getGoogleMapsDirectionsUrlToOffice()}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-teal hover:underline"
                 showIcon={false}
               >
                 Directions
               </ExternalLink>
               <ExternalLink
-                href="https://www.google.com/maps/place/?q=Dr+Jan+Duffy+Real+Estate+Summerlin+West+Las+Vegas+NV&action=reviews"
+                href={getGoogleBusinessProfileUrl()}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-teal hover:underline"
                 showIcon={false}
               >
