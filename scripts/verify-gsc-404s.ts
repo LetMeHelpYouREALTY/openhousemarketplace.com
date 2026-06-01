@@ -52,9 +52,16 @@ async function fetchWithChain(url: string): Promise<Result> {
 
     const lastStep = chain[chain.length - 1]
     const lastStatus = lastStep?.status ?? res.status
+    const finalUrlNormalized = currentUrl.replace(/\/$/, '') || currentUrl
+    const wwwNormalized = WWW_ORIGIN.replace(/\/$/, '')
+    const isIndexRedirect =
+      url.includes('/index') &&
+      (lastStatus === 301 || lastStatus === 308) &&
+      (finalUrlNormalized === wwwNormalized || finalUrlNormalized === `${wwwNormalized}/`)
     const finalOk =
-      lastStatus === 200 &&
-      (currentUrl.startsWith(WWW_ORIGIN) || currentUrl.startsWith(`${WWW_ORIGIN}/`))
+      isIndexRedirect ||
+      (lastStatus === 200 &&
+        (currentUrl.startsWith(WWW_ORIGIN) || currentUrl.startsWith(`${WWW_ORIGIN}/`)))
     return {
       url,
       status: res.status,
@@ -97,7 +104,10 @@ async function main() {
   const sitemapCheck = await verifySitemapXml()
   const results: Result[] = []
 
-  for (const path of GSC_404_PATHS) {
+  const extraPaths = ['/index', '/index.html'] as const
+  const pathsToCheck = [...GSC_404_PATHS, ...extraPaths]
+
+  for (const path of pathsToCheck) {
     const pathSuffix = path === '/' ? '' : path
     const nonWwwUrl = `${NON_WWW_ORIGIN}${pathSuffix}`
     const wwwUrl = `${WWW_ORIGIN}${pathSuffix}`

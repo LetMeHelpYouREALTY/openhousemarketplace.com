@@ -4,6 +4,21 @@
   "buildCommand": "pnpm run build",
   "redirects": [
     {
+      "source": "/index",
+      "destination": "https://www.openhousemarketplace.com/",
+      "permanent": true
+    },
+    {
+      "source": "/index/",
+      "destination": "https://www.openhousemarketplace.com/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "https://www.openhousemarketplace.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "openhousemarketplace.com" }],
       "destination": "https://www.openhousemarketplace.com/:path*",

@@ -107,6 +107,23 @@ curl -sI "https://www.openhousemarketplace.com/"
 
 ---
 
+## "Duplicate without user-selected canonical" — `/index`
+
+GSC may list **`https://www.openhousemarketplace.com/index`** as a duplicate of the homepage without its own canonical. The homepage canonical is only on **`https://www.openhousemarketplace.com/`** — `/index` must **not** return 200 with the same HTML.
+
+**Fix (this repo):**
+
+| Layer | Behavior |
+|--------|----------|
+| [`vercel.json`](../vercel.json) | Edge **301** `/index`, `/index/`, `/index.html` → `https://www.openhousemarketplace.com/` |
+| [`next.config.mjs`](../next.config.mjs) | Framework **301** `/index` and `/index.html` → `/` |
+| [`middleware.ts`](../middleware.ts) | **301** `/index` and `/index/` → canonical origin `/` |
+| [`app/index/route.ts`](../app/index/route.ts) | Route handler **301** if a request reaches the app |
+
+**In Search Console:** After deploy, use URL Inspection on `/index` — expect **Redirect** to `/`. Then mark **Done fixing** for this issue. Do not link to `/index` internally; use `/` only.
+
+---
+
 ## "Crawled - currently not indexed" — Validation Failed (non-www URLs)
 
 ### GSC examples (expected)

@@ -33,6 +33,10 @@ const config = {
       { protocol: 'https', hostname: 'images.realscout.com' },
     ],
   },
+  redirects: async () => [
+    { source: '/index', destination: '/', permanent: true },
+    { source: '/index.html', destination: '/', permanent: true },
+  ],
   rewrites: async () => [
     { source: '/healthz', destination: '/api/health' },
     { source: '/api/healthz', destination: '/api/health' },

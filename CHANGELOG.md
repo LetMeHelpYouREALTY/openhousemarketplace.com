@@ -4,6 +4,7 @@
 
 ### Site update (June 2026)
 
+* **GSC canonical:** `/index`, `/index/`, `/index.html` → **301** to `/` (Vercel edge, `next.config`, middleware, `app/index/route.ts`) — fixes “Duplicate without user-selected canonical”.
 * **GSC indexing:** `PageIndexingEnhancement` + `config/indexing-pages.ts` (FAQs, speakable summaries, internal links) on 28 discovered URLs; privacy/terms set to `index`; sitemap `lastModified`; home-buying HowTo.
 * **GBP / NAP:** Office address updated to **760 Windover Ct, Las Vegas, NV 89138** (`config/gbp.ts`, map pin, directions, JSON-LD).
 * **Vercel:** Removed invalid `outputDirectory` from `vercel.json`; aligned install/build with pnpm; GitHub Actions deploy uses `vercel@latest`, validates `VERCEL_PROJECT_ID` targets openhousemarketplace (not drjanduffy.com); `docs/VERCEL_DEPLOYMENT.md` audit table and repo-transfer notes.
