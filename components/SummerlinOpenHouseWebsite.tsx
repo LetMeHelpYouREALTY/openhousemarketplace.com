@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import OptimizedImage from './OptimizedImage'
 import { Calendar, Home, Star, Phone, Award } from 'lucide-react'
+import { REALSCOUT_OFFICE_PRICE_RANGE_LABEL } from '@/config/realscout-office-bands'
 import RealScoutSearchCard from './RealScoutSearchCard'
 import RealScoutWidgetFrame from '@/components/conversion/RealScoutWidgetFrame'
 import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
@@ -176,7 +177,7 @@ const SummerlinOpenHouseWebsite = () => {
               <a href="#office-listings-bands" className="font-semibold text-brand-teal hover:text-brand-plum hover:underline">
                 office MLS listings
               </a>{' '}
-              ($400K–$900K), or use the full{' '}
+              ({REALSCOUT_OFFICE_PRICE_RANGE_LABEL}), or use the full{' '}
               <Link href="/tour/mls" className="font-semibold text-brand-teal hover:text-brand-plum hover:underline">
                 MLS property search
               </Link>{' '}

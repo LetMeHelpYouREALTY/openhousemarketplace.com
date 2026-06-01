@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { Search } from 'lucide-react'
 import ExternalLink from '@/components/ExternalLink'
+import { REALSCOUT_OFFICE_PRICE_RANGE_LABEL } from '@/config/realscout-office-bands'
 import { brandAccentBadgeClass } from '@/lib/brand-classes'
 
 export default function RealScoutSearchCard() {
@@ -27,7 +28,7 @@ export default function RealScoutSearchCard() {
     <div>
       <p className={`${brandAccentBadgeClass} mb-4`}>
         <Search className="h-4 w-4 text-brand-teal" aria-hidden />
-        MLS search — start here
+        MLS search — start here ({REALSCOUT_OFFICE_PRICE_RANGE_LABEL})
       </p>
       <div className="realscout-search-container conversion-pulse-ring rounded-xl p-1">
         {!isWidgetLoaded && (

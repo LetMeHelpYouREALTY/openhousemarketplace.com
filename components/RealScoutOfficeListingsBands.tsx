@@ -5,6 +5,7 @@ import { Home, Search } from 'lucide-react'
 import RealScoutWidget from '@/components/RealScoutWidget'
 import RealScoutWidgetFrame from '@/components/conversion/RealScoutWidgetFrame'
 import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
+import { REALSCOUT_OFFICE_PRICE_RANGE_LABEL } from '@/config/realscout-office-bands'
 import { brandLinkClass, brandSectionSurfaceClass } from '@/lib/brand-classes'
 
 /**
@@ -30,7 +31,7 @@ export default function RealScoutOfficeListingsBands() {
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-gray-600 text-base sm:text-lg">
             Tap a listing to view photos and details, save favorites, and request showings. Dr. Jan Duffy&apos;s
-            office inventory ($400K–$900K) is sorted below — use filters on the{' '}
+            office inventory ({REALSCOUT_OFFICE_PRICE_RANGE_LABEL}) is sorted below — use filters on the{' '}
             <Link href="/tour/mls" className={brandLinkClass}>
               full MLS search page
             </Link>

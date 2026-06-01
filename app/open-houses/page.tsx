@@ -8,6 +8,7 @@ import {
 } from '@/config/seo'
 
 import Link from 'next/link'
+import { REALSCOUT_OFFICE_PRICE_RANGE_LABEL } from '@/config/realscout-office-bands'
 import RealScoutWidget from '@/components/RealScoutWidget'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
@@ -173,7 +174,7 @@ export default function OpenHousesPage() {
             Homes for sale — office listings
           </h2>
           <p className="mb-8 text-center text-gray-600">
-            Live MLS listings from Dr. Jan Duffy&apos;s office (sorted low to high, $400K–$900K — same range as the site-wide office bands). For the full search experience, visit{' '}
+            Live MLS listings from Dr. Jan Duffy&apos;s office (sorted low to high, {REALSCOUT_OFFICE_PRICE_RANGE_LABEL} — same range as the site-wide office bands). For the full search experience, visit{' '}
             <Link href="/tour/mls" className="font-semibold text-brand-teal hover:underline">
               MLS property search
             </Link>

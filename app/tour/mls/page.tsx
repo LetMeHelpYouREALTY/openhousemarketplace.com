@@ -10,6 +10,7 @@ import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 import MarketingHero from '@/components/conversion/MarketingHero'
 import RealScoutWidgetFrame from '@/components/conversion/RealScoutWidgetFrame'
 import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
+import { REALSCOUT_OFFICE_PRICE_RANGE_LABEL } from '@/config/realscout-office-bands'
 import { brandCardClass } from '@/lib/brand-classes'
 
 const REALSCOUT_SEARCH_URL =
@@ -60,7 +61,7 @@ export default function TourMLSPage() {
               id="mls-advanced-search"
               stepLabel="Search"
               title="Find your perfect home"
-              description="Enter price, beds, and neighborhood — results update live from MLS."
+              description={`Search Summerlin MLS listings. Office grid below is filtered to ${REALSCOUT_OFFICE_PRICE_RANGE_LABEL}.`}
             >
               <RealScoutSearchCard />
             </RealScoutWidgetFrame>
@@ -71,7 +72,7 @@ export default function TourMLSPage() {
               id="mls-office-grid"
               stepLabel="Browse"
               title="Live Summerlin West listings"
-              description="Office inventory sorted low to high. Open any listing to schedule a tour."
+              description={`Office inventory (${REALSCOUT_OFFICE_PRICE_RANGE_LABEL}), sorted low to high. Open any listing to schedule a tour.`}
             >
               <RealScoutWidget className="min-h-[320px]" />
             </RealScoutWidgetFrame>
