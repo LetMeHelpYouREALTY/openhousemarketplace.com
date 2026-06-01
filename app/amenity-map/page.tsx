@@ -6,6 +6,18 @@ import AmenityMap from '@/components/AmenityMap'
 import ExternalLink from '@/components/ExternalLink'
 import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import StructuredData from '@/components/StructuredData'
+import { GBP, getGoogleMapsDirectionsUrlToOffice } from '@/config/gbp'
+
+const BUSINESS = {
+  name: GBP.name,
+  phone: GBP.phone,
+  phoneLink: `tel:${GBP.phoneE164}`,
+  address: `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`,
+  directionsUrl: getGoogleMapsDirectionsUrlToOffice(),
+  reviewsUrl:
+    (process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL || 'https://www.google.com/maps/place/?q=Open+House+Market+Place+Las+Vegas+NV') +
+    (process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL ? '' : '&action=reviews'),
+}
 
 export const metadata: Metadata = {
   title: 'Amenity Map | Nearby Restaurants, Parks, Parking & More | Summerlin',
@@ -98,31 +110,31 @@ export default function AmenityMapPage() {
           </div>
 
           <div className="mt-8 p-4 rounded-lg border border-gray-200 bg-gray-50">
-            <h2 className="text-lg font-semibold text-gray-900 mb-2">Dr. Jan Duffy Real Estate</h2>
+            <h2 className="text-lg font-semibold text-gray-900 mb-2">{BUSINESS.name}</h2>
             <p className="text-sm text-gray-700 mb-2">
-              Summerlin West, Las Vegas, NV 89135
+              {BUSINESS.address}
             </p>
             <p className="text-sm mb-3">
-              <a href="tel:+17022003422" className="text-blue-600 font-medium hover:underline">
-                (702) 200-3422
+              <a href={BUSINESS.phoneLink} className="text-blue-600 font-medium hover:underline">
+                {BUSINESS.phone}
               </a>
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href="tel:+17022003422"
+                href={BUSINESS.phoneLink}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
               >
                 Call
               </a>
               <ExternalLink
-                href="https://www.google.com/maps/dir/?api=1&destination=Summerlin+West,+Las+Vegas,+NV+89135"
+                href={BUSINESS.directionsUrl}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
                 showIcon={false}
               >
                 Directions
               </ExternalLink>
               <ExternalLink
-                href="https://www.google.com/maps/place/?q=Dr+Jan+Duffy+Real+Estate+Summerlin+West+Las+Vegas+NV&action=reviews"
+                href={BUSINESS.reviewsUrl}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
                 showIcon={false}
               >

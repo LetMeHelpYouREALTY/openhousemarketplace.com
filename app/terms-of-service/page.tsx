@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import { BASE_URL } from '@/lib/metadata-utils'
 
 import StructuredData from '@/components/StructuredData'
+import { GBP } from '@/config/gbp'
+
+const BUSINESS_ADDRESS = `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
 
 export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
 
@@ -51,7 +54,7 @@ export default function TermsOfServicePage() {
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Use License</h2>
               <p>
                 Permission is granted to temporarily download one copy of the materials on Open House 
-                Marketplace's website for personal, non-commercial transitory viewing only. This is 
+                Market Place's website for personal, non-commercial transitory viewing only. This is 
                 the grant of a license, not a transfer of title, and under this license you may not:
               </p>
               <ul className="list-disc pl-6 space-y-2">
@@ -109,7 +112,8 @@ export default function TermsOfServicePage() {
               </p>
               <p>
                 <strong>Email:</strong> contact@openhousemarketplace.com<br />
-                <strong>Phone:</strong> (702) 200-3422
+                <strong>Phone:</strong> {GBP.phone}<br />
+                <strong>Address:</strong> {BUSINESS_ADDRESS}
               </p>
             </section>
           </div>

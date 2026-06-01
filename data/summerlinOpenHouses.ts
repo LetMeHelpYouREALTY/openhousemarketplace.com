@@ -7,7 +7,7 @@ import type { Listing } from '@/types/listing'
 export const summerlinOpenHouses: Listing[] = [
   {
     id: 7,
-    address: '11773 Cashmere Mist Ave',
+    address: 'Summerlin listing address available by request',
     neighborhood: 'Summerlin',
     price: 'TBD',
     beds: 0,
@@ -19,7 +19,7 @@ export const summerlinOpenHouses: Listing[] = [
     zipCode: '89138',
     realtor: 'Dr. Jan Duffy',
     phone: '(702) 200-3422',
-    description: 'Property in Summerlin, Las Vegas, NV 89138. Update with listing details.',
+    description: 'Upcoming Summerlin open house. Address and listing details will be published when available.',
     lat: 36.16,
     lng: -115.13,
   },

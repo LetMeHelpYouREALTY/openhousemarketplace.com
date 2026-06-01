@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import { BASE_URL } from '@/lib/metadata-utils'
 
 import StructuredData from '@/components/StructuredData'
+import { GBP } from '@/config/gbp'
+
+const BUSINESS_ADDRESS = `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
 
 export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
 
@@ -123,7 +126,8 @@ export default function DisclaimerPage() {
               <p>For questions about this disclaimer, please contact:</p>
               <p>
                 <strong>Email:</strong> contact@openhousemarketplace.com<br />
-                <strong>Phone:</strong> (702) 200-3422
+                <strong>Phone:</strong> {GBP.phone}<br />
+                <strong>Address:</strong> {BUSINESS_ADDRESS}
               </p>
             </section>
           </div>
