@@ -25,7 +25,9 @@ Operational checklist for **openhousemarketplace.com** (canonical **`https://www
 |--------|----------|
 | Canonical origin | [`lib/site.ts`](../lib/site.ts) — `getSiteUrl()` |
 | Per-URL canonical | [`lib/metadata-utils.ts`](../lib/metadata-utils.ts), each `app/**/page.tsx` `metadata` |
-| Sitemap | [`app/sitemap.ts`](../app/sitemap.ts) |
+| Sitemap (route list) | [`config/sitemap-routes.ts`](../config/sitemap-routes.ts) |
+| Sitemap (XML generator) | [`app/sitemap.ts`](../app/sitemap.ts) |
+| GSC helpers | [`config/gsc.ts`](../config/gsc.ts) |
 | robots.txt | [`app/robots.ts`](../app/robots.ts) |
 | Redirects (apex / http → www) | [`middleware.ts`](../middleware.ts), [`vercel.json`](../vercel.json) |
 | Sitewide JSON-LD (LocalBusiness + WebPage) | [`components/GoogleEnhancement.tsx`](../components/GoogleEnhancement.tsx) |
@@ -90,7 +92,7 @@ All fields below should match **[`config/gbp.ts`](../config/gbp.ts)** and the li
 | `/test-form` | Internal test; [`app/test-form/layout.tsx`](../app/test-form/layout.tsx) uses `noindex`. |
 | `/open-house-signin/*` | Sign-in flows; not primary search landing pages. |
 
-When adding a new **public** marketing page under `app/`, add its URL to [`app/sitemap.ts`](../app/sitemap.ts) if it should be discovered via the sitemap.
+When adding a new **public** marketing page under `app/`, add its path to [`config/sitemap-routes.ts`](../config/sitemap-routes.ts) (used by `app/sitemap.ts` and `verify-gsc-404s`).
 
 ---
 

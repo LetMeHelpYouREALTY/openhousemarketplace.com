@@ -39,6 +39,14 @@ const webSiteSchema = {
   },
   potentialAction: [
     {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${baseUrl}/tour/mls?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+    {
       '@type': 'ContactAction',
       target: {
         '@type': 'EntryPoint',

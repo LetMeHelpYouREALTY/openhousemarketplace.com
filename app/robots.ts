@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         // Do not disallow /_next/static — Google needs JS/CSS to render; blanket /_next/ hurts GSC/crawl.
-        disallow: ['/api/', '/admin/', '/private/', '/open-house-signin/'],
+        disallow: ['/api/', '/admin/', '/private/', '/open-house-signin/', '/test-form'],
       },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },

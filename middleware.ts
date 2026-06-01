@@ -26,6 +26,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(`${CANONICAL_ORIGIN}/${search}`, 301)
   }
 
+  // Trailing slash on non-root paths → canonical without slash (one URL per page in GSC)
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    return NextResponse.redirect(`${CANONICAL_ORIGIN}${pathname.slice(0, -1)}${search}`, 301)
+  }
+
   // Main domain: primary is https://www; both www and non-www are in use. Redirect non-www and http to www (single 301, no chain). Belt-and-suspenders with vercel.json so non-www always redirects even if Vercel edge redirect does not run.
   const isMainDomain = hostname === 'openhousemarketplace.com' || hostname === 'www.openhousemarketplace.com'
   const needsCanonicalRedirect =
