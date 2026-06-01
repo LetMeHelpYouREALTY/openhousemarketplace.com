@@ -1,6 +1,5 @@
-# Deploy on push when Vercel Git integration does not run (backup).
-# Required GitHub secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID
-# See docs/VERCEL_DEPLOYMENT.md
+# Backup deploy when Vercel Git integration does not run.
+# Secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID — see docs/VERCEL_DEPLOYMENT.md
 
 name: Vercel Deploy
 
@@ -27,7 +26,7 @@ jobs:
       - name: Check Vercel secrets
         run: |
           if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
-            echo "::warning::VERCEL_TOKEN not set — skipping deploy. Add GitHub Actions secrets (see docs/VERCEL_DEPLOYMENT.md)."
+            echo "::warning::VERCEL_TOKEN not set — skipping deploy. See docs/VERCEL_DEPLOYMENT.md"
             exit 0
           fi
           if [ -z "${{ secrets.VERCEL_ORG_ID }}" ] || [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then
@@ -39,46 +38,15 @@ jobs:
         if: env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != ''
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        if: env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != ''
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.0.0
-
-      - name: Setup Node.js
-        if: env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != ''
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
-
       - name: Install Vercel CLI
         if: env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != ''
-        run: npm install -g vercel@latest
+        run: npm install -g vercel@39.6.0
 
-      - name: Pull Vercel environment
+      - name: Deploy to Vercel (remote build)
         if: env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != ''
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            vercel pull --yes --environment=production --token="${{ secrets.VERCEL_TOKEN }}"
+            vercel deploy --prod --yes --token="${{ secrets.VERCEL_TOKEN }}"
           else
-            vercel pull --yes --environment=preview --token="${{ secrets.VERCEL_TOKEN }}"
-          fi
-
-      - name: Build
-        if: env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != ''
-        run: |
-          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            vercel build --prod --token="${{ secrets.VERCEL_TOKEN }}"
-          else
-            vercel build --token="${{ secrets.VERCEL_TOKEN }}"
-          fi
-
-      - name: Deploy
-        if: env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != ''
-        run: |
-          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            vercel deploy --prebuilt --prod --token="${{ secrets.VERCEL_TOKEN }}"
-          else
-            vercel deploy --prebuilt --token="${{ secrets.VERCEL_TOKEN }}"
+            vercel deploy --yes --token="${{ secrets.VERCEL_TOKEN }}"
           fi
