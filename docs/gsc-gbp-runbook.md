@@ -47,7 +47,7 @@ Use a property whose primary URL **matches the sitemap host** (`https://www.open
 2. **Ownership** — Confirm verification; if using the HTML tag method, set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in Vercel and redeploy.
 3. **Sitemaps** — Submit `sitemap.xml`; in the Sitemaps report, confirm **Success** / no persistent fetch errors.
 4. **URL Inspection** — Test **canonical www URLs** only for indexing decisions (e.g. `/`, `/open-houses`, `/contact`, key neighborhood URLs). Expect **HTTP**, **apex**, and **`/index`** variants to **redirect** to www — see [GOOGLE_SEARCH_CONSOLE_REDIRECTS.md](./GOOGLE_SEARCH_CONSOLE_REDIRECTS.md).
-5. **Indexing reports** — “Discovered – currently not indexed” is often crawl queue / priority, not a single code bug. “Page with redirect” for **http**/**apex**/**/index** is **expected** when consolidating to `https://www`.
+5. **Indexing reports** — “Discovered – currently not indexed” is often crawl queue / priority, not a single code bug. **“Page with redirect” + Validation Failed** for `http://openhousemarketplace.com/`, `https://openhousemarketplace.com/`, and `http://www.openhousemarketplace.com/` is **expected** — do not use **Validate fix**; see [GOOGLE_SEARCH_CONSOLE_REDIRECTS.md](./GOOGLE_SEARCH_CONSOLE_REDIRECTS.md#gsc-validation-details--failed-expected).
 6. **Do not rely on “Validate fix”** for intentional redirect sources — see [GOOGLE_SEARCH_CONSOLE_REDIRECTS.md](./GOOGLE_SEARCH_CONSOLE_REDIRECTS.md).
 7. **Core Web Vitals / Page experience** — Monitor trends; fix regressions without weakening CSP (see [`lib/csp-header.mjs`](../lib/csp-header.mjs) and [`docs/klb-vercel-playbook.md`](./klb-vercel-playbook.md)).
 
