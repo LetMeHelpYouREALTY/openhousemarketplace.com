@@ -5,6 +5,7 @@ import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
 
 export const revalidate = 86400 // ISR: revalidate daily
@@ -184,6 +185,7 @@ export default function LuxuryHomesPage() {
         </div>
       </section>
     </div>
+    <PageIndexingEnhancement path="/luxury-homes" />
     </>
   )
 }

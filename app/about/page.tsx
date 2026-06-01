@@ -6,6 +6,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { Award, Home, Users, TrendingUp, Heart } from 'lucide-react'
 import FAQSection from '@/components/FAQSection'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import CalendlyInlineWidgetLazy from '@/components/CalendlyInlineWidgetLazy'
 
@@ -395,6 +396,7 @@ export default function AboutPage() {
     </div>
 
     <FAQSection faqs={ABOUT_FAQS} />
+    <PageIndexingEnhancement path="/about" linksOnly />
     </>
   )
 }

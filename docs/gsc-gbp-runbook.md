@@ -34,6 +34,7 @@ Operational checklist for **openhousemarketplace.com** (canonical **`https://www
 | WebSite + Organization | [`components/WebSiteSchema.tsx`](../components/WebSiteSchema.tsx) |
 | GSC verification meta tag | [`app/layout.tsx`](../app/layout.tsx) — `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (Vercel env) |
 | Automated 404 / redirect checks | [`scripts/verify-gsc-404s.ts`](../scripts/verify-gsc-404s.ts) (`npm run verify-gsc-404s`) |
+| Discovered-not-indexed copy (FAQs, speakable, links) | [`config/indexing-pages.ts`](../config/indexing-pages.ts), [`components/PageIndexingEnhancement.tsx`](../components/PageIndexingEnhancement.tsx) |
 
 ---
 

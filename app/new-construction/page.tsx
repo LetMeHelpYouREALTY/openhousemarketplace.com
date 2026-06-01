@@ -6,6 +6,7 @@ import { Calendar } from 'lucide-react'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const revalidate = 86400 // ISR: revalidate daily
 
@@ -171,6 +172,7 @@ export default function NewConstructionPage() {
         </div>
       </section>
     </div>
+    <PageIndexingEnhancement path="/new-construction" />
     </>
   )
 }

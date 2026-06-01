@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ExternalLink from '@/components/ExternalLink'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 const REVIEW_URL = 'https://g.page/r/CbX7prnSI9uREBM/review'
 const QR_CODE_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(REVIEW_URL)}`
@@ -181,6 +182,7 @@ export default function ReviewUsPage() {
         </p>
       </div>
     </main>
+    <PageIndexingEnhancement path="/review-us" />
     </>
   )
 }

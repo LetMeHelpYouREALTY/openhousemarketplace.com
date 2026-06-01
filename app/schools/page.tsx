@@ -4,6 +4,7 @@ import { BASE_URL } from '@/lib/metadata-utils'
 import Link from 'next/link'
 import { School, Award, BookOpen, Users, Calendar } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 
 export const revalidate = 86400 // ISR: revalidate daily
@@ -323,6 +324,7 @@ export default function SchoolsPage() {
         </div>
       </div>
     </div>
+    <PageIndexingEnhancement path="/schools" />
     </>
   )
 }

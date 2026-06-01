@@ -4,6 +4,7 @@ import { BASE_URL } from '@/lib/metadata-utils'
 import { notFound } from 'next/navigation'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 const validZipCodes: Record<string, {
   name: string
@@ -306,6 +307,7 @@ export default async function ZipCodePage({ params }: ZipCodePageProps) {
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
     </div>
+    <PageIndexingEnhancement path={`/zip/${zipcode}`} />
     </>
   )
 }

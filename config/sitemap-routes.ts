@@ -64,8 +64,10 @@ export function getGscVerificationPaths(): readonly string[] {
 }
 
 export function buildMarketingSitemap(baseUrl: string): MetadataRoute.Sitemap {
+  const lastModified = new Date()
   return MARKETING_SITEMAP_ROUTES.map((route) => ({
     url: route.path === '/' ? `${baseUrl}/` : `${baseUrl}${route.path}`,
+    lastModified,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }))

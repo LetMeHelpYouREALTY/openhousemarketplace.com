@@ -2,13 +2,14 @@ import { Metadata } from 'next'
 import { BASE_URL } from '@/lib/metadata-utils'
 
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Open House Market Place',
   description: 'Terms of Service for Open House Market Place. Please read these terms carefully before using our services.',
-  robots: 'noindex, follow',
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   alternates: {
     canonical: `${BASE_URL}/terms-of-service`,
   },
@@ -116,6 +117,7 @@ export default function TermsOfServicePage() {
         </div>
       </div>
     </div>
+    <PageIndexingEnhancement path="/terms-of-service" />
     </>
   )
 }

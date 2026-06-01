@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 import CalendlyInlineWidgetLazy from '@/components/CalendlyInlineWidgetLazy'
 import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 
@@ -299,6 +300,7 @@ export default function ContactPage() {
     </div>
 
     <FAQSection faqs={CONTACT_FAQS} />
+    <PageIndexingEnhancement path="/contact" linksOnly />
     </>
   )
 }

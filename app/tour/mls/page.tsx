@@ -6,6 +6,7 @@ import StructuredData from '@/components/StructuredData'
 import ExternalLink from '@/components/ExternalLink'
 import RealScoutSearchCard from '@/components/RealScoutSearchCard'
 import RealScoutWidget from '@/components/RealScoutWidget'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 const REALSCOUT_SEARCH_URL =
   'https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=='
@@ -75,6 +76,7 @@ export default function TourMLSPage() {
           </section>
         </div>
       </div>
+      <PageIndexingEnhancement path="/tour/mls" />
     </>
   )
 }

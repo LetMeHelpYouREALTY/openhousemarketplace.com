@@ -4,6 +4,7 @@ import { BASE_URL, DEFAULT_OG_IMAGES } from '@/lib/metadata-utils'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import BuyerToolsSection from '@/components/BuyerToolsSection'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 import GoogleMapsNeighborhoodDiscoverySection from '@/components/GoogleMapsNeighborhoodDiscoverySection'
 import { Search } from 'lucide-react'
 
@@ -87,6 +88,7 @@ export default function BuyersPage() {
           </section>
         </div>
       </div>
+      <PageIndexingEnhancement path="/buyers" />
     </>
   )
 }

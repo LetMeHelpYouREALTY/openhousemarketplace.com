@@ -132,6 +132,21 @@ export const OPEN_HOUSE_GUIDE_HOWTO = {
   ],
 } as const
 
+/** HowTo for /resources/home-buying-guide — visible <ol> on that page */
+export const HOME_BUYING_GUIDE_HOWTO = {
+  name: 'How to buy a home in Summerlin, Las Vegas',
+  description:
+    'Step-by-step process for purchasing a home in Summerlin West with a buyer\'s agent, from pre-approval through closing.',
+  steps: [
+    { name: 'Get pre-approved', text: 'Gather financial documents and obtain a mortgage pre-approval letter.' },
+    { name: 'Choose a Summerlin buyer\'s agent', text: 'Work with a local agent who knows villages, HOAs, and builder contracts.' },
+    { name: 'Search homes and open houses', text: 'Use MLS search and weekend open houses to shortlist neighborhoods and listings.', url: '/tour/mls' },
+    { name: 'Make a competitive offer', text: 'Your agent drafts terms based on comps, condition, and market timing.' },
+    { name: 'Inspection and appraisal', text: 'Complete due diligence; negotiate repairs if needed.' },
+    { name: 'Close escrow in Nevada', text: 'Sign closing documents, fund escrow, and receive keys—typically 30–45 days for resale.', url: '/contact' },
+  ],
+} as const
+
 /** Speakable CSS selectors on open-house-guide (must exist in page DOM) */
 export const OPEN_HOUSE_GUIDE_SPEAKABLE = {
   name: 'What to Expect at a Summerlin Open House in 2026',

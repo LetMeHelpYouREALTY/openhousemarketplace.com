@@ -8,6 +8,7 @@ import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import GoogleMapsCommutesSection from '@/components/GoogleMapsCommutesSection'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Get Directions | Plan Your Visit | Dr. Jan Duffy Real Estate',
@@ -133,6 +134,7 @@ export default function DirectionsPage() {
           </div>
         </div>
       </main>
+      <PageIndexingEnhancement path="/directions" />
     </>
   )
 }

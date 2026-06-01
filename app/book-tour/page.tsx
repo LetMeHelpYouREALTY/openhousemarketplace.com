@@ -4,6 +4,7 @@ import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 import Link from 'next/link'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Schedule a private showing | Dr. Jan Duffy | Summerlin Real Estate',
@@ -62,13 +63,27 @@ export default function BookTourPage() {
           </nav>
 
           <header className="mb-8 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+            <h1 className="page-title-speakable text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               Schedule a private showing
             </h1>
-            <p className="text-lg text-gray-600 max-w-xl mx-auto">
-              Book a private showing with Dr. Jan Duffy. Choose a date and time below—no signup required.
+            <p className="speakable-summary text-lg text-gray-600 max-w-xl mx-auto">
+              Book a private showing with Dr. Jan Duffy in Summerlin West. Choose a date and time below—no signup required—or call (702) 200-3422.
             </p>
           </header>
+
+          <section className="mb-8 prose prose-gray max-w-none text-gray-700">
+            <h2 className="text-xl font-semibold text-gray-900">Private tours in Summerlin and Las Vegas</h2>
+            <p>
+              A private showing lets you tour a specific listing on your schedule—ideal when you cannot attend a weekend open house or want a second visit. Dr. Jan Duffy (Berkshire Hathaway HomeServices Nevada Properties) coordinates access with listing agents across Summerlin villages, new construction, and luxury communities.
+            </p>
+            <p>
+              Before your tour, share your budget, preferred zip codes (89135, 89138, 89144), and must-haves. You can also browse{' '}
+              <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link>
+              {' '}or{' '}
+              <Link href="/tour/mls" className="text-blue-600 font-semibold hover:underline">MLS listings</Link>
+              {' '}to build a shortlist.
+            </p>
+          </section>
 
           <section aria-label="Schedule a private showing" className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 md:p-6">
             <CalendlyInlineWidget
@@ -87,6 +102,7 @@ export default function BookTourPage() {
           </p>
         </div>
       </main>
+      <PageIndexingEnhancement path="/book-tour" />
     </>
   )
 }
