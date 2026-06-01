@@ -79,6 +79,8 @@ export const GBP = {
   phoneE164: '+17022003422',
   /** SMS/Chat from GBP */
   sms: 'sms:+17022003422',
+  /** Public contact email (site-wide; match GBP and legal pages) */
+  email: 'DrJanSells@OpenHouseMarketplace.com',
   /** Public site URL for schema (use getSiteUrl() = canonical, typically https://www.openhousemarketplace.com) */
   website: `${getSiteUrl()}/`,
   /**
