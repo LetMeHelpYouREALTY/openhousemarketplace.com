@@ -30,7 +30,7 @@ export default function TestForm() {
 
       <h2 className="text-xl font-semibold mb-2">Schedule a private showing</h2>
       <p className="text-gray-600 mb-4">Book a private showing or consultation with Dr. Jan Duffy.</p>
-      <CalendlyPopupLink className="inline-block bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-3 rounded-xl font-semibold mb-6">
+      <CalendlyPopupLink className="inline-block bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-xl font-semibold mb-6">
         Schedule a private showing
       </CalendlyPopupLink>
 
@@ -44,7 +44,7 @@ export default function TestForm() {
       <div className="space-y-4 mb-6">
         <button
           onClick={testEnv}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-brand-mint/400 text-white px-4 py-2 rounded"
         >
           Test Environment Variables
         </button>

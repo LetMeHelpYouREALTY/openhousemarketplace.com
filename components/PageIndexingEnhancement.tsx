@@ -57,7 +57,7 @@ export default function PageIndexingEnhancement({
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-block rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-50 transition-colors"
+                    className="inline-block rounded-full border border-brand-mint bg-white px-4 py-2 text-sm font-medium text-brand-plum hover:bg-brand-mint/40 transition-colors"
                   >
                     {link.label}
                   </Link>

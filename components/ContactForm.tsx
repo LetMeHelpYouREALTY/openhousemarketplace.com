@@ -265,7 +265,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <button 
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center disabled:cursor-not-allowed"
+          className="w-full bg-brand-teal hover:bg-brand-plum disabled:bg-blue-400 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>

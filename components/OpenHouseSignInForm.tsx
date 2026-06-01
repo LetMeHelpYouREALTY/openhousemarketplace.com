@@ -108,7 +108,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
         <div className="flex flex-col gap-3">
           <a
             href="/open-houses"
-            className="block w-full text-center rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-3 transition-colors"
+            className="block w-full text-center rounded-lg bg-brand-teal hover:bg-brand-plum text-white font-semibold px-4 py-3 transition-colors"
           >
             Browse more open houses
           </a>
@@ -117,7 +117,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           </CalendlyPopupLink>
           <a
             href="/open-houses"
-            className="block w-full text-center text-blue-600 font-medium hover:underline"
+            className="block w-full text-center text-brand-teal font-medium hover:underline"
           >
             View open houses
           </a>
@@ -306,7 +306,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="w-full rounded-lg bg-blue-600 px-4 py-4 text-lg font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+        className="w-full rounded-lg bg-brand-teal px-4 py-4 text-lg font-semibold text-white hover:bg-brand-plum disabled:opacity-50 transition-colors"
       >
         {status === 'submitting' ? 'Submitting…' : 'Submit'}
       </button>

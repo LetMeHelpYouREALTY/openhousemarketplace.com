@@ -18,6 +18,8 @@ import {
 import { getFacebookAppId } from "@/config/facebook"
 import FacebookPixel from "@/components/FacebookPixel"
 import RealScoutOfficeListingsBandsDynamic from "@/components/RealScoutOfficeListingsBandsDynamic"
+import ScheduleTourBand from "@/components/conversion/ScheduleTourBand"
+import StickyMobileCta from "@/components/conversion/StickyMobileCta"
 
 // Google Analytics scripts must be in head as standard script tags for detection
 // SEO: Google 2026 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
@@ -74,7 +76,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#2563eb',
+  themeColor: '#4a3861',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -125,9 +127,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <GoogleEnhancement />
         <CalendlyBadgeWidget />
         <SiteHeader />
-        {children}
+        <div className="pb-20 md:pb-0">{children}</div>
+        <ScheduleTourBand />
         <RealScoutOfficeListingsBandsDynamic />
         <Footer />
+        <StickyMobileCta />
       </body>
     </html>
   )

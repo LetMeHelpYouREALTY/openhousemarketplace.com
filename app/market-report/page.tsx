@@ -44,7 +44,7 @@ export default function MarketReportPage() {
       />
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] bg-gradient-to-r from-blue-600 to-red-600">
+      <section className="relative h-[40vh] min-h-[300px] bg-gradient-to-r from-brand-teal to-brand-plum">
         <div className="absolute inset-0 bg-black bg-opacity-40" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-4xl mx-auto px-4">
@@ -66,14 +66,14 @@ export default function MarketReportPage() {
           <p className="text-gray-600 leading-relaxed mb-6">
             The Summerlin West real estate market continues to show strength and resilience. 
             As of the latest reporting period, we&apos;re seeing steady appreciation in home values 
-            with strong buyer demand across all price points. See our <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> page for this weekend&apos;s home tours.
+            with strong buyer demand across all price points. See our <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link> page for this weekend&apos;s home tours.
           </p>
 
           {/* Key Metrics Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-blue-50 rounded-lg p-6">
+            <div className="bg-brand-mint/40 rounded-lg p-6">
               <div className="flex items-center justify-between mb-2">
-                <DollarSign className="h-6 w-6 text-blue-600" />
+                <DollarSign className="h-6 w-6 text-brand-teal" />
                 <TrendingUp className="h-5 w-5 text-green-600" />
               </div>
               <div className="text-2xl font-bold text-gray-900">$850,000</div>
@@ -240,7 +240,7 @@ export default function MarketReportPage() {
               <tbody>
                 <tr className="border-b">
                   <td className="py-3 px-4">
-                    <Link href="/neighborhoods/the-ridges" className="text-blue-600 hover:text-blue-800">
+                    <Link href="/neighborhoods/the-ridges" className="text-brand-teal hover:text-brand-plum">
                       The Ridges
                     </Link>
                   </td>
@@ -250,7 +250,7 @@ export default function MarketReportPage() {
                 </tr>
                 <tr className="border-b">
                   <td className="py-3 px-4">
-                    <Link href="/neighborhoods/red-rock-country-club" className="text-blue-600 hover:text-blue-800">
+                    <Link href="/neighborhoods/red-rock-country-club" className="text-brand-teal hover:text-brand-plum">
                       Red Rock Country Club
                     </Link>
                   </td>
@@ -260,7 +260,7 @@ export default function MarketReportPage() {
                 </tr>
                 <tr className="border-b">
                   <td className="py-3 px-4">
-                    <Link href="/neighborhoods/summerlin-centre" className="text-blue-600 hover:text-blue-800">
+                    <Link href="/neighborhoods/summerlin-centre" className="text-brand-teal hover:text-brand-plum">
                       Summerlin Centre
                     </Link>
                   </td>
@@ -270,7 +270,7 @@ export default function MarketReportPage() {
                 </tr>
                 <tr>
                   <td className="py-3 px-4">
-                    <Link href="/neighborhoods/sun-city-summerlin" className="text-blue-600 hover:text-blue-800">
+                    <Link href="/neighborhoods/sun-city-summerlin" className="text-brand-teal hover:text-brand-plum">
                       Sun City Summerlin
                     </Link>
                   </td>
@@ -284,17 +284,17 @@ export default function MarketReportPage() {
         </div>
 
         {/* CTA */}
-        <div className="bg-blue-600 rounded-lg shadow-md p-8 text-center text-white">
+        <div className="bg-brand-teal rounded-lg shadow-md p-8 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Get Your Personalized Market Analysis</h2>
           <p className="text-xl mb-6">Want to know what your home is worth? Contact us for a free valuation.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white text-brand-teal px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
             >
               Request Free Market Analysis
             </Link>
-            <CalendlyPopupLink className="inline-flex items-center gap-2 bg-[#0069ff] hover:bg-[#0052cc] text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
+            <CalendlyPopupLink className="inline-flex items-center gap-2 bg-brand-teal hover:bg-brand-plum text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
               <Calendar className="h-5 w-5" aria-hidden />
               Schedule a private showing
             </CalendlyPopupLink>

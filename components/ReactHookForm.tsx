@@ -235,7 +235,7 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
         <button 
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-red-600 hover:bg-red-700 disabled:bg-red-800 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center disabled:cursor-not-allowed"
+          className="w-full bg-brand-teal hover:bg-brand-plum disabled:bg-red-800 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>

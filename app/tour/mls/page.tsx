@@ -7,11 +7,15 @@ import ExternalLink from '@/components/ExternalLink'
 import RealScoutSearchCard from '@/components/RealScoutSearchCard'
 import RealScoutWidget from '@/components/RealScoutWidget'
 import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
+import MarketingHero from '@/components/conversion/MarketingHero'
+import RealScoutWidgetFrame from '@/components/conversion/RealScoutWidgetFrame'
+import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
+import { brandCardClass } from '@/lib/brand-classes'
 
 const REALSCOUT_SEARCH_URL =
   'https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=='
 
-export const revalidate = 86400 // ISR: revalidate daily
+export const revalidate = 86400
 
 export const metadata: Metadata = {
   title: 'MLS Property Search | Summerlin Real Estate | Dr. Jan Duffy',
@@ -30,49 +34,73 @@ export const metadata: Metadata = {
 export default function TourMLSPage() {
   return (
     <>
-      {/* WebPage JSON-LD comes from GoogleEnhancement (layout). */}
       <StructuredData type="Organization" data={{ url: `${BASE_URL}` }} />
-      <StructuredData type="BreadcrumbList" data={{ items: [{ name: 'Home', url: `${BASE_URL}/` }, { name: 'MLS Property Search', url: `${BASE_URL}/tour/mls` }] }} />
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">MLS Property Search</h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Search the full MLS database of homes for sale in Summerlin. Save favorites, get alerts, and schedule showings with Dr. Jan Duffy&apos;s home search. For this weekend&apos;s tours, see our <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link>.
-            </p>
+      <StructuredData
+        type="BreadcrumbList"
+        data={{
+          items: [
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'MLS Property Search', url: `${BASE_URL}/tour/mls` },
+          ],
+        }}
+      />
+      <MarketingHero
+        title="MLS property search — Summerlin & Las Vegas"
+        description="Search every listing Dr. Jan Duffy can show you. Save homes, get alerts, then book a private showing in one click."
+        showCtas={false}
+      />
+      <div className="min-h-screen bg-brand-surface/40 py-10 sm:py-12">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <PrimaryCtaButtons />
           </div>
 
-          <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Find Your Perfect Home</h2>
-            <RealScoutSearchCard />
-          </section>
+          <div className="mb-8">
+            <RealScoutWidgetFrame
+              id="mls-advanced-search"
+              stepLabel="Search"
+              title="Find your perfect home"
+              description="Enter price, beds, and neighborhood — results update live from MLS."
+            >
+              <RealScoutSearchCard />
+            </RealScoutWidgetFrame>
+          </div>
 
-          <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Live Summerlin West Listings</h2>
+          <div className="mb-8">
+            <RealScoutWidgetFrame
+              id="mls-office-grid"
+              stepLabel="Browse"
+              title="Live Summerlin West listings"
+              description="Office inventory sorted low to high. Open any listing to schedule a tour."
+            >
+              <RealScoutWidget className="min-h-[320px]" />
+            </RealScoutWidgetFrame>
+          </div>
+
+          <div className={`${brandCardClass} mb-8 text-center`}>
             <p className="text-gray-600 mb-4">
-              Browse current properties for sale. Filter by price, beds, baths, and more. Create an account to save searches and get instant alerts.
+              Want the full-screen experience? Open Dr. Jan Duffy&apos;s shared search — or see{' '}
+              <Link href="/open-houses" className="font-semibold text-brand-teal hover:text-brand-plum">
+                this weekend&apos;s open houses
+              </Link>
+              .
             </p>
-            <RealScoutWidget className="min-h-[320px]" />
-          </section>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <ExternalLink
               href={REALSCOUT_SEARCH_URL}
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-brand-teal px-8 py-3 font-bold text-white hover:bg-brand-plum"
               showIcon={false}
             >
-              Open full search in new tab
+              Open full MLS search in new tab
             </ExternalLink>
-            <Link href="/contact" className="inline-block text-gray-700 hover:text-blue-600 font-medium">
-              Contact Dr. Jan Duffy
-            </Link>
           </div>
 
-          <section className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">How It Works</h2>
-            <p className="text-gray-600">
-              Create a free account to save searches, schedule showings, and receive instant alerts for price drops and new listings. Dr. Jan Duffy&apos;s team is notified when you show interest so you get priority support.
-            </p>
+          <section className={brandCardClass}>
+            <h2 className="text-xl font-bold text-brand-plum mb-3">How it works</h2>
+            <ol className="list-decimal list-inside space-y-2 text-gray-700">
+              <li>Search and save homes in RealScout (free account).</li>
+              <li>Get instant alerts for new listings and price changes.</li>
+              <li>Book a private showing with Dr. Jan Duffy via Calendly.</li>
+            </ol>
           </section>
         </div>
       </div>

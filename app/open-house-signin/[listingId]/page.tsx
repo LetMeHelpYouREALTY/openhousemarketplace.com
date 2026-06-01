@@ -55,7 +55,7 @@ export default async function OpenHouseSignInPage({ params }: Props) {
           <p className="text-sm text-gray-500 mt-2">
             Dr. Jan Duffy · Berkshire Hathaway HomeServices Nevada Properties
           </p>
-          <CalendlyPopupLink className="inline-block mt-4 bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-3 rounded-xl font-semibold transition-colors">
+          <CalendlyPopupLink className="inline-block mt-4 bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-xl font-semibold transition-colors">
             Schedule a private showing
           </CalendlyPopupLink>
         </div>

@@ -141,7 +141,7 @@ export default function TheRidgesPage() {
               The               Ridges offers an unmatched combination of privacy, prestige, and natural beauty.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in The Ridges.
+              View <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in The Ridges.
             </p>
             <RelatedNeighborhoods currentSlug="the-ridges" className="mb-4" />
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Luxury Real Estate in The Ridges</h3>

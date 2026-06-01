@@ -100,7 +100,7 @@ export default function GoogleBusinessProfile({
       {/* NAP Information */}
       <div className="space-y-4 mb-6">
         <div className="flex items-start">
-          <MapPin className="h-5 w-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
+          <MapPin className="h-5 w-5 text-brand-teal mr-3 mt-1 flex-shrink-0" />
           <div>
             <p className="font-semibold text-gray-900">{BUSINESS_INFO.name}</p>
             <p className="text-gray-700">{BUSINESS_INFO.address.street}</p>
@@ -114,10 +114,10 @@ export default function GoogleBusinessProfile({
         </div>
 
         <div className="flex items-center">
-          <Phone className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0" />
+          <Phone className="h-5 w-5 text-brand-teal mr-3 flex-shrink-0" />
           <a 
             href={BUSINESS_INFO.phoneLink}
-            className="text-blue-600 hover:text-blue-800 font-semibold text-lg"
+            className="text-brand-teal hover:text-brand-plum font-semibold text-lg"
             aria-label={`Call ${BUSINESS_INFO.phone}`}
           >
             {BUSINESS_INFO.phone}
@@ -125,10 +125,10 @@ export default function GoogleBusinessProfile({
         </div>
 
         <div className="flex items-center">
-          <Mail className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0" />
+          <Mail className="h-5 w-5 text-brand-teal mr-3 flex-shrink-0" />
           <a 
             href={`mailto:${BUSINESS_INFO.email}`}
-            className="text-blue-600 hover:text-blue-800"
+            className="text-brand-teal hover:text-brand-plum"
             aria-label={`Email ${BUSINESS_INFO.email}`}
           >
             {BUSINESS_INFO.email}
@@ -136,7 +136,7 @@ export default function GoogleBusinessProfile({
         </div>
 
         <div className="flex items-start">
-          <Clock className="h-5 w-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
+          <Clock className="h-5 w-5 text-brand-teal mr-3 mt-1 flex-shrink-0" />
           <div className="text-gray-700">
             <p className="font-semibold mb-1">Business Hours</p>
             <p>{BUSINESS_INFO.hours.weekdays}</p>
@@ -186,7 +186,7 @@ export default function GoogleBusinessProfile({
       </div>
       <p className="text-sm text-gray-600 text-center mb-4">
         Want to leave a review?{' '}
-        <Link href="/review-us" className="text-blue-600 hover:underline font-medium">
+        <Link href="/review-us" className="text-brand-teal hover:underline font-medium">
           Review us on Google
         </Link>
       </p>
@@ -203,7 +203,7 @@ export default function GoogleBusinessProfile({
           <p className="text-sm text-gray-600 mt-2 text-center">
             <ExternalLink
               href={BUSINESS_INFO.googleBusinessUrl}
-              className="text-blue-600 hover:text-blue-800"
+              className="text-brand-teal hover:text-brand-plum"
               ariaLabel="View on Google Maps"
             >
               View on Google Maps
@@ -224,7 +224,7 @@ export default function GoogleBusinessProfile({
           </p>
           <ExternalLink
             href={BUSINESS_INFO.reviewsUrl}
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+            className="inline-flex items-center text-brand-teal hover:text-brand-plum font-medium"
             ariaLabel="View all reviews on Google"
           >
             View All Reviews on Google

@@ -1,8 +1,13 @@
 'use client'
 
 import React, { useState } from 'react'
-import { MapPin, Home, Clock, ChartBar, School, Leaf, Car } from 'lucide-react'
+import Link from 'next/link'
+import { MapPin, Home, Clock, ChartBar, School, Leaf, Car, Search } from 'lucide-react'
 import CalendlyInlineWidget from './CalendlyInlineWidget'
+import CalendlyPopupLink from '@/components/CalendlyPopupLink'
+import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
+import { BRAND_CTA_BUTTON_CLASS } from '@/config/brand'
+import { brandAccentBadgeClass } from '@/lib/brand-classes'
 
 interface MarketStats {
   medianPrice: string
@@ -70,13 +75,21 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             ) : (
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{name}</h1>
             )}
-            <p className="text-xl text-gray-200 mb-8">{description}</p>
-            <button
-              onClick={handleRealScoutClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
-            >
-              View Available Homes
-            </button>
+            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">{description}</p>
+            <div className="flex flex-col items-center gap-4">
+              <PrimaryCtaButtons
+                layout="row"
+                calendlyLabel="Book a private showing"
+                mlsLabel="Search MLS listings"
+              />
+              <button
+                type="button"
+                onClick={handleRealScoutClick}
+                className="text-sm font-semibold text-brand-mint underline-offset-2 hover:underline"
+              >
+                Or open full {name} search in RealScout →
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -88,7 +101,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             <button
               onClick={() => setActiveTab('overview')}
               className={`px-6 py-4 font-medium ${
-                activeTab === 'overview' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'
+                activeTab === 'overview' ? 'text-brand-teal border-b-2 border-brand-teal' : 'text-gray-600'
               }`}
             >
               Overview
@@ -96,7 +109,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             <button
               onClick={() => setActiveTab('market')}
               className={`px-6 py-4 font-medium ${
-                activeTab === 'market' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'
+                activeTab === 'market' ? 'text-brand-teal border-b-2 border-brand-teal' : 'text-gray-600'
               }`}
             >
               Market Stats
@@ -104,7 +117,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             <button
               onClick={() => setActiveTab('schools')}
               className={`px-6 py-4 font-medium ${
-                activeTab === 'schools' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'
+                activeTab === 'schools' ? 'text-brand-teal border-b-2 border-brand-teal' : 'text-gray-600'
               }`}
             >
               Schools
@@ -112,7 +125,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             <button
               onClick={() => setActiveTab('amenities')}
               className={`px-6 py-4 font-medium ${
-                activeTab === 'amenities' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'
+                activeTab === 'amenities' ? 'text-brand-teal border-b-2 border-brand-teal' : 'text-gray-600'
               }`}
             >
               Amenities
@@ -137,19 +150,19 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Current Market Snapshot</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">{marketStats.medianPrice}</div>
+                      <div className="text-2xl font-bold text-brand-teal">{marketStats.medianPrice}</div>
                       <div className="text-sm text-gray-600">Median Price</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">{marketStats.daysOnMarket}</div>
+                      <div className="text-2xl font-bold text-brand-teal">{marketStats.daysOnMarket}</div>
                       <div className="text-sm text-gray-600">Days on Market</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">{marketStats.activeListings}</div>
+                      <div className="text-2xl font-bold text-brand-teal">{marketStats.activeListings}</div>
                       <div className="text-sm text-gray-600">Active Listings</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">{marketStats.pricePerSqFt}</div>
+                      <div className="text-2xl font-bold text-brand-teal">{marketStats.pricePerSqFt}</div>
                       <div className="text-sm text-gray-600">Price/Sq.Ft</div>
                     </div>
                   </div>
@@ -177,7 +190,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                       <div className="text-sm text-gray-600">Average Days on Market</div>
                       <div className="text-xl font-bold text-gray-900">{marketStats.daysOnMarket} days</div>
                     </div>
-                    <Clock className="h-6 w-6 text-blue-600" />
+                    <Clock className="h-6 w-6 text-brand-teal" />
                   </div>
                   
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
@@ -185,7 +198,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                       <div className="text-sm text-gray-600">Active Listings</div>
                       <div className="text-xl font-bold text-gray-900">{marketStats.activeListings}</div>
                     </div>
-                    <Home className="h-6 w-6 text-blue-600" />
+                    <Home className="h-6 w-6 text-brand-teal" />
                   </div>
                   
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
@@ -193,7 +206,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                       <div className="text-sm text-gray-600">Price per Square Foot</div>
                       <div className="text-xl font-bold text-gray-900">{marketStats.pricePerSqFt}</div>
                     </div>
-                    <ChartBar className="h-6 w-6 text-blue-600" />
+                    <ChartBar className="h-6 w-6 text-brand-teal" />
                   </div>
                 </div>
               </div>
@@ -205,7 +218,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                 <div className="space-y-4">
                   {schools.map((school, index) => (
                     <div key={index} className="flex items-start p-4 bg-gray-50 rounded-lg">
-                      <School className="h-6 w-6 text-blue-600 mt-1 mr-4" />
+                      <School className="h-6 w-6 text-brand-teal mt-1 mr-4" />
                       <div>
                         <div className="font-medium text-gray-900">{school.name}</div>
                         <div className="text-sm text-gray-600">{school.type}</div>
@@ -227,7 +240,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                       {amenity.type === 'park' ? (
                         <Leaf className="h-6 w-6 text-green-600 mt-1 mr-4" />
                       ) : (
-                        <MapPin className="h-6 w-6 text-blue-600 mt-1 mr-4" />
+                        <MapPin className="h-6 w-6 text-brand-teal mt-1 mr-4" />
                       )}
                       <div>
                         <div className="font-medium text-gray-900">{amenity.name}</div>
@@ -243,10 +256,13 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Schedule a private showing */}
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Schedule a private showing</h3>
-              <p className="text-gray-600 text-sm mb-4">Book a private showing with Dr. Jan Duffy.</p>
+            <div className="rounded-2xl border-2 border-brand-teal/30 bg-gradient-to-b from-brand-mint/30 to-white p-6 shadow-lg">
+              <span className={brandAccentBadgeClass}>Fastest way to tour</span>
+              <h3 className="text-xl font-bold text-brand-plum mt-2 mb-2">Schedule a private showing</h3>
+              <p className="text-gray-600 text-sm mb-4">Pick a time — Dr. Jan Duffy will meet you at the home or office.</p>
+              <CalendlyPopupLink className={`${BRAND_CTA_BUTTON_CLASS} w-full mb-4`}>
+                Book on Calendly
+              </CalendlyPopupLink>
               <CalendlyInlineWidget
                 minWidth={280}
                 height={600}
@@ -259,31 +275,44 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
               <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Facts</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Car className="h-5 w-5 text-blue-600 mr-3" />
+                  <Car className="h-5 w-5 text-brand-teal mr-3" />
                   <span className="text-gray-600">15 minutes to Downtown</span>
                 </div>
                 <div className="flex items-center">
-                  <School className="h-5 w-5 text-blue-600 mr-3" />
+                  <School className="h-5 w-5 text-brand-teal mr-3" />
                   <span className="text-gray-600">Top-rated schools nearby</span>
                 </div>
                 <div className="flex items-center">
-                  <Leaf className="h-5 w-5 text-blue-600 mr-3" />
+                  <Leaf className="h-5 w-5 text-brand-teal mr-3" />
                   <span className="text-gray-600">Multiple parks and trails</span>
                 </div>
                 <div className="flex items-center">
-                  <Home className="h-5 w-5 text-blue-600 mr-3" />
+                  <Home className="h-5 w-5 text-brand-teal mr-3" />
                   <span className="text-gray-600">Gated communities available</span>
                 </div>
               </div>
             </div>
 
-            {/* CTA Button */}
-            <button
-              onClick={handleRealScoutClick}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold text-lg shadow-lg"
-            >
-              View All {name} Listings
-            </button>
+            <div className="rounded-2xl border border-brand-mint bg-white p-6 shadow-md">
+              <h3 className="text-lg font-bold text-brand-plum mb-2 flex items-center gap-2">
+                <Search className="h-5 w-5 text-brand-teal" aria-hidden />
+                {name} listings
+              </h3>
+              <p className="text-sm text-gray-600 mb-4">Live MLS homes — save favorites and request tours.</p>
+              <button
+                type="button"
+                onClick={handleRealScoutClick}
+                className={`${BRAND_CTA_BUTTON_CLASS} w-full`}
+              >
+                View all {name} homes
+              </button>
+              <Link
+                href="#office-listings-bands"
+                className="mt-3 block text-center text-sm font-semibold text-brand-teal hover:text-brand-plum"
+              >
+                Scroll to site-wide MLS grid ↓
+              </Link>
+            </div>
           </div>
         </div>
       </div>

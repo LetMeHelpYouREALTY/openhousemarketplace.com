@@ -215,7 +215,7 @@ const FollowupBossIntegration: React.FC<FollowupBossIntegrationProps> = ({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-600 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center"
+          className="w-full bg-brand-teal hover:bg-brand-plum disabled:bg-gray-600 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center"
         >
           {isSubmitting ? (
             <>

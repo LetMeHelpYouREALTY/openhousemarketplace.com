@@ -1,6 +1,26 @@
 @import 'tailwindcss';
 @import './realscout-widgets.css';
 
+@theme {
+  --color-brand-plum: #4a3861;
+  --color-brand-teal: #6399a3;
+  --color-brand-mint: #b8dad7;
+  --color-brand-stone: #ada3a1;
+  --color-brand-surface: #e5e7eb;
+}
+
+@layer components {
+  .conversion-widget-frame {
+    @apply relative overflow-hidden rounded-2xl border-2 border-brand-teal/40 bg-gradient-to-b from-white to-brand-mint/30 p-1 shadow-xl shadow-brand-plum/10;
+  }
+  .conversion-widget-inner {
+    @apply rounded-xl bg-white p-4 sm:p-6;
+  }
+  .conversion-pulse-ring {
+    @apply ring-2 ring-brand-teal/30 ring-offset-2 ring-offset-white;
+  }
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still

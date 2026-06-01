@@ -92,10 +92,11 @@ const RealScoutWidget: FC<RealScoutWidgetProps> = ({
     <div className={`realScout-widget-container ${className}`}>
       {!ready ? (
         <div className="flex flex-col gap-3 p-4 animate-pulse" aria-busy="true" aria-label="Loading listings">
-          <div className="h-8 w-3/4 rounded bg-gray-200" />
-          <div className="h-24 rounded bg-gray-100" />
-          <div className="h-24 rounded bg-gray-100" />
-          <div className="h-24 rounded bg-gray-100" />
+          <div className="h-8 w-3/4 rounded-lg bg-brand-mint" />
+          <div className="h-24 rounded-lg bg-brand-surface" />
+          <div className="h-24 rounded-lg bg-brand-surface" />
+          <div className="h-24 rounded-lg bg-brand-surface" />
+          <p className="text-center text-sm font-medium text-brand-plum">Loading MLS listings…</p>
         </div>
       ) : null}
       {/* Only non-React children here (custom element); mount helper owns this node */}

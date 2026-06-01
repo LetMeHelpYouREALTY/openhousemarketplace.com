@@ -181,7 +181,7 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
             <input
               type="checkbox"
               id="termsCheckbox"
-              className="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+              className="h-4 w-4 text-brand-teal rounded border-gray-300 focus:ring-blue-500"
             />
             <label htmlFor="termsCheckbox" className="ml-2 text-xs text-gray-500">
               I am interested and/or affiliated with properties on this market.
@@ -191,7 +191,7 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-6 py-3 rounded-md font-medium text-sm uppercase tracking-wide mt-4"
+            className="w-full bg-brand-teal hover:bg-brand-plum disabled:bg-gray-400 text-white px-6 py-3 rounded-md font-medium text-sm uppercase tracking-wide mt-4"
           >
             {isSubmitting ? (
               <>

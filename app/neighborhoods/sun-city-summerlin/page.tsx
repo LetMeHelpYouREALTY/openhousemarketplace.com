@@ -105,7 +105,7 @@ export default function SunCitySummerlinPage() {
               communities for active adult real estate in Las Vegas.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Sun City Summerlin.
+              View <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Sun City Summerlin.
             </p>
             <RelatedNeighborhoods currentSlug="sun-city-summerlin" className="mb-4" />
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Real Estate Market in Sun City Summerlin</h3>

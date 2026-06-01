@@ -51,7 +51,7 @@ export default function ReviewUsPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
         <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
           <ol className="flex flex-wrap gap-x-2 gap-y-1">
-            <li><Link href="/" className="hover:text-blue-600 transition-colors">Home</Link></li>
+            <li><Link href="/" className="hover:text-brand-teal transition-colors">Home</Link></li>
             <li aria-hidden>/</li>
             <li className="text-gray-700 font-medium" aria-current="page">Review us on Google</li>
           </ol>
@@ -157,7 +157,7 @@ export default function ReviewUsPage() {
             <li>
               <ExternalLink
                 href={GOOGLE_REVIEW_GUIDE}
-                className="text-blue-600 hover:underline font-medium"
+                className="text-brand-teal hover:underline font-medium"
                 ariaLabel="Share a link or QR code to request reviews (Google Help)"
               >
                 Share a link or QR code to request reviews (Google Help)
@@ -166,7 +166,7 @@ export default function ReviewUsPage() {
             <li>
               <ExternalLink
                 href={GOOGLE_TIPS_REVIEWS}
-                className="text-blue-600 hover:underline font-medium"
+                className="text-brand-teal hover:underline font-medium"
                 ariaLabel="Tips to get more reviews (Google Help)"
               >
                 Tips to get more reviews (Google Help)
@@ -176,7 +176,7 @@ export default function ReviewUsPage() {
         </section>
 
         <p className="mt-8 text-center">
-          <Link href="/contact" className="text-blue-600 hover:underline font-medium">
+          <Link href="/contact" className="text-brand-teal hover:underline font-medium">
             Contact Dr. Jan Duffy
           </Link>
         </p>

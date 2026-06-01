@@ -34,7 +34,7 @@ export default function OpenHouseGuidePage() {
       <OpenHouseGuideJsonLd />
       <div className="min-h-screen bg-gray-50">
         {/* Hero */}
-        <section className="bg-gradient-to-b from-blue-600 to-blue-700 text-white py-16 px-4">
+        <section className="bg-gradient-to-b from-brand-teal to-blue-700 text-white py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="page-title-speakable text-4xl md:text-5xl font-bold mb-4">
               What to Expect at a Summerlin Open House in 2026
@@ -44,7 +44,7 @@ export default function OpenHouseGuidePage() {
             </p>
             <Link
               href="/open-houses"
-              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+              className="inline-block bg-white text-brand-teal px-8 py-3 rounded-lg font-semibold hover:bg-brand-mint/40 transition-colors"
             >
               View This Weekend&apos;s Open Houses
             </Link>
@@ -65,7 +65,7 @@ export default function OpenHouseGuidePage() {
                   {'url' in step && step.url ? (
                     <>
                       {' '}
-                      <Link href={step.url} className="text-blue-600 font-semibold hover:underline">
+                      <Link href={step.url} className="text-brand-teal font-semibold hover:underline">
                         Learn more
                       </Link>
                     </>
@@ -112,7 +112,7 @@ export default function OpenHouseGuidePage() {
                   agent-buyer relationship where that agent represents you in the transaction.
                 </li>
               </ol>
-              <p className="rounded-lg bg-blue-50 border border-blue-200 p-4 font-medium text-gray-900">
+              <p className="rounded-lg bg-brand-mint/40 border border-brand-mint p-4 font-medium text-gray-900">
                 <strong>Important:</strong> Open houses remain <strong>exempt</strong> from the
                 requirement to sign a buyer agreement before viewing. You do not have to commit to
                 an agent just to walk through an open house. That&apos;s a key advantage of
@@ -128,7 +128,7 @@ export default function OpenHouseGuidePage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">What This Means for You</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                You can still freely attend <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link>. You&apos;ll
+                You can still freely attend <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link>. You&apos;ll
                 typically be asked to sign in (digital or paper) for security and follow-up. The
                 agent at the open house represents the seller, not you.
               </p>
@@ -136,10 +136,10 @@ export default function OpenHouseGuidePage() {
                 Having your own buyer&apos;s agent gives you dedicated representation, negotiation
                 help, and access to off-market opportunities. Dr. Jan Duffy can serve as your
                 exclusive buyer&apos;s agent while you explore homes in{' '}
-                <Link href="/neighborhoods" className="text-blue-600 font-semibold hover:underline">Summerlin neighborhoods</Link> like The Ridges and Red Rock Country Club.
+                <Link href="/neighborhoods" className="text-brand-teal font-semibold hover:underline">Summerlin neighborhoods</Link> like The Ridges and Red Rock Country Club.
               </p>
               <p>
-                Questions? <Link href="/contact" className="text-blue-600 font-semibold hover:underline">Contact Dr. Jan Duffy</Link> for a no-pressure conversation about how
+                Questions? <Link href="/contact" className="text-brand-teal font-semibold hover:underline">Contact Dr. Jan Duffy</Link> for a no-pressure conversation about how
                 the new rules affect your home search.
               </p>
             </div>
@@ -160,7 +160,7 @@ export default function OpenHouseGuidePage() {
             <p className="text-gray-600 text-center mb-8 max-w-xl mx-auto">
               Schedule a free consultation with Dr. Jan Duffy and we&apos;ll send you the Open House Touring Guide. Choose a time below—no form required.
             </p>
-            <CalendlyPopupLink className="flex items-center justify-center gap-2 w-full max-w-sm mx-auto mb-8 bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-4 rounded-xl font-bold text-lg transition-colors">
+            <CalendlyPopupLink className="flex items-center justify-center gap-2 w-full max-w-sm mx-auto mb-8 bg-brand-teal hover:bg-brand-plum text-white px-6 py-4 rounded-xl font-bold text-lg transition-colors">
               Schedule a private showing
             </CalendlyPopupLink>
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
@@ -174,7 +174,7 @@ export default function OpenHouseGuidePage() {
         </section>
 
         <p className="text-center text-sm text-gray-500 py-8">
-          Enjoyed our guide? <Link href="/review-us" className="text-blue-600 hover:underline font-medium">Leave a review on Google</Link>
+          Enjoyed our guide? <Link href="/review-us" className="text-brand-teal hover:underline font-medium">Leave a review on Google</Link>
         </p>
       </div>
     </>

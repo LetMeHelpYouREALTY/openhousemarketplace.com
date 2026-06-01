@@ -82,7 +82,7 @@ export default function OpenHouseGuideForm() {
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="w-full rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+        className="w-full rounded-lg bg-brand-teal px-4 py-3 font-semibold text-white hover:bg-brand-plum disabled:opacity-50 transition-colors"
       >
         {status === 'submitting' ? 'Sending…' : 'Get My Free Guide'}
       </button>

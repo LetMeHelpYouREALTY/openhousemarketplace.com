@@ -55,7 +55,7 @@ export default function DirectionsPage() {
           <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
             <ol className="flex flex-wrap gap-x-2 gap-y-1">
               <li>
-                <Link href="/" className="hover:text-blue-600 transition-colors">
+                <Link href="/" className="hover:text-brand-teal transition-colors">
                   Home
                 </Link>
               </li>
@@ -97,7 +97,7 @@ export default function DirectionsPage() {
                 No destinations configured. Add store locations in{' '}
                 <code className="text-sm bg-gray-200 px-1 rounded">data/storeLocations.ts</code> to enable directions.
               </p>
-              <Link href="/store-locations" className="mt-4 inline-block text-blue-600 font-medium hover:underline">
+              <Link href="/store-locations" className="mt-4 inline-block text-brand-teal font-medium hover:underline">
                 View store locations →
               </Link>
             </div>
@@ -127,9 +127,9 @@ export default function DirectionsPage() {
             </section>
           )}
 
-          <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-100">
+          <div className="mt-8 p-4 bg-brand-mint/40 rounded-lg border border-blue-100">
             <p className="text-sm text-gray-700">
-              <strong>Tip:</strong> Click &quot;My location&quot; to use your current position as the starting point. You can also <Link href="/store-locations" className="text-blue-600 hover:underline">view all our store locations</Link> on a map.
+              <strong>Tip:</strong> Click &quot;My location&quot; to use your current position as the starting point. You can also <Link href="/store-locations" className="text-brand-teal hover:underline">view all our store locations</Link> on a map.
             </p>
           </div>
         </div>
