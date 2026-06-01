@@ -51,7 +51,7 @@ Every folder under `public/images/` should contain **hyper-local** (Summerlin We
 
 **Purpose:** Property and listing photos (e.g. featured open houses, MLS images you host locally).
 
-**Add:** Optional. Use descriptive names (e.g. `11773-cashmere-mist-ave.jpg`). Prefer remote URLs from MLS/RealScout when possible; use this folder for custom or fallback images.
+**Add:** Optional. Use descriptive names (e.g. `760-windover-ct.jpg`). Prefer remote URLs from MLS/RealScout when possible; use this folder for custom or fallback images.
 
 ---
 

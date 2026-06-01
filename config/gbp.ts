@@ -7,7 +7,7 @@
  * - Name: Open House Market Place | Category: Real estate agent
  * - Phone: (702) 200-3422 | Chat/SMS: sms:+17022003422
  * - Website (GBP field): use **https://www.openhousemarketplace.com/** (canonical). If the profile still shows apex, update it in Google so it matches this site’s indexed URL.
- * - Address: 11773 Cashmere Mist Ave, Las Vegas, NV 89138
+ * - Address: 760 Windover Ct, Las Vegas, NV 89138
  * - Hours: daily 9:00 AM–5:00 PM. If Wednesday shows 5:00 AM in GBP, fix to 5:00 PM in Google Business Profile.
  * - Special: Apr 5, 2026 (Easter) — Closed
  * - Service area: add in GBP when defined; meanwhile site uses GBP_SERVICE_AREA for visible + schema
@@ -48,8 +48,8 @@ export function getGbpAggregateRating():
   return { ratingValue, reviewCount }
 }
 
-/** Geocode for 11773 Cashmere Mist Ave (office pin; matches NAP). */
-export const OFFICE_GEO = { lat: 36.1729722, lng: -115.3540974 } as const
+/** Geocode for 760 Windover Ct (office pin; matches NAP). */
+export const OFFICE_GEO = { lat: 36.1907406, lng: -115.3661118 } as const
 
 /**
  * Hyperlocal service area — visible copy + schema. Mirror GBP → “Service area” when you configure it there.
@@ -67,7 +67,7 @@ export const GBP = {
   category: 'Real estate agent',
   /** Full address (exact match to GBP) */
   address: {
-    street: '11773 Cashmere Mist Ave',
+    street: '760 Windover Ct',
     locality: 'Las Vegas',
     region: 'NV',
     postalCode: '89138',

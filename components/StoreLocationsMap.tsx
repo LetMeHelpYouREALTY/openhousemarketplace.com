@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { MapPin, Phone, Clock, Navigation } from 'lucide-react'
+import { OFFICE_GEO } from '@/config/gbp'
 import type { StoreLocation } from '@/data/storeLocations'
 
 interface StoreLocationsMapProps {
@@ -18,7 +19,9 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
 
   const firstLocation = locations[0]
   // Fallback center: office NAP (89138) when no locations
-  const defaultCenter = firstLocation ? { lat: firstLocation.lat, lng: firstLocation.lng } : { lat: 36.1729722, lng: -115.3540974 }
+  const defaultCenter = firstLocation
+    ? { lat: firstLocation.lat, lng: firstLocation.lng }
+    : { lat: 36.1907406, lng: -115.3661118 }
   const defaultZoom = locations.length > 1 ? 11 : 14
 
   useEffect(() => {
