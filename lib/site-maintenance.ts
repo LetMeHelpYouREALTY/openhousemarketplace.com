@@ -77,9 +77,6 @@ function escapeHtml(text: string): string {
 export function buildMaintenancePageHtml(): string {
   const message = escapeHtml(getSiteMaintenanceMessage())
   const title = escapeHtml(GBP.name)
-  const address = escapeHtml(
-    `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
-  )
   const phone = escapeHtml(GBP.phone)
   const email = escapeHtml(GBP.email)
 
@@ -97,14 +94,13 @@ export function buildMaintenancePageHtml(): string {
     p { line-height: 1.6; margin: 0 0 1rem; font-size: 1rem; }
     a { color: #0d9488; font-weight: 600; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .nap { font-size: 0.9375rem; color: #4b5563; }
   </style>
 </head>
 <body>
   <div class="card">
     <h1>We&rsquo;ll be right back</h1>
     <p>${message}</p>
-    <p class="nap"><strong>${title}</strong><br />${address}</p>
+    <p><strong>${title}</strong></p>
     <p>
       <a href="tel:${GBP.phoneE164}">Call ${phone}</a><br />
       <a href="mailto:${GBP.email}">${email}</a>

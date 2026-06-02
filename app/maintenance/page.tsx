@@ -18,9 +18,6 @@ export default function MaintenancePage() {
         <p className="text-gray-700 mb-6">{message}</p>
         <p className="text-sm text-gray-600 mb-4">
           <strong>{GBP.name}</strong>
-          <br />
-          {GBP.address.street}, {GBP.address.locality}, {GBP.address.region}{' '}
-          {GBP.address.postalCode}
         </p>
         <p className="text-sm">
           <a href={`tel:${GBP.phoneE164}`} className="text-brand-teal font-semibold hover:underline">

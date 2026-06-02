@@ -19,7 +19,6 @@ const message =
 const contactPhone = '(702) 200-3422'
 const contactPhoneTel = '+17022003422'
 const contactEmail = 'DrJanSells@OpenHouseMarketplace.com'
-const officeAddress = '760 Windover Ct, Las Vegas, NV 89138'
 
 const CRAWLER_UA =
   /googlebot|google-inspectiontool|bingbot|duckduckbot|slurp|facebookexternalhit|twitterbot|linkedinbot/i
@@ -64,7 +63,6 @@ function generateMaintenancePage() {
   <div class="card">
     <h1>${title}</h1>
     <p>${message}</p>
-    <p><strong>${officeAddress}</strong></p>
     <p>
       <a href="tel:${contactPhoneTel}">Call ${contactPhone}</a><br />
       <a href="mailto:${contactEmail}">${contactEmail}</a>
