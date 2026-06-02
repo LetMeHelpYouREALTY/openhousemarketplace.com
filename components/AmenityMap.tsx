@@ -31,7 +31,8 @@ const AMENITY_TYPES: { type: string; label: string; searchQuery: string; icon: R
 export default function AmenityMap() {
   const [activeType, setActiveType] = useState<string>('restaurant')
 
-  const activeAmenity = AMENITY_TYPES.find((a) => a.type === activeType) ?? AMENITY_TYPES[0]
+  const activeAmenity =
+    AMENITY_TYPES.find((a) => a.type === activeType) ?? AMENITY_TYPES[0]!
   const searchUrl = getGoogleMapsNearbySearchUrl(activeAmenity.searchQuery)
 
   return (
