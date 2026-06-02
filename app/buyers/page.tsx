@@ -5,7 +5,7 @@ import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import BuyerToolsSection from '@/components/BuyerToolsSection'
 import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
-import GoogleMapsNeighborhoodDiscoverySection from '@/components/GoogleMapsNeighborhoodDiscoverySection'
+import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import { Search } from 'lucide-react'
 
 export const revalidate = 86400 // ISR: revalidate daily
@@ -53,23 +53,21 @@ export default function BuyersPage() {
           </div>
 
           <div className="mb-10 md:mb-12 rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm">
-            <GoogleMapsNeighborhoodDiscoverySection
+            <GoogleMyMapsSection
               heading="Explore neighborhoods before you buy"
-              description={
-                <>
-                  Use the map to browse areas and context across Summerlin. For commute times, see{' '}
-                  <Link href="/directions" className="text-brand-teal font-medium hover:underline">
-                    directions & commute explorer
-                  </Link>
-                  ; for community guides, see{' '}
-                  <Link href="/neighborhoods" className="text-brand-teal font-medium hover:underline">
-                    all neighborhoods
-                  </Link>
-                  .
-                </>
-              }
+              description="Pan and zoom across Summerlin on the map below. For commute times, see directions; for community guides, see all neighborhoods."
               id="buyers-neighborhood-discovery-heading"
+              mapScope="service-area"
             />
+            <p className="mt-4 text-sm text-gray-600">
+              <Link href="/directions" className="text-brand-teal font-medium hover:underline">
+                Directions &amp; commute explorer
+              </Link>
+              {' · '}
+              <Link href="/neighborhoods" className="text-brand-teal font-medium hover:underline">
+                All Summerlin neighborhoods
+              </Link>
+            </p>
           </div>
 
           <BuyerToolsSection searchListingsHref="/tour/mls" />

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import ExternalLink from '@/components/ExternalLink'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
-import GoogleMapsNeighborhoodDiscoverySection from '@/components/GoogleMapsNeighborhoodDiscoverySection'
+import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import MarketingHero from '@/components/conversion/MarketingHero'
 import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
 import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
@@ -108,10 +108,11 @@ export default function NeighborhoodsIndexPage() {
           </div>
 
           <div className="mb-10 md:mb-12">
-            <GoogleMapsNeighborhoodDiscoverySection
+            <GoogleMyMapsSection
               heading="Explore neighborhoods on the map"
-              description="Pan, zoom, and use the tools below to discover areas and context across Summerlin. Then browse individual communities in the list."
+              description="Pan and zoom across Summerlin West and the Las Vegas valley. Open the map full screen for directions, then browse individual communities below."
               id="neighborhoods-discovery-map-heading"
+              mapScope="service-area"
             />
           </div>
 
