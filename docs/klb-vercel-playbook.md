@@ -59,7 +59,7 @@ Do not commit secrets. `.env.local` is gitignored.
 4. **Sitemap** — Prefer `app/sitemap.ts` + `app/robots.ts`. Use `next-sitemap` only if you need static XML in `public/` or non-Next hosting.
 5. **JSON-LD** — Single NAP source matching GBP; optional `schema-dts` for helpers at scale.
 6. **AI routes** — Server Route Handlers only; validate inputs (e.g. Zod); rate-limit public endpoints; ensure `ANTHROPIC_API_KEY` is available in the deployment environment (project or shared/global Vercel env).
-7. **Cloudflare + Vercel** — DNS-only (gray cloud) to avoid double TLS; SSL Full (strict); cache bypass or conservative rules for `/api/*`; public URL env without trailing slash.
+7. **Cloudflare + Vercel** — DNS-only (gray cloud) to avoid double TLS; SSL Full (strict); cache bypass or conservative rules for `/api/*`; public URL env without trailing slash. **Edge maintenance** (503 for visitors) requires **proxied** DNS — see [cloudflare-maintenance.md](./cloudflare-maintenance.md).
 8. **Deploy** — Push to `main` → **production** build (`vercel deploy --prod` in CI; never preview). Verify `/sitemap.xml`, `/robots.txt`, key pages. See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) and [`.github/workflows/vercel-deploy.yml`](../.github/workflows/vercel-deploy.yml).
 
 ## Next.js 16 upgrade (separate track)
