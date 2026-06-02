@@ -35,8 +35,9 @@ Internal reference for **openhousemarketplace.com** and greenfield KLB sites. Pr
 
 | Variable | Purpose |
 |----------|---------|
-| `NEXT_PUBLIC_SITE_MAINTENANCE_MODE` | Set `true` in Vercel (Production) for a site-wide amber banner only — **does not take the site offline**; robots stay indexable. Remove or set `false` for normal production. Not enabled in `vercel.json` by default. |
-| `NEXT_PUBLIC_SITE_MAINTENANCE_MESSAGE` | Optional custom banner copy (defaults to a short “updating the site” message). |
+| `NEXT_PUBLIC_SITE_MAINTENANCE_MODE` | `true` → **503 for consumers** via middleware; search crawlers still reach pages. Set `false` when live. |
+| `NEXT_PUBLIC_SITE_MAINTENANCE_BANNER_ONLY` | `true` → amber banner only (no 503 block). |
+| `NEXT_PUBLIC_SITE_MAINTENANCE_MESSAGE` | Optional 503 / banner copy. |
 | `NEXT_PUBLIC_SITE_URL` | Optional override of public origin (no trailing slash); preview deployments |
 | `NEXT_PUBLIC_APP_URL` | Fallback if `NEXT_PUBLIC_SITE_URL` unset (see [`vercel.json`](../vercel.json)) |
 | `ANTHROPIC_API_KEY` | Required at runtime for `/api/claude` and `/api/chat` (reads `process.env.ANTHROPIC_API_KEY`) |

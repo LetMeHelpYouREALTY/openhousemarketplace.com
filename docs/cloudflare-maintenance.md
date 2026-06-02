@@ -64,12 +64,13 @@ Set `BYPASS_CRAWLERS = false` for a full lockout (bad for SEO).
 
 ---
 
-## Stack with Vercel banner
+## Stack with Vercel consumer gate (recommended, works with gray-cloud DNS)
 
 | Layer | What visitors see |
 |-------|-------------------|
-| Cloudflare Snippet ON + proxied DNS | 503 maintenance HTML (crawlers may pass through if `BYPASS_CRAWLERS`) |
-| Vercel `NEXT_PUBLIC_SITE_MAINTENANCE_MODE=true` only | Full site + amber banner (SEO unchanged) |
+| Vercel `NEXT_PUBLIC_SITE_MAINTENANCE_MODE=true` (default) | **Consumers:** 503 maintenance HTML via [`middleware.ts`](../middleware.ts). **Crawlers:** full site. |
+| `NEXT_PUBLIC_SITE_MAINTENANCE_BANNER_ONLY=true` | Full site + amber banner (no 503 block) |
+| Cloudflare Snippet ON + proxied DNS | Extra 503 at edge (see above); optional if DNS is proxied |
 
 You can use **both**; most teams use **one** to avoid confusion.
 

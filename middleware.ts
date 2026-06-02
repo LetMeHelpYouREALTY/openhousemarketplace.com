@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { getSiteUrl } from '@/lib/site'
+import {
+  createMaintenancePageResponse,
+  shouldBlockConsumerWithMaintenance,
+} from '@/lib/site-maintenance'
 
 // Subdomain configuration
 const subdomainRoutes: Record<string, string> = {
@@ -39,6 +43,10 @@ export function middleware(request: NextRequest) {
 
   if (needsCanonicalRedirect) {
     return NextResponse.redirect(`${CANONICAL_ORIGIN}${pathname}${search}`, 301)
+  }
+
+  if (shouldBlockConsumerWithMaintenance(request, pathname)) {
+    return createMaintenancePageResponse()
   }
 
   // HTTPS for other hosts (e.g. subdomains). Skip for local dev so http://localhost smoke tests work.

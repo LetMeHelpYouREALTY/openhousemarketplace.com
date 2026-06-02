@@ -1,13 +1,17 @@
 import { connection } from 'next/server'
-import { getSiteMaintenanceMessage, isSiteMaintenanceMode } from '@/lib/site-maintenance'
+import {
+  getSiteMaintenanceMessage,
+  isSiteMaintenanceBannerOnly,
+  isSiteMaintenanceMode,
+} from '@/lib/site-maintenance'
 
 /**
- * Visible maintenance notice. Does not block pages or change robots — SEO stays on.
- * Uses `connection()` so the flag is read at request time (Vercel env changes without stale static shell).
+ * Optional amber banner when `NEXT_PUBLIC_SITE_MAINTENANCE_BANNER_ONLY=true`.
+ * Default maintenance mode blocks consumers in middleware (no banner).
  */
 export default async function SiteMaintenanceBanner() {
   await connection()
-  if (!isSiteMaintenanceMode()) return null
+  if (!isSiteMaintenanceMode() || !isSiteMaintenanceBannerOnly()) return null
 
   const message = getSiteMaintenanceMessage()
 
