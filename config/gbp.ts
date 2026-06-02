@@ -153,27 +153,12 @@ export function getGoogleMapsSummerlinSearchUrl(): string {
   return 'https://www.google.com/maps/search/Summerlin,+Las+Vegas,+NV+89138'
 }
 
-/**
- * iframe embed for the office (no Maps JavaScript API key required).
- */
-export function getGoogleMapsOfficeEmbedUrl(): string {
-  const q = encodeURIComponent(getOfficeAddressQuery())
-  return `https://maps.google.com/maps?q=${q}&hl=en&z=15&output=embed`
-}
-
-/** iframe embed centered on coordinates (no API key). */
-export function getGoogleMapsEmbedUrlForCoords(lat: number, lng: number, zoom = 14): string {
-  return `https://maps.google.com/maps?q=${lat},${lng}&hl=en&z=${zoom}&output=embed`
-}
-
-/** Summerlin / service-area map for site-wide “area overview” sections. */
-export function getGoogleMapsServiceAreaEmbedUrl(): string {
-  return getGoogleMapsEmbedUrlForCoords(
-    SERVICE_AREA_MAP_CENTER.lat,
-    SERVICE_AREA_MAP_CENTER.lng,
-    SERVICE_AREA_MAP_ZOOM
-  )
-}
+/** @deprecated Import from `@/lib/site-map-embed` — maps.google.com output=embed returns 404. */
+export {
+  getGoogleMapsOfficeEmbedUrl,
+  getGoogleMapsEmbedUrlForCoords,
+  getGoogleMapsServiceAreaEmbedUrl,
+} from '@/lib/site-map-embed'
 
 /**
  * JSON-LD `areaServed` list for LocalBusiness / RealEstateAgent (aligns with site footer + zip routes).

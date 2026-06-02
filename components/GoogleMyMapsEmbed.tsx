@@ -16,8 +16,8 @@ type GoogleMyMapsEmbedProps = {
 }
 
 /**
- * Responsive Google Maps iframe (maps.google.com output=embed).
- * Replaces broken legacy My Maps `mid=` embed that returned 404.
+ * Responsive area map iframe (OpenStreetMap by default; optional Google/custom override).
+ * Turn-by-turn maps open in Google Maps via links below the embed.
  */
 export default function GoogleMyMapsEmbed({
   title = 'Summerlin and Las Vegas area map — Open House Market Place',
