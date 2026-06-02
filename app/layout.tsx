@@ -21,6 +21,7 @@ import RealScoutScriptLoader from "@/components/RealScoutScriptLoader"
 import RealScoutOfficeListingsBandsDynamic from "@/components/RealScoutOfficeListingsBandsDynamic"
 import ScheduleTourBand from "@/components/conversion/ScheduleTourBand"
 import StickyMobileCta from "@/components/conversion/StickyMobileCta"
+import SiteMaintenanceBanner from "@/components/SiteMaintenanceBanner"
 
 // Google Analytics scripts must be in head as standard script tags for detection
 // SEO: Google 2026 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
@@ -122,6 +123,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteEntityGraph />
         <GoogleEnhancement />
         <CalendlyBadgeWidget />
+        <SiteMaintenanceBanner />
         <SiteHeader />
         <div className="pb-20 md:pb-0">{children}</div>
         <ScheduleTourBand />

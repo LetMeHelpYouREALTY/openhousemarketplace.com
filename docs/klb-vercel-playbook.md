@@ -35,6 +35,8 @@ Internal reference for **openhousemarketplace.com** and greenfield KLB sites. Pr
 
 | Variable | Purpose |
 |----------|---------|
+| `NEXT_PUBLIC_SITE_MAINTENANCE_MODE` | `true` shows a site-wide amber banner; pages stay public and **robots stay indexable** (SEO on). Set `false` or remove when maintenance ends. |
+| `NEXT_PUBLIC_SITE_MAINTENANCE_MESSAGE` | Optional custom banner copy (defaults to a short “updating the site” message). |
 | `NEXT_PUBLIC_SITE_URL` | Optional override of public origin (no trailing slash); preview deployments |
 | `NEXT_PUBLIC_APP_URL` | Fallback if `NEXT_PUBLIC_SITE_URL` unset (see [`vercel.json`](../vercel.json)) |
 | `ANTHROPIC_API_KEY` | Required at runtime for `/api/claude` and `/api/chat` (reads `process.env.ANTHROPIC_API_KEY`) |
