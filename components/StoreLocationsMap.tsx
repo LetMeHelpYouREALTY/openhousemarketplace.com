@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
 import { MapPin, Phone, Clock, Navigation } from 'lucide-react'
-import { OFFICE_GEO } from '@/config/gbp'
+import GoogleMyMapsEmbed from '@/components/GoogleMyMapsEmbed'
 import type { StoreLocation } from '@/data/storeLocations'
 
 interface StoreLocationsMapProps {
@@ -11,100 +10,6 @@ interface StoreLocationsMapProps {
 }
 
 export default function StoreLocationsMap({ locations, className = '' }: StoreLocationsMapProps) {
-  const mapRef = useRef<HTMLDivElement>(null)
-  const [map, setMap] = useState<unknown>(null)
-  const [isLoaded, setIsLoaded] = useState(false)
-  const markersRef = useRef<unknown[]>([])
-  const infoWindowRef = useRef<unknown>(null)
-
-  const firstLocation = locations[0]
-  // Fallback center: office NAP (89138) when no locations
-  const defaultCenter = firstLocation
-    ? { lat: firstLocation.lat, lng: firstLocation.lng }
-    : { lat: OFFICE_GEO.lat, lng: OFFICE_GEO.lng }
-  const defaultZoom = locations.length > 1 ? 11 : 14
-
-  useEffect(() => {
-    const loadMaps = () => {
-      if (typeof window === 'undefined') return
-      if (window.google?.maps) {
-        initMap()
-        return
-      }
-      const script = document.createElement('script')
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}`
-      script.async = true
-      script.defer = true
-      script.onload = initMap
-      document.head.appendChild(script)
-    }
-
-    const initMap = () => {
-      if (!mapRef.current || !window.google?.maps) return
-      const g = window.google.maps
-      const mapInstance = new g.Map(mapRef.current, {
-        center: defaultCenter,
-        zoom: defaultZoom,
-        mapTypeControl: true,
-        streetViewControl: true,
-        fullscreenControl: true,
-        zoomControl: true,
-      })
-      setMap(mapInstance)
-      setIsLoaded(true)
-    }
-
-    loadMaps()
-  }, [])
-
-  useEffect(() => {
-    if (!map || !isLoaded || !window.google?.maps || locations.length === 0) return
-    const g = window.google.maps
-    const mapInstance = map as InstanceType<typeof g.Map>
-
-    markersRef.current.forEach((m) => {
-      const marker = m as { setMap: (x: null) => void }
-      if (marker?.setMap) marker.setMap(null)
-    })
-    markersRef.current = []
-    const iw = infoWindowRef.current as { close?: () => void } | null
-    if (iw?.close) iw.close()
-
-    const bounds = new g.LatLngBounds()
-    const infoWindow = new g.InfoWindow({ content: '' }) as {
-      setContent: (s: string) => void
-      open: (m: unknown, a: unknown) => void
-      close: () => void
-    }
-    infoWindowRef.current = infoWindow
-
-    locations.forEach((loc) => {
-      const marker = new g.Marker({
-        position: { lat: loc.lat, lng: loc.lng },
-        map: mapInstance,
-        title: loc.name,
-      })
-      const content = `
-        <div class="p-3 min-w-[200px]">
-          <div class="font-semibold text-gray-900 mb-1">${loc.name}</div>
-          <div class="text-sm text-gray-600 mb-2">${loc.address}, ${loc.city}, ${loc.state} ${loc.zip}</div>
-          ${loc.phone ? `<div class="text-sm mb-2"><a href="tel:+1${loc.phone.replace(/\D/g, '')}" class="text-brand-teal hover:underline">${loc.phone}</a></div>` : ''}
-          ${loc.hours ? `<div class="text-xs text-gray-500 mb-2">${loc.hours}</div>` : ''}
-          <a href="${loc.directionsUrl}" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-brand-teal hover:underline">Get directions</a>
-        </div>
-      `
-      marker.addListener('click', () => {
-        infoWindow.setContent(content)
-        infoWindow.open(mapInstance, marker)
-      })
-      markersRef.current.push(marker)
-      bounds.extend(new g.LatLng(loc.lat, loc.lng))
-    })
-
-    if (locations.length > 1) mapInstance.fitBounds(bounds)
-    else mapInstance.setCenter(defaultCenter)
-  }, [map, isLoaded, locations, defaultCenter.lat, defaultCenter.lng])
-
   if (locations.length === 0) {
     return (
       <div className={`rounded-xl border border-gray-200 bg-gray-50 p-8 text-center ${className}`}>
@@ -118,7 +23,6 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
 
   return (
     <div className={`grid grid-cols-1 lg:grid-cols-3 gap-6 ${className}`}>
-      {/* Location list */}
       <div className="lg:col-span-1 space-y-4 order-2 lg:order-1">
         <h2 className="text-lg font-semibold text-gray-900">Office details</h2>
         {locations.map((loc) => (
@@ -129,7 +33,9 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
             <h3 className="font-semibold text-gray-900 mb-2">{loc.name}</h3>
             <div className="flex items-start gap-2 text-sm text-gray-600 mb-2">
               <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-brand-teal" aria-hidden />
-              <span>{loc.address}, {loc.city}, {loc.state} {loc.zip}</span>
+              <span>
+                {loc.address}, {loc.city}, {loc.state} {loc.zip}
+              </span>
             </div>
             {loc.phone && (
               <div className="flex items-center gap-2 text-sm mb-2">
@@ -158,21 +64,11 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
         ))}
       </div>
 
-      {/* Map */}
-      <div className="lg:col-span-2 order-1 lg:order-2 relative">
-        <div
-          ref={mapRef}
-          className="w-full h-[400px] lg:h-[500px] rounded-xl border border-gray-200 shadow-lg bg-gray-100"
-          aria-label="Map showing Open House Market Place office location in Summerlin"
+      <div className="lg:col-span-2 order-1 lg:order-2">
+        <GoogleMyMapsEmbed
+          mapScope="office"
+          title="Open House Market Place office — 760 Windover Ct, Summerlin"
         />
-        {!isLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-xl">
-            <div className="text-center">
-              <div className="animate-spin rounded-full h-10 w-10 border-2 border-brand-teal border-t-transparent mx-auto mb-3" />
-              <p className="text-sm text-gray-600">Loading map...</p>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   )

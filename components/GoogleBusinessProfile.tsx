@@ -2,16 +2,15 @@
 
 import Link from 'next/link'
 import { Phone, MapPin, Star, Clock, Mail } from 'lucide-react'
-import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import ExternalLink from '@/components/ExternalLink'
+import GoogleMyMapsEmbed from '@/components/GoogleMyMapsEmbed'
 import {
   GBP,
   GBP_SERVICE_AREA,
   getGoogleBusinessProfileUrl,
   getGoogleMapsDirectionsUrlToOffice,
-  OFFICE_GEO,
 } from '@/config/gbp'
 
 interface GoogleBusinessProfileProps {
@@ -21,7 +20,6 @@ interface GoogleBusinessProfileProps {
 }
 
 // NAP and hours from Google Business Profile (config/gbp.ts) – site supports the GBP
-const coordinates = { lat: OFFICE_GEO.lat, lng: OFFICE_GEO.lng }
 const BUSINESS_INFO = {
   name: GBP.name,
   phone: GBP.phone,
@@ -34,7 +32,6 @@ const BUSINESS_INFO = {
     zip: GBP.address.postalCode,
     full: `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
   },
-  coordinates,
   serviceArea: GBP_SERVICE_AREA.label,
   hours: {
     weekdays: 'Monday - Friday: 9:00 AM - 5:00 PM',
@@ -51,45 +48,6 @@ export default function GoogleBusinessProfile({
   showMap = true,
   showReviews = true 
 }: GoogleBusinessProfileProps) {
-  const [mapLoaded, setMapLoaded] = useState(false)
-
-  useEffect(() => {
-    // Load Google Maps script if map is enabled
-    if (showMap && typeof window !== 'undefined' && !window.google?.maps) {
-      const script = document.createElement('script')
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&libraries=places`
-      script.async = true
-      script.defer = true
-      script.onload = () => setMapLoaded(true)
-      document.head.appendChild(script)
-    } else if (showMap && typeof window !== 'undefined' && window.google?.maps) {
-      setMapLoaded(true)
-    }
-  }, [showMap])
-
-  useEffect(() => {
-    if (mapLoaded && showMap && typeof window !== 'undefined' && window.google?.maps) {
-      // Initialize map
-      const mapElement = document.getElementById('gbp-map')
-      if (mapElement) {
-        const map = new window.google.maps.Map(mapElement, {
-          center: { lat: BUSINESS_INFO.coordinates.lat, lng: BUSINESS_INFO.coordinates.lng },
-          zoom: 15,
-          mapTypeControl: false,
-          streetViewControl: true,
-          fullscreenControl: true,
-        })
-
-        // Add marker
-        new window.google.maps.Marker({
-          position: { lat: BUSINESS_INFO.coordinates.lat, lng: BUSINESS_INFO.coordinates.lng },
-          map,
-          title: BUSINESS_INFO.name,
-        })
-      }
-    }
-  }, [mapLoaded, showMap])
-
   return (
     <Card className={className}>
       <CardHeader>
@@ -195,18 +153,17 @@ export default function GoogleBusinessProfile({
       {showMap && (
         <div className="mb-4">
           <h3 className="text-lg font-semibold text-gray-900 mb-3">Location</h3>
-          <div 
-            id="gbp-map" 
-            className="w-full min-h-64 h-64 rounded-lg border border-gray-200"
-            aria-label="Google Map showing business location"
+          <GoogleMyMapsEmbed
+            mapScope="office"
+            title={`${BUSINESS_INFO.name} — office location map`}
           />
           <p className="text-sm text-gray-600 mt-2 text-center">
             <ExternalLink
               href={BUSINESS_INFO.googleBusinessUrl}
               className="text-brand-teal hover:text-brand-plum"
-              ariaLabel="View on Google Maps"
+              ariaLabel="View on Google Business Profile"
             >
-              View on Google Maps
+              View on Google Business Profile
             </ExternalLink>
           </p>
         </div>

@@ -110,8 +110,31 @@ export type GBPConfig = typeof GBP
 
 /** Google Maps directions to the office address (encoded). */
 export function getGoogleMapsDirectionsUrlToOffice(): string {
-  const dest = getOfficeAddressQuery()
-  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}`
+  return getGoogleMapsDirectionsUrlFromOrigin('', getOfficeAddressQuery(), 'driving')
+}
+
+export type GoogleMapsTravelMode = 'driving' | 'walking' | 'bicycling' | 'transit'
+
+/**
+ * Turn-by-turn directions in Google Maps (no JavaScript API key).
+ * Empty origin opens Maps with destination only.
+ */
+export function getGoogleMapsDirectionsUrlFromOrigin(
+  origin: string,
+  destination: string = getOfficeAddressQuery(),
+  travelMode: GoogleMapsTravelMode = 'driving'
+): string {
+  const params = new URLSearchParams({ api: '1', destination })
+  const trimmedOrigin = origin.trim()
+  if (trimmedOrigin) params.set('origin', trimmedOrigin)
+  if (travelMode !== 'driving') params.set('travelmode', travelMode)
+  return `https://www.google.com/maps/dir/?${params.toString()}`
+}
+
+/** Search nearby places in Google Maps (no Places API). */
+export function getGoogleMapsNearbySearchUrl(placeQuery: string, near = getOfficeAddressQuery()): string {
+  const q = `${placeQuery} near ${near}`
+  return `https://www.google.com/maps/search/${encodeURIComponent(q)}`
 }
 
 /** Full formatted office address for map queries (NAP). */

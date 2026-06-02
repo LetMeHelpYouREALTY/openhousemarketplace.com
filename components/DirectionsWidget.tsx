@@ -1,9 +1,15 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import { Navigation, Car, Footprints, Bike, Train, MapPin, Loader2 } from 'lucide-react'
-import { OFFICE_GEO } from '@/config/gbp'
+import { Navigation, Car, Footprints, Bike, Train, MapPin } from 'lucide-react'
+import GoogleMyMapsEmbed from '@/components/GoogleMyMapsEmbed'
+import ExternalLink from '@/components/ExternalLink'
+import {
+  getGoogleMapsDirectionsUrlFromOrigin,
+  getOfficeAddressQuery,
+  type GoogleMapsTravelMode,
+} from '@/config/gbp'
 import type { StoreLocation } from '@/data/storeLocations'
 
 interface DirectionsWidgetProps {
@@ -11,21 +17,18 @@ interface DirectionsWidgetProps {
   className?: string
 }
 
-type TravelMode = 'DRIVING' | 'WALKING' | 'BICYCLING' | 'TRANSIT'
-
-const TRAVEL_MODE_OPTIONS: { value: TravelMode; label: string; icon: React.ReactNode }[] = [
-  { value: 'DRIVING', label: 'Driving', icon: <Car className="h-4 w-4" /> },
-  { value: 'WALKING', label: 'Walking', icon: <Footprints className="h-4 w-4" /> },
-  { value: 'BICYCLING', label: 'Bicycling', icon: <Bike className="h-4 w-4" /> },
-  { value: 'TRANSIT', label: 'Transit', icon: <Train className="h-4 w-4" /> },
+const TRAVEL_MODE_OPTIONS: { value: GoogleMapsTravelMode; label: string; icon: React.ReactNode }[] = [
+  { value: 'driving', label: 'Driving', icon: <Car className="h-4 w-4" /> },
+  { value: 'walking', label: 'Walking', icon: <Footprints className="h-4 w-4" /> },
+  { value: 'bicycling', label: 'Bicycling', icon: <Bike className="h-4 w-4" /> },
+  { value: 'transit', label: 'Transit', icon: <Train className="h-4 w-4" /> },
 ]
 
 export default function DirectionsWidget({ destinations, className = '' }: DirectionsWidgetProps) {
-  const mapRef = useRef<HTMLDivElement>(null)
-  const [map, setMap] = useState<unknown>(null)
-  const [isLoaded, setIsLoaded] = useState(false)
   const [origin, setOrigin] = useState('')
   const [destinationId, setDestinationId] = useState<string>(destinations[0]?.id ?? '')
+  const [travelMode, setTravelMode] = useState<GoogleMapsTravelMode>('driving')
+  const [error, setError] = useState<string | null>(null)
 
   if (destinations.length === 0) {
     return (
@@ -40,53 +43,11 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
       </div>
     )
   }
-  const [travelMode, setTravelMode] = useState<TravelMode>('DRIVING')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [result, setResult] = useState<{
-    duration: string
-    distance: string
-    steps: Array<{ instruction: string; distance?: string }>
-  } | null>(null)
-  const rendererRef = useRef<unknown>(null)
 
   const selectedDestination = destinations.find((d) => d.id === destinationId)
-
-  useEffect(() => {
-    const loadMaps = () => {
-      if (typeof window === 'undefined') return
-      if (window.google?.maps) {
-        initMap()
-        return
-      }
-      const script = document.createElement('script')
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}`
-      script.async = true
-      script.defer = true
-      script.onload = initMap
-      document.head.appendChild(script)
-    }
-
-    const initMap = () => {
-      if (!mapRef.current || !window.google?.maps) return
-      const g = window.google.maps
-      const center = selectedDestination
-        ? { lat: selectedDestination.lat, lng: selectedDestination.lng }
-        : { lat: OFFICE_GEO.lat, lng: OFFICE_GEO.lng }
-      const mapInstance = new g.Map(mapRef.current, {
-        center,
-        zoom: 12,
-        mapTypeControl: true,
-        streetViewControl: true,
-        fullscreenControl: true,
-        zoomControl: true,
-      })
-      setMap(mapInstance)
-      setIsLoaded(true)
-    }
-
-    loadMaps()
-  }, [])
+  const destinationQuery = selectedDestination
+    ? `${selectedDestination.address}, ${selectedDestination.city}, ${selectedDestination.state} ${selectedDestination.zip}`
+    : getOfficeAddressQuery()
 
   const handleUseMyLocation = () => {
     if (!navigator.geolocation) {
@@ -94,82 +55,29 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
       return
     }
     setError(null)
-    setLoading(true)
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         setOrigin(`${pos.coords.latitude},${pos.coords.longitude}`)
-        setLoading(false)
       },
       () => {
         setError('Could not get your location. Enter an address instead.')
-        setLoading(false)
       }
     )
   }
 
-  const handleGetDirections = () => {
-    if (!origin.trim() || !selectedDestination || !map || !window.google?.maps) {
-      setError('Please enter an origin and ensure a destination is selected.')
-      return
-    }
-    setError(null)
-    setResult(null)
-    setLoading(true)
-
-    const g = window.google.maps
-    const directionsService = new g.DirectionsService()
-    let renderer = rendererRef.current as { setMap: (m: unknown) => void; setDirections: (d: unknown) => void } | null
-    if (!renderer) {
-      renderer = new g.DirectionsRenderer({ map: map as never }) as never
-      rendererRef.current = renderer
-    } else {
-      renderer.setMap(map)
-    }
-
-    const request = {
-      origin: origin.trim(),
-      destination: { lat: selectedDestination.lat, lng: selectedDestination.lng },
-      travelMode: g.TravelMode[travelMode as keyof typeof g.TravelMode],
-    }
-
-    directionsService.route(request, (res: unknown, status: string) => {
-      setLoading(false)
-      const response = res as {
-        routes?: Array<{
-          legs?: Array<{
-            duration?: { text: string }
-            distance?: { text: string }
-            steps?: Array<{ instructions?: string; distance?: { text: string } }>
-          }>
-        }>
-      }
-      if (status !== 'OK' || !response?.routes?.length) {
-        setError('Could not find a route. Try a different origin or travel mode.')
-        renderer?.setMap(null)
-        return
-      }
-      renderer?.setDirections(res as never)
-      const leg = response.routes?.[0]?.legs?.[0]
-      if (leg) {
-        setResult({
-          duration: leg.duration?.text ?? '—',
-          distance: leg.distance?.text ?? '—',
-          steps:
-            leg.steps?.map((s) => ({
-              instruction: (s.instructions ?? '').replace(/<[^>]+>/g, '').trim(),
-              distance: s.distance?.text,
-            })) ?? [],
-        })
-      }
-    })
-  }
+  const directionsUrl =
+    origin.trim().length > 0
+      ? getGoogleMapsDirectionsUrlFromOrigin(origin.trim(), destinationQuery, travelMode)
+      : null
 
   return (
     <div className={`space-y-4 ${className}`}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Form */}
         <div className="lg:col-span-1 space-y-4 p-4 rounded-xl border border-gray-200 bg-gray-50">
           <h2 className="text-lg font-semibold text-gray-900">Plan your visit</h2>
+          <p className="text-sm text-gray-600">
+            Enter a starting point and open turn-by-turn directions in Google Maps. No API key required.
+          </p>
 
           <div>
             <label htmlFor="directions-origin" className="block text-sm font-medium text-gray-700 mb-1">
@@ -187,8 +95,7 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
               <button
                 type="button"
                 onClick={handleUseMyLocation}
-                disabled={loading}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-brand-teal text-white text-sm font-medium hover:bg-brand-plum disabled:opacity-50"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-brand-teal text-white text-sm font-medium hover:bg-brand-plum"
                 title="Use my location"
               >
                 <MapPin className="h-4 w-4" />
@@ -236,53 +143,28 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
             </div>
           </div>
 
-          <button
-            type="button"
-            onClick={handleGetDirections}
-            disabled={loading || !origin.trim()}
-            className="w-full flex items-center justify-center gap-2 rounded-lg bg-brand-teal px-4 py-3 text-white font-semibold hover:bg-brand-plum disabled:opacity-50"
-          >
-            {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Navigation className="h-5 w-5" />}
-            Get directions
-          </button>
+          {directionsUrl ? (
+            <ExternalLink
+              href={directionsUrl}
+              className="w-full flex items-center justify-center gap-2 rounded-lg bg-brand-teal px-4 py-3 text-white font-semibold hover:bg-brand-plum"
+              ariaLabel="Open directions in Google Maps"
+              showIcon={false}
+            >
+              <Navigation className="h-5 w-5" />
+              Open directions in Google Maps
+            </ExternalLink>
+          ) : (
+            <p className="text-sm text-gray-500">Enter a starting point to open directions.</p>
+          )}
 
           {error && <p className="text-sm text-red-600">{error}</p>}
         </div>
 
-        {/* Map + results */}
-        <div className="lg:col-span-2 space-y-4">
-          <div className="relative rounded-xl border border-gray-200 overflow-hidden bg-gray-100">
-            <div ref={mapRef} className="w-full h-[360px]" aria-label="Directions map" />
-            {!isLoaded && (
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                <div className="text-center">
-                  <Loader2 className="h-10 w-10 animate-spin text-brand-teal mx-auto mb-2" />
-                  <p className="text-sm text-gray-600">Loading map...</p>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {result && (
-            <div className="p-4 rounded-xl border border-gray-200 bg-white">
-              <h3 className="font-semibold text-gray-900 mb-2">Estimated travel</h3>
-              <p className="text-sm text-gray-600 mb-3">
-                <strong>{result.duration}</strong> ({result.distance})
-              </p>
-              <h4 className="text-sm font-medium text-gray-700 mb-2">Steps</h4>
-              <ol className="list-decimal list-inside space-y-1 text-sm text-gray-600">
-                {result.steps.slice(0, 10).map((step, i) => (
-                  <li key={i}>
-                    {step.instruction}
-                    {step.distance && <span className="text-gray-500"> ({step.distance})</span>}
-                  </li>
-                ))}
-                {result.steps.length > 10 && (
-                  <li className="text-gray-500">… and {result.steps.length - 10} more steps</li>
-                )}
-              </ol>
-            </div>
-          )}
+        <div className="lg:col-span-2">
+          <GoogleMyMapsEmbed
+            mapScope="office"
+            title="Directions destination — Open House Market Place, Summerlin"
+          />
         </div>
       </div>
     </div>

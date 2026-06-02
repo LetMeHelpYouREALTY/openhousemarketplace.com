@@ -10,7 +10,7 @@ import { VirtualTourModal } from './VirtualTourModal'
 import CalendlyPopupLink from './CalendlyPopupLink'
 import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
 import { brandAccentBadgeClass } from '@/lib/brand-classes'
-import InteractiveMap from './InteractiveMap'
+import GoogleMyMapsEmbed from '@/components/GoogleMyMapsEmbed'
 import { summerlinOpenHouses } from '@/data/summerlinOpenHouses'
 import { SEO_FEATURED_OPEN_HOUSES_HEADING } from '@/config/seo'
 import type { Listing } from '@/types/listing'
@@ -120,11 +120,19 @@ export default function FeaturedOpenHouses() {
         </div>
 
         {showMap ? (
-          <InteractiveMap
-            properties={filteredHouses}
-            className="mb-8"
-            onPropertyClick={() => {}}
-          />
+          <div className="mb-8">
+            <GoogleMyMapsEmbed
+              mapScope="service-area"
+              title="Summerlin open houses area map"
+            />
+            <p className="mt-3 text-center text-sm text-gray-600">
+              Browse individual listings below or{' '}
+              <Link href="/open-houses" className="font-semibold text-brand-teal hover:underline">
+                see all open houses
+              </Link>
+              .
+            </p>
+          </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredHouses.map((house, index) => (

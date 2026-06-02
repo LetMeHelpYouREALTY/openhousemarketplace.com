@@ -73,29 +73,28 @@ export default function AmenityMapPage() {
               Explore Nearby Amenities
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl">
-              Use the map below to find nearby places in Summerlin and Las Vegas. Select types such as
-              restaurants, parks, parking, cafes, grocery stores, gas stations, gyms, and pharmacies.
-              Click a marker for details. Handy when you are touring open houses and want dining, parks, or errands nearby.
+              Use the maps below to orient yourself in Summerlin and Las Vegas, then open nearby restaurants,
+              parks, parking, cafes, grocery stores, gas stations, gyms, and pharmacies in Google Maps. Handy
+              when you are touring open houses and want dining, parks, or errands nearby.
             </p>
           </header>
 
           <div className="mb-10 md:mb-12">
             <GoogleMyMapsSection
               heading="Area overview map"
-              description="Our curated Google map shows Summerlin and Las Vegas context. Use the interactive filters below for nearby restaurants, parks, parking, and more."
+              description="Our curated Google map shows Summerlin and Las Vegas context. Use the buttons below to open nearby places in Google Maps."
               id="amenity-my-maps-heading"
             />
           </div>
 
-          <section aria-label="Interactive amenity map">
+          <section aria-label="Nearby amenities map and links">
             <AmenityMap />
           </section>
 
           <div className="mt-8 p-4 bg-brand-mint/40 rounded-lg border border-brand-mint">
             <p className="text-sm text-gray-700">
-              <strong>Tip:</strong> This map shows places near Summerlin. Use the filters above to
-              switch between restaurants, parks, cafes, grocery, gyms, and more. Click a marker for
-              the place name.
+              <strong>Tip:</strong> Pick a category above, then use the link to open results in Google Maps
+              near our Summerlin office.
             </p>
           </div>
 
