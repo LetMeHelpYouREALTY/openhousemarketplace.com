@@ -6,8 +6,8 @@ import {
   REALSCOUT_OFFICE_DEFAULT_LISTING_STATUS,
   REALSCOUT_OFFICE_DEFAULT_PRICE_MAX,
   REALSCOUT_OFFICE_DEFAULT_PRICE_MIN,
-  REALSCOUT_OFFICE_DEFAULT_PROPERTY_TYPES,
   REALSCOUT_OFFICE_DEFAULT_SORT_ORDER,
+  REALSCOUT_OFFICE_PROPERTY_TYPES,
 } from '@/config/realscout-office-bands'
 import { mountRealScoutOfficeListings } from '@/lib/realscout-mount-office-listings'
 import { useRealScoutOfficeListingsReady } from '@/lib/realscout-ready'

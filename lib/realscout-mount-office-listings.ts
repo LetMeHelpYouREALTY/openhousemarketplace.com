@@ -7,7 +7,7 @@ import {
   REALSCOUT_OFFICE_DEFAULT_LISTING_STATUS,
   REALSCOUT_OFFICE_DEFAULT_PRICE_MAX,
   REALSCOUT_OFFICE_DEFAULT_PRICE_MIN,
-  REALSCOUT_OFFICE_DEFAULT_PROPERTY_TYPES,
+  REALSCOUT_OFFICE_PROPERTY_TYPES,
   REALSCOUT_OFFICE_DEFAULT_SORT_ORDER,
 } from '@/config/realscout-office-bands'
 
@@ -36,7 +36,7 @@ export function buildRealScoutOfficeListingsMarkup(
   const agentEncodedId = options.agentEncodedId ?? REALSCOUT_OFFICE_AGENT_ID
   const sortOrder = options.sortOrder ?? REALSCOUT_OFFICE_DEFAULT_SORT_ORDER
   const listingStatus = options.listingStatus ?? REALSCOUT_OFFICE_DEFAULT_LISTING_STATUS
-  const propertyTypes = options.propertyTypes ?? REALSCOUT_OFFICE_DEFAULT_PROPERTY_TYPES
+  const propertyTypes = options.propertyTypes ?? REALSCOUT_OFFICE_PROPERTY_TYPES
   const priceMin = options.priceMin ?? REALSCOUT_OFFICE_DEFAULT_PRICE_MIN
   const priceMax = options.priceMax ?? REALSCOUT_OFFICE_DEFAULT_PRICE_MAX
 
@@ -61,7 +61,7 @@ export function mountRealScoutOfficeListings(
   options: RealScoutOfficeListingsMountOptions
 ): HTMLElement | null {
   container.innerHTML = buildRealScoutOfficeListingsMarkup(options)
-  const el = container.querySelector(TAG)
+  const el = container.querySelector(TAG) as HTMLElement | null
   if (!el) return null
 
   const priceMin = options.priceMin ?? REALSCOUT_OFFICE_DEFAULT_PRICE_MIN
