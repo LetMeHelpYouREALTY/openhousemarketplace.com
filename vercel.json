@@ -1,9 +1,31 @@
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm install --legacy-peer-deps",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "outputDirectory": ".next",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm run build",
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "cursor/**": false
+    }
+  },
+  "ignoreCommand": "if [ \"$VERCEL_GIT_COMMIT_REF\" != \"main\" ]; then exit 0; fi; git diff --quiet HEAD^ HEAD -- . ':(exclude)README.md' ':(exclude)**/*.md' ':(exclude)**/*.mdx' || exit 1",
   "redirects": [
+    {
+      "source": "/index",
+      "destination": "https://www.openhousemarketplace.com/",
+      "permanent": true
+    },
+    {
+      "source": "/index/",
+      "destination": "https://www.openhousemarketplace.com/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "https://www.openhousemarketplace.com/",
+      "permanent": true
+    },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "openhousemarketplace.com" }],
@@ -36,7 +58,6 @@
   "env": {
     "NEXT_PUBLIC_APP_URL": "https://www.openhousemarketplace.com",
     "SKIP_ENV_VALIDATION": "true",
-    "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY": "AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo",
-    "GOOGLE_MAPS_API_KEY": "AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo"
+    "NEXT_PUBLIC_SITE_MAINTENANCE_MODE": "true"
   }
 }

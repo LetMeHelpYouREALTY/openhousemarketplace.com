@@ -2,11 +2,16 @@
 
 import Link from 'next/link'
 import { Phone, MapPin, Star, Clock, Mail } from 'lucide-react'
-import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import ExternalLink from '@/components/ExternalLink'
-import { GBP, GBP_SERVICE_AREA, getGoogleMapsDirectionsUrlToOffice, OFFICE_GEO } from '@/config/gbp'
+import GoogleMyMapsEmbed from '@/components/GoogleMyMapsEmbed'
+import {
+  GBP,
+  GBP_SERVICE_AREA,
+  getGoogleBusinessProfileUrl,
+  getGoogleMapsDirectionsUrlToOffice,
+} from '@/config/gbp'
 
 interface GoogleBusinessProfileProps {
   className?: string
@@ -15,12 +20,11 @@ interface GoogleBusinessProfileProps {
 }
 
 // NAP and hours from Google Business Profile (config/gbp.ts) – site supports the GBP
-const coordinates = { lat: OFFICE_GEO.lat, lng: OFFICE_GEO.lng }
 const BUSINESS_INFO = {
   name: GBP.name,
   phone: GBP.phone,
   phoneLink: `tel:${GBP.phoneE164}`,
-  email: 'jan@openhousemarketplace.com',
+  email: GBP.email,
   address: {
     street: GBP.address.street,
     city: GBP.address.locality,
@@ -28,16 +32,15 @@ const BUSINESS_INFO = {
     zip: GBP.address.postalCode,
     full: `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
   },
-  coordinates,
   serviceArea: GBP_SERVICE_AREA.label,
   hours: {
     weekdays: 'Monday - Friday: 9:00 AM - 5:00 PM',
     weekends: 'Saturday - Sunday: 9:00 AM - 5:00 PM',
     note: 'Open 9 AM–5 PM every day (per Google Business Profile)'
   },
-  googleBusinessUrl: process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL || 'https://www.google.com/maps/place/?q=Open+House+Market+Place+Las+Vegas+NV',
+  googleBusinessUrl: getGoogleBusinessProfileUrl(),
   directionsUrl: getGoogleMapsDirectionsUrlToOffice(),
-  reviewsUrl: (process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL || 'https://www.google.com/maps/place/?q=Open+House+Market+Place+Las+Vegas+NV') + (process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL ? '' : '&action=reviews')
+  reviewsUrl: getGoogleBusinessProfileUrl(),
 }
 
 export default function GoogleBusinessProfile({ 
@@ -45,45 +48,6 @@ export default function GoogleBusinessProfile({
   showMap = true,
   showReviews = true 
 }: GoogleBusinessProfileProps) {
-  const [mapLoaded, setMapLoaded] = useState(false)
-
-  useEffect(() => {
-    // Load Google Maps script if map is enabled
-    if (showMap && typeof window !== 'undefined' && !window.google?.maps) {
-      const script = document.createElement('script')
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&libraries=places`
-      script.async = true
-      script.defer = true
-      script.onload = () => setMapLoaded(true)
-      document.head.appendChild(script)
-    } else if (showMap && typeof window !== 'undefined' && window.google?.maps) {
-      setMapLoaded(true)
-    }
-  }, [showMap])
-
-  useEffect(() => {
-    if (mapLoaded && showMap && typeof window !== 'undefined' && window.google?.maps) {
-      // Initialize map
-      const mapElement = document.getElementById('gbp-map')
-      if (mapElement) {
-        const map = new window.google.maps.Map(mapElement, {
-          center: { lat: BUSINESS_INFO.coordinates.lat, lng: BUSINESS_INFO.coordinates.lng },
-          zoom: 15,
-          mapTypeControl: false,
-          streetViewControl: true,
-          fullscreenControl: true,
-        })
-
-        // Add marker
-        new window.google.maps.Marker({
-          position: { lat: BUSINESS_INFO.coordinates.lat, lng: BUSINESS_INFO.coordinates.lng },
-          map,
-          title: BUSINESS_INFO.name,
-        })
-      }
-    }
-  }, [mapLoaded, showMap])
-
   return (
     <Card className={className}>
       <CardHeader>
@@ -94,7 +58,7 @@ export default function GoogleBusinessProfile({
       {/* NAP Information */}
       <div className="space-y-4 mb-6">
         <div className="flex items-start">
-          <MapPin className="h-5 w-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
+          <MapPin className="h-5 w-5 text-brand-teal mr-3 mt-1 flex-shrink-0" />
           <div>
             <p className="font-semibold text-gray-900">{BUSINESS_INFO.name}</p>
             <p className="text-gray-700">{BUSINESS_INFO.address.street}</p>
@@ -108,10 +72,10 @@ export default function GoogleBusinessProfile({
         </div>
 
         <div className="flex items-center">
-          <Phone className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0" />
+          <Phone className="h-5 w-5 text-brand-teal mr-3 flex-shrink-0" />
           <a 
             href={BUSINESS_INFO.phoneLink}
-            className="text-blue-600 hover:text-blue-800 font-semibold text-lg"
+            className="text-brand-teal hover:text-brand-plum font-semibold text-lg"
             aria-label={`Call ${BUSINESS_INFO.phone}`}
           >
             {BUSINESS_INFO.phone}
@@ -119,10 +83,10 @@ export default function GoogleBusinessProfile({
         </div>
 
         <div className="flex items-center">
-          <Mail className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0" />
+          <Mail className="h-5 w-5 text-brand-teal mr-3 flex-shrink-0" />
           <a 
             href={`mailto:${BUSINESS_INFO.email}`}
-            className="text-blue-600 hover:text-blue-800"
+            className="text-brand-teal hover:text-brand-plum"
             aria-label={`Email ${BUSINESS_INFO.email}`}
           >
             {BUSINESS_INFO.email}
@@ -130,7 +94,7 @@ export default function GoogleBusinessProfile({
         </div>
 
         <div className="flex items-start">
-          <Clock className="h-5 w-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
+          <Clock className="h-5 w-5 text-brand-teal mr-3 mt-1 flex-shrink-0" />
           <div className="text-gray-700">
             <p className="font-semibold mb-1">Business Hours</p>
             <p>{BUSINESS_INFO.hours.weekdays}</p>
@@ -180,7 +144,7 @@ export default function GoogleBusinessProfile({
       </div>
       <p className="text-sm text-gray-600 text-center mb-4">
         Want to leave a review?{' '}
-        <Link href="/review-us" className="text-blue-600 hover:underline font-medium">
+        <Link href="/review-us" className="text-brand-teal hover:underline font-medium">
           Review us on Google
         </Link>
       </p>
@@ -189,18 +153,17 @@ export default function GoogleBusinessProfile({
       {showMap && (
         <div className="mb-4">
           <h3 className="text-lg font-semibold text-gray-900 mb-3">Location</h3>
-          <div 
-            id="gbp-map" 
-            className="w-full min-h-64 h-64 rounded-lg border border-gray-200"
-            aria-label="Google Map showing business location"
+          <GoogleMyMapsEmbed
+            mapScope="office"
+            title={`${BUSINESS_INFO.name} — office location map`}
           />
           <p className="text-sm text-gray-600 mt-2 text-center">
             <ExternalLink
               href={BUSINESS_INFO.googleBusinessUrl}
-              className="text-blue-600 hover:text-blue-800"
-              ariaLabel="View on Google Maps"
+              className="text-brand-teal hover:text-brand-plum"
+              ariaLabel="View on Google Business Profile"
             >
-              View on Google Maps
+              View on Google Business Profile
             </ExternalLink>
           </p>
         </div>
@@ -218,7 +181,7 @@ export default function GoogleBusinessProfile({
           </p>
           <ExternalLink
             href={BUSINESS_INFO.reviewsUrl}
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+            className="inline-flex items-center text-brand-teal hover:text-brand-plum font-medium"
             ariaLabel="View all reviews on Google"
           >
             View All Reviews on Google

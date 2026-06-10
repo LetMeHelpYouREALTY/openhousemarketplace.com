@@ -54,7 +54,7 @@ export default function OpenHouseGuideForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="you@example.com"
           disabled={status === 'submitting'}
         />
@@ -68,7 +68,7 @@ export default function OpenHouseGuideForm() {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="Your name"
           disabled={status === 'submitting'}
         />
@@ -82,7 +82,7 @@ export default function OpenHouseGuideForm() {
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="w-full rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+        className="w-full rounded-lg bg-brand-teal px-4 py-3 font-semibold text-white hover:bg-brand-plum disabled:opacity-50 transition-colors"
       >
         {status === 'submitting' ? 'Sending…' : 'Get My Free Guide'}
       </button>

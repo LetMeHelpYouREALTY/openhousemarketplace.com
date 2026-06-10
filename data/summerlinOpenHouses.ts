@@ -7,7 +7,7 @@ import type { Listing } from "@/types/listing"
 export const summerlinOpenHouses: Listing[] = [
   {
     id: 7,
-    address: "Summerlin listing address available by request",
+    address: "4521 Desert Foothills Blvd",
     neighborhood: "Summerlin",
     price: "TBD",
     beds: 0,

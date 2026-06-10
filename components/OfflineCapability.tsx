@@ -175,7 +175,7 @@ const OfflineCapability: React.FC = () => {
       <div className="space-y-4 mb-6">
         <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
           <div className="flex items-center">
-            <Database className="h-5 w-5 text-blue-600 mr-3" />
+            <Database className="h-5 w-5 text-brand-teal mr-3" />
             <span className="text-gray-700">Service Worker</span>
           </div>
           <span className={`px-2 py-1 rounded text-xs font-medium ${
@@ -187,17 +187,17 @@ const OfflineCapability: React.FC = () => {
 
         <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
           <div className="flex items-center">
-            <Smartphone className="h-5 w-5 text-blue-600 mr-3" />
+            <Smartphone className="h-5 w-5 text-brand-teal mr-3" />
             <span className="text-gray-700">Cached Data</span>
           </div>
-          <span className="px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
+          <span className="px-2 py-1 rounded text-xs font-medium bg-brand-mint text-brand-plum">
             {cachedData.length} items
           </span>
         </div>
 
         <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
           <div className="flex items-center">
-            <Download className="h-5 w-5 text-blue-600 mr-3" />
+            <Download className="h-5 w-5 text-brand-teal mr-3" />
             <span className="text-gray-700">Browser Support</span>
           </div>
           <span className={`px-2 py-1 rounded text-xs font-medium ${
@@ -213,7 +213,7 @@ const OfflineCapability: React.FC = () => {
           <button
             onClick={registerServiceWorker}
             disabled={isInstalling}
-            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-4 py-3 rounded-lg font-medium flex items-center justify-center"
+            className="w-full bg-brand-teal hover:bg-brand-plum disabled:bg-gray-400 text-white px-4 py-3 rounded-lg font-medium flex items-center justify-center"
           >
             {isInstalling ? (
               <>
@@ -232,7 +232,7 @@ const OfflineCapability: React.FC = () => {
         {isServiceWorkerRegistered && (
           <button
             onClick={clearCache}
-            className="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-lg font-medium"
+            className="w-full bg-brand-teal hover:bg-brand-plum text-white px-4 py-3 rounded-lg font-medium"
           >
             Clear Cache & Uninstall
           </button>

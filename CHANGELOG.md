@@ -2,6 +2,19 @@
 
 ## 2026
 
+### Site update (June 2026)
+
+* **Vercel deploy audit:** Document repo transfer (LetMeHelpYouREALTY vs DrJanDuffy), correct `prj_UH4vlCl7EkB4ipEIvu7kflQN3p2E`, stale production SHA; GitHub Actions guard for drjanduffy project ID.
+* **GSC canonical:** `/index`, `/index/`, `/index.html` → **301** to `/` (Vercel edge, `next.config`, middleware, `app/index/route.ts`) — fixes “Duplicate without user-selected canonical”.
+* **GSC indexing:** `PageIndexingEnhancement` + `config/indexing-pages.ts` (FAQs, speakable summaries, internal links) on 28 discovered URLs; privacy/terms set to `index`; sitemap `lastModified`; home-buying HowTo.
+* **GBP / NAP:** Office address updated to **760 Windover Ct, Las Vegas, NV 89138** (`config/gbp.ts`, map pin, directions, JSON-LD).
+* **Vercel:** Removed invalid `outputDirectory` from `vercel.json`; aligned install/build with pnpm; GitHub Actions deploy uses `vercel@latest`, validates `VERCEL_PROJECT_ID` targets openhousemarketplace (not drjanduffy.com); `docs/VERCEL_DEPLOYMENT.md` audit table and repo-transfer notes.
+* **SEO / GEO / AEO (2026):** Sitewide `@graph` (`SiteEntityGraph`), HowTo + Speakable on open-house-guide, linked WebPage author/publisher `@id`s, `docs/SEO-GEO-AEO-2026.md`.
+* **Google Search Console:** Centralized marketing URLs in `config/sitemap-routes.ts`; trailing-slash 301s; `robots.txt` disallows `/test-form`; verify script checks live `sitemap.xml`; WebSite schema adds `SearchAction` for `/tour/mls`.
+* **Email:** Contact form and open house sign-in can send notifications via Resend when `RESEND_*` env vars are set; otherwise logs in dev (no simulated delay).
+* **SEO / GBP:** Default Google Business Profile URL in schema and UI from `config/gbp.ts`; optional `NEXT_PUBLIC_GBP_RATING` / `NEXT_PUBLIC_GBP_REVIEW_COUNT` for `aggregateRating` in LocalBusiness JSON-LD.
+* **Social:** Open Graph images use `/images/dr-jan-duffy.jpg` fallback until `public/images/og/og-image.jpg` is added (shared via `config/og.ts`).
+
 ### Site audit and optimization
 
 * **CTAs:** Aligned remaining pages to primary goal—about, schools, market-report, new-construction, open-house-signin, and OpenHouseSignInForm now use “Schedule a private showing” instead of “Book Your Tour” / “Schedule a Free Consultation.”

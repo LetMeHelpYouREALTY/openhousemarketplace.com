@@ -1,14 +1,20 @@
+import { getSiteMapEmbedUrl, type SiteMapEmbedScope } from '@/lib/site-map-embed'
+
 /**
- * Google My Maps embed (Maps Engine legacy "My Maps" share → embed).
- * Override in Vercel with NEXT_PUBLIC_GOOGLE_MY_MAPS_EMBED_URL if the map ID changes.
+ * Legacy custom My Maps ID (returns 404 — do not use as default).
+ * Set NEXT_PUBLIC_GOOGLE_MY_MAPS_EMBED_URL only when you have a valid embed URL from Google.
  */
-export const DEFAULT_GOOGLE_MY_MAPS_EMBED_URL =
+export const LEGACY_GOOGLE_MY_MAPS_EMBED_URL =
   'https://www.google.com/maps/d/embed?mid=1b94nsahE3WHPXPCBciaB2wU0BPEsMhc&hl=en&ehbc=2E312F'
 
-export function getGoogleMyMapsEmbedUrl(): string {
-  const raw = process.env.NEXT_PUBLIC_GOOGLE_MY_MAPS_EMBED_URL
-  if (typeof raw === 'string' && raw.trim() !== '') {
-    return raw.trim()
-  }
-  return DEFAULT_GOOGLE_MY_MAPS_EMBED_URL
+export type GoogleMapEmbedScope = SiteMapEmbedScope
+
+/**
+ * Site map iframe URL (OpenStreetMap by default; optional Google Embed API or custom URL).
+ */
+export function getGoogleMyMapsEmbedUrl(scope: GoogleMapEmbedScope = 'service-area'): string {
+  return getSiteMapEmbedUrl(scope)
 }
+
+/** @deprecated Use getGoogleMyMapsEmbedUrl */
+export const DEFAULT_GOOGLE_MY_MAPS_EMBED_URL = getSiteMapEmbedUrl('service-area')

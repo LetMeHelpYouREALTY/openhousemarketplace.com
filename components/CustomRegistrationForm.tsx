@@ -157,7 +157,7 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
                 onChange={handleInputChange}
                 required={field.required}
                 placeholder={field.placeholder}
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-md focus:ring-1 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 text-sm"
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-md focus:ring-1 focus:ring-brand-teal focus:border-brand-teal placeholder-gray-400 text-sm"
                 aria-label={field.label}
               />
             ))}
@@ -172,7 +172,7 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
               onChange={handleInputChange}
               required={field.required}
               placeholder={field.placeholder}
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-md focus:ring-1 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 text-sm"
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-md focus:ring-1 focus:ring-brand-teal focus:border-brand-teal placeholder-gray-400 text-sm"
               aria-label={field.label}
             />
           ))}
@@ -181,7 +181,7 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
             <input
               type="checkbox"
               id="termsCheckbox"
-              className="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+              className="h-4 w-4 text-brand-teal rounded border-gray-300 focus:ring-brand-teal"
             />
             <label htmlFor="termsCheckbox" className="ml-2 text-xs text-gray-500">
               I am interested and/or affiliated with properties on this market.
@@ -191,7 +191,7 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-6 py-3 rounded-md font-medium text-sm uppercase tracking-wide mt-4"
+            className="w-full bg-brand-teal hover:bg-brand-plum disabled:bg-gray-400 text-white px-6 py-3 rounded-md font-medium text-sm uppercase tracking-wide mt-4"
           >
             {isSubmitting ? (
               <>

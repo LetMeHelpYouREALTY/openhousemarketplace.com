@@ -3,16 +3,25 @@ import { Metadata, Viewport } from "next"
 import Script from "next/script"
 import SiteHeader from "@/components/SiteHeader"
 import Footer from "@/components/Footer"
-import WebSiteSchema from "@/components/WebSiteSchema"
+import SiteEntityGraph from "@/components/SiteEntityGraph"
 import GoogleEnhancement from "@/components/GoogleEnhancement"
-import StructuredData from "@/components/StructuredData"
 import CalendlyBadgeWidget from "@/components/CalendlyBadgeWidget"
 import CalendlyCSS from "@/components/CalendlyCSS"
 import { getSiteUrl } from "@/lib/site"
 import { SEO_HOME_DESCRIPTION, SEO_HOME_TITLE } from "@/config/seo"
+import {
+  OG_IMAGE_DEFAULT_ALT,
+  OG_IMAGE_DEFAULT_HEIGHT,
+  OG_IMAGE_DEFAULT_PATH,
+  OG_IMAGE_DEFAULT_WIDTH,
+} from "@/config/og"
 import { getFacebookAppId } from "@/config/facebook"
 import FacebookPixel from "@/components/FacebookPixel"
+import RealScoutScriptLoader from "@/components/RealScoutScriptLoader"
 import RealScoutOfficeListingsBandsDynamic from "@/components/RealScoutOfficeListingsBandsDynamic"
+import ScheduleTourBand from "@/components/conversion/ScheduleTourBand"
+import StickyMobileCta from "@/components/conversion/StickyMobileCta"
+import SiteMaintenanceBanner from "@/components/SiteMaintenanceBanner"
 
 // Google Analytics scripts must be in head as standard script tags for detection
 // SEO: Google 2026 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
@@ -51,7 +60,12 @@ export const metadata: Metadata = {
     siteName: 'Open House Market Place',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: [{ url: `${SITE_URL}/images/og/og-image.jpg`, width: 1200, height: 630, alt: 'Summerlin Las Vegas Open Houses - Dr. Jan Duffy Real Estate' }],
+    images: [{
+      url: `${SITE_URL}${OG_IMAGE_DEFAULT_PATH}`,
+      width: OG_IMAGE_DEFAULT_WIDTH,
+      height: OG_IMAGE_DEFAULT_HEIGHT,
+      alt: OG_IMAGE_DEFAULT_ALT,
+    }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -64,7 +78,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#2563eb',
+  themeColor: '#4a3861',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -103,22 +117,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
       <body className="overflow-x-hidden">
-        {/* RealScout: afterInteractive avoids render-blocking head script (PSI / LCP). Script once site-wide. */}
-        <Script
-          id="realscout-web-components"
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          strategy="afterInteractive"
-        />
+        <RealScoutScriptLoader />
         <CalendlyCSS />
         <FacebookPixel />
-        <WebSiteSchema />
+        <SiteEntityGraph />
         <GoogleEnhancement />
-        <StructuredData type="RealEstateAgent" />
         <CalendlyBadgeWidget />
+        <SiteMaintenanceBanner />
         <SiteHeader />
-        {children}
+        <div className="pb-20 md:pb-0">{children}</div>
+        <ScheduleTourBand />
         <RealScoutOfficeListingsBandsDynamic />
         <Footer />
+        <StickyMobileCta />
       </body>
     </html>
   )

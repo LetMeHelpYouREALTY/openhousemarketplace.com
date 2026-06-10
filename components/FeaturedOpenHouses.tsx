@@ -8,7 +8,9 @@ import { ListingDetailModal } from './ListingDetailModal'
 import { VirtualTourBadge } from './VirtualTourBadge'
 import { VirtualTourModal } from './VirtualTourModal'
 import CalendlyPopupLink from './CalendlyPopupLink'
-import InteractiveMap from './InteractiveMap'
+import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
+import { brandAccentBadgeClass } from '@/lib/brand-classes'
+import GoogleMyMapsEmbed from '@/components/GoogleMyMapsEmbed'
 import { summerlinOpenHouses } from '@/data/summerlinOpenHouses'
 import { SEO_FEATURED_OPEN_HOUSES_HEADING } from '@/config/seo'
 import type { Listing } from '@/types/listing'
@@ -56,20 +58,24 @@ export default function FeaturedOpenHouses() {
     <section className="py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <div className="mb-4 inline-flex items-center rounded-full bg-red-100 px-4 py-2 text-sm font-medium text-red-800">
-            <Calendar className="mr-2 h-4 w-4" />
-            This Weekend Only - Don&apos;t Miss Out!
+          <div className={`mb-4 ${brandAccentBadgeClass}`}>
+            <Calendar className="h-4 w-4 text-brand-teal" aria-hidden />
+            This weekend — book a private showing
           </div>
           <h2 className="mb-4 text-2xl sm:text-3xl font-bold text-gray-900">
             {SEO_FEATURED_OPEN_HOUSES_HEADING}
           </h2>
           <p className="mb-6 text-lg text-gray-600">
             {filteredHouses.length} premium Summerlin Las Vegas open houses in Summerlin West.{' '}
-            <Link href="/open-houses" className="font-semibold text-blue-600 hover:underline">
+            <Link href="/open-houses" className="font-semibold text-brand-teal hover:underline">
               See all Summerlin Las Vegas open house listings
             </Link>
             .
           </p>
+
+          <div className="mb-8">
+            <PrimaryCtaButtons layout="row" calendlyLabel="Schedule a private showing" />
+          </div>
 
           <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
             <label className="flex cursor-pointer items-center gap-2" htmlFor="filter-virtual-tour">
@@ -103,7 +109,7 @@ export default function FeaturedOpenHouses() {
                   '_blank'
                 )
               }
-              className="min-h-[44px] inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg"
+              className="min-h-[44px] inline-flex items-center justify-center rounded-xl bg-brand-teal px-6 py-3 font-semibold text-white shadow-md transition-all duration-200 hover:bg-brand-plum hover:shadow-lg"
             >
               View All Listings
             </button>
@@ -114,11 +120,19 @@ export default function FeaturedOpenHouses() {
         </div>
 
         {showMap ? (
-          <InteractiveMap
-            properties={filteredHouses}
-            className="mb-8"
-            onPropertyClick={() => {}}
-          />
+          <div className="mb-8">
+            <GoogleMyMapsEmbed
+              mapScope="service-area"
+              title="Summerlin open houses area map"
+            />
+            <p className="mt-3 text-center text-sm text-gray-600">
+              Browse individual listings below or{' '}
+              <Link href="/open-houses" className="font-semibold text-brand-teal hover:underline">
+                see all open houses
+              </Link>
+              .
+            </p>
+          </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredHouses.map((house, index) => (
@@ -168,17 +182,17 @@ export default function FeaturedOpenHouses() {
                   >
                     <Heart
                       className={`h-5 w-5 ${
-                        favorites.includes(house.id) ? 'fill-current text-red-500' : 'text-gray-600'
+                        favorites.includes(house.id) ? 'fill-current text-brand-teal' : 'text-gray-600'
                       }`}
                     />
                   </button>
                   <div className="absolute bottom-3 left-3">
-                    <span className="rounded bg-blue-600 px-2 py-1 text-sm font-medium text-white">
+                    <span className="rounded bg-brand-teal px-2 py-1 text-sm font-medium text-white">
                       {house.openHouseTime}
                     </span>
                   </div>
                   <div className="absolute left-3 top-3">
-                    <span className="rounded bg-red-600 px-2 py-1 text-sm font-medium text-white">
+                    <span className="rounded bg-brand-teal px-2 py-1 text-sm font-medium text-white">
                       New This Weekend!
                     </span>
                   </div>
@@ -200,12 +214,12 @@ export default function FeaturedOpenHouses() {
                     (NEIGHBORHOOD_URL_MAP[house.neighborhood] ? (
                       <Link
                         href={NEIGHBORHOOD_URL_MAP[house.neighborhood]!}
-                        className="mb-3 inline-block text-sm font-medium text-blue-600 hover:text-blue-800"
+                        className="mb-3 inline-block text-sm font-medium text-brand-teal hover:text-brand-plum"
                       >
                         {house.neighborhood}
                       </Link>
                     ) : (
-                      <p className="mb-3 text-sm font-medium text-blue-600">{house.neighborhood}</p>
+                      <p className="mb-3 text-sm font-medium text-brand-teal">{house.neighborhood}</p>
                     ))}
 
                   <div className="mb-3 flex justify-between text-sm text-gray-600">
@@ -234,11 +248,11 @@ export default function FeaturedOpenHouses() {
                     <button
                       type="button"
                       onClick={() => setDetailListing(house)}
-                      className="w-full rounded border border-blue-600 px-3 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50"
+                      className="w-full rounded border border-brand-teal px-3 py-2 text-sm font-medium text-brand-teal hover:bg-brand-mint/40"
                     >
                       View details
                     </button>
-                    <CalendlyPopupLink className="flex-1 rounded bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700 text-center block">
+                    <CalendlyPopupLink className="flex-1 rounded bg-brand-teal px-3 py-2 text-sm font-medium text-white hover:bg-brand-plum text-center block">
                       Schedule a private showing
                     </CalendlyPopupLink>
                     <button

@@ -2,6 +2,8 @@
 
 This doc covers optional env and data updates to complete the site’s Google 2026 SEO setup.
 
+For **SEO + GEO + AEO** architecture (entity graph, HowTo, speakable, robots), see **[SEO-GEO-AEO-2026.md](./SEO-GEO-AEO-2026.md)**.
+
 ## 1. Google Business Profile (GBP) link in schema
 
 **Purpose:** `sameAs` in Organization/LocalBusiness/WebSite publisher links the site to your Google Business Profile for E-E-A-T and knowledge panel.
@@ -19,25 +21,17 @@ This doc covers optional env and data updates to complete the site’s Google 20
 
 **Purpose:** `aggregateRating` in LocalBusiness should reflect real GBP reviews so rich results stay accurate and compliant.
 
-**Current:** Pages pass placeholder `aggregateRating: { ratingValue: '5.0', reviewCount: '100' }` into `StructuredData type="LocalBusiness"`.
+**Current:** `GoogleEnhancement` adds `aggregateRating` only when both env vars are set:
+
+```bash
+NEXT_PUBLIC_GBP_RATING=4.9
+NEXT_PUBLIC_GBP_REVIEW_COUNT=127
+```
 
 **Steps:**
 
 1. Pull rating and review count from Google Business Profile (API or manual).
-2. Where you render `<StructuredData type="LocalBusiness" ... />`, pass real values, e.g.:
-   ```tsx
-   <StructuredData
-     type="LocalBusiness"
-     data={{
-       openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
-       aggregateRating: {
-         ratingValue: '4.9',   // from GBP
-         reviewCount: '127',   // from GBP
-       },
-     }}
-   />
-   ```
-3. Consider a small server-side helper or env (e.g. `NEXT_PUBLIC_GBP_RATING`, `NEXT_PUBLIC_GBP_REVIEW_COUNT`) and use them in layout or key pages so one place controls the values.
+2. Set the env vars in Vercel and redeploy. If unset, rating schema is omitted (preferred over placeholder values).
 
 ## 3. What’s already in place
 

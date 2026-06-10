@@ -5,6 +5,30 @@
 - **Primary domain:** **https://www.openhousemarketplace.com** (with `www`) — this is the canonical domain for indexing and branding.
 - **Both hostnames in use:** Users and links may use either `openhousemarketplace.com` or `www.openhousemarketplace.com`. Traffic that arrives on non-www (or HTTP) is redirected to the primary www URL so there is a single canonical version in search.
 
+## GSC “Validation details” — Failed (expected)
+
+If Search Console shows **Validation Failed** under **Page indexing → Page with redirect**, with examples like:
+
+| URL (redirect source) | Expected |
+|------------------------|----------|
+| `http://openhousemarketplace.com/` | 301 → `https://www.openhousemarketplace.com/` |
+| `https://openhousemarketplace.com/` | 301 → `https://www.openhousemarketplace.com/` |
+| `http://www.openhousemarketplace.com/` | 301 → `https://www.openhousemarketplace.com/` |
+
+**Do not run “Validate fix” again** for this issue. Google’s validator checks whether those URLs become **indexable**; they should **keep redirecting**, so validation will keep failing. That is not a site bug.
+
+**What to do instead:**
+
+1. Monitor the **`https://www.openhousemarketplace.com`** property (URL-prefix or domain property that treats **www** as canonical).
+2. In **Pages**, confirm **`https://www.openhousemarketplace.com/`** and key paths are **Indexed** (200, not redirect).
+3. Submit **`https://www.openhousemarketplace.com/sitemap.xml`** in that property (sitemap URLs are already **www** only).
+4. Set Google Business Profile **Website** to **`https://www.openhousemarketplace.com/`** so fewer crawls start on apex/http URLs.
+5. In the redirect report, use **Dismiss** / stop validating if Google offers it — or ignore the row count for intentional redirect sources.
+
+“Sitemap: All known pages” on this report only means Google associated those URLs with your site; it does **not** mean the sitemap lists non-www URLs ([`app/sitemap.ts`](../app/sitemap.ts) uses `getSiteUrl()` → **www** only).
+
+---
+
 ## Why you see "Page with redirect"
 
 The site is configured so **https://www.openhousemarketplace.com** is the only canonical domain. All other variants redirect to it with a **301 (permanent)** redirect:
@@ -83,20 +107,57 @@ curl -sI "https://www.openhousemarketplace.com/"
 
 ---
 
-## "Crawled - currently not indexed" (non-www URL)
+## "Duplicate without user-selected canonical" — `/index`
 
-If GSC lists a URL like **`https://openhousemarketplace.com/neighborhoods/summerlin-centre`** (hostname **without** `www`) under **Crawled - currently not indexed**, that is usually **consistent with canonical consolidation**:
+GSC may list **`https://www.openhousemarketplace.com/index`** as a duplicate of the homepage without its own canonical. The homepage canonical is only on **`https://www.openhousemarketplace.com/`** — `/index` must **not** return 200 with the same HTML.
 
-- The hostname **`openhousemarketplace.com`** is not the indexed duplicate; **`www.openhousemarketplace.com`** is.
-- Google may crawl the non-www URL, follow the redirect to **www**, and **not** index the non-www URL as its own document. The page you care about for search is **`https://www.openhousemarketplace.com/neighborhoods/summerlin-centre`**.
+**Fix (this repo):**
 
-**What to do:**
+| Layer | Behavior |
+|--------|----------|
+| [`vercel.json`](../vercel.json) | Edge **301** `/index`, `/index/`, `/index.html` → `https://www.openhousemarketplace.com/` |
+| [`next.config.mjs`](../next.config.mjs) | Framework **301** `/index` and `/index.html` → `/` |
+| [`middleware.ts`](../middleware.ts) | **301** `/index` and `/index/` → canonical origin `/` |
+| [`app/index/route.ts`](../app/index/route.ts) | Route handler **301** if a request reaches the app |
 
-1. In URL Inspection, test **`https://www.openhousemarketplace.com/neighborhoods/summerlin-centre`** (www). Confirm **Indexing allowed**, **User-declared canonical** matches **Google-selected canonical** (both should prefer **www**).
-2. Confirm the page is listed in [app/sitemap.ts](app/sitemap.ts) under the **www** base (it includes `summerlin-centre` in the neighborhoods list).
-3. If the **www** URL is indexed and healthy, you can mark **Done fixing** for the non-www report row, or ignore it as duplicate-host noise in a non-www property.
+**In Search Console:** After deploy, use URL Inspection on `/index` — expect **Redirect** to `/`. Then mark **Done fixing** for this issue. Do not link to `/index` internally; use `/` only.
 
-If the **www** URL itself shows **Crawled - currently not indexed** or **Excluded**, investigate that URL (content quality, `noindex`, robots, manual actions)—not the non-www copy alone.
+---
+
+## "Crawled - currently not indexed" — Validation Failed (non-www URLs)
+
+### GSC examples (expected)
+
+If **Page indexing → Crawled - currently not indexed** shows **Validation Failed** with apex-host examples like:
+
+| URL (non-www) | Canonical URL to monitor |
+|---------------|---------------------------|
+| `https://openhousemarketplace.com/neighborhoods/summerlin-centre` | `https://www.openhousemarketplace.com/neighborhoods/summerlin-centre` |
+| `https://openhousemarketplace.com/open-houses` | `https://www.openhousemarketplace.com/open-houses` |
+
+**Do not run “Validate fix”** on these rows. Google crawled the **apex** URL, then consolidated to **www** (redirect + `rel=canonical`). The apex URL is **not** meant to be a separate indexed document, so validation often **fails** when Google re-checks whether the listed URL should be indexed.
+
+This is the same host-consolidation pattern as **Page with redirect** on the homepage variants — only the GSC label differs (“crawled” vs “redirect”).
+
+### Why the site is configured correctly
+
+- Each page sets **`alternates.canonical`** to **`https://www.openhousemarketplace.com/...`** (e.g. [`app/open-houses/page.tsx`](../app/open-houses/page.tsx), [`app/neighborhoods/summerlin-centre/page.tsx`](../app/neighborhoods/summerlin-centre/page.tsx)).
+- **`/sitemap.xml`** lists only **www** URLs ([`config/sitemap-routes.ts`](../config/sitemap-routes.ts) includes `/open-houses` and `/neighborhoods/summerlin-centre`).
+- Apex requests **301** to www ([`vercel.json`](../vercel.json), [`middleware.ts`](../middleware.ts)).
+
+### What to do in Search Console
+
+1. Open the **`https://www.openhousemarketplace.com`** property (or domain property where **www** is canonical).
+2. **URL Inspection** — test the **www** URLs above (not the apex copies).
+3. If www shows **URL is on Google** / **Indexed**, mark the apex report **Done fixing** or **Dismiss** — no code change needed.
+4. If **www** is also **Crawled - currently not indexed**, then request indexing for the **www** URL, check content uniqueness, internal links, and manual actions — that is a real indexing task on the canonical URL.
+5. Replace external links and GBP **Website** that still use `https://openhousemarketplace.com/...` without **www**.
+
+### Quick checklist (www URLs only)
+
+- [ ] `https://www.openhousemarketplace.com/open-houses` — 200, `index: true`, canonical = www
+- [ ] `https://www.openhousemarketplace.com/neighborhoods/summerlin-centre` — 200, `index: true`, canonical = www
+- [ ] Both paths present in live `sitemap.xml`
 
 ---
 

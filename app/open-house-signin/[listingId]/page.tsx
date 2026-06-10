@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: 'Open House Sign-In | Schedule a Tour | Dr. Jan Duffy',
       description: 'Schedule a private tour with Dr. Jan Duffy or sign in at the open house. Summerlin real estate.',
       url: `${BASE_URL}/open-house-signin/${listingId}`,
-      images: ['/images/og/og-image.jpg'],
+      images: [DEFAULT_OG_IMAGE_PATHS[0]],
     },
   }
 }
@@ -55,7 +55,7 @@ export default async function OpenHouseSignInPage({ params }: Props) {
           <p className="text-sm text-gray-500 mt-2">
             Dr. Jan Duffy · Berkshire Hathaway HomeServices Nevada Properties
           </p>
-          <CalendlyPopupLink className="inline-block mt-4 bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-3 rounded-xl font-semibold transition-colors">
+          <CalendlyPopupLink className="inline-block mt-4 bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-xl font-semibold transition-colors">
             Schedule a private showing
           </CalendlyPopupLink>
         </div>

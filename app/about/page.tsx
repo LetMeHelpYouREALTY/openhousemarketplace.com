@@ -6,6 +6,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { Award, Home, Users, TrendingUp, Heart } from 'lucide-react'
 import FAQSection from '@/components/FAQSection'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import CalendlyInlineWidgetLazy from '@/components/CalendlyInlineWidgetLazy'
 
@@ -55,7 +56,7 @@ export default function AboutPage() {
       {/* FAQPage JSON-LD is emitted by FAQSection below (single graph per URL). */}
       <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] bg-gradient-to-r from-blue-600 to-red-600 rounded-b-3xl overflow-hidden">
+      <section className="relative h-[50vh] min-h-[400px] bg-gradient-to-r from-brand-teal to-brand-plum rounded-b-3xl overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-40" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-4xl mx-auto px-4">
@@ -97,7 +98,7 @@ export default function AboutPage() {
           <p className="text-gray-700 leading-relaxed mb-4">
             Specializing in luxury homes, new construction properties, and investment real estate, Dr. Duffy provides 
             personalized service tailored to each client&apos;s unique needs. She also helps buyers find and tour Summerlin 
-            open houses—see our <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">open houses</Link> page for this weekend&apos;s home tours. Her comprehensive knowledge of Summerlin 
+            open houses—see our <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">open houses</Link> page for this weekend&apos;s home tours. Her comprehensive knowledge of Summerlin 
             neighborhoods, from The Ridges to Summerlin Centre, ensures that clients receive expert guidance throughout 
             their real estate journey. Whether you&apos;re a first-time homebuyer, luxury property investor, or looking to 
             sell your home, Dr. Duffy&apos;s market expertise and proven strategies ensure successful transactions.
@@ -113,22 +114,22 @@ export default function AboutPage() {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <Home className="h-10 w-10 text-blue-600 mx-auto mb-4" />
+            <Home className="h-10 w-10 text-brand-teal mx-auto mb-4" />
             <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
             <div className="text-gray-600">Homes Sold</div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <Award className="h-10 w-10 text-blue-600 mx-auto mb-4" />
+            <Award className="h-10 w-10 text-brand-teal mx-auto mb-4" />
             <div className="text-3xl font-bold text-gray-900 mb-2">30+</div>
             <div className="text-gray-600">Years Experience</div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <Users className="h-10 w-10 text-blue-600 mx-auto mb-4" />
+            <Users className="h-10 w-10 text-brand-teal mx-auto mb-4" />
             <div className="text-3xl font-bold text-gray-900 mb-2">1000+</div>
             <div className="text-gray-600">Happy Clients</div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <TrendingUp className="h-10 w-10 text-blue-600 mx-auto mb-4" />
+            <TrendingUp className="h-10 w-10 text-brand-teal mx-auto mb-4" />
             <div className="text-3xl font-bold text-gray-900 mb-2">$250M+</div>
             <div className="text-gray-600">In Sales Volume</div>
           </div>
@@ -228,7 +229,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="flex items-start">
-              <Award className="h-6 w-6 text-blue-600 mt-1 mr-4 flex-shrink-0" />
+              <Award className="h-6 w-6 text-brand-teal mt-1 mr-4 flex-shrink-0" />
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Expertise & Market Knowledge</h3>
                 <p className="text-gray-700 leading-relaxed mb-2">
@@ -342,7 +343,7 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <div className="bg-blue-600 rounded-lg shadow-md p-8 text-center text-white">
+        <div className="bg-brand-teal rounded-lg shadow-md p-8 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Ready to Work with Las Vegas&apos; Top Real Estate Agent?</h2>
           <p className="text-xl mb-6">Let&apos;s work together to achieve your real estate goals in Summerlin West</p>
           <p className="text-lg mb-6 opacity-90">
@@ -353,17 +354,17 @@ export default function AboutPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white text-brand-teal px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
             >
               Contact Dr. Jan Duffy Today
             </Link>
             <Link
               href="/open-houses"
-              className="inline-block bg-blue-500 hover:bg-blue-400 text-white px-8 py-3 rounded-lg font-bold text-lg border-2 border-white/50 transition-colors"
+              className="inline-block bg-brand-teal hover:bg-brand-plum text-white px-8 py-3 rounded-lg font-bold text-lg border-2 border-white/50 transition-colors"
             >
               View Summerlin Open Houses
             </Link>
-            <CalendlyPopupLink className="inline-block bg-[#0069ff] hover:bg-[#0052cc] text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
+            <CalendlyPopupLink className="inline-block bg-brand-teal hover:bg-brand-plum text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
               Schedule a private showing
             </CalendlyPopupLink>
           </div>
@@ -371,10 +372,10 @@ export default function AboutPage() {
 
         <div className="bg-amber-50 border border-amber-100 rounded-lg p-6 mb-8 text-center">
           <p className="text-gray-800 font-medium mb-2">Love your experience with Dr. Jan Duffy?</p>
-          <Link href="/review-us" className="text-blue-600 hover:underline font-semibold">
+          <Link href="/review-us" className="text-brand-teal hover:underline font-semibold">
             Leave a review on Google
           </Link>
-          <span className="text-gray-600"> — reviews help other customers find us.</span>
+          <span className="text-gray-600"> — reviews help other buyers and sellers find us on Google.</span>
         </div>
 
         {/* Schedule consultation - Calendly inline widget */}
@@ -395,6 +396,7 @@ export default function AboutPage() {
     </div>
 
     <FAQSection faqs={ABOUT_FAQS} />
+    <PageIndexingEnhancement path="/about" linksOnly />
     </>
   )
 }

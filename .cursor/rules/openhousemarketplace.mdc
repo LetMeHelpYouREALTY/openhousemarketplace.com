@@ -29,3 +29,4 @@ alwaysApply: true
 ## Deploy
 
 - Prefer **`vercel build`** for production checks; Cloudflare **DNS-only** (gray cloud) with Vercel — no orange-cloud proxy.
+- **Production only:** use **`vercel deploy --prod`** (never preview). Vercel Git auto-builds **`main`** only; see [docs/VERCEL_DEPLOYMENT.md](docs/VERCEL_DEPLOYMENT.md).

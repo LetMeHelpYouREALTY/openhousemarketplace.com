@@ -1,18 +1,15 @@
 'use client'
 
 /**
- * Google enhancement for every page: LocalBusiness + WebPage JSON-LD.
- * Ensures GBP/NAP, E-E-A-T, and page-level schema on all routes (2026 SEO).
- * LocalBusiness data follows config/gbp.ts (site supports the Google Business Profile).
+ * Per-route WebPage JSON-LD (GEO / AEO page context).
+ * Sitewide Organization, LocalBusiness, RealEstateAgent, and WebSite live in SiteEntityGraph.
  */
 import { usePathname } from 'next/navigation'
-import { GBP, getAreaServedJsonLd, getBusinessSameAsUrls, OFFICE_GEO } from '@/config/gbp'
 import { getSiteUrl } from '@/lib/site'
 import { SEO_HOME_DESCRIPTION, SEO_OPEN_HOUSES_DESCRIPTION, SEO_PRIMARY_KEYWORD } from '@/config/seo'
 
 const BASE_URL = getSiteUrl()
 
-// Page-specific WebPage name/description for better SERP snippets
 const PAGE_META: Record<string, { name: string; description: string }> = {
   '/': {
     name: 'Summerlin Las Vegas Open Houses | Dr. Jan Duffy Real Estate',
@@ -24,10 +21,10 @@ const PAGE_META: Record<string, { name: string; description: string }> = {
   '/book-tour': { name: 'Schedule a private showing | Dr. Jan Duffy | Summerlin Real Estate', description: 'Schedule a private showing with Dr. Jan Duffy. Book a time that works for you.' },
   '/schedule-consultation': { name: 'Schedule a Free Consultation | Dr. Jan Duffy Real Estate', description: 'Schedule a free consultation with Dr. Jan Duffy. Discuss your goals or schedule a private showing—no obligation.' },
   '/open-house-guide': { name: 'Open House Guide 2026 | What Buyers Need to Know | Summerlin Las Vegas', description: 'NAR rules shape how open houses work in 2026. Learn what forms to expect, your rights as a buyer, and how to get the most from Summerlin open houses with Dr. Jan Duffy.' },
-  '/amenity-map': { name: 'Amenity Map | Nearby Restaurants, Parks & More | Summerlin', description: 'Explore nearby amenities in Summerlin: restaurants, parks, parking, cafes, grocery, gyms, pharmacies. Interactive map powered by Google Maps.' },
-  '/store-locations': { name: 'Find Our Stores | Store Locations & Map | Dr. Jan Duffy Real Estate', description: 'Find our store locations. Custom map of all our offices in Summerlin and Las Vegas. Get directions, phone numbers, and hours.' },
-  '/directions': { name: 'Get Directions | Plan Your Visit | Dr. Jan Duffy Real Estate', description: 'Add directions to your visit. Plan your trip with estimated travel time for driving, transit, walking, and bicycling. Get started at no cost.' },
-  '/tour/mls': { name: 'MLS Property Search | Summerlin Real Estate | Dr. Jan Duffy', description: 'Search MLS listings in Summerlin. Access the full MLS database of homes for sale in Las Vegas\' premier master-planned community.' },
+  '/amenity-map': { name: 'Amenity Map | Nearby Restaurants, Parks & More | Summerlin', description: 'Explore nearby amenities in Summerlin: restaurants, parks, parking, cafes, grocery, gyms, and pharmacies near open house neighborhoods.' },
+  '/store-locations': { name: 'Office Location & Map | Summerlin Open Houses | Dr. Jan Duffy', description: 'Visit Open House Market Place in Summerlin West. Office map, directions, phone, and hours for open house tours.' },
+  '/directions': { name: 'Get Directions | Plan Your Visit | Dr. Jan Duffy Real Estate', description: 'Plan your trip to our Summerlin office. Driving, transit, walking, and biking directions with estimated travel time.' },
+  '/tour/mls': { name: 'MLS Property Search | Summerlin Real Estate | Dr. Jan Duffy', description: "Search MLS listings in Summerlin. Access the full MLS database of homes for sale in Las Vegas's premier master-planned community." },
   '/neighborhoods': { name: 'Summerlin Neighborhoods | Dr. Jan Duffy Real Estate', description: 'Explore Summerlin West neighborhoods: The Ridges, Red Rock Country Club, Summerlin Centre, Sun City, and more.' },
   '/luxury-homes': { name: 'Luxury Homes in Summerlin West | Dr. Jan Duffy', description: 'Luxury homes and high-end real estate in Summerlin West, The Ridges, and Las Vegas. Expert luxury home representation.' },
   '/new-construction': { name: 'New Construction Homes in Summerlin | Dr. Jan Duffy', description: 'New construction homes and builders in Summerlin West. Toll Brothers, Lennar, Pulte and more.' },
@@ -57,7 +54,6 @@ function slugToTitle(slug: string): string {
 function getWebPageData(pathname: string) {
   const normalized = pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname
   if (PAGE_META[normalized]) return PAGE_META[normalized]
-  // Dynamic routes: neighborhoods, builders, zip, resources
   const segments = normalized.split('/').filter(Boolean)
   if (segments[0] === 'neighborhoods' && segments[1]) {
     const name = slugToTitle(segments[1])
@@ -82,85 +78,25 @@ export default function GoogleEnhancement() {
   const pageMeta = getWebPageData(pathname ?? '/')
   const pageUrl = `${BASE_URL}${pathname === null ? '' : pathname}`
 
-  const specialOpeningHoursSpecification = GBP.specialHoursClosed.map((closure) => ({
-    '@type': 'OpeningHoursSpecification' as const,
-    validFrom: closure.date,
-    validThrough: closure.date,
-    /** Closed all day (GBP special hours); Google accepts 00:00–00:00 for closed */
-    opens: '00:00',
-    closes: '00:00',
-  }))
-
-  const localBusiness = {
-    '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'RealEstateAgent'],
-    '@id': `${BASE_URL}/#organization`,
-    name: GBP.name,
-    description: GBP.description,
-    image: `${BASE_URL}/images/dr-jan-duffy.jpg`,
-    logo: `${BASE_URL}/images/logo/logo.svg`,
-    url: BASE_URL,
-    telephone: GBP.phoneE164,
-    email: 'jan@openhousemarketplace.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: GBP.address.street,
-      addressLocality: GBP.address.locality,
-      addressRegion: GBP.address.region,
-      postalCode: GBP.address.postalCode,
-      addressCountry: GBP.address.country,
-    },
-    /** Office location (matches NAP / map pin for 11773 Cashmere Mist Ave) */
-    geo: { '@type': 'GeoCoordinates', latitude: OFFICE_GEO.lat, longitude: OFFICE_GEO.lng },
-    areaServed: getAreaServedJsonLd(),
-    openingHoursSpecification: GBP.hours.specification.map((spec) => ({
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: spec.dayOfWeek,
-      opens: spec.opens,
-      closes: spec.closes,
-    })),
-    ...(specialOpeningHoursSpecification.length > 0
-      ? { specialOpeningHoursSpecification }
-      : {}),
-    knowsAbout: [
-      SEO_PRIMARY_KEYWORD,
-      'Real Estate',
-      'Open Houses',
-      'Luxury Homes',
-      'New Construction',
-      'Summerlin Real Estate Market',
-      'Home Buying',
-      'Home Selling',
-    ],
-    sameAs: getBusinessSameAsUrls(),
-  }
+  const organizationId = `${BASE_URL}/#organization`
+  const agentId = `${BASE_URL}/about#agent`
+  const websiteId = `${BASE_URL}/#website`
 
   const webPage = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
     url: pageUrl,
     name: pageMeta.name,
     description: pageMeta.description,
     inLanguage: 'en-US',
-    author: {
-      '@type': 'Person',
-      name: 'Dr. Jan Duffy',
-      url: `${BASE_URL}/about`,
-      jobTitle: 'Real Estate Agent',
-      worksFor: { '@type': 'Organization', name: GBP.name, url: BASE_URL },
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: GBP.name,
-      url: BASE_URL,
-      logo: { '@type': 'ImageObject', url: `${BASE_URL}/images/logo/logo.svg` },
-    },
+    isPartOf: { '@id': websiteId },
+    author: { '@id': agentId },
+    publisher: { '@id': organizationId },
+    about: { '@id': organizationId },
   }
 
   return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPage) }} />
-    </>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPage) }} />
   )
 }

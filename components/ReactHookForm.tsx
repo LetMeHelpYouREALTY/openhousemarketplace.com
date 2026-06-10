@@ -152,7 +152,7 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
               type="text"
               placeholder="Your Name"
               className={`w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border text-white placeholder-gray-400 focus:outline-none ${
-                errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-blue-500'
+                errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-brand-teal'
               }`}
             />
           </div>
@@ -175,7 +175,7 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
               type="email"
               placeholder="Email Address"
               className={`w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border text-white placeholder-gray-400 focus:outline-none ${
-                errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-blue-500'
+                errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-brand-teal'
               }`}
             />
           </div>
@@ -197,7 +197,7 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
               type="tel"
               placeholder="Phone Number (optional)"
               className={`w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border text-white placeholder-gray-400 focus:outline-none ${
-                errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-blue-500'
+                errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-brand-teal'
               }`}
             />
           </div>
@@ -216,7 +216,7 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
               aria-label="Select interested neighborhood"
               title="Select interested neighborhood"
               className={`w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 border text-white focus:outline-none ${
-                errors.neighborhood ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-blue-500'
+                errors.neighborhood ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-brand-teal'
               }`}
             >
               <option value="">Select Neighborhood</option>
@@ -235,7 +235,7 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
         <button 
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-red-600 hover:bg-red-700 disabled:bg-red-800 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center disabled:cursor-not-allowed"
+          className="w-full bg-brand-teal hover:bg-brand-plum disabled:bg-red-800 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>

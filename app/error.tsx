@@ -27,7 +27,7 @@ export default function Error({
           <button
             type="button"
             onClick={reset}
-            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-xl font-semibold transition-colors"
           >
             <RefreshCw className="h-5 w-5" aria-hidden />
             Try again

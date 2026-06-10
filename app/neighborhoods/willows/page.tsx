@@ -4,6 +4,7 @@ import { BASE_URL } from '@/lib/metadata-utils'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Willows Summerlin | Homes for Sale in Mature Trees Neighborhood',
@@ -103,7 +104,7 @@ export default function WillowsPage() {
               neighborhood that has already proven its value and desirability               over time.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Willows.
+              View <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Willows.
             </p>
             <RelatedNeighborhoods currentSlug="willows" className="mb-4" />
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Real Estate Market in Willows</h3>
@@ -146,6 +147,7 @@ export default function WillowsPage() {
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
     </div>
+    <PageIndexingEnhancement path="/neighborhoods/willows" />
     </>
   )
 }

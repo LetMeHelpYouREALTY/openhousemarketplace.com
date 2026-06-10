@@ -17,7 +17,7 @@ export function VirtualTourBadge({ onClick, className }: VirtualTourBadgeProps) 
         onClick()
       }}
       className={cn(
-        'absolute bottom-3 right-3 flex items-center gap-1.5 rounded bg-black/70 px-2 py-1.5 text-xs font-medium text-white transition hover:bg-black/85 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1',
+        'absolute bottom-3 right-3 flex items-center gap-1.5 rounded bg-black/70 px-2 py-1.5 text-xs font-medium text-white transition hover:bg-black/85 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-1',
         className
       )}
       aria-label="Open virtual tour"

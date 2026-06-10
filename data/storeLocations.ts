@@ -1,8 +1,8 @@
 import { GBP, OFFICE_GEO, getGoogleMapsDirectionsUrlToOffice } from "@/config/gbp"
 
 /**
- * Store / office locations for the "Find our stores" map.
- * Add or edit entries to show all your locations on the website.
+ * Office locations for /store-locations (map + directions widgets).
+ * NAP fields should stay aligned with config/gbp.ts.
  */
 export interface StoreLocation {
   id: string
@@ -34,18 +34,4 @@ export const storeLocations: StoreLocation[] = [
     hours: "Open daily 9:00 AM–5:00 PM (matches Google Business Profile). By appointment outside hours.",
     directionsUrl: getGoogleMapsDirectionsUrlToOffice(),
   },
-  // Add more locations here, e.g.:
-  // {
-  //   id: 'henderson',
-  //   name: 'Dr. Jan Duffy Real Estate – Henderson',
-  //   address: '123 Main St',
-  //   city: 'Henderson',
-  //   state: 'NV',
-  //   zip: '89012',
-  //   lat: 36.0395,
-  //   lng: -115.9818,
-  //   phone: '(702) 200-3422',
-  //   hours: 'Mon–Fri 9am–5pm',
-  //   directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=36.0395,-115.9818',
-  // },
 ]

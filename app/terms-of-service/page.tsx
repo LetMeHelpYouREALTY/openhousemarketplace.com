@@ -3,6 +3,7 @@ import { BASE_URL } from "@/lib/metadata-utils"
 
 import StructuredData from "@/components/StructuredData"
 import { GBP } from "@/config/gbp"
+import PageIndexingEnhancement from "@/components/PageIndexingEnhancement"
 
 const BUSINESS_ADDRESS = `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: "Terms of Service | Open House Market Place",
   description:
     "Terms of Service for Open House Market Place. Please read these terms carefully before using our services.",
-  robots: "noindex, follow",
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   alternates: {
     canonical: `${BASE_URL}/terms-of-service`,
   },
@@ -120,6 +121,7 @@ export default function TermsOfServicePage() {
           </div>
         </div>
       </div>
+      <PageIndexingEnhancement path="/terms-of-service" />
     </>
   )
 }

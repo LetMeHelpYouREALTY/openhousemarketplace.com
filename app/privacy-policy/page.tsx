@@ -3,6 +3,7 @@ import { BASE_URL } from "@/lib/metadata-utils"
 
 import StructuredData from "@/components/StructuredData"
 import { GBP } from "@/config/gbp"
+import PageIndexingEnhancement from "@/components/PageIndexingEnhancement"
 
 const BUSINESS_ADDRESS = `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Open House Market Place",
   description:
     "Privacy Policy for Open House Market Place. Learn how we collect, use, and protect your personal information.",
-  robots: "noindex, follow",
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   alternates: {
     canonical: `${BASE_URL}/privacy-policy`,
   },
@@ -154,6 +155,7 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </div>
+      <PageIndexingEnhancement path="/privacy-policy" />
     </>
   )
 }

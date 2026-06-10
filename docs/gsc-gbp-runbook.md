@@ -25,13 +25,16 @@ Operational checklist for **openhousemarketplace.com** (canonical **`https://www
 |--------|----------|
 | Canonical origin | [`lib/site.ts`](../lib/site.ts) — `getSiteUrl()` |
 | Per-URL canonical | [`lib/metadata-utils.ts`](../lib/metadata-utils.ts), each `app/**/page.tsx` `metadata` |
-| Sitemap | [`app/sitemap.ts`](../app/sitemap.ts) |
+| Sitemap (route list) | [`config/sitemap-routes.ts`](../config/sitemap-routes.ts) |
+| Sitemap (XML generator) | [`app/sitemap.ts`](../app/sitemap.ts) |
+| GSC helpers | [`config/gsc.ts`](../config/gsc.ts) |
 | robots.txt | [`app/robots.ts`](../app/robots.ts) |
 | Redirects (apex / http → www) | [`middleware.ts`](../middleware.ts), [`vercel.json`](../vercel.json) |
 | Sitewide JSON-LD (LocalBusiness + WebPage) | [`components/GoogleEnhancement.tsx`](../components/GoogleEnhancement.tsx) |
 | WebSite + Organization | [`components/WebSiteSchema.tsx`](../components/WebSiteSchema.tsx) |
 | GSC verification meta tag | [`app/layout.tsx`](../app/layout.tsx) — `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (Vercel env) |
 | Automated 404 / redirect checks | [`scripts/verify-gsc-404s.ts`](../scripts/verify-gsc-404s.ts) (`npm run verify-gsc-404s`) |
+| Discovered-not-indexed copy (FAQs, speakable, links) | [`config/indexing-pages.ts`](../config/indexing-pages.ts), [`components/PageIndexingEnhancement.tsx`](../components/PageIndexingEnhancement.tsx) |
 
 ---
 
@@ -45,7 +48,7 @@ Use a property whose primary URL **matches the sitemap host** (`https://www.open
 2. **Ownership** — Confirm verification; if using the HTML tag method, set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in Vercel and redeploy.
 3. **Sitemaps** — Submit `sitemap.xml`; in the Sitemaps report, confirm **Success** / no persistent fetch errors.
 4. **URL Inspection** — Test **canonical www URLs** only for indexing decisions (e.g. `/`, `/open-houses`, `/contact`, key neighborhood URLs). Expect **HTTP**, **apex**, and **`/index`** variants to **redirect** to www — see [GOOGLE_SEARCH_CONSOLE_REDIRECTS.md](./GOOGLE_SEARCH_CONSOLE_REDIRECTS.md).
-5. **Indexing reports** — “Discovered – currently not indexed” is often crawl queue / priority, not a single code bug. “Page with redirect” for **http**/**apex**/**/index** is **expected** when consolidating to `https://www`.
+5. **Indexing reports** — “Discovered – currently not indexed” on **apex** URLs (e.g. `https://openhousemarketplace.com/open-houses`) with **Validation Failed** is usually **expected** — inspect the matching **www** URL instead; see [GOOGLE_SEARCH_CONSOLE_REDIRECTS.md](./GOOGLE_SEARCH_CONSOLE_REDIRECTS.md#crawled---currently-not-indexed--validation-failed-non-www-urls). **“Page with redirect”** on http/apex home URLs is also expected — [validation failed (redirects)](./GOOGLE_SEARCH_CONSOLE_REDIRECTS.md#gsc-validation-details--failed-expected).
 6. **Do not rely on “Validate fix”** for intentional redirect sources — see [GOOGLE_SEARCH_CONSOLE_REDIRECTS.md](./GOOGLE_SEARCH_CONSOLE_REDIRECTS.md).
 7. **Core Web Vitals / Page experience** — Monitor trends; fix regressions without weakening CSP (see [`lib/csp-header.mjs`](../lib/csp-header.mjs) and [`docs/klb-vercel-playbook.md`](./klb-vercel-playbook.md)).
 
@@ -90,7 +93,7 @@ All fields below should match **[`config/gbp.ts`](../config/gbp.ts)** and the li
 | `/test-form` | Internal test; [`app/test-form/layout.tsx`](../app/test-form/layout.tsx) uses `noindex`. |
 | `/open-house-signin/*` | Sign-in flows; not primary search landing pages. |
 
-When adding a new **public** marketing page under `app/`, add its URL to [`app/sitemap.ts`](../app/sitemap.ts) if it should be discovered via the sitemap.
+When adding a new **public** marketing page under `app/`, add its path to [`config/sitemap-routes.ts`](../config/sitemap-routes.ts) (used by `app/sitemap.ts` and `verify-gsc-404s`).
 
 ---
 

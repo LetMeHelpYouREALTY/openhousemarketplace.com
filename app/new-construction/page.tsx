@@ -6,6 +6,7 @@ import { Calendar } from 'lucide-react'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const revalidate = 86400 // ISR: revalidate daily
 
@@ -114,7 +115,7 @@ export default function NewConstructionPage() {
               offer options that meet every buyer&apos;s needs and preferences in today&apos;s Las Vegas real estate market.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including new construction showings.
+              View <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link> this weekend, including new construction showings.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Benefits of New Construction in Summerlin</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
@@ -164,13 +165,14 @@ export default function NewConstructionPage() {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Tour new construction homes</h2>
           <p className="text-gray-600 mb-6">Book a time with Dr. Jan Duffy to visit model homes and new communities.</p>
-          <CalendlyPopupLink className="inline-flex items-center gap-2 bg-[#0069ff] hover:bg-[#0052cc] text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
+          <CalendlyPopupLink className="inline-flex items-center gap-2 bg-brand-teal hover:bg-brand-plum text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
             <Calendar className="h-5 w-5" aria-hidden />
             Schedule a private showing
           </CalendlyPopupLink>
         </div>
       </section>
     </div>
+    <PageIndexingEnhancement path="/new-construction" />
     </>
   )
 }

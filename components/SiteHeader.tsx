@@ -5,6 +5,7 @@ import { Phone, Menu, Calendar, ChevronDown } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import { GBP } from '@/config/gbp'
+import { BRAND_CTA_BUTTON_CLASS, BRAND_CTA_SECONDARY_CLASS } from '@/config/brand'
 
 type NavItem = { href: string; label: string; primary?: boolean }
 type NavGroup = { label: string; items: NavItem[] }
@@ -27,7 +28,7 @@ const NAV_GROUPS: NavGroup[] = [
   {
     label: 'Locations & Map',
     items: [
-      { href: '/store-locations', label: 'Find Our Stores' },
+      { href: '/store-locations', label: 'Office & Map' },
       { href: '/directions', label: 'Get Directions' },
       { href: '/amenity-map', label: 'Amenity Map' },
     ],
@@ -65,7 +66,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-0.5 px-3 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors"
+        className="flex items-center gap-0.5 px-3 py-2 rounded-lg text-gray-700 hover:text-brand-teal hover:bg-brand-mint/40 font-medium transition-colors"
         aria-expanded={open}
         aria-haspopup="true"
         aria-controls={`nav-menu-${group.label.replace(/\s+/g, '-')}`}
@@ -87,8 +88,8 @@ function NavDropdown({ group }: { group: NavGroup }) {
                 href={href}
                 className={
                   primary
-                    ? 'block px-4 py-2 text-red-600 hover:bg-red-50 font-semibold'
-                    : 'block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium'
+                    ? 'block px-4 py-2 text-brand-teal hover:bg-brand-mint/40 font-semibold'
+                    : 'block px-4 py-2 text-gray-700 hover:bg-brand-mint/40 hover:text-brand-teal font-medium'
                 }
                 onClick={() => setOpen(false)}
               >
@@ -107,22 +108,27 @@ export default function SiteHeader() {
   const [mobileGroupOpen, setMobileGroupOpen] = useState<string | null>(null)
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b-2 border-brand-mint shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-18">
-          {/* Calendly widget CTA (replaces logo) */}
-          <CalendlyPopupLink className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold transition-colors min-h-[44px]">
+          <Link
+            href="/"
+            className="hidden sm:flex items-center gap-2 font-bold text-brand-plum hover:text-brand-teal transition-colors"
+          >
+            <span className="text-lg">Open House Market Place</span>
+          </Link>
+          <CalendlyPopupLink className={`${BRAND_CTA_BUTTON_CLASS} !min-h-[44px] !px-4 !py-2.5 !text-sm sm:hidden`}>
             <Calendar className="h-5 w-5 shrink-0" aria-hidden />
-            <span>Book a showing</span>
+            <span>Book showing</span>
           </CalendlyPopupLink>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1" aria-label="Main">
-            <Link href="/" className="px-3 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors">
+            <Link href="/" className="px-3 py-2 rounded-lg text-gray-700 hover:text-brand-teal hover:bg-brand-mint/40 font-medium transition-colors">
               Home
             </Link>
-            <Link href="/tour/mls" className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 font-semibold transition-colors">
-              Search Listings
+            <Link href="/tour/mls" className={`${BRAND_CTA_SECONDARY_CLASS} !min-h-[40px] !px-4 !py-2 !text-sm`}>
+              Search MLS
             </Link>
             {NAV_GROUPS.map((group) => (
               <NavDropdown key={group.label} group={group} />
@@ -131,27 +137,27 @@ export default function SiteHeader() {
               <Link
                 key={href}
                 href={href}
-                className="px-3 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors"
+                className="px-3 py-2 rounded-lg text-gray-700 hover:text-brand-teal hover:bg-brand-mint/40 font-medium transition-colors"
               >
                 {label}
               </Link>
             ))}
             {/* Appointment CTAs – visible for one-click booking */}
             <span className="ml-2 flex items-center gap-1 border-l border-gray-200 pl-2">
-              <CalendlyPopupLink className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold transition-colors">
+              <CalendlyPopupLink className={`${BRAND_CTA_BUTTON_CLASS} !min-h-[40px] !px-4 !py-2 !text-sm`}>
                 <Calendar className="h-4 w-4" aria-hidden />
                 <span>Book a showing</span>
               </CalendlyPopupLink>
               <Link
                 href="/schedule-consultation"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 font-semibold transition-colors"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-brand-plum text-white hover:bg-brand-teal font-semibold transition-colors min-h-[40px]"
               >
                 <Calendar className="h-4 w-4" aria-hidden />
                 <span>Free consultation</span>
               </Link>
               <a
                 href={PHONE.href}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 font-semibold transition-colors"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-lg border-2 border-brand-teal text-brand-plum hover:bg-brand-mint/40 font-semibold transition-colors min-h-[40px]"
               >
                 <Phone className="h-4 w-4" aria-hidden />
                 <span>{PHONE.display}</span>
@@ -179,7 +185,7 @@ export default function SiteHeader() {
           >
             <ul className="space-y-1">
               <li>
-                <Link href="/" onClick={() => setMobileOpen(false)} className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium">
+                <Link href="/" onClick={() => setMobileOpen(false)} className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-brand-mint/40 hover:text-brand-teal font-medium">
                   Home
                 </Link>
               </li>
@@ -187,21 +193,21 @@ export default function SiteHeader() {
               <li className="pt-2 pb-2 border-b border-gray-200">
                 <p className="px-4 text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Book now</p>
                 <div className="flex flex-col gap-2">
-                  <CalendlyPopupLink className="flex items-center gap-2 px-4 py-3 rounded-lg bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold">
+                  <CalendlyPopupLink className={`${BRAND_CTA_BUTTON_CLASS} w-full !justify-start`}>
                     <Calendar className="h-4 w-4" aria-hidden />
                     Book a showing
                   </CalendlyPopupLink>
                   <Link
                     href="/schedule-consultation"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 font-semibold"
+                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-brand-plum text-white hover:bg-brand-teal font-semibold"
                   >
                     <Calendar className="h-4 w-4" aria-hidden />
                     Free consultation
                   </Link>
                   <a
                     href={PHONE.href}
-                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-blue-600 text-white font-semibold"
+                    className="flex items-center gap-2 px-4 py-3 rounded-lg border-2 border-brand-teal text-brand-plum font-semibold"
                   >
                     <Phone className="h-4 w-4" aria-hidden />
                     {PHONE.display}
@@ -215,7 +221,7 @@ export default function SiteHeader() {
                     <button
                       type="button"
                       onClick={() => setMobileGroupOpen(isOpen ? null : group.label)}
-                      className="flex w-full items-center justify-between px-4 py-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium"
+                      className="flex w-full items-center justify-between px-4 py-3 rounded-lg text-gray-700 hover:bg-brand-mint/40 hover:text-brand-teal font-medium"
                       aria-expanded={isOpen}
                     >
                       {group.label}
@@ -230,8 +236,8 @@ export default function SiteHeader() {
                               onClick={() => setMobileOpen(false)}
                               className={
                                 primary
-                                  ? 'block px-3 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 font-semibold text-sm'
-                                  : 'block px-3 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium text-sm'
+                                  ? 'block px-3 py-2 rounded-lg bg-brand-teal text-white hover:bg-brand-plum font-semibold text-sm'
+                                  : 'block px-3 py-2 rounded-lg text-gray-700 hover:bg-brand-mint/40 hover:text-brand-teal font-medium text-sm'
                               }
                             >
                               {label}
@@ -248,7 +254,7 @@ export default function SiteHeader() {
                   <Link
                     href={href}
                     onClick={() => setMobileOpen(false)}
-                    className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium"
+                    className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-brand-mint/40 hover:text-brand-teal font-medium"
                   >
                     {label}
                   </Link>

@@ -22,7 +22,7 @@ export default function Footer() {
   const [logoError, setLogoError] = useState(false)
 
   return (
-    <footer className="bg-gray-800 text-gray-300 py-10 border-t-4 border-blue-600" role="contentinfo">
+    <footer className="bg-brand-plum text-gray-200 py-10 border-t-4 border-brand-teal" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Office / Search Listings – first position on every page */}
@@ -32,17 +32,17 @@ export default function Footer() {
               <li>
                 <ExternalLink
                   href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
-                  className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                  className="text-brand-mint hover:text-white font-medium transition-colors"
                 >
                   Search Listings
                 </ExternalLink>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-red-500" aria-hidden />
+                <Phone className="h-4 w-4 shrink-0 text-brand-mint" aria-hidden />
                 <a href={BUSINESS.phoneLink} className="min-h-[44px] inline-flex items-center hover:text-white">{BUSINESS.phone}</a>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 shrink-0 text-red-500 mt-0.5" aria-hidden />
+                <MapPin className="h-4 w-4 shrink-0 text-brand-mint mt-0.5" aria-hidden />
                 <span>
                   {BUSINESS.address}
                   <span className="block text-gray-400 mt-2 text-xs leading-relaxed">
@@ -53,7 +53,7 @@ export default function Footer() {
               <li>
                 <ExternalLink
                   href={FACEBOOK_PAGE_URL}
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                  className="text-brand-mint hover:text-white transition-colors"
                 >
                   Facebook
                 </ExternalLink>
@@ -63,7 +63,7 @@ export default function Footer() {
               <li><Link href="/book-tour" className="hover:text-white transition-colors">Schedule a private showing</Link></li>
               <li><Link href="/schedule-consultation" className="hover:text-white transition-colors">Schedule a free consultation</Link></li>
               <li>
-                <CalendlyPopupLink className="inline-flex min-h-[44px] items-center justify-center gap-2 mt-2 px-4 py-2 rounded-lg bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold text-sm transition-colors">
+                <CalendlyPopupLink className="inline-flex min-h-[44px] items-center justify-center gap-2 mt-2 px-4 py-2 rounded-lg bg-brand-teal text-white hover:bg-brand-plum font-semibold text-sm transition-colors">
                   <Calendar className="h-4 w-4" aria-hidden />
                   Schedule a private showing
                 </CalendlyPopupLink>
@@ -96,7 +96,7 @@ export default function Footer() {
               <li><Link href="/review-us" className="hover:text-white transition-colors">Review us on Google</Link></li>
               <li><Link href="/open-house-guide" className="hover:text-white transition-colors">Open House Guide</Link></li>
               <li><Link href="/amenity-map" className="hover:text-white transition-colors">Amenity Map</Link></li>
-              <li><Link href="/store-locations" className="hover:text-white transition-colors">Find Our Stores</Link></li>
+              <li><Link href="/store-locations" className="hover:text-white transition-colors">Office & Map</Link></li>
               <li><Link href="/directions" className="hover:text-white transition-colors">Get Directions</Link></li>
               <li><Link href="/resources/home-buying-guide" className="hover:text-white transition-colors">Home Buying Guide</Link></li>
               <li><Link href="/schools" className="hover:text-white transition-colors">School Information</Link></li>
@@ -122,7 +122,7 @@ export default function Footer() {
                   unoptimized
                 />
               ) : (
-                <Home className="h-6 w-6 text-red-500 shrink-0" aria-hidden />
+                <Home className="h-6 w-6 text-brand-mint shrink-0" aria-hidden />
               )}
               <span className="font-bold text-white">{SITE_NAME}</span>
             </Link>

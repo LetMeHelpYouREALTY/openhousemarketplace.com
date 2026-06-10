@@ -151,7 +151,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               type="text"
               placeholder="Your Name"
               className={`w-full pl-10 pr-4 py-2 rounded-lg border text-gray-900 placeholder-gray-500 focus:outline-none ${
-                errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+                errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-brand-teal'
               }`}
             />
           </div>
@@ -174,7 +174,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               type="email"
               placeholder="Email Address"
               className={`w-full pl-10 pr-4 py-2 rounded-lg border text-gray-900 placeholder-gray-500 focus:outline-none ${
-                errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+                errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-brand-teal'
               }`}
             />
           </div>
@@ -196,7 +196,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               type="tel"
               placeholder="Phone Number (optional)"
               className={`w-full pl-10 pr-4 py-2 rounded-lg border text-gray-900 placeholder-gray-500 focus:outline-none ${
-                errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+                errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-brand-teal'
               }`}
             />
           </div>
@@ -211,7 +211,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               required: 'Please select how we can help you' 
             })}
             className={`w-full px-4 py-2 rounded-lg border text-gray-900 focus:outline-none ${
-              errors.contactType ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+              errors.contactType ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-brand-teal'
             }`}
           >
             <option value="">How can we help you?</option>
@@ -234,7 +234,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             type="text"
             placeholder="Subject"
             className={`w-full px-4 py-2 rounded-lg border text-gray-900 placeholder-gray-500 focus:outline-none ${
-              errors.subject ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+              errors.subject ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-brand-teal'
             }`}
           />
           {errors.subject && (
@@ -253,7 +253,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               placeholder="Your message"
               rows={4}
               className={`w-full pl-10 pr-4 py-2 rounded-lg border text-gray-900 placeholder-gray-500 focus:outline-none resize-none ${
-                errors.message ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'
+                errors.message ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-brand-teal'
               }`}
             />
           </div>
@@ -265,7 +265,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <button 
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center disabled:cursor-not-allowed"
+          className="w-full bg-brand-teal hover:bg-brand-plum disabled:bg-brand-stone text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>

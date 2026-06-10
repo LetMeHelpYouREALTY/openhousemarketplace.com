@@ -7,7 +7,7 @@
  * - Name: Open House Market Place | Category: Real estate agent
  * - Phone: (702) 200-3422 | Chat/SMS: sms:+17022003422
  * - Website (GBP field): use **https://www.openhousemarketplace.com/** (canonical). If the profile still shows apex, update it in Google so it matches this site’s indexed URL.
- * - Address: 11773 Cashmere Mist Ave, Las Vegas, NV 89138
+ * - Address: 760 Windover Ct, Las Vegas, NV 89138
  * - Hours: daily 9:00 AM–5:00 PM. If Wednesday shows 5:00 AM in GBP, fix to 5:00 PM in Google Business Profile.
  * - Special: Apr 5, 2026 (Easter) — Closed
  * - Service area: add in GBP when defined; meanwhile site uses GBP_SERVICE_AREA for visible + schema
@@ -21,18 +21,35 @@ export const GBP_WEBSITE_FIELD_URL = `${getSiteUrl()}/`
 /** Official Facebook Page (business profile). */
 export const FACEBOOK_PAGE_URL = 'https://www.facebook.com/OpenHouseMarketPlace' as const
 
-/** GBP + official social profiles for JSON-LD `sameAs` (GBP link from env when set). */
-export function getBusinessSameAsUrls(): string[] {
-  const urls: string[] = []
-  if (typeof process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL === 'string') {
-    urls.push(process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL)
+/** GBP share link documented on the profile (override with NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL in Vercel). */
+export const GBP_PROFILE_SHARE_URL = 'https://share.google/Jgb4vGEoabNywBkJW' as const
+
+/** Resolved GBP URL for maps, reviews, and schema `sameAs`. */
+export function getGoogleBusinessProfileUrl(): string {
+  const fromEnv = process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL
+  if (typeof fromEnv === 'string' && fromEnv.trim().length > 0) {
+    return fromEnv.trim()
   }
-  urls.push(FACEBOOK_PAGE_URL)
-  return urls
+  return GBP_PROFILE_SHARE_URL
 }
 
-/** Geocode for 11773 Cashmere Mist Ave (office pin; matches NAP). */
-export const OFFICE_GEO = { lat: 36.1729722, lng: -115.3540974 } as const
+/** GBP + official social profiles for JSON-LD `sameAs`. */
+export function getBusinessSameAsUrls(): string[] {
+  return [getGoogleBusinessProfileUrl(), FACEBOOK_PAGE_URL]
+}
+
+/** Optional aggregateRating from env (set when synced from GBP; omit from schema when unset). */
+export function getGbpAggregateRating():
+  | { ratingValue: string; reviewCount: string }
+  | undefined {
+  const ratingValue = process.env.NEXT_PUBLIC_GBP_RATING?.trim()
+  const reviewCount = process.env.NEXT_PUBLIC_GBP_REVIEW_COUNT?.trim()
+  if (!ratingValue || !reviewCount) return undefined
+  return { ratingValue, reviewCount }
+}
+
+/** Geocode for 760 Windover Ct (office pin; matches NAP). */
+export const OFFICE_GEO = { lat: 36.19100705245607, lng: -115.36619992711324 } as const
 
 /**
  * Hyperlocal service area — visible copy + schema. Mirror GBP → “Service area” when you configure it there.
@@ -50,7 +67,7 @@ export const GBP = {
   category: 'Real estate agent',
   /** Full address (exact match to GBP) */
   address: {
-    street: '11773 Cashmere Mist Ave',
+    street: '760 Windover Ct',
     locality: 'Las Vegas',
     region: 'NV',
     postalCode: '89138',
@@ -62,6 +79,7 @@ export const GBP = {
   phoneE164: '+17022003422',
   /** SMS/Chat from GBP */
   sms: 'sms:+17022003422',
+  email: 'DrJanSells@OpenHouseMarketplace.com',
   /** Public site URL for schema (use getSiteUrl() = canonical, typically https://www.openhousemarketplace.com) */
   website: `${getSiteUrl()}/`,
   /**
@@ -92,9 +110,55 @@ export type GBPConfig = typeof GBP
 
 /** Google Maps directions to the office address (encoded). */
 export function getGoogleMapsDirectionsUrlToOffice(): string {
-  const dest = `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
-  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}`
+  return getGoogleMapsDirectionsUrlFromOrigin('', getOfficeAddressQuery(), 'driving')
 }
+
+export type GoogleMapsTravelMode = 'driving' | 'walking' | 'bicycling' | 'transit'
+
+/**
+ * Turn-by-turn directions in Google Maps (no JavaScript API key).
+ * Empty origin opens Maps with destination only.
+ */
+export function getGoogleMapsDirectionsUrlFromOrigin(
+  origin: string,
+  destination: string = getOfficeAddressQuery(),
+  travelMode: GoogleMapsTravelMode = 'driving'
+): string {
+  const params = new URLSearchParams({ api: '1', destination })
+  const trimmedOrigin = origin.trim()
+  if (trimmedOrigin) params.set('origin', trimmedOrigin)
+  if (travelMode !== 'driving') params.set('travelmode', travelMode)
+  return `https://www.google.com/maps/dir/?${params.toString()}`
+}
+
+/** Search nearby places in Google Maps (no Places API). */
+export function getGoogleMapsNearbySearchUrl(placeQuery: string, near = getOfficeAddressQuery()): string {
+  const q = `${placeQuery} near ${near}`
+  return `https://www.google.com/maps/search/${encodeURIComponent(q)}`
+}
+
+/** Full formatted office address for map queries (NAP). */
+export function getOfficeAddressQuery(): string {
+  return `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
+}
+
+/** Default center for service-area / neighborhood map embeds (office pin). */
+export const SERVICE_AREA_MAP_CENTER = OFFICE_GEO
+
+/** Zoom for Summerlin-wide context on area maps. */
+export const SERVICE_AREA_MAP_ZOOM = 11
+
+/** Open the service area in Google Maps (new tab). */
+export function getGoogleMapsSummerlinSearchUrl(): string {
+  return 'https://www.google.com/maps/search/Summerlin,+Las+Vegas,+NV+89138'
+}
+
+/** @deprecated Import from `@/lib/site-map-embed` — maps.google.com output=embed returns 404. */
+export {
+  getGoogleMapsOfficeEmbedUrl,
+  getGoogleMapsEmbedUrlForCoords,
+  getGoogleMapsServiceAreaEmbedUrl,
+} from '@/lib/site-map-embed'
 
 /**
  * JSON-LD `areaServed` list for LocalBusiness / RealEstateAgent (aligns with site footer + zip routes).

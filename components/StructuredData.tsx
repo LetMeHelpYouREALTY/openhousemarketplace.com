@@ -32,7 +32,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         url: `${baseUrl}/about`,
         image: `${baseUrl}/images/dr-jan-duffy.jpg`,
         telephone: GBP.phoneE164,
-        email: 'jan@openhousemarketplace.com',
+        email: GBP.email,
         address: {
           '@type': 'PostalAddress',
           streetAddress: GBP.address.street,
@@ -158,7 +158,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         logo: `${baseUrl}/images/logo/logo.svg`,
         url: baseUrl,
         telephone: GBP.phoneE164,
-        email: 'jan@openhousemarketplace.com',
+        email: GBP.email,
         address: {
           '@type': 'PostalAddress',
           streetAddress: GBP.address.street,

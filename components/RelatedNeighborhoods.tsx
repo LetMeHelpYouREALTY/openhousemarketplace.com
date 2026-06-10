@@ -34,7 +34,7 @@ export default function RelatedNeighborhoods({ currentSlug, className = '' }: Re
   if (!related || related.length === 0) {
     return (
       <p className={`text-gray-700 ${className}`}>
-        Explore <Link href="/neighborhoods" className="text-blue-600 font-semibold hover:underline">all Summerlin neighborhoods</Link> for community info and homes for sale.
+        Explore <Link href="/neighborhoods" className="text-brand-teal font-semibold hover:underline">all Summerlin neighborhoods</Link> for community info and homes for sale.
       </p>
     )
   }
@@ -48,15 +48,15 @@ export default function RelatedNeighborhoods({ currentSlug, className = '' }: Re
   const [first, second, third] = links
   return (
     <p className={`text-gray-700 ${className}`}>
-      Explore <Link href="/neighborhoods" className="text-blue-600 font-semibold hover:underline">all Summerlin neighborhoods</Link>
+      Explore <Link href="/neighborhoods" className="text-brand-teal font-semibold hover:underline">all Summerlin neighborhoods</Link>
       {first && links.length === 1 && (
-        <> or see <Link href={first.href} className="text-blue-600 font-semibold hover:underline">{first.name}</Link>.</>
+        <> or see <Link href={first.href} className="text-brand-teal font-semibold hover:underline">{first.name}</Link>.</>
       )}
       {first && second && links.length === 2 && (
-        <> or see <Link href={first.href} className="text-blue-600 font-semibold hover:underline">{first.name}</Link> and <Link href={second.href} className="text-blue-600 font-semibold hover:underline">{second.name}</Link>.</>
+        <> or see <Link href={first.href} className="text-brand-teal font-semibold hover:underline">{first.name}</Link> and <Link href={second.href} className="text-brand-teal font-semibold hover:underline">{second.name}</Link>.</>
       )}
       {first && second && third && links.length >= 3 && (
-        <> or see <Link href={first.href} className="text-blue-600 font-semibold hover:underline">{first.name}</Link>, <Link href={second.href} className="text-blue-600 font-semibold hover:underline">{second.name}</Link>, and <Link href={third.href} className="text-blue-600 font-semibold hover:underline">{third.name}</Link>.</>
+        <> or see <Link href={first.href} className="text-brand-teal font-semibold hover:underline">{first.name}</Link>, <Link href={second.href} className="text-brand-teal font-semibold hover:underline">{second.name}</Link>, and <Link href={third.href} className="text-brand-teal font-semibold hover:underline">{third.name}</Link>.</>
       )}
     </p>
   )

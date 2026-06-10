@@ -1,10 +1,11 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGES } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import BuyerToolsSection from '@/components/BuyerToolsSection'
-import GoogleMapsNeighborhoodDiscoverySection from '@/components/GoogleMapsNeighborhoodDiscoverySection'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
+import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import { Search } from 'lucide-react'
 
 export const revalidate = 86400 // ISR: revalidate daily
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Buyer Tools | Dr. Jan Duffy Real Estate',
     description: 'Mortgage calculator, schools, and buyer resources for Summerlin West.',
     url: `${BASE_URL}/buyers`,
-    images: [{ url: `${BASE_URL}/images/og/og-image.jpg`, width: 1200, height: 630, alt: 'Dr. Jan Duffy Real Estate' }],
+    images: [...DEFAULT_OG_IMAGES],
   },
 }
 
@@ -52,23 +53,21 @@ export default function BuyersPage() {
           </div>
 
           <div className="mb-10 md:mb-12 rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm">
-            <GoogleMapsNeighborhoodDiscoverySection
+            <GoogleMyMapsSection
               heading="Explore neighborhoods before you buy"
-              description={
-                <>
-                  Use the map to browse areas and context across Summerlin. For commute times, see{' '}
-                  <Link href="/directions" className="text-blue-600 font-medium hover:underline">
-                    directions & commute explorer
-                  </Link>
-                  ; for community guides, see{' '}
-                  <Link href="/neighborhoods" className="text-blue-600 font-medium hover:underline">
-                    all neighborhoods
-                  </Link>
-                  .
-                </>
-              }
+              description="Pan and zoom across Summerlin on the map below. For commute times, see directions; for community guides, see all neighborhoods."
               id="buyers-neighborhood-discovery-heading"
+              mapScope="service-area"
             />
+            <p className="mt-4 text-sm text-gray-600">
+              <Link href="/directions" className="text-brand-teal font-medium hover:underline">
+                Directions &amp; commute explorer
+              </Link>
+              {' · '}
+              <Link href="/neighborhoods" className="text-brand-teal font-medium hover:underline">
+                All Summerlin neighborhoods
+              </Link>
+            </p>
           </div>
 
           <BuyerToolsSection searchListingsHref="/tour/mls" />
@@ -79,7 +78,7 @@ export default function BuyersPage() {
             </p>
             <Link
               href="/tour/mls"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-teal hover:bg-brand-plum text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors"
             >
               <Search className="h-5 w-5" aria-hidden />
               Search Listings
@@ -87,6 +86,7 @@ export default function BuyersPage() {
           </section>
         </div>
       </div>
+      <PageIndexingEnhancement path="/buyers" />
     </>
   )
 }

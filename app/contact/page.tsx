@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 import CalendlyInlineWidgetLazy from '@/components/CalendlyInlineWidgetLazy'
 import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 
@@ -69,7 +70,7 @@ export default function ContactPage() {
           <p className="text-xl text-gray-600 mb-6">
             Your trusted real estate agent serving Summerlin West and all of Las Vegas
           </p>
-          <CalendlyPopupLink className="inline-block bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-3 rounded-xl font-semibold transition-colors">
+          <CalendlyPopupLink className="inline-block bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-xl font-semibold transition-colors">
             Schedule a private showing
           </CalendlyPopupLink>
         </div>
@@ -91,7 +92,7 @@ export default function ContactPage() {
                 Looking to buy or sell a home in Summerlin West? Dr. Jan Duffy is your trusted Las Vegas real estate 
                 agent with over 30 years of experience helping clients navigate the Summerlin real estate market. 
                 Whether you&apos;re searching for luxury homes in The Ridges, family-friendly properties in Summerlin Centre, 
-                <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline mx-1">Summerlin open houses</Link> this weekend, 
+                <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline mx-1">Summerlin open houses</Link> this weekend, 
                 or investment opportunities throughout Las Vegas, Dr. Duffy provides personalized service tailored to 
                 your unique real estate goals.
               </p>
@@ -99,7 +100,7 @@ export default function ContactPage() {
                 As a leading Summerlin West real estate agent, Dr. Duffy specializes in luxury homes, new construction 
                 properties, and investment real estate. Her deep knowledge of the Las Vegas market, combined with 
                 cutting-edge technology and proven marketing strategies, ensures successful transactions for both buyers 
-                and sellers. <CalendlyPopupLink className="text-blue-600 font-semibold hover:underline">Schedule a free consultation</CalendlyPopupLink> or 
+                and sellers. <CalendlyPopupLink className="text-brand-teal font-semibold hover:underline">Schedule a free consultation</CalendlyPopupLink> or 
                 contact us today to discover why thousands of clients trust Dr. Jan Duffy with their real estate needs.
               </p>
             </div>
@@ -146,7 +147,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                  <Link href="/open-houses" className="text-blue-600 hover:underline">Open House Tours</Link>
+                  <Link href="/open-houses" className="text-brand-teal hover:underline">Open House Tours</Link>
                 </h3>
                 <p className="text-gray-600 text-sm">Find and tour Summerlin open houses this weekend</p>
               </div>
@@ -154,12 +155,12 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border border-blue-100 rounded-lg p-6 mb-8 text-center">
+        <div className="bg-brand-mint/40 border border-brand-mint rounded-lg p-6 mb-8 text-center">
           <p className="text-gray-800 font-medium mb-2">Enjoyed working with us?</p>
-          <Link href="/review-us" className="text-blue-600 hover:underline font-semibold">
+          <Link href="/review-us" className="text-brand-teal hover:underline font-semibold">
             Leave a review on Google
           </Link>
-          <span className="text-gray-600"> — it helps other customers find us.</span>
+          <span className="text-gray-600"> — your review helps other buyers and sellers find us on Google.</span>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
@@ -281,7 +282,7 @@ export default function ContactPage() {
           />
         </div>
 
-        <div className="bg-blue-50 rounded-lg p-6 mt-8">
+        <div className="bg-brand-mint/40 rounded-lg p-6 mt-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to Start Your Real Estate Journey?</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             Don't wait to achieve your real estate goals in Summerlin West. Whether you're looking to buy your 
@@ -299,6 +300,7 @@ export default function ContactPage() {
     </div>
 
     <FAQSection faqs={CONTACT_FAQS} />
+    <PageIndexingEnhancement path="/contact" linksOnly />
     </>
   )
 }

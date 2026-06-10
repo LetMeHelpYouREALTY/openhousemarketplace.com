@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Sitemap | Open House Market Place',
     description: 'Complete sitemap of all pages on Open House Market Place. Find neighborhoods, resources, builders, and real estate information in Summerlin West.',
     url: `${BASE_URL}/sitemap`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 
@@ -67,15 +67,15 @@ export default function SitemapPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Main Pages</h2>
             <ul className="space-y-2">
-              <li><Link href="/" className="text-blue-600 hover:text-blue-800">Home</Link></li>
-              <li><Link href="/open-houses" className="text-blue-600 hover:text-blue-800">Open Houses</Link></li>
-              <li><Link href="/market-report" className="text-blue-600 hover:text-blue-800">Market Report</Link></li>
-              <li><Link href="/schools" className="text-blue-600 hover:text-blue-800">Schools</Link></li>
-              <li><Link href="/contact" className="text-blue-600 hover:text-blue-800">Contact</Link></li>
-              <li><Link href="/review-us" className="text-blue-600 hover:text-blue-800">Review us on Google</Link></li>
-              <li><Link href="/about" className="text-blue-600 hover:text-blue-800">About</Link></li>
-              <li><Link href="/luxury-homes" className="text-blue-600 hover:text-blue-800">Luxury Homes</Link></li>
-              <li><Link href="/new-construction" className="text-blue-600 hover:text-blue-800">New Construction</Link></li>
+              <li><Link href="/" className="text-brand-teal hover:text-brand-plum">Home</Link></li>
+              <li><Link href="/open-houses" className="text-brand-teal hover:text-brand-plum">Open Houses</Link></li>
+              <li><Link href="/market-report" className="text-brand-teal hover:text-brand-plum">Market Report</Link></li>
+              <li><Link href="/schools" className="text-brand-teal hover:text-brand-plum">Schools</Link></li>
+              <li><Link href="/contact" className="text-brand-teal hover:text-brand-plum">Contact</Link></li>
+              <li><Link href="/review-us" className="text-brand-teal hover:text-brand-plum">Review us on Google</Link></li>
+              <li><Link href="/about" className="text-brand-teal hover:text-brand-plum">About</Link></li>
+              <li><Link href="/luxury-homes" className="text-brand-teal hover:text-brand-plum">Luxury Homes</Link></li>
+              <li><Link href="/new-construction" className="text-brand-teal hover:text-brand-plum">New Construction</Link></li>
             </ul>
           </section>
 
@@ -85,7 +85,7 @@ export default function SitemapPage() {
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {neighborhoods.map((neighborhood) => (
                 <li key={neighborhood.url}>
-                  <Link href={neighborhood.url} className="text-blue-600 hover:text-blue-800">
+                  <Link href={neighborhood.url} className="text-brand-teal hover:text-brand-plum">
                     {neighborhood.name}
                   </Link>
                 </li>
@@ -99,7 +99,7 @@ export default function SitemapPage() {
             <ul className="space-y-2">
               {zipCodes.map((zip) => (
                 <li key={zip.url}>
-                  <Link href={zip.url} className="text-blue-600 hover:text-blue-800">
+                  <Link href={zip.url} className="text-brand-teal hover:text-brand-plum">
                     Zip Code {zip.code}
                   </Link>
                 </li>
@@ -113,7 +113,7 @@ export default function SitemapPage() {
             <ul className="space-y-2">
               {resources.map((resource) => (
                 <li key={resource.url}>
-                  <Link href={resource.url} className="text-blue-600 hover:text-blue-800">
+                  <Link href={resource.url} className="text-brand-teal hover:text-brand-plum">
                     {resource.name}
                   </Link>
                 </li>
@@ -127,7 +127,7 @@ export default function SitemapPage() {
             <ul className="space-y-2">
               {builders.map((builder) => (
                 <li key={builder.url}>
-                  <Link href={builder.url} className="text-blue-600 hover:text-blue-800">
+                  <Link href={builder.url} className="text-brand-teal hover:text-brand-plum">
                     {builder.name}
                   </Link>
                 </li>
@@ -139,9 +139,9 @@ export default function SitemapPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Legal</h2>
             <ul className="space-y-2">
-              <li><Link href="/privacy-policy" className="text-blue-600 hover:text-blue-800">Privacy Policy</Link></li>
-              <li><Link href="/terms-of-service" className="text-blue-600 hover:text-blue-800">Terms of Service</Link></li>
-              <li><Link href="/disclaimer" className="text-blue-600 hover:text-blue-800">Disclaimer</Link></li>
+              <li><Link href="/privacy-policy" className="text-brand-teal hover:text-brand-plum">Privacy Policy</Link></li>
+              <li><Link href="/terms-of-service" className="text-brand-teal hover:text-brand-plum">Terms of Service</Link></li>
+              <li><Link href="/disclaimer" className="text-brand-teal hover:text-brand-plum">Disclaimer</Link></li>
             </ul>
           </section>
         </div>

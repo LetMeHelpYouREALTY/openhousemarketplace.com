@@ -108,7 +108,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
         <div className="flex flex-col gap-3">
           <a
             href="/open-houses"
-            className="block w-full text-center rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-3 transition-colors"
+            className="block w-full text-center rounded-lg bg-brand-teal hover:bg-brand-plum text-white font-semibold px-4 py-3 transition-colors"
           >
             Browse more open houses
           </a>
@@ -117,7 +117,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           </CalendlyPopupLink>
           <a
             href="/open-houses"
-            className="block w-full text-center text-blue-600 font-medium hover:underline"
+            className="block w-full text-center text-brand-teal font-medium hover:underline"
           >
             View open houses
           </a>
@@ -138,7 +138,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="Jane Smith"
           disabled={status === 'submitting'}
         />
@@ -154,7 +154,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="jane@example.com"
           disabled={status === 'submitting'}
         />
@@ -170,7 +170,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={phone}
           onChange={handlePhoneChange}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           placeholder="(702) 555-1234"
           disabled={status === 'submitting'}
         />
@@ -208,7 +208,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
             value={agentName}
             onChange={(e) => setAgentName(e.target.value)}
             placeholder="Agent name (optional)"
-            className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
             disabled={status === 'submitting'}
           />
         )}
@@ -222,7 +222,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={hearAboutSource}
           onChange={(e) => setHearAboutSource(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           disabled={status === 'submitting'}
         >
           <option value="">Select...</option>
@@ -267,7 +267,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
           required
           value={purchaseTimeline}
           onChange={(e) => setPurchaseTimeline(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-brand-teal focus:ring-1 focus:ring-brand-teal"
           disabled={status === 'submitting'}
         >
           <option value="">Select...</option>
@@ -306,7 +306,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="w-full rounded-lg bg-blue-600 px-4 py-4 text-lg font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+        className="w-full rounded-lg bg-brand-teal px-4 py-4 text-lg font-semibold text-white hover:bg-brand-plum disabled:opacity-50 transition-colors"
       >
         {status === 'submitting' ? 'Submitting…' : 'Submit'}
       </button>

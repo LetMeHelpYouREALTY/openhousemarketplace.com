@@ -1,0 +1,90 @@
+# Backup deploy when Vercel Git integration does not run.
+# Always targets production (--prod), including cursor/* agent branches.
+# Secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID — see docs/VERCEL_DEPLOYMENT.md
+# VERCEL_PROJECT_ID must be the openhousemarketplace.com project (not drjanduffy.com).
+
+name: Vercel Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - 'cursor/**'
+  workflow_dispatch:
+
+concurrency:
+  group: vercel-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Vercel secrets
+        id: secrets
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "::warning::VERCEL_TOKEN not set — skipping deploy. See docs/VERCEL_DEPLOYMENT.md"
+            exit 0
+          fi
+          if [ -z "${{ secrets.VERCEL_ORG_ID }}" ] || [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "::warning::VERCEL_ORG_ID or VERCEL_PROJECT_ID not set — skipping deploy."
+            exit 0
+          fi
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+
+      - name: Validate linked Vercel project
+        if: steps.secrets.outputs.skip == 'false'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          # Expected openhousemarketplace.com project (docs/VERCEL_DEPLOYMENT.md)
+          EXPECTED_PROJECT_ID: prj_UH4vlCl7EkB4ipEIvu7kflQN3p2E
+        run: |
+          set -euo pipefail
+          if [ "${VERCEL_PROJECT_ID}" = "prj_xZmrAjHZjKncFudRykf1hDaLVvtB" ]; then
+            echo "::error::VERCEL_PROJECT_ID is drjanduffy.com (prj_xZmr...). Set to prj_UH4vlCl7EkB4ipEIvu7kflQN3p2E for openhousemarketplace.com — see docs/VERCEL_DEPLOYMENT.md"
+            exit 1
+          fi
+          RESP=$(curl -fsS \
+            "https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}?teamId=${VERCEL_ORG_ID}" \
+            -H "Authorization: Bearer ${VERCEL_TOKEN}")
+          NAME=$(echo "$RESP" | jq -r '.name')
+          echo "VERCEL_PROJECT_ID resolves to Vercel project: ${NAME}"
+          if ! echo "$NAME" | grep -qiE 'openhouse|marketplace|open-house'; then
+            echo "::error::VERCEL_PROJECT_ID points to '${NAME}', not openhousemarketplace.com."
+            echo "::error::Set VERCEL_PROJECT_ID=${EXPECTED_PROJECT_ID} in GitHub Actions secrets."
+            echo "::error::Also reconnect Vercel Git to LetMeHelpYouREALTY/openhousemarketplace.com — see docs/VERCEL_DEPLOYMENT.md"
+            exit 1
+          fi
+
+      - name: Checkout
+        if: steps.secrets.outputs.skip == 'false'
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        if: steps.secrets.outputs.skip == 'false'
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        if: steps.secrets.outputs.skip == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install Vercel CLI
+        if: steps.secrets.outputs.skip == 'false'
+        run: npm install -g vercel@latest
+
+      - name: Deploy to Vercel production (remote build)
+        if: steps.secrets.outputs.skip == 'false'
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          set -euo pipefail
+          vercel deploy --prod --yes --token="${{ secrets.VERCEL_TOKEN }}"

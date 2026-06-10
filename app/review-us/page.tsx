@@ -1,10 +1,11 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import Image from 'next/image'
 import ExternalLink from '@/components/ExternalLink'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 const REVIEW_URL = 'https://g.page/r/CbX7prnSI9uREBM/review'
 const QR_CODE_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(REVIEW_URL)}`
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Review us on Google | Dr. Jan Duffy Real Estate',
     description: 'Leave a review for Dr. Jan Duffy. Share our review link or QR code.',
     url: `${BASE_URL}/review-us`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 
@@ -50,7 +51,7 @@ export default function ReviewUsPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
         <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
           <ol className="flex flex-wrap gap-x-2 gap-y-1">
-            <li><Link href="/" className="hover:text-blue-600 transition-colors">Home</Link></li>
+            <li><Link href="/" className="hover:text-brand-teal transition-colors">Home</Link></li>
             <li aria-hidden>/</li>
             <li className="text-gray-700 font-medium" aria-current="page">Review us on Google</li>
           </ol>
@@ -61,10 +62,12 @@ export default function ReviewUsPage() {
             Review us on Google
           </h1>
           <p className="text-lg text-gray-600">
-            Give customers a link to review your business on Google. Reviews build trust and help your Business Profile stand out to customers on Search and Maps.
+            If you toured an open house or worked with Dr. Jan Duffy, a Google review helps other Summerlin buyers and
+            sellers trust what they read on Search and Maps.
           </p>
           <p className="mt-2 text-gray-600">
-            Business Profiles with 5 or more reviews can get up to twice as many customers.
+            Profiles with more recent reviews often get stronger visibility when people search for a local real estate
+            agent.
           </p>
         </header>
 
@@ -94,7 +97,7 @@ export default function ReviewUsPage() {
         <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 md:p-8 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Share the review link</h2>
           <p className="text-gray-600 mb-4">
-            Share our review link on WhatsApp or Facebook so more customers can leave a review.
+            Share our review link on WhatsApp or Facebook so more buyers and sellers can leave a review.
           </p>
           <div className="flex flex-wrap gap-4">
             <ExternalLink
@@ -125,12 +128,12 @@ export default function ReviewUsPage() {
         <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 md:p-8 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Share your reviews QR code</h2>
           <p className="text-gray-600 mb-2">
-            Right-click the QR code and select &quot;Save Image As...&quot; so you can share your QR code with customers.
+            Right-click the QR code and select &quot;Save Image As...&quot; to share it after an open house or closing.
           </p>
           <div className="flex flex-col items-center mt-6">
             <ExternalLink
               href={REVIEW_URL}
-              className="block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
+              className="block focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 rounded-lg"
               ariaLabel="Open Google review page for Dr. Jan Duffy Real Estate"
               showIcon={false}
             >
@@ -156,7 +159,7 @@ export default function ReviewUsPage() {
             <li>
               <ExternalLink
                 href={GOOGLE_REVIEW_GUIDE}
-                className="text-blue-600 hover:underline font-medium"
+                className="text-brand-teal hover:underline font-medium"
                 ariaLabel="Share a link or QR code to request reviews (Google Help)"
               >
                 Share a link or QR code to request reviews (Google Help)
@@ -165,7 +168,7 @@ export default function ReviewUsPage() {
             <li>
               <ExternalLink
                 href={GOOGLE_TIPS_REVIEWS}
-                className="text-blue-600 hover:underline font-medium"
+                className="text-brand-teal hover:underline font-medium"
                 ariaLabel="Tips to get more reviews (Google Help)"
               >
                 Tips to get more reviews (Google Help)
@@ -175,12 +178,13 @@ export default function ReviewUsPage() {
         </section>
 
         <p className="mt-8 text-center">
-          <Link href="/contact" className="text-blue-600 hover:underline font-medium">
+          <Link href="/contact" className="text-brand-teal hover:underline font-medium">
             Contact Dr. Jan Duffy
           </Link>
         </p>
       </div>
     </main>
+    <PageIndexingEnhancement path="/review-us" />
     </>
   )
 }

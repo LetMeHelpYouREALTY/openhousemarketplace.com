@@ -35,7 +35,7 @@ export default function BuyerToolsSection({ searchListingsHref }: BuyerToolsSect
     <section className="py-16 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <div className="inline-flex items-center bg-brand-mint text-brand-plum px-4 py-2 rounded-full text-sm font-medium mb-4">
             <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -115,7 +115,7 @@ export default function BuyerToolsSection({ searchListingsHref }: BuyerToolsSect
 
           {/* School Finder */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-            <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4">
+            <div className="bg-gradient-to-r from-brand-teal to-brand-plum p-4">
               <h3 className="text-white font-bold text-lg flex items-center">
                 <svg className="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -134,21 +134,21 @@ export default function BuyerToolsSection({ searchListingsHref }: BuyerToolsSect
                       <div className="text-sm text-gray-600">{school.type} • {school.distance}</div>
                     </div>
                     <div className="flex items-center">
-                      <div className="text-2xl font-bold text-blue-600 mr-1">{school.rating}</div>
+                      <div className="text-2xl font-bold text-brand-teal mr-1">{school.rating}</div>
                       <div className="text-sm text-gray-500">/10</div>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-                <div className="flex items-center text-sm text-blue-800">
+              <div className="mt-4 p-3 bg-brand-mint/40 rounded-lg">
+                <div className="flex items-center text-sm text-brand-plum">
                   <svg className="h-4 w-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                   </svg>
                   All schools ranked in top 20% statewide
                 </div>
               </div>
-              <button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors">View Full School Report</button>
+              <button className="w-full mt-4 bg-brand-teal hover:bg-brand-plum text-white font-medium py-3 rounded-lg transition-colors">View Full School Report</button>
             </div>
           </div>
 
@@ -196,11 +196,11 @@ export default function BuyerToolsSection({ searchListingsHref }: BuyerToolsSect
         <div className="mt-12 text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4 items-center">
             {searchListingsHref ? (
-              <Link href={searchListingsHref} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+              <Link href={searchListingsHref} className="bg-brand-teal hover:bg-brand-plum text-white px-8 py-3 rounded-lg font-medium transition-colors">
                 Start Your Home Search
               </Link>
             ) : (
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">Start Your Home Search</button>
+              <button className="bg-brand-teal hover:bg-brand-plum text-white px-8 py-3 rounded-lg font-medium transition-colors">Start Your Home Search</button>
             )}
             <div className="flex items-center text-sm text-gray-600">
               <svg className="h-5 w-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">

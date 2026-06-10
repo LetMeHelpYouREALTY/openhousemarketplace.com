@@ -1,9 +1,12 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
+import MarketingHero from '@/components/conversion/MarketingHero'
+import { brandCardClass } from '@/lib/brand-classes'
 
 export const metadata: Metadata = {
   title: 'Schedule a private showing | Dr. Jan Duffy | Summerlin Real Estate',
@@ -21,7 +24,7 @@ export const metadata: Metadata = {
     title: 'Schedule a private showing | Dr. Jan Duffy',
     description: 'Book a private showing. Choose a time below.',
     url: `${BASE_URL}/book-tour`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 
@@ -45,12 +48,17 @@ export default function BookTourPage() {
         }}
       />
 
-      <main className="min-h-screen bg-gray-50">
+      <MarketingHero
+        title="Schedule a private showing"
+        description="Pick a time that works for you — tour Summerlin homes with Dr. Jan Duffy. No signup required."
+        showCtas={false}
+      />
+      <main className="min-h-screen bg-brand-surface/40">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
             <ol className="flex flex-wrap gap-x-2 gap-y-1">
               <li>
-                <Link href="/" className="hover:text-blue-600 transition-colors">
+                <Link href="/" className="hover:text-brand-teal transition-colors">
                   Home
                 </Link>
               </li>
@@ -61,16 +69,22 @@ export default function BookTourPage() {
             </ol>
           </nav>
 
-          <header className="mb-8 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Schedule a private showing
-            </h1>
-            <p className="text-lg text-gray-600 max-w-xl mx-auto">
-              Book a private showing with Dr. Jan Duffy. Choose a date and time below—no signup required.
+          <section className="mb-8 prose prose-gray max-w-none text-gray-700">
+            <h2 className="text-xl font-semibold text-gray-900">Private tours in Summerlin and Las Vegas</h2>
+            <p>
+              A private showing lets you tour a specific listing on your schedule—ideal when you cannot attend a weekend open house or want a second visit. Dr. Jan Duffy (Berkshire Hathaway HomeServices Nevada Properties) coordinates access with listing agents across Summerlin villages, new construction, and luxury communities.
             </p>
-          </header>
+            <p>
+              Before your tour, share your budget, preferred zip codes (89135, 89138, 89144), and must-haves. You can also browse{' '}
+              <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline">Summerlin open houses</Link>
+              {' '}or{' '}
+              <Link href="/tour/mls" className="text-brand-teal font-semibold hover:underline">MLS listings</Link>
+              {' '}to build a shortlist.
+            </p>
+          </section>
 
-          <section aria-label="Schedule a private showing" className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 md:p-6">
+          <section aria-label="Schedule a private showing" className={`${brandCardClass} border-2 border-brand-teal/30`}>
+            <h2 className="text-xl font-bold text-brand-plum mb-4 text-center">Choose your showing time</h2>
             <CalendlyInlineWidget
               minWidth={320}
               height={700}
@@ -79,14 +93,15 @@ export default function BookTourPage() {
           </section>
 
           <p className="mt-6 text-center text-sm text-gray-500">
-            Prefer to call? <a href="tel:+17022003422" className="text-blue-600 hover:underline">(702) 200-3422</a>
+            Prefer to call? <a href="tel:+17022003422" className="text-brand-teal hover:underline">(702) 200-3422</a>
             {' · '}
-            <Link href="/schedule-consultation" className="text-blue-600 hover:underline">Schedule a free consultation</Link>
+            <Link href="/schedule-consultation" className="text-brand-teal hover:underline">Schedule a free consultation</Link>
             {' · '}
-            <Link href="/review-us" className="text-blue-600 hover:underline">Review us on Google</Link>
+            <Link href="/review-us" className="text-brand-teal hover:underline">Review us on Google</Link>
           </p>
         </div>
       </main>
+      <PageIndexingEnhancement path="/book-tour" />
     </>
   )
 }

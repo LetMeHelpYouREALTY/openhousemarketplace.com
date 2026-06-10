@@ -4,6 +4,10 @@ import { BASE_URL } from '@/lib/metadata-utils'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
+import JsonLd from '@/components/JsonLd'
+import { HOME_BUYING_GUIDE_HOWTO } from '@/config/seo'
+import { buildHowToJsonLd } from '@/lib/json-ld'
 
 const validResources: Record<string, {
   title: string
@@ -193,7 +197,7 @@ const validResources: Record<string, {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                <Link href="/builders/toll-brothers" className="text-blue-600 hover:text-blue-800">
+                <Link href="/builders/toll-brothers" className="text-brand-teal hover:text-brand-plum">
                   Toll Brothers
                 </Link>
               </h3>
@@ -201,7 +205,7 @@ const validResources: Record<string, {
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                <Link href="/builders/lennar" className="text-blue-600 hover:text-blue-800">
+                <Link href="/builders/lennar" className="text-brand-teal hover:text-brand-plum">
                   Lennar
                 </Link>
               </h3>
@@ -209,7 +213,7 @@ const validResources: Record<string, {
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                <Link href="/builders/pulte" className="text-blue-600 hover:text-blue-800">
+                <Link href="/builders/pulte" className="text-brand-teal hover:text-brand-plum">
                   Pulte Homes
                 </Link>
               </h3>
@@ -290,6 +294,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 
   // Extract title for breadcrumb - TypeScript now knows resource is defined
   const resourceTitle = resource.title.split('|')[0]?.trim() || resource.title.trim()
+  const resourcePath = `/resources/${slug}`
 
   return (
     <>
@@ -312,7 +317,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
       />
       <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] bg-gradient-to-r from-blue-600 to-red-600">
+      <section className="relative h-[40vh] min-h-[300px] bg-gradient-to-r from-brand-teal to-brand-plum">
         <div className="absolute inset-0 bg-black bg-opacity-40" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-4xl mx-auto px-4">
@@ -333,6 +338,43 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
               Summerlin lifestyle, this resource provides valuable insights to help you make informed decisions about 
               real estate in Las Vegas' premier master-planned community.
             </p>
+            {slug === 'home-buying-guide' ? (
+              <>
+                <JsonLd
+                  data={buildHowToJsonLd({
+                    name: HOME_BUYING_GUIDE_HOWTO.name,
+                    description: HOME_BUYING_GUIDE_HOWTO.description,
+                    url: `${BASE_URL}${resourcePath}`,
+                    steps: HOME_BUYING_GUIDE_HOWTO.steps.map((step) => ({
+                      name: step.name,
+                      text: step.text,
+                      ...('url' in step && step.url ? { url: `${BASE_URL}${step.url}` } : {}),
+                    })),
+                  })}
+                />
+                <section className="mt-8" aria-labelledby="home-buying-howto-heading">
+                  <h2 id="home-buying-howto-heading" className="text-2xl font-bold text-gray-900 mb-4">
+                    {HOME_BUYING_GUIDE_HOWTO.name}
+                  </h2>
+                  <p className="text-gray-700 mb-4">{HOME_BUYING_GUIDE_HOWTO.description}</p>
+                  <ol className="list-decimal pl-6 space-y-3 text-gray-700">
+                    {HOME_BUYING_GUIDE_HOWTO.steps.map((step) => (
+                      <li key={step.name}>
+                        <strong className="text-gray-900">{step.name}.</strong> {step.text}
+                        {'url' in step && step.url ? (
+                          <>
+                            {' '}
+                            <Link href={step.url} className="text-brand-teal font-semibold hover:underline">
+                              Learn more
+                            </Link>
+                          </>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              </>
+            ) : null}
             {resource.content}
           </div>
         </div>
@@ -365,18 +407,19 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
         </div>
 
         {/* CTA */}
-        <div className="bg-blue-600 rounded-lg shadow-md p-8 text-center text-white">
+        <div className="bg-brand-teal rounded-lg shadow-md p-8 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-6">Contact us for personalized assistance with your real estate needs</p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
+            className="inline-block bg-white text-brand-teal px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
           >
             Contact Dr. Jan Duffy
           </Link>
         </div>
       </div>
     </div>
+    <PageIndexingEnhancement path={resourcePath} />
     </>
   )
 }

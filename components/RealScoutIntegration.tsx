@@ -20,26 +20,26 @@ const RealScoutIntegration = () => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <div className="text-center mb-6">
-        <Home className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+        <Home className="h-12 w-12 text-brand-teal mx-auto mb-4" />
         <h3 className="text-xl font-bold text-gray-900 mb-2">Find Your Dream Home</h3>
         <p className="text-gray-600">Search all Summerlin listings with Dr. Jan Duffy's home search</p>
       </div>
 
       <div className="space-y-4 mb-6">
         <div className="flex items-center">
-          <Search className="h-5 w-5 text-blue-600 mr-3" />
+          <Search className="h-5 w-5 text-brand-teal mr-3" />
           <span className="text-gray-700">Advanced search filters</span>
         </div>
         <div className="flex items-center">
-          <Heart className="h-5 w-5 text-blue-600 mr-3" />
+          <Heart className="h-5 w-5 text-brand-teal mr-3" />
           <span className="text-gray-700">Save favorite properties</span>
         </div>
         <div className="flex items-center">
-          <Calendar className="h-5 w-5 text-blue-600 mr-3" />
+          <Calendar className="h-5 w-5 text-brand-teal mr-3" />
           <span className="text-gray-700">Schedule private showings</span>
         </div>
         <div className="flex items-center">
-          <Star className="h-5 w-5 text-blue-600 mr-3" />
+          <Star className="h-5 w-5 text-brand-teal mr-3" />
           <span className="text-gray-700">Get market insights</span>
         </div>
       </div>
@@ -47,7 +47,7 @@ const RealScoutIntegration = () => {
       <div className="space-y-3">
         <button
           onClick={openRealScoutSearch}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium flex items-center justify-center"
+          className="w-full bg-brand-teal hover:bg-brand-plum text-white px-4 py-3 rounded-lg font-medium flex items-center justify-center"
         >
           <Search className="h-4 w-4 mr-2" />
           Start Your Search
@@ -68,7 +68,7 @@ const RealScoutIntegration = () => {
              <Phone className="h-4 w-4 mr-1" />
              <a 
                href={`tel:${GBP.phoneE164}`}
-               className="hover:text-blue-600 transition-colors cursor-pointer"
+               className="hover:text-brand-teal transition-colors cursor-pointer"
                title={`Call ${GBP.phone}`}
              >
                {GBP.phone}
@@ -76,7 +76,9 @@ const RealScoutIntegration = () => {
            </div>
           <div className="flex items-center">
             <Mail className="h-4 w-4 mr-1" />
-            <span>jan@summerlinexpert.com</span>
+            <a href={`mailto:${GBP.email}`} className="hover:text-brand-teal transition-colors">
+              {GBP.email}
+            </a>
           </div>
         </div>
       </div>

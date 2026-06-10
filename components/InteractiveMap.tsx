@@ -118,13 +118,13 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
           <div class="p-4 max-w-xs">
             <div class="font-bold text-lg text-gray-900">${property.price}</div>
             <div class="text-sm text-gray-600 mb-2">${property.address}</div>
-            <div class="text-sm text-blue-600 font-medium mb-2">${property.neighborhood}</div>
+            <div class="text-sm text-brand-teal font-medium mb-2">${property.neighborhood}</div>
             <div class="flex justify-between text-sm text-gray-600 mb-2">
               <span>${property.beds} beds</span>
               <span>${property.baths} baths</span>
               <span>${property.sqft} sqft</span>
             </div>
-            <div class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">
+            <div class="bg-brand-mint text-brand-plum px-2 py-1 rounded text-xs font-medium">
               ${property.openHouseTime}
             </div>
           </div>
@@ -177,7 +177,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
               key={property.id}
               className={`p-3 rounded-lg border cursor-pointer transition-colors ${
                 selectedProperty?.id === property.id
-                  ? 'border-blue-500 bg-blue-50'
+                  ? 'border-brand-teal bg-brand-mint/40'
                   : 'border-gray-200 hover:border-gray-300'
               }`}
               onClick={() => {
@@ -192,16 +192,16 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
             >
               <div className="flex justify-between items-start mb-1">
                 <div className="font-bold text-gray-900">{property.price}</div>
-                <Clock className="h-4 w-4 text-blue-600" />
+                <Clock className="h-4 w-4 text-brand-teal" />
               </div>
               <div className="text-sm text-gray-600 mb-1">{property.address}</div>
-              <div className="text-xs text-blue-600 font-medium mb-2">{property.neighborhood}</div>
+              <div className="text-xs text-brand-teal font-medium mb-2">{property.neighborhood}</div>
               <div className="flex justify-between text-xs text-gray-500">
                 <span>{property.beds} beds</span>
                 <span>{property.baths} baths</span>
                 <span>{property.sqft} sqft</span>
               </div>
-              <div className="text-xs text-blue-600 font-medium mt-1">
+              <div className="text-xs text-brand-teal font-medium mt-1">
                 {property.openHouseTime}
               </div>
             </div>
@@ -211,7 +211,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
           <div className="text-center mt-3">
             <button
               onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-              className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+              className="text-sm text-brand-teal hover:text-brand-plum font-medium"
             >
               View all {properties.length} properties →
             </button>
@@ -223,7 +223,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
       {!isMapLoaded && (
         <div className="absolute inset-0 bg-gray-100 rounded-lg flex items-center justify-center">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-teal mx-auto mb-2"></div>
             <div className="text-sm text-gray-600">Loading map...</div>
           </div>
         </div>

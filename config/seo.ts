@@ -2,10 +2,18 @@
  * Primary keyword focus: SEO (Google), AEO (answer engines), GEO (generative / AI search).
  * Use in titles, meta descriptions, H1/H2, FAQ JSON-LD, and WebSite/ WebPage schema.
  * NAP and business name still come from config/gbp.ts (Google Business Profile).
+ *
+ * Google (2026): AEO/GEO are implemented as people-first content + correct JSON-LD entities
+ * (@id, sameAs, author/publisher) — not separate “AI markup.” See docs/SEO-GEO-AEO-2026.md.
  */
 
 /** Target phrase for Summerlin + Las Vegas open house intent */
 export const SEO_PRIMARY_KEYWORD = 'Summerlin Las Vegas Open Houses' as const
+
+/** E-E-A-T: agent identity (visible copy + RealEstateAgent schema) */
+export const AGENT_NAME = 'Dr. Jan Duffy' as const
+export const AGENT_LICENSE = 'Nevada S.0197614.LLC' as const
+export const AGENT_MEMBER_OF = 'Berkshire Hathaway HomeServices Nevada Properties' as const
 
 export const SEO_HOME_TITLE = 'Summerlin Las Vegas Open Houses | Dr. Jan Duffy Real Estate' as const
 
@@ -63,3 +71,86 @@ export const HOME_PAGE_FAQS = [
       'Use the contact form, Calendly scheduling links, or call Open House Market Place at (702) 200-3422. Dr. Jan Duffy can arrange a private tour of Summerlin and Las Vegas listings that match your budget and neighborhood preferences.',
   },
 ] as const
+
+/** Open House Guide — visible accordion + FAQPage JSON-LD (AEO direct answers) */
+export const OPEN_HOUSE_GUIDE_FAQS = [
+  {
+    question: 'Do I need an agent to attend an open house?',
+    answer:
+      "No. You can attend open houses without an agent. Having your own buyer's agent protects your interests in negotiations and disclosures. Dr. Jan Duffy can serve as your exclusive buyer's agent while you explore Summerlin open houses.",
+  },
+  {
+    question: 'What forms will I sign at a Summerlin open house?',
+    answer:
+      'You may see a visitor non-agency disclosure, a limited representation agreement, or a full exclusive buyer agreement. You are not required to sign a buyer agreement just to walk through an open house.',
+  },
+  {
+    question: "Who pays the buyer's agent in Las Vegas?",
+    answer:
+      'After the August 2024 NAR settlement, buyer broker compensation is negotiated between you and your buyer\'s agent—not shown on the MLS. Discuss fees upfront with your agent.',
+  },
+  {
+    question: 'Can I tour homes without committing to an agent?',
+    answer:
+      'Yes. Open houses remain exempt from signing a buyer agreement before viewing. Visit weekend open houses, sign in, and formalize representation when you are ready.',
+  },
+  {
+    question: 'Why work with Dr. Jan Duffy in Summerlin?',
+    answer:
+      'Dr. Jan Duffy offers Summerlin West expertise, luxury market experience, and guidance through post-NAR disclosure and compensation rules in neighborhoods like The Ridges and Red Rock Country Club.',
+  },
+] as const
+
+/** HowTo steps — mirror visible ordered list on /open-house-guide (AEO + HowTo schema) */
+export const OPEN_HOUSE_GUIDE_HOWTO = {
+  name: 'How to attend a Summerlin open house in 2026',
+  description:
+    'Steps for buyers touring Summerlin Las Vegas open houses after NAR settlement rule changes—forms, representation, and scheduling.',
+  steps: [
+    {
+      name: 'Find open houses this weekend',
+      text: 'Browse the Open Houses page or MLS search on Open House Market Place for current Summerlin listings, dates, and addresses.',
+      url: '/open-houses',
+    },
+    {
+      name: 'Attend without a buyer agreement',
+      text: 'Open houses do not require a signed buyer representation agreement before you tour—unlike most private showings.',
+    },
+    {
+      name: 'Review disclosure forms at the door',
+      text: 'Expect a visitor non-agency disclosure or optional limited/full buyer agreements; read who represents whom before you tour.',
+    },
+    {
+      name: 'Compare homes and neighborhoods',
+      text: 'Take notes, ask about HOA and incentives, and explore Summerlin villages that fit your budget.',
+    },
+    {
+      name: 'Schedule a private showing or consultation',
+      text: 'When you are ready for dedicated representation, contact Dr. Jan Duffy to book a private tour or consultation.',
+      url: '/book-tour',
+    },
+  ],
+} as const
+
+/** HowTo for /resources/home-buying-guide — visible <ol> on that page */
+export const HOME_BUYING_GUIDE_HOWTO = {
+  name: 'How to buy a home in Summerlin, Las Vegas',
+  description:
+    'Step-by-step process for purchasing a home in Summerlin West with a buyer\'s agent, from pre-approval through closing.',
+  steps: [
+    { name: 'Get pre-approved', text: 'Gather financial documents and obtain a mortgage pre-approval letter.' },
+    { name: 'Choose a Summerlin buyer\'s agent', text: 'Work with a local agent who knows villages, HOAs, and builder contracts.' },
+    { name: 'Search homes and open houses', text: 'Use MLS search and weekend open houses to shortlist neighborhoods and listings.', url: '/tour/mls' },
+    { name: 'Make a competitive offer', text: 'Your agent drafts terms based on comps, condition, and market timing.' },
+    { name: 'Inspection and appraisal', text: 'Complete due diligence; negotiate repairs if needed.' },
+    { name: 'Close escrow in Nevada', text: 'Sign closing documents, fund escrow, and receive keys—typically 30–45 days for resale.', url: '/contact' },
+  ],
+} as const
+
+/** Speakable CSS selectors on open-house-guide (must exist in page DOM) */
+export const OPEN_HOUSE_GUIDE_SPEAKABLE = {
+  name: 'What to Expect at a Summerlin Open House in 2026',
+  description:
+    'New NAR-related rules mean more transparency for buyers at Summerlin Las Vegas open houses in 2026.',
+  cssSelectors: ['.page-title-speakable', '.speakable-summary'],
+} as const

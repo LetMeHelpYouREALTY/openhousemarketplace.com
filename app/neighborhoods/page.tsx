@@ -1,12 +1,15 @@
 import { Metadata } from 'next'
-import { BASE_URL } from '@/lib/metadata-utils'
+import { BASE_URL, DEFAULT_OG_IMAGE_PATHS } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import ExternalLink from '@/components/ExternalLink'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
-import GoogleMapsNeighborhoodDiscoverySection from '@/components/GoogleMapsNeighborhoodDiscoverySection'
+import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
+import MarketingHero from '@/components/conversion/MarketingHero'
+import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
 import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
+import { brandCardClass } from '@/lib/brand-classes'
 
 export const revalidate = 86400 // ISR: revalidate daily
 
@@ -29,7 +32,7 @@ export const metadata: Metadata = {
     title: 'Summerlin Neighborhoods | Communities & Areas',
     description: 'Explore Summerlin neighborhoods and find your perfect community. Homes, schools, amenities, and local expertise.',
     url: `${BASE_URL}/neighborhoods`,
-    images: ['/images/og/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE_PATHS[0]],
   },
 }
 
@@ -72,21 +75,17 @@ export default function NeighborhoodsIndexPage() {
           items: neighborhoods.map((n) => ({ name: n.name, url: `/neighborhoods/${n.slug}` })),
         }}
       />
-      <div className="min-h-screen bg-gray-50">
-        <section className="relative bg-gradient-to-r from-blue-600 to-slate-700 text-white py-16 md:py-20 rounded-b-3xl">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Summerlin Neighborhoods
-            </h1>
-            <p className="text-xl text-white">
-              Explore communities across Summerlin West. Find schools, amenities, and homes for sale in each neighborhood.
-            </p>
-          </div>
-        </section>
-
+      <MarketingHero
+        title="Summerlin neighborhoods"
+        description="Explore communities across Summerlin West — then search MLS listings or book a private showing with Dr. Jan Duffy."
+        showCtas={false}
+      />
+      <div className="min-h-screen bg-brand-surface/40">
         <div className="max-w-6xl mx-auto px-4 py-12">
-          {/* Office / Search Listings first */}
-          <div className="mb-10 rounded-lg border border-blue-200 bg-blue-50 p-6">
+          <div className="mb-10">
+            <PrimaryCtaButtons />
+          </div>
+          <div className={`mb-10 ${brandCardClass}`}>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Office</h2>
             <p className="text-gray-700 mb-4">
               Search all Summerlin listings with Dr. Jan Duffy&apos;s home search. Get alerts for new listings, price drops, and open houses.
@@ -94,7 +93,7 @@ export default function NeighborhoodsIndexPage() {
             <div className="flex flex-wrap gap-3">
               <ExternalLink
                 href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="inline-block bg-brand-teal text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-plum transition-colors"
                 showIcon={false}
               >
                 Search Listings
@@ -109,10 +108,11 @@ export default function NeighborhoodsIndexPage() {
           </div>
 
           <div className="mb-10 md:mb-12">
-            <GoogleMapsNeighborhoodDiscoverySection
+            <GoogleMyMapsSection
               heading="Explore neighborhoods on the map"
-              description="Pan, zoom, and use the tools below to discover areas and context across Summerlin. Then browse individual communities in the list."
+              description="Pan and zoom across Summerlin West and the Las Vegas valley. Open the map full screen for directions, then browse individual communities below."
               id="neighborhoods-discovery-map-heading"
+              mapScope="service-area"
             />
           </div>
 
@@ -126,7 +126,7 @@ export default function NeighborhoodsIndexPage() {
               >
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{n.name}</h3>
                 <p className="text-gray-600">{n.shortDescription}</p>
-                <span className="inline-block mt-3 text-blue-600 font-medium">
+                <span className="inline-block mt-3 text-brand-teal font-medium">
                   View homes in {n.name} →
                 </span>
               </Link>
@@ -140,12 +140,12 @@ export default function NeighborhoodsIndexPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="inline-block bg-brand-teal text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-plum transition-colors"
             >
               Contact Dr. Jan Duffy
             </Link>
             <p className="text-sm text-gray-600 mt-4">
-              See <Link href="/sitemap" className="text-blue-600 hover:text-blue-800 font-medium">sitemap</Link> for all pages.
+              See <Link href="/sitemap" className="text-brand-teal hover:text-brand-plum font-medium">sitemap</Link> for all pages.
             </p>
           </div>
 

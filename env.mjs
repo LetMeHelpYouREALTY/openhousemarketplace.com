@@ -5,6 +5,9 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "production", "test"]),
     VERCEL_URL: z.string().optional(),
+    RESEND_API_KEY: z.string().optional(),
+    RESEND_FROM_EMAIL: z.string().email().optional(),
+    RESEND_NOTIFY_EMAIL: z.string().email().optional(),
     // Firebase Admin SDK (server-side only)
     FIREBASE_PROJECT_ID: z.string().optional(),
     FIREBASE_CLIENT_EMAIL: z.string().optional(),
@@ -30,10 +33,15 @@ export const env = createEnv({
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().optional(),
     // Analytics
     NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().optional(),
+    NEXT_PUBLIC_GBP_RATING: z.string().optional(),
+    NEXT_PUBLIC_GBP_REVIEW_COUNT: z.string().optional(),
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     VERCEL_URL: process.env.VERCEL_URL,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    RESEND_FROM_EMAIL: process.env.RESEND_FROM_EMAIL,
+    RESEND_NOTIFY_EMAIL: process.env.RESEND_NOTIFY_EMAIL,
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
     FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
     FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY,
@@ -52,6 +60,8 @@ export const env = createEnv({
     NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
     NEXT_PUBLIC_GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
+    NEXT_PUBLIC_GBP_RATING: process.env.NEXT_PUBLIC_GBP_RATING,
+    NEXT_PUBLIC_GBP_REVIEW_COUNT: process.env.NEXT_PUBLIC_GBP_REVIEW_COUNT,
   },
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
 })

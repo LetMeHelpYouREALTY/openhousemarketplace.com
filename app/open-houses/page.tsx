@@ -8,7 +8,7 @@ import {
 } from '@/config/seo'
 
 import Link from 'next/link'
-import RealScoutWidget from '@/components/RealScoutWidget'
+import { REALSCOUT_OFFICE_PRICE_RANGE_LABEL } from '@/config/realscout-office-bands'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
@@ -124,7 +124,7 @@ export default function OpenHousesPage() {
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Finding the Right Open House for You</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Explore open houses in <Link href="/neighborhoods/the-ridges" className="text-blue-600 font-semibold hover:underline">The Ridges</Link>, <Link href="/neighborhoods/red-rock-country-club" className="text-blue-600 font-semibold hover:underline">Red Rock Country Club</Link>, <Link href="/neighborhoods/summerlin-centre" className="text-blue-600 font-semibold hover:underline">Summerlin Centre</Link>, and <Link href="/neighborhoods/sun-city-summerlin" className="text-blue-600 font-semibold hover:underline">Sun City Summerlin</Link>, or see <Link href="/neighborhoods" className="text-blue-600 font-semibold hover:underline">all Summerlin neighborhoods</Link> for community info and schools.
+              Explore open houses in <Link href="/neighborhoods/the-ridges" className="text-brand-teal font-semibold hover:underline">The Ridges</Link>, <Link href="/neighborhoods/red-rock-country-club" className="text-brand-teal font-semibold hover:underline">Red Rock Country Club</Link>, <Link href="/neighborhoods/summerlin-centre" className="text-brand-teal font-semibold hover:underline">Summerlin Centre</Link>, and <Link href="/neighborhoods/sun-city-summerlin" className="text-brand-teal font-semibold hover:underline">Sun City Summerlin</Link>, or see <Link href="/neighborhoods" className="text-brand-teal font-semibold hover:underline">all Summerlin neighborhoods</Link> for community info and schools.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               Summerlin&apos;s open house market includes properties across all price points and neighborhoods, from entry-level 
@@ -132,7 +132,7 @@ export default function OpenHousesPage() {
               Our open house listings are updated regularly to provide the most current information about available properties, 
               including times, dates, and property details. With a median home price of $750,000 and 85 active listings, 
               Summerlin offers diverse opportunities for buyers at every stage of their real estate journey.{' '}
-              <CalendlyPopupLink className="text-blue-600 font-semibold hover:underline">Schedule a private showing</CalendlyPopupLink> to get personalized open house recommendations.
+              <CalendlyPopupLink className="text-brand-teal font-semibold hover:underline">Schedule a private showing</CalendlyPopupLink> to get personalized open house recommendations.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               When attending open houses in Summerlin, consider not just the property itself but also the neighborhood, 
@@ -168,18 +168,24 @@ export default function OpenHousesPage() {
         </div>
       </div>
       <section className="bg-gray-50 border-t border-gray-200 py-10 sm:py-14">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-2 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="mb-2 text-2xl font-bold text-gray-900 sm:text-3xl">
             Homes for sale — office listings
           </h2>
-          <p className="mb-8 text-center text-gray-600">
-            Live MLS listings from Dr. Jan Duffy&apos;s office (sorted low to high, $400K–$900K — same range as the site-wide office bands). For the full search experience, visit{' '}
-            <Link href="/tour/mls" className="font-semibold text-blue-600 hover:underline">
+          <p className="mb-6 text-gray-600 max-w-2xl mx-auto">
+            Browse live MLS listings ({REALSCOUT_OFFICE_PRICE_RANGE_LABEL}) in the office grid at the bottom of
+            every page. For advanced search, visit{' '}
+            <Link href="/tour/mls" className="font-semibold text-brand-teal hover:underline">
               MLS property search
             </Link>
             .
           </p>
-          <RealScoutWidget className="rounded-xl bg-white p-4 shadow-lg sm:p-6" />
+          <a
+            href="#office-listings-bands"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-brand-teal px-8 py-3 font-bold text-white hover:bg-brand-plum"
+          >
+            Jump to filtered MLS listings
+          </a>
         </div>
       </section>
       {/* Schedule a private showing - Calendly inline widget */}
@@ -201,9 +207,9 @@ export default function OpenHousesPage() {
         </div>
       </section>
       <p className="text-center text-sm text-gray-500 mb-8">
-        Enjoyed your visit? <Link href="/review-us" className="text-blue-600 hover:underline font-medium">Leave a review on Google</Link>
+        Enjoyed your visit? <Link href="/review-us" className="text-brand-teal hover:underline font-medium">Leave a review on Google</Link>
         {' · '}
-        <Link href="/sitemap" className="text-blue-600 hover:underline font-medium">Sitemap</Link>
+        <Link href="/sitemap" className="text-brand-teal hover:underline font-medium">Sitemap</Link>
       </p>
       <HyperLocalNeighborhoodPage
         name={SEO_PRIMARY_KEYWORD}
