@@ -9,6 +9,7 @@ import {
 } from '@/config/og'
 
 import SummerlinOpenHouseWebsite from "components/SummerlinOpenHouseWebsite"
+import HomeHeroSection from "@/components/home/HomeHeroSection"
 import StructuredData from "@/components/StructuredData"
 import GoogleMyMapsSection from "@/components/GoogleMyMapsSection"
 
@@ -60,6 +61,7 @@ export default function HomePage() {
         }}
       />
       <StructuredData type="FAQPage" data={{ faqs: [...HOME_PAGE_FAQS] }} />
+      <HomeHeroSection />
       <SummerlinOpenHouseWebsite />
       <div className="bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">

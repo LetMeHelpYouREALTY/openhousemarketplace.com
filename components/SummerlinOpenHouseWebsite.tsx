@@ -3,19 +3,15 @@
 import React, { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import Image from 'next/image'
 import OptimizedImage from './OptimizedImage'
-import { Calendar, Home, Star, Phone, Award } from 'lucide-react'
+import { Calendar, Phone } from 'lucide-react'
 import { REALSCOUT_OFFICE_PRICE_RANGE_LABEL } from '@/config/realscout-office-bands'
 import StickySearchBar from './StickySearchBar'
-import RealScoutSearchCard from './RealScoutSearchCard'
-import RealScoutWidgetFrame from '@/components/conversion/RealScoutWidgetFrame'
 import PrimaryCtaButtons from '@/components/conversion/PrimaryCtaButtons'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import { GBP } from '@/config/gbp'
-import { brandHeroGradientClass } from '@/lib/brand-classes'
 import { BRAND_CTA_BUTTON_CLASS } from '@/config/brand'
-import { HOME_PAGE_FAQS, SEO_PRIMARY_KEYWORD } from '@/config/seo'
+import { HOME_PAGE_FAQS } from '@/config/seo'
 
 const ExitIntentPopup = dynamic(() => import('./ExitIntentPopup'))
 
@@ -23,7 +19,6 @@ const SummerlinOpenHouseWebsite = () => {
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
   const [isPageReady, setIsPageReady] = useState(false)
-  const [heroPhotoError, setHeroPhotoError] = useState(false)
   // Buyer tools moved into BuyerToolsSection
 
   // Delay page ready state to ensure Google Analytics loads first
@@ -67,80 +62,6 @@ const SummerlinOpenHouseWebsite = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <StickySearchBar />
-      {/* Hero Section */}
-       <section className={`${brandHeroGradientClass} py-10 sm:py-12 lg:py-16 rounded-b-3xl`}>
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-             {/* Left Column - Content */}
-             <div className="text-left">
-               <div className="flex items-center mb-6">
-                 <div className="w-16 h-16 rounded-full overflow-hidden bg-white/20 shrink-0 mr-4 ring-2 ring-white/30">
-                  {!heroPhotoError ? (
-                    <Image
-                      src="/images/team/dr-jan-duffy.jpg"
-                      alt="Dr. Jan Duffy, real estate agent serving Summerlin West and Las Vegas"
-                      width={64}
-                      height={64}
-                      sizes="64px"
-                      className="w-full h-full object-cover"
-                      priority
-                      fetchPriority="high"
-                      onError={() => setHeroPhotoError(true)}
-                    />
-                   ) : (
-                     <div className="w-full h-full flex items-center justify-center">
-                       <Home className="h-8 w-8 text-white" aria-hidden />
-                     </div>
-                   )}
-                 </div>
-                 <div>
-                   <p className="text-brand-mint text-sm font-medium">DR. JAN DUFFY</p>
-                   <p className="text-white text-lg font-semibold">Your Local Research-Driven Expert</p>
-                 </div>
-               </div>
-               
-               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                 {SEO_PRIMARY_KEYWORD}
-               </h1>
-               <p className="text-lg sm:text-xl font-semibold text-white/90 mb-4">
-                 Your local research-driven expert for Summerlin West &amp; Las Vegas—Dr. Jan Duffy, {GBP.name}
-               </p>
-               <p className="text-base sm:text-xl mb-4 text-white">
-                 Get instant access to this weekend&apos;s premium open houses with personalized alerts and market insights.
-               </p>
-               <p className="text-base mb-8 text-white">
-                 <Link href="/open-houses" className="text-white font-semibold underline hover:no-underline">
-                   Browse all Summerlin Las Vegas open houses
-                 </Link>{' '}
-                 this weekend.
-               </p>
-               
-               {/* Trust indicators: avoid unsubstantiated performance stats (E-E-A-T). */}
-               <div className="flex flex-wrap items-center gap-6 mb-8">
-                 <div className="flex items-center">
-                   <Star className="h-5 w-5 text-yellow-400 mr-2 shrink-0" aria-hidden />
-                   <span className="text-sm">Deep local knowledge: Summerlin West &amp; Las Vegas Valley</span>
-                 </div>
-                 <div className="flex items-center">
-                   <Award className="h-5 w-5 text-yellow-400 mr-2 shrink-0" aria-hidden />
-                   <span className="text-sm">Nevada license S.0197614.LLC · Berkshire Hathaway HomeServices Nevada Properties</span>
-                 </div>
-               </div>
-               
-               <PrimaryCtaButtons layout="stack" className="!max-w-none !mx-0" calendlyLabel="Book a private showing" mlsLabel="Search MLS listings" />
-             </div>
-             
-              <RealScoutWidgetFrame
-                id="home-hero-search"
-                stepLabel="Start here"
-                title="Find your perfect Summerlin home"
-                description="Use the MLS search below — save homes, get alerts, then book a tour with Dr. Jan Duffy."
-              >
-                <RealScoutSearchCard />
-              </RealScoutWidgetFrame>
-           </div>
-         </div>
-       </section>
 
       {/* AEO / GEO: visible answers matching homepage FAQPage JSON-LD */}
       <section className="border-b border-gray-200 bg-white py-10 sm:py-12" aria-labelledby="home-open-house-faq-heading">
@@ -236,7 +157,7 @@ const SummerlinOpenHouseWebsite = () => {
                 highlights: ["Great schools", "Parks", "Family-friendly"],
                 image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop"
               }
-            ].map((neighborhood, index) => {
+            ].map((neighborhood) => {
               const neighborhoodUrls: Record<string, string> = {
                 'The Ridges': '/neighborhoods/the-ridges',
                 'Red Rock Country Club': '/neighborhoods/red-rock-country-club',
@@ -251,7 +172,6 @@ const SummerlinOpenHouseWebsite = () => {
                       src={neighborhood.image}
                       alt={`${neighborhood.name} - Summerlin West neighborhood`}
                       className="hover:opacity-90 transition-opacity"
-                      priority={index === 0}
                     />
                   </Link>
                   <div className="p-6">
