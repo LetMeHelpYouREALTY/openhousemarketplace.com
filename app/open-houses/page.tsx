@@ -13,6 +13,7 @@ import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
+import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const revalidate = 3600 // ISR: revalidate hourly (open house listings change often)
 
@@ -221,6 +222,7 @@ export default function OpenHousesPage() {
         imageUrl="/images/open-houses-hero.jpg"
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
+      <PageIndexingEnhancement path="/open-houses" linksOnly />
     </div>
     </>
   )

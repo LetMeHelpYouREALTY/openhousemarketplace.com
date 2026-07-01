@@ -39,6 +39,7 @@ storybook-static/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+scripts/gsc-404-report.md
 
 /.npm-only-allow
 .vercel

@@ -59,6 +59,17 @@ function neighborhoodContent(
 }
 
 export const INDEXING_PAGE_CONTENT: Record<string, IndexingPageContent> = {
+  '/open-houses': {
+    speakableSummary: `${SEO_PRIMARY_KEYWORD} this weekend in Summerlin West and Las Vegas. ${AGENT} lists tour times, MLS search, and private showings—call ${PHONE}.`,
+    faqs: [],
+    relatedLinks: [
+      { href: '/tour/mls', label: 'MLS home search' },
+      { href: '/book-tour', label: 'Schedule a private showing' },
+      { href: '/neighborhoods', label: 'Summerlin neighborhoods' },
+      { href: '/market-report', label: 'Market report' },
+      ...CORE_LINKS,
+    ],
+  },
   '/about': {
     speakableSummary: `${AGENT} is a Summerlin West real estate agent with 30+ years of experience, License ${AGENT_LICENSE}, helping buyers and sellers at ${SITE}.`,
     faqs: [],
