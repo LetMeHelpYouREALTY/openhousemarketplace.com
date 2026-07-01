@@ -58,6 +58,7 @@
   "env": {
     "NEXT_PUBLIC_APP_URL": "https://www.openhousemarketplace.com",
     "SKIP_ENV_VALIDATION": "true",
-    "NEXT_PUBLIC_SITE_MAINTENANCE_MODE": "true"
+    "NEXT_PUBLIC_SITE_MAINTENANCE_MODE": "true",
+    "NEXT_PUBLIC_SITE_MAINTENANCE_BANNER_ONLY": "true"
   }
 }
