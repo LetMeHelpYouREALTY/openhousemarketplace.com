@@ -1,9 +1,9 @@
+import { GBP, OFFICE_GEO, getGoogleMapsDirectionsUrlToOffice } from "@/config/gbp"
+
 /**
  * Office locations for /store-locations (map + directions widgets).
  * NAP fields should stay aligned with config/gbp.ts.
  */
-import { GBP, OFFICE_GEO, getGoogleMapsDirectionsUrlToOffice } from '@/config/gbp'
-
 export interface StoreLocation {
   id: string
   name: string
@@ -22,7 +22,7 @@ export interface StoreLocation {
 
 export const storeLocations: StoreLocation[] = [
   {
-    id: 'summerlin-west',
+    id: "summerlin-west",
     name: GBP.name,
     address: GBP.address.street,
     city: GBP.address.locality,
@@ -31,7 +31,7 @@ export const storeLocations: StoreLocation[] = [
     lat: OFFICE_GEO.lat,
     lng: OFFICE_GEO.lng,
     phone: GBP.phone,
-    hours: 'Open daily 9:00 AM–5:00 PM (matches Google Business Profile). By appointment outside hours.',
+    hours: "Open daily 9:00 AM–5:00 PM (matches Google Business Profile). By appointment outside hours.",
     directionsUrl: getGoogleMapsDirectionsUrlToOffice(),
   },
 ]
