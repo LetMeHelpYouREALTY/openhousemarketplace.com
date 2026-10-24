@@ -58,7 +58,7 @@ export const HOME_PAGE_FAQS = [
   {
     question: 'What are Summerlin Las Vegas open houses?',
     answer:
-      'Summerlin Las Vegas open houses are scheduled showings of homes for sale in Summerlin, Nevada—usually on weekends—where buyers can tour a property during posted hours. Open House Market Place lists Summerlin open houses, connects you to MLS search, and helps you book a private showing with Dr. Jan Duffy (Berkshire Hathaway HomeServices Nevada Properties, License S.0197614.LLC).',
+      'Summerlin Las Vegas open houses are scheduled showings of homes for sale in Summerlin, Nevada—usually on weekends—where buyers can tour a property during posted hours. Open House Market Place lists Summerlin open houses, connects you to MLS search, and helps you book a private showing with Dr. Jan Duffy, REALTOR®.',
   },
   {
     question: 'Where can I find open houses in Summerlin, Las Vegas?',

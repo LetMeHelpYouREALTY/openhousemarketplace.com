@@ -14,7 +14,7 @@ export type IndexingPageContent = {
 
 const PHONE = GBP.phone
 const SITE = 'Open House Market Place'
-const AGENT = `${AGENT_NAME} (${AGENT_MEMBER_OF}, License ${AGENT_LICENSE})`
+const AGENT = AGENT_NAME
 
 const CORE_LINKS = [
   { href: '/open-houses', label: 'Summerlin open houses this weekend' },
@@ -71,7 +71,7 @@ export const INDEXING_PAGE_CONTENT: Record<string, IndexingPageContent> = {
     ],
   },
   '/about': {
-    speakableSummary: `${AGENT} is a Summerlin West real estate agent with 30+ years of experience, License ${AGENT_LICENSE}, helping buyers and sellers at ${SITE}.`,
+    speakableSummary: `${AGENT} is a Top 1% Las Vegas REALTOR®, in real estate since 1983, helping Summerlin West buyers and sellers at ${SITE}.`,
     faqs: [],
     relatedLinks: [
       { href: '/open-houses', label: 'Open houses' },

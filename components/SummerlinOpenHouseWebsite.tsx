@@ -234,7 +234,7 @@ const SummerlinOpenHouseWebsite = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-xl font-bold mb-2">Work with Dr. Jan Duffy</h3>
           <p className="text-brand-mint/90 mb-4 max-w-xl mx-auto">
-            Your trusted Summerlin West real estate expert · Nevada license S.0197614.LLC
+            Your trusted Summerlin West real estate expert · In real estate since 1983
           </p>
           <p className="text-white/70 text-sm mb-6">{GBP.address.street}, {GBP.address.locality}, {GBP.address.region} {GBP.address.postalCode}</p>
           <div className="flex flex-wrap justify-center gap-4">

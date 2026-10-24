@@ -57,7 +57,7 @@ export default function HomeHeroSection() {
               </div>
               <div className="flex items-center">
                 <Award className="h-5 w-5 text-yellow-400 mr-2 shrink-0" aria-hidden />
-                <span className="text-sm">Nevada license S.0197614.LLC · Berkshire Hathaway HomeServices Nevada Properties</span>
+                <span className="text-sm">REALTOR® · In real estate since 1983</span>
               </div>
             </div>
 

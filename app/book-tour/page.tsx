@@ -72,7 +72,7 @@ export default function BookTourPage() {
           <section className="mb-8 prose prose-gray max-w-none text-gray-700">
             <h2 className="text-xl font-semibold text-gray-900">Private tours in Summerlin and Las Vegas</h2>
             <p>
-              A private showing lets you tour a specific listing on your schedule—ideal when you cannot attend a weekend open house or want a second visit. Dr. Jan Duffy (Berkshire Hathaway HomeServices Nevada Properties) coordinates access with listing agents across Summerlin villages, new construction, and luxury communities.
+              A private showing lets you tour a specific listing on your schedule—ideal when you cannot attend a weekend open house or want a second visit. Dr. Jan Duffy coordinates access with listing agents across Summerlin villages, new construction, and luxury communities.
             </p>
             <p>
               Before your tour, share your budget, preferred zip codes (89135, 89138, 89144), and must-haves. You can also browse{' '}

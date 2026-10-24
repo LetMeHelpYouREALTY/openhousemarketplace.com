@@ -383,8 +383,8 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Working with a Summerlin Real Estate Expert</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Navigating the Summerlin real estate market requires expertise and local knowledge. Dr. Jan Duffy brings 
-            over 15 years of experience helping clients successfully buy and sell properties in Summerlin West. As a 
+            Navigating the Summerlin real estate market requires expertise and local knowledge. Dr. Jan Duffy, in real estate 
+            since 1983, helps clients successfully buy and sell properties in Summerlin West. As a 
             top-performing Las Vegas real estate agent, she understands the nuances of the local market, neighborhood 
             characteristics, and what makes each community special.
           </p>

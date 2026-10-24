@@ -90,7 +90,7 @@ export default function ContactPage() {
             <div className="min-w-0">
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
                 Looking to buy or sell a home in Summerlin West? Dr. Jan Duffy is your trusted Las Vegas real estate 
-                agent with over 30 years of experience helping clients navigate the Summerlin real estate market. 
+                agent, in real estate since 1983, helping clients navigate the Summerlin real estate market. 
                 Whether you&apos;re searching for luxury homes in The Ridges, family-friendly properties in Summerlin Centre, 
                 <Link href="/open-houses" className="text-brand-teal font-semibold hover:underline mx-1">Summerlin open houses</Link> this weekend, 
                 or investment opportunities throughout Las Vegas, Dr. Duffy provides personalized service tailored to 
@@ -186,7 +186,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Proven Track Record in Las Vegas Real Estate</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                With over 500 homes sold and more than $250 million in sales volume, Dr. Jan Duffy has established 
+                With 500+ homes sold and $127M+ in sales volume, Dr. Jan Duffy has established 
                 herself as one of the most successful real estate agents in the Las Vegas area. Her clients include 
                 first-time homebuyers, luxury property investors, and families relocating to Summerlin West from 
                 across the country.
