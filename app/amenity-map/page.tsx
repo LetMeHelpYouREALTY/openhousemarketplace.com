@@ -9,9 +9,9 @@ import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
-  title: 'Amenity Map | Nearby Restaurants, Parks, Parking & More | Summerlin',
+  title: { absolute: 'Summerlin Amenity Map: Parks, Shops & Golf Near Open Houses' },
   description:
-    'Explore nearby amenities in Summerlin and Las Vegas: restaurants, parks, parking, cafes, grocery stores, gyms, pharmacies, and more near open house neighborhoods.',
+    "Map the parks, trails, Downtown Summerlin shops and golf near this week's Summerlin open houses in 89135, 89138 and 89144. Book a private showing.",
   keywords: 'Summerlin amenities, nearby restaurants Summerlin, parks Las Vegas, parking Summerlin, cafes grocery gym pharmacy map',
   robots: {
     index: true,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/amenity-map`,
   },
   openGraph: {
-    title: 'Amenity Map | Nearby Places in Summerlin',
+    title: 'Summerlin Amenity Map: Parks, Shops & Golf Near Open Houses',
     description: 'Find restaurants, parks, parking, cafes, and more near Summerlin and Las Vegas.',
     url: `${BASE_URL}/amenity-map`,
     images: [DEFAULT_OG_IMAGE_PATHS[0]],
