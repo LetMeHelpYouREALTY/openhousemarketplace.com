@@ -41,11 +41,11 @@ const neighborhoods: { slug: string; name: string; shortDescription: string }[] 
   { slug: 'red-rock-country-club', name: 'Red Rock Country Club', shortDescription: 'Golf course and resort-style living' },
   { slug: 'summerlin-centre', name: 'Summerlin Centre', shortDescription: 'Central Summerlin with Downtown Summerlin' },
   { slug: 'sun-city-summerlin', name: 'Sun City Summerlin', shortDescription: 'Active adult 55+ community' },
-  { slug: 'the-trails', name: 'The Trails', shortDescription: 'Family-friendly with parks and trails' },
-  { slug: 'willows', name: 'Willows', shortDescription: 'Established community with mature landscaping' },
+  { slug: 'the-trails', name: 'The Trails', shortDescription: 'With parks and trails' },
+  { slug: 'willows', name: 'Willows', shortDescription: 'Community with mature landscaping' },
   { slug: 'mesa-ridge', name: 'Mesa Ridge', shortDescription: 'Newer homes and community amenities' },
   { slug: 'siena', name: 'Siena', shortDescription: 'Tuscan-inspired community with resort amenities' },
-  { slug: 'regency', name: 'Regency', shortDescription: 'Convenient location and family-oriented living' },
+  { slug: 'regency', name: 'Regency', shortDescription: 'Convenient location and suburban living' },
 ]
 
 export default function NeighborhoodsIndexPage() {

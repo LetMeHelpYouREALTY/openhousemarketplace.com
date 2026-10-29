@@ -55,7 +55,7 @@ const schools = [
     distance: 'Close proximity'
   },
   {
-    name: 'Top Public Schools',
+    name: 'Nearby Public Schools',
     rating: 9,
     type: 'Public Education',
     distance: 'Throughout Area'
@@ -135,7 +135,7 @@ export default function LuxuryHomesPage() {
               world-class golf courses, private clubs, and premier shopping and dining ensures residents enjoy the full range of 
               amenities and services that luxury living in Summerlin provides.
             </p>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Exclusive Communities & Locations</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Communities & Locations</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
               Summerlin's luxury homes are found in some of the area's most exclusive and desirable communities. The Ridges offers 
               custom-built estates with stunning mountain and Strip views, while Red Rock Country Club provides luxury golf course 

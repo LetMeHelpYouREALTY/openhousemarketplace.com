@@ -111,7 +111,7 @@ export default function OpenHousesPage() {
             <h1 className="text-3xl font-bold text-gray-900 mb-4">{SEO_PRIMARY_KEYWORD}</h1>
             <p className="text-gray-700 leading-relaxed mb-4">
               Discover Summerlin Las Vegas open houses: homes available for viewing this weekend across Summerlin West. Our listings
-              feature luxury estates, family-friendly homes, new construction, and investment opportunities
+              feature luxury estates, homes, new construction, and investment opportunities
               throughout master-planned Summerlin. Whether you&apos;re searching for your dream home or exploring opportunities,
               touring open houses lets you experience properties firsthand and see what makes each neighborhood special in Nevada&apos;s premier master-planned community.
             </p>

@@ -134,7 +134,7 @@ export default function TheRidgesPage() {
               in Las Vegas, combining unparalleled natural beauty with world-class amenities and architectural excellence.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              This exclusive community features custom-designed luxury homes that showcase the finest in architectural 
+              This community features custom-designed luxury homes that showcase the finest in architectural 
               design and craftsmanship. From Mediterranean-inspired villas to contemporary estates, properties in The 
               Ridges reflect the sophisticated tastes of their owners while maintaining the natural beauty and serene 
               atmosphere that makes this community so desirable. For buyers seeking the ultimate in luxury real estate, 

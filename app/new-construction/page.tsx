@@ -49,7 +49,7 @@ const schools = [
     distance: 'Planned'
   },
   {
-    name: 'Existing Top Schools',
+    name: 'Existing Nearby Public Schools',
     rating: 9,
     type: 'Various Options',
     distance: 'Nearby'

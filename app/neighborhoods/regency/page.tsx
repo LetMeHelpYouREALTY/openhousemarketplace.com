@@ -98,7 +98,7 @@ export default function RegencyPage() {
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               What sets Regency apart is its prime location within Summerlin West, offering residents convenient access 
-              to Downtown Summerlin, Red Rock Canyon, top-rated schools, and premier shopping and dining, all while 
+              to Downtown Summerlin, Red Rock Canyon, nearby public schools, and premier shopping and dining, all while 
               maintaining the privacy and exclusivity that luxury homebuyers expect. This combination of location and 
               luxury makes Regency one of the most sought-after communities for high-end real estate purchases in the 
               Summerlin market.
@@ -141,7 +141,7 @@ export default function RegencyPage() {
       </div>
       <HyperLocalNeighborhoodPage
         name="Regency Summerlin"
-        description="Regency is an upscale Summerlin community offering luxury homes in a prime location with exceptional amenities. With its proximity to Downtown Summerlin, Red Rock Canyon, and top-rated schools, Regency provides residents with the perfect balance of luxury living and convenient access to everything that makes Summerlin special."
+        description="Regency is an upscale Summerlin community offering luxury homes in a prime location with exceptional amenities. With its proximity to Downtown Summerlin, Red Rock Canyon, and nearby public schools, Regency provides residents with the perfect balance of luxury living and convenient access to everything that makes Summerlin special."
         marketStats={marketStats}
         schools={schools}
         amenities={amenities}
