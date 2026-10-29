@@ -29,7 +29,7 @@ const PAGE_META: Record<string, { name: string; description: string }> = {
   '/luxury-homes': { name: 'Luxury Homes in Summerlin West | Dr. Jan Duffy', description: 'Luxury homes and high-end real estate in Summerlin West, The Ridges, and Las Vegas. Expert luxury home representation.' },
   '/new-construction': { name: 'New Construction Homes in Summerlin | Dr. Jan Duffy', description: 'New construction homes and builders in Summerlin West. Toll Brothers, Lennar, Pulte and more.' },
   '/market-report': { name: 'Summerlin West Market Report | Dr. Jan Duffy', description: 'Summerlin real estate market trends, home values, and local market analysis from Dr. Jan Duffy.' },
-  '/schools': { name: 'Schools Near Summerlin West | Dr. Jan Duffy Real Estate', description: 'Schools and education near Summerlin West neighborhoods. Top-rated schools serving Summerlin, NV.' },
+  '/schools': { name: 'Schools Near Summerlin West | Dr. Jan Duffy Real Estate', description: 'Schools and education near Summerlin West neighborhoods. Nearby public schools serving Summerlin, NV.' },
   '/review-us': { name: 'Review us on Google | Dr. Jan Duffy Real Estate', description: 'Leave a review for Dr. Jan Duffy on Google. Share our review link or QR code. Reviews build trust and help our Business Profile stand out.' },
   '/disclaimer': { name: 'Disclaimer | Open House Market Place', description: 'Disclaimer and terms for Open House Market Place and Dr. Jan Duffy Real Estate.' },
   '/privacy-policy': { name: 'Privacy Policy | Open House Market Place', description: 'Privacy policy for Open House Market Place and Dr. Jan Duffy Real Estate.' },

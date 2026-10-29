@@ -280,7 +280,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                 </div>
                 <div className="flex items-center">
                   <School className="h-5 w-5 text-brand-teal mr-3" />
-                  <span className="text-gray-600">Top-rated schools nearby</span>
+                  <span className="text-gray-600">Public schools nearby</span>
                 </div>
                 <div className="flex items-center">
                   <Leaf className="h-5 w-5 text-brand-teal mr-3" />

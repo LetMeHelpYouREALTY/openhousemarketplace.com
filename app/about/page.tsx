@@ -192,9 +192,9 @@ export default function AboutPage() {
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Family Real Estate Services</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                For families moving to Summerlin West, Dr. Jan Duffy offers specialized expertise in family-friendly 
+                For buyers moving to Summerlin West, Dr. Jan Duffy offers specialized expertise in master-planned 
                 neighborhoods, school districts, and community amenities. Her deep knowledge of areas like Summerlin 
-                Centre, The Trails, and other family-oriented communities ensures that families find homes that meet 
+                Centre, The Trails, and other master-planned communities ensures that buyers find homes that meet 
                 their unique needs.
               </p>
               <p className="text-gray-700 leading-relaxed">

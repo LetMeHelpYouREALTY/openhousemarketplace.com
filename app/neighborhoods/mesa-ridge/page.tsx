@@ -8,8 +8,8 @@ import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Mesa Ridge Summerlin | Family Homes for Sale with Large Backyards',
-  description: 'Find your perfect family home in Mesa Ridge, Summerlin West. Discover homes with large backyards, great schools, and family-friendly amenities in Las Vegas\' premier master-planned community. Explore real estate opportunities in this ideal family neighborhood.',
-  keywords: 'Mesa Ridge Summerlin, Mesa Ridge homes for sale, family homes large yards, great schools Summerlin, family-friendly neighborhood, Mesa Ridge real estate, Summerlin West homes, Las Vegas family homes',
+  description: 'Find your home in Mesa Ridge, Summerlin West. Discover homes with large backyards, nearby schools, and community amenities in Las Vegas\' premier master-planned community.',
+  keywords: 'Mesa Ridge Summerlin, Mesa Ridge homes for sale, homes with large yards, Summerlin schools, Mesa Ridge real estate, Summerlin West homes',
   robots: {
     index: true,
     follow: true,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Mesa Ridge Summerlin | Family Homes with Large Backyards',
-    description: 'Discover Mesa Ridge, a family-friendly neighborhood in Summerlin with large backyards and great schools.',
+    description: 'Discover Mesa Ridge, a neighborhood in Summerlin with large backyards and nearby public schools.',
     images: ['/images/mesa-ridge-hero.jpg'],
     url: `${BASE_URL}/neighborhoods/mesa-ridge`,
   }
@@ -90,10 +90,10 @@ export default function MesaRidgePage() {
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">About Mesa Ridge Neighborhood in Summerlin</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Mesa Ridge is a family-oriented neighborhood in Summerlin West specifically designed for families who value 
+              Mesa Ridge is a Summerlin West neighborhood designed for buyers who value 
               space, community, and outdoor living. This well-planned community features homes with large backyards, 
-              excellent schools, and abundant recreational amenities that make it one of Summerlin's most sought-after 
-              neighborhoods for families. The combination of spacious lots, family-friendly design, and top-rated schools 
+              nearby public schools, and abundant recreational amenities that make it one of Summerlin's most sought-after 
+              neighborhoods in Summerlin West. The combination of spacious lots, open floor plans, and nearby schools 
               makes Mesa Ridge an ideal choice for families purchasing real estate in Las Vegas.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
@@ -141,7 +141,7 @@ export default function MesaRidgePage() {
       </div>
       <HyperLocalNeighborhoodPage
         name="Mesa Ridge Summerlin"
-        description="Mesa Ridge is a family-oriented neighborhood in Summerlin featuring homes with large backyards, excellent schools, and abundant recreational amenities. Perfect for families who want space to play and grow, Mesa Ridge offers a welcoming community atmosphere with top-rated schools, parks, and easy access to Summerlin's extensive trail system."
+        description="Mesa Ridge is a neighborhood in Summerlin featuring homes with large backyards, nearby schools, and abundant recreational amenities. Perfect for buyers who want space to play and grow, Mesa Ridge offers a welcoming community atmosphere with nearby schools, parks, and easy access to Summerlin's extensive trail system."
         marketStats={marketStats}
         schools={schools}
         amenities={amenities}

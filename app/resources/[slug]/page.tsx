@@ -166,7 +166,7 @@ const validResources: Record<string, {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Family-Friendly Activities</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Activities</h2>
           <p className="text-gray-600 leading-relaxed">
             From parks and playgrounds to youth sports programs and community events, Summerlin is 
             designed for families to enjoy an active, connected lifestyle.

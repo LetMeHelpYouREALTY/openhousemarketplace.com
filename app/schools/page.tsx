@@ -11,8 +11,8 @@ export const revalidate = 86400 // ISR: revalidate daily
 
 export const metadata: Metadata = {
   title: 'Summerlin West Schools | Top-Rated Education & CCSD Area 2',
-  description: 'Discover top-rated schools in Summerlin West, Las Vegas. Comprehensive guide to CCSD Area 2 schools, private schools, charter schools, ratings, boundaries, and performance data for families moving to Las Vegas\' premier master-planned community.',
-  keywords: 'Summerlin schools, CCSD Area 2, Las Vegas schools, top rated schools Summerlin, Summerlin West schools, best schools Las Vegas, Summerlin school districts, CCSD Area 2 schools, Summerlin education',
+  description: 'Discover public schools in Summerlin West, Las Vegas. Comprehensive guide to CCSD Area 2 schools, private schools, charter schools, ratings, boundaries, and performance data for families moving to Las Vegas\' premier master-planned community.',
+  keywords: 'Summerlin schools, CCSD Area 2, Las Vegas schools, nearby public schools Summerlin, Summerlin West schools, nearby public schools Las Vegas, Summerlin school districts, CCSD Area 2 schools, Summerlin education',
   robots: {
     index: true,
     follow: true,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Summerlin West Schools | Top-Rated Education Options',
-    description: 'Explore top-rated schools serving Summerlin West, Las Vegas.',
+    description: 'Explore nearby public schools serving Summerlin West, Las Vegas.',
     images: ['/images/schools-hero.jpg'],
     url: `${BASE_URL}/schools`,
   }
@@ -78,7 +78,7 @@ export default function SchoolsPage() {
         type="WebPage"
         data={{
           name: 'Summerlin West Schools | Top-Rated Education & CCSD Area 2',
-          description: 'Discover top-rated schools in Summerlin West, Las Vegas. Comprehensive guide to CCSD Area 2 schools, private schools, and charter schools.',
+          description: 'Discover public schools in Summerlin West, Las Vegas. Comprehensive guide to CCSD Area 2 schools, private schools, and charter schools.',
         }}
       />
     <div className="min-h-screen bg-gray-50">
@@ -121,7 +121,7 @@ export default function SchoolsPage() {
             Whether you're looking for public schools with exceptional academic programs, charter schools 
             with specialized curricula, or private institutions offering personalized education, Summerlin 
             West provides families with access to some of the finest educational opportunities in Las 
-            Vegas. The combination of excellent schools, safe neighborhoods, and family-friendly amenities 
+            Vegas. The combination of nearby schools, and community amenities 
             makes Summerlin West the premier choice for families seeking the best in Las Vegas real estate 
             and education.
           </p>
@@ -297,7 +297,7 @@ export default function SchoolsPage() {
               <p className="text-gray-700 leading-relaxed">
                 The variety of educational options available to families in Summerlin West—from top-rated 
                 public schools to specialized charter schools and prestigious private institutions—ensures 
-                that every family can find the right educational fit for their children. This diversity of 
+                that buyers can compare campuses by address. This diversity of 
                 options, combined with the high quality of all educational institutions in the area, makes 
                 Summerlin West an ideal location for families focused on education.
               </p>
@@ -307,7 +307,7 @@ export default function SchoolsPage() {
 
         {/* CTA */}
         <div className="bg-brand-teal rounded-lg shadow-md p-8 text-center text-white">
-          <h2 className="text-3xl font-bold mb-4">Find the Perfect Home Near Great Schools</h2>
+          <h2 className="text-3xl font-bold mb-4">Find the Perfect Home Near Nearby public schools</h2>
           <p className="text-xl mb-6">Let us help you find a home in the right school district for your family.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

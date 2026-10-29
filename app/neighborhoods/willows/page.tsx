@@ -8,7 +8,7 @@ import PageIndexingEnhancement from '@/components/PageIndexingEnhancement'
 
 export const metadata: Metadata = {
   title: 'Willows Summerlin | Homes for Sale in Mature Trees Neighborhood',
-  description: 'Discover homes for sale in Willows, a charming Summerlin West neighborhood featuring mature trees, walkable streets, and an established community atmosphere. Explore real estate opportunities in this family-friendly Las Vegas neighborhood.',
+  description: 'Discover homes for sale in Willows, a charming Summerlin West neighborhood featuring mature trees, walkable streets, and a community atmosphere. Explore real estate opportunities in this Las Vegas neighborhood.',
   keywords: 'Willows Summerlin, Willows homes for sale, mature trees neighborhood, walkable community Summerlin, established area Las Vegas, Willows real estate, Summerlin West homes, Las Vegas family neighborhood',
   robots: {
     index: true,
@@ -90,15 +90,15 @@ export default function WillowsPage() {
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">About Willows Neighborhood in Summerlin</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Willows is a charming, well-established neighborhood in Summerlin West that exemplifies the natural beauty 
+              Willows is a charming, older neighborhood in Summerlin West that exemplifies the natural beauty 
               and community-oriented lifestyle that makes Summerlin one of Las Vegas' most desirable real estate markets. 
               Known for its mature trees, tree-lined streets, and walkable community design, Willows offers residents a 
-              peaceful, family-friendly environment with the character and charm that comes from a well-established, 
+              peaceful, parks and community amenities with the character and charm that comes from a well-established, 
               carefully maintained neighborhood.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               The mature trees throughout Willows provide natural beauty, shade, and a sense of permanence that appeals 
-              to homebuyers seeking an established neighborhood in Summerlin. These trees, combined with well-maintained 
+              to homebuyers seeking an older neighborhood in Summerlin. These trees, combined with well-maintained 
               properties and thoughtfully designed streets, create an environment that feels both welcoming and refined. 
               For families considering real estate in Las Vegas, Willows represents an opportunity to invest in a 
               neighborhood that has already proven its value and desirability               over time.
@@ -117,7 +117,7 @@ export default function WillowsPage() {
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               Homebuyers in Willows can expect to find a variety of home styles and sizes, from comfortable starter homes 
-              to larger family residences, all within the context of a mature, established community. The neighborhood's 
+              to larger residences, all within the context of a older community. The neighborhood's 
               established character means homes often feature mature landscaping, updated amenities, and the benefits of 
               a community that has fully developed its infrastructure and amenities over time.
             </p>
@@ -139,7 +139,7 @@ export default function WillowsPage() {
       </div>
       <HyperLocalNeighborhoodPage
         name="Willows Summerlin"
-        description="Willows is a charming neighborhood in Summerlin known for its mature trees, walkable community, and established residential character. With tree-lined streets, well-maintained properties, and a strong neighborhood feel, Willows offers residents a peaceful, family-friendly environment while maintaining easy access to all that Summerlin has to offer."
+        description="Willows is a charming neighborhood in Summerlin known for its mature trees, walkable community, and established residential character. With tree-lined streets, well-maintained properties, and a strong neighborhood feel, Willows offers residents a peaceful, parks and community amenities while maintaining easy access to all that Summerlin has to offer."
         marketStats={marketStats}
         schools={schools}
         amenities={amenities}

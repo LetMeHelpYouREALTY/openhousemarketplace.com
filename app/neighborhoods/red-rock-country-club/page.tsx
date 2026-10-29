@@ -92,7 +92,7 @@ export default function RedRockCountryClubPage() {
               Red Rock Country Club represents the ultimate in golf course living in Summerlin West, offering an 
               exceptional private club lifestyle that combines championship golf, world-class amenities, and luxury 
               residential living. This guard-gated community features 36 holes of championship golf, world-class tennis 
-              facilities, and a stunning 44,000-square-foot clubhouse that serves as the heart of this exclusive community. 
+              facilities, and a stunning 44,000-square-foot clubhouse that serves as the heart of this luxury community. 
               For buyers seeking luxury real estate with access to premier golf and resort-style amenities, Red Rock 
               Country Club offers an unparalleled lifestyle opportunity.
             </p>
