@@ -71,7 +71,7 @@ export const INDEXING_PAGE_CONTENT: Record<string, IndexingPageContent> = {
     ],
   },
   '/about': {
-    speakableSummary: `${AGENT} is a Top 1% Las Vegas REALTOR®, in real estate since 1983, helping Summerlin West buyers and sellers at ${SITE}.`,
+    speakableSummary: `${AGENT} is a Las Vegas REALTOR®, licensed since 2008 · 35 years in Las Vegas, helping Summerlin West buyers and sellers at ${SITE}.`,
     faqs: [],
     relatedLinks: [
       { href: '/open-houses', label: 'Open houses' },

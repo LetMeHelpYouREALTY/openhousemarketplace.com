@@ -19,7 +19,7 @@ export const revalidate = 86400 // ISR: revalidate daily
 
 export const metadata: Metadata = {
   title: 'About Dr. Jan Duffy | Top Summerlin West Real Estate Agent',
-  description: 'Learn about Dr. Jan Duffy, your trusted real estate expert in Summerlin West. In real estate since 1983, she has helped hundreds of clients buy and sell luxury homes in Las Vegas\' premier master-planned community. Discover why she\'s the leading Las Vegas realtor.',
+  description: 'Learn about Dr. Jan Duffy, your trusted real estate expert in Summerlin West. Licensed since 2008 · 35 years in Las Vegas, she has helped hundreds of clients buy and sell luxury homes in Las Vegas\' premier master-planned community. Discover why she\'s the leading Las Vegas realtor.',
   keywords: 'Dr. Jan Duffy, Summerlin realtor, Las Vegas real estate agent, Summerlin open houses, luxury home specialist, Summerlin West real estate expert, top real estate agent Las Vegas, real estate professional Summerlin',
   robots: {
     index: true,
@@ -41,11 +41,11 @@ export const metadata: Metadata = {
 }
 
 const ABOUT_FAQS = [
-  { question: 'How long has Dr. Jan Duffy been a real estate agent?', answer: 'Dr. Jan Duffy has been in real estate since 1983, specializing in Summerlin West and the greater Las Vegas area. Her extensive experience and deep market knowledge have helped hundreds of clients successfully buy and sell homes.' },
+  { question: 'How long has Dr. Jan Duffy been a real estate agent?', answer: 'Dr. Jan Duffy has been licensed since 2008 · 35 years in Las Vegas, specializing in Summerlin West and the greater Las Vegas area. Her extensive experience and deep market knowledge have helped hundreds of clients successfully buy and sell homes.' },
   { question: 'What makes Dr. Jan Duffy different from other real estate agents?', answer: 'Dr. Jan Duffy combines her professional background with specialized expertise in Summerlin West real estate. She offers personalized service, deep market knowledge, access to exclusive listings through her home search, and a commitment to building lasting relationships with clients rather than treating them as transactions.' },
   { question: 'What neighborhoods does Dr. Jan Duffy specialize in?', answer: 'Dr. Jan Duffy specializes in all neighborhoods throughout Summerlin West, including The Ridges, Red Rock Country Club, Summerlin Centre, Sun City Summerlin, The Trails, Willows, Mesa Ridge, Siena, and Regency. She has extensive knowledge of each community\'s unique characteristics, market trends, and amenities.' },
   { question: 'Does Dr. Jan Duffy work with luxury home buyers and sellers?', answer: 'Yes, Dr. Jan Duffy has extensive experience with luxury real estate in Summerlin, including custom estates, golf course properties, and exclusive gated communities. She understands the unique needs of luxury buyers and sellers and has access to high-end listings throughout the area.' },
-  { question: 'What credentials does Dr. Jan Duffy have?', answer: 'Dr. Jan Duffy is a licensed REALTOR® in real estate since 1983. She has specialized training in luxury homes, new construction, investment properties, and the Summerlin West real estate market. Her professional credentials and certifications demonstrate her commitment to excellence in real estate services.' },
+  { question: 'What credentials does Dr. Jan Duffy have?', answer: 'Dr. Jan Duffy is a REALTOR® licensed since 2008 · 35 years in Las Vegas. She has specialized training in luxury homes, new construction, investment properties, and the Summerlin West real estate market. Her professional credentials and certifications demonstrate her commitment to excellence in real estate services.' },
   { question: 'How does Dr. Jan Duffy help first-time homebuyers?', answer: 'Dr. Jan Duffy provides comprehensive guidance for first-time homebuyers, including education about the home buying process, assistance with mortgage pre-approval, neighborhood tours, and step-by-step support throughout the entire transaction. She ensures first-time buyers feel confident and informed at every stage.' },
   { question: 'Does Dr. Jan Duffy help buyers find open houses in Summerlin?', answer: 'Yes. Dr. Jan Duffy helps buyers find and tour Summerlin open houses. Visit our Open Houses page for this weekend\'s home tours, or use her home search to search listings and filter by open house dates. She can also set up open house alerts so you\'re notified when new Summerlin open houses are added.' },
 ]
@@ -87,7 +87,7 @@ export default function AboutPage() {
             <div className="min-w-0">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Professional Background & Real Estate Expertise</h2>
               <p className="text-gray-700 leading-relaxed text-lg">
-            Dr. Jan Duffy, a Top 1% Las Vegas REALTOR® in real estate since 1983, brings expertise and dedication to the Summerlin West real estate market. 
+            Dr. Jan Duffy, a Las Vegas REALTOR® licensed since 2008 · 35 years in Las Vegas, brings expertise and dedication to the Summerlin West real estate market. 
             As a licensed Las Vegas real estate agent with an extensive track record of success, she has established 
             herself as one of the most trusted real estate professionals in Nevada&apos;s premier master-planned community. 
             Her deep understanding of the local market, combined with a passion for helping clients achieve their real 
@@ -120,8 +120,8 @@ export default function AboutPage() {
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <Award className="h-10 w-10 text-brand-teal mx-auto mb-4" />
-            <div className="text-3xl font-bold text-gray-900 mb-2">Since 1983</div>
-            <div className="text-gray-600">In Real Estate</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">Since 2008</div>
+            <div className="text-gray-600">Licensed</div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <Users className="h-10 w-10 text-brand-teal mx-auto mb-4" />
