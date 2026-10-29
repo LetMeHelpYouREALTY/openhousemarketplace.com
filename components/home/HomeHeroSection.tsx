@@ -57,7 +57,7 @@ export default function HomeHeroSection() {
               </div>
               <div className="flex items-center">
                 <Award className="h-5 w-5 text-yellow-400 mr-2 shrink-0" aria-hidden />
-                <span className="text-sm">REALTOR® · In real estate since 1983</span>
+                <span className="text-sm">REALTOR® · Licensed since 2008 · 35 years in Las Vegas</span>
               </div>
             </div>
 

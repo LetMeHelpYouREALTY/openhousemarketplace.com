@@ -53,7 +53,7 @@ export default async function OpenHouseSignInPage({ params }: Props) {
             Schedule a private tour with Dr. Jan Duffy, or sign in with the agent at the open house.
           </p>
           <p className="text-sm text-gray-500 mt-2">
-            Dr. Jan Duffy · REALTOR®, in real estate since 1983
+            Dr. Jan Duffy · REALTOR®, licensed since 2008 · 35 years in Las Vegas
           </p>
           <CalendlyPopupLink className="inline-block mt-4 bg-brand-teal hover:bg-brand-plum text-white px-6 py-3 rounded-xl font-semibold transition-colors">
             Schedule a private showing
