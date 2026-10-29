@@ -231,7 +231,7 @@ export const INDEXING_PAGE_CONTENT: Record<string, IndexingPageContent> = {
     ],
   },
   '/schools': {
-    speakableSummary: `Top schools serving Summerlin West include CCSD Area 2 public schools, charter options like Doral Academy, and private schools. Compare ratings and boundaries before you buy.`,
+    speakableSummary: `Nearby public schools serving Summerlin West include CCSD Area 2 public schools, charter options like Doral Academy, and private schools. Compare ratings and boundaries before you buy.`,
     faqs: [
       {
         question: 'What school district is Summerlin in?',
@@ -376,7 +376,7 @@ export const INDEXING_PAGE_CONTENT: Record<string, IndexingPageContent> = {
         answer: 'Shopping and dining at Downtown Summerlin, community parks, golf, trails, and quick access to Red Rock Canyon and the Strip.',
       },
       {
-        question: 'Is Summerlin family-friendly?',
+        question: 'What amenities does Summerlin offer?',
         answer: 'Yes. Parks, schools, sports programs, and master-planned amenities make Summerlin popular for families relocating to Las Vegas.',
       },
     ],
@@ -477,7 +477,7 @@ export const INDEXING_PAGE_CONTENT: Record<string, IndexingPageContent> = {
     ],
   },
   '/zip/89138': {
-    speakableSummary: `Zip 89138 includes Summerlin Centre, The Trails, Willows, and Mesa Ridge—family-friendly homes, parks, and Downtown Summerlin access.`,
+    speakableSummary: `Zip 89138 includes Summerlin Centre, The Trails, Willows, and Mesa Ridge—homes, parks, and Downtown Summerlin access.`,
     faqs: [
       {
         question: 'Is 89138 good for families?',

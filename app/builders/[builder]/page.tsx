@@ -44,7 +44,7 @@ const validBuilders: Record<string, {
     communities: ['The Ridges', 'Red Rock Country Club'],
     schools: [
       {
-        name: 'Top-Rated Schools',
+        name: 'Nearby Public Schools',
         rating: 9,
         type: 'Various Options',
         distance: 'Nearby'
@@ -132,7 +132,7 @@ const validBuilders: Record<string, {
     communities: ['Summerlin Centre', 'The Trails'],
     schools: [
       {
-        name: 'Top-Rated Public Schools',
+        name: 'Nearby Public Schools',
         rating: 9,
         type: 'Public Schools',
         distance: 'Excellent options'
@@ -275,7 +275,7 @@ export default async function BuilderPage({ params }: BuilderPageProps) {
                 if (index === builderData.communities.length - 1) return ` and ${community}`
                 if (index === 0) return ` ${community}`
                 return `, ${community}`
-              })}. These communities offer residents access to world-class amenities, top-rated schools, and the 
+              })}. These communities offer residents access to world-class amenities, nearby public schools, and the 
               lifestyle benefits that make Summerlin one of Las Vegas' premier master-planned communities. Working 
               with a knowledgeable real estate agent like Dr. Jan Duffy ensures you find the perfect {builderData.displayName} 
               community for your needs.

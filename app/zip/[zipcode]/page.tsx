@@ -80,7 +80,7 @@ const validZipCodes: Record<string, {
   },
   '89138': {
     name: 'Summerlin Centre 89138',
-    description: 'Zip code 89138 is home to Summerlin Centre, a family-friendly area with excellent schools, parks, and convenient access to shopping and dining.',
+    description: 'Zip code 89138 is home to Summerlin Centre, a area with nearby schools, parks, and convenient access to shopping and dining.',
     marketStats: {
       medianPrice: '$675,000',
       daysOnMarket: 32,
@@ -267,7 +267,7 @@ export default async function ZipCodePage({ params }: ZipCodePageProps) {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Homes for Sale in Zip Code {zipcode} - Summerlin West</h1>
             <p className="text-gray-700 leading-relaxed mb-4 text-lg">
               {zipData.description} This prestigious zip code area represents some of the finest real estate opportunities 
-              in Summerlin West, offering buyers access to luxury homes, family-friendly communities, and exceptional 
+              in Summerlin West, offering buyers access to luxury homes, communities, and exceptional 
               amenities that make Summerlin one of Las Vegas' most desirable master-planned communities.
             </p>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Real Estate Market in {zipcode}</h2>
@@ -282,7 +282,7 @@ export default async function ZipCodePage({ params }: ZipCodePageProps) {
             <p className="text-gray-700 leading-relaxed mb-4">
               Zip code {zipcode} encompasses several of Summerlin's most desirable neighborhoods, including {zipData.neighborhoods.join(', ')}. 
               Each neighborhood within this zip code offers unique character, amenities, and real estate opportunities, 
-              allowing buyers to find the perfect match for their lifestyle and preferences. From established communities 
+              allowing buyers to find the perfect match for their lifestyle and preferences. From communities 
               with mature landscaping to newer developments with modern amenities, {zipcode} has something for every type 
               of homebuyer in the Las Vegas real estate market.
             </p>
@@ -290,7 +290,7 @@ export default async function ZipCodePage({ params }: ZipCodePageProps) {
             <p className="text-gray-700 leading-relaxed mb-4">
               Purchasing real estate in zip code {zipcode} means investing in one of Summerlin's most well-established and 
               desirable areas. This zip code offers convenient access to premier shopping at Downtown Summerlin, world-class 
-              golf courses, top-rated schools, and the natural beauty of Red Rock Canyon. The combination of location, 
+              golf courses, nearby public schools, and the natural beauty of Red Rock Canyon. The combination of location, 
               amenities, and real estate value makes {zipcode} one of the smartest choices for buyers seeking properties 
               in Summerlin West.
             </p>

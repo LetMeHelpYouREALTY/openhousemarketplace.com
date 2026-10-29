@@ -152,9 +152,9 @@ const SummerlinOpenHouseWebsite = () => {
               },
               {
                 name: "Summerlin Centre",
-                description: "Family-friendly community with parks and top-rated schools",
+                description: "Community with parks and nearby schools",
                 priceRange: "$500K - $900K",
-                highlights: ["Great schools", "Parks", "Family-friendly"],
+                highlights: ["Nearby schools", "Parks"],
                 image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop"
               }
             ].map((neighborhood) => {

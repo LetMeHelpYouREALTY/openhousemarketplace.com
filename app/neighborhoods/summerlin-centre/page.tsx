@@ -7,8 +7,8 @@ import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
 
 export const metadata: Metadata = {
   title: 'Summerlin Centre | Modern Family Homes for Sale & Amenities',
-  description: 'Explore Summerlin Centre homes for sale in Summerlin West. Modern family living with parks, top-rated schools, convenient shopping, and new construction opportunities. Experience the best of Summerlin\'s newest village and discover real estate in this family-friendly community.',
-  keywords: 'Summerlin Centre, Summerlin Centre homes for sale, family homes Las Vegas, new construction Summerlin, Downtown Summerlin, modern homes, Summerlin Centre real estate, family-friendly Summerlin',
+  description: 'Explore Summerlin Centre homes for sale in Summerlin West. Modern living with parks, nearby schools, convenient shopping, and new construction opportunities. Experience the best of Summerlin\'s newest village and discover real estate in this master-planned community.',
+  keywords: 'Summerlin Centre, Summerlin Centre homes for sale, new construction Summerlin, Downtown Summerlin, modern homes, Summerlin Centre real estate',
   robots: {
     index: true,
     follow: true,
@@ -92,7 +92,7 @@ export default function SummerlinCentrePage() {
               Summerlin Centre represents the evolution of master-planned community living, offering modern family homes 
               with the latest in smart technology, energy efficiency, and contemporary design. This vibrant neighborhood 
               showcases the best of new construction in Summerlin, combining innovative home designs with convenient access 
-              to shopping, dining, schools, and recreation. For families seeking modern homes in a well-planned, family-friendly 
+              to shopping, dining, schools, and recreation. For buyers seeking modern homes in a well-planned, master-planned 
               community, Summerlin Centre offers an ideal real estate opportunity in Las Vegas' premier master-planned community.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
@@ -122,7 +122,7 @@ export default function SummerlinCentrePage() {
               that are both stylish and functional. This combination of modern design and practical features makes Summerlin 
               Centre an excellent choice for families seeking contemporary real estate in Summerlin.
             </p>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Family-Friendly Amenities & Location</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Amenities & Location</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
               Summerlin Centre's location provides families with convenient access to some of Summerlin's best amenities. 
               The neighborhood's proximity to Downtown Summerlin means residents can easily access premier shopping, diverse 
@@ -142,7 +142,7 @@ export default function SummerlinCentrePage() {
       </div>
       <HyperLocalNeighborhoodPage
         name="Summerlin Centre"
-        description="Summerlin Centre represents modern family living at its finest, offering new construction homes with smart technology and energy-efficient features. Located in the heart of Summerlin, residents enjoy easy access to Downtown Summerlin's shopping and dining, excellent schools, and abundant parks and trails."
+        description="Summerlin Centre represents modern family living at its finest, offering new construction homes with smart technology and energy-efficient features. Located in the heart of Summerlin, residents enjoy easy access to Downtown Summerlin's shopping and dining, nearby public schools, and abundant parks and trails."
         marketStats={marketStats}
         schools={schools}
         amenities={amenities}

@@ -13,7 +13,7 @@ export const revalidate = 86400 // ISR: revalidate daily
 export const metadata: Metadata = {
   title: 'Buyer Tools | Mortgage Calculator & Schools | Dr. Jan Duffy Real Estate',
   description:
-    'Smart buyer tools for Summerlin West: mortgage calculator, top-rated schools, and schedule viewings. Make confident decisions with Dr. Jan Duffy\'s buyer toolkit, then search listings.',
+    'Smart buyer tools for Summerlin West: mortgage calculator, nearby public schools, and schedule viewings. Make confident decisions with Dr. Jan Duffy\'s buyer toolkit, then search listings.',
   robots: { index: true, follow: true },
   alternates: { canonical: `${BASE_URL}/buyers` },
   openGraph: {
@@ -31,7 +31,7 @@ export default function BuyersPage() {
         type="WebPage"
         data={{
           name: 'Buyer Tools | Mortgage Calculator & Schools | Dr. Jan Duffy Real Estate',
-          description: 'Smart buyer tools for Summerlin West: mortgage calculator, top-rated schools, and schedule viewings.',
+          description: 'Smart buyer tools for Summerlin West: mortgage calculator, nearby public schools, and schedule viewings.',
         }}
       />
       <StructuredData
