@@ -10,6 +10,8 @@ import {
 
 import SummerlinOpenHouseWebsite from "components/SummerlinOpenHouseWebsite"
 import HomeHeroSection from "@/components/home/HomeHeroSection"
+import FeaturedListing from "@/components/sections/FeaturedListing"
+import { GBP } from "@/config/gbp"
 import StructuredData from "@/components/StructuredData"
 import GoogleMyMapsSection from "@/components/GoogleMyMapsSection"
 
@@ -62,6 +64,12 @@ export default function HomePage() {
       />
       <StructuredData type="FAQPage" data={{ faqs: [...HOME_PAGE_FAQS] }} />
       <HomeHeroSection />
+      <FeaturedListing
+        phone={GBP.phone}
+        phoneHref={`tel:${GBP.phoneE164}`}
+        siteHost="openhousemarketplace.com"
+      />
+
       <SummerlinOpenHouseWebsite />
       <div className="bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
