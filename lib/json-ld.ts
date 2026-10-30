@@ -1,4 +1,4 @@
-import { GBP, getAreaServedJsonLd, getBusinessSameAsUrls, getGbpAggregateRating, OFFICE_GEO } from '@/config/gbp'
+import { GBP, getAreaServedJsonLd, getBusinessSameAsUrls, OFFICE_GEO } from '@/config/gbp'
 import {
   AGENT_LICENSE,
   AGENT_MEMBER_OF,
@@ -75,8 +75,6 @@ export function buildSiteEntityGraph(baseUrl: string = getSiteUrl()) {
   const agentId = `${baseUrl}/about#agent`
   const websiteId = `${baseUrl}/#website`
 
-  const rating = getGbpAggregateRating()
-
   const specialOpeningHoursSpecification = GBP.specialHoursClosed.map((closure) => ({
     '@type': 'OpeningHoursSpecification' as const,
     validFrom: closure.date,
@@ -138,9 +136,6 @@ export function buildSiteEntityGraph(baseUrl: string = getSiteUrl()) {
       'Summerlin Real Estate Market',
     ],
     employee: { '@id': agentId },
-    ...(rating
-      ? { aggregateRating: { '@type': 'AggregateRating', ...rating } }
-      : {}),
   }
 
   const agent = {
