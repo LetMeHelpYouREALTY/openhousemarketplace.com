@@ -22,6 +22,8 @@ import RealScoutOfficeListingsBandsDynamic from "@/components/RealScoutOfficeLis
 import ScheduleTourBand from "@/components/conversion/ScheduleTourBand"
 import StickyMobileCta from "@/components/conversion/StickyMobileCta"
 import SiteMaintenanceBanner from "@/components/SiteMaintenanceBanner"
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 // Google Analytics scripts must be in head as standard script tags for detection
 // SEO: Google 2026 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
@@ -129,6 +131,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <RealScoutOfficeListingsBandsDynamic />
         <Footer />
         <StickyMobileCta />
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   )
