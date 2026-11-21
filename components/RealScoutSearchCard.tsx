@@ -1,23 +1,23 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import ExternalLink from '@/components/ExternalLink'
 
 export default function RealScoutSearchCard() {
   const [isWidgetLoaded, setIsWidgetLoaded] = useState(false)
 
   useEffect(() => {
-    const checkWidget = setInterval(() => {
-      if (typeof window !== 'undefined' && (window as any).customElements?.get('realscout-advanced-search')) {
+    const checkWidget = window.setInterval(() => {
+      if (window.customElements?.get('realscout-advanced-search')) {
         setIsWidgetLoaded(true)
-        clearInterval(checkWidget)
+        window.clearInterval(checkWidget)
       }
     }, 100)
 
-    const timeout = setTimeout(() => clearInterval(checkWidget), 5000)
+    const timeout = window.setTimeout(() => window.clearInterval(checkWidget), 5000)
     return () => {
-      clearInterval(checkWidget)
-      clearTimeout(timeout)
+      window.clearInterval(checkWidget)
+      window.clearTimeout(timeout)
     }
   }, [])
 
@@ -25,46 +25,28 @@ export default function RealScoutSearchCard() {
     <div>
       <div className="realscout-search-container">
         {!isWidgetLoaded && (
-          <div className="animate-pulse">
-            <div className="h-12 bg-gray-200 rounded-lg mb-3"></div>
-            <div className="h-12 bg-gray-200 rounded-lg mb-3"></div>
-            <div className="h-12 bg-red-200 rounded-lg"></div>
+          <div className="animate-pulse" aria-hidden="true">
+            <div className="mb-3 h-12 rounded-sm bg-stone" />
+            <div className="mb-3 h-12 rounded-sm bg-stone" />
+            <div className="h-12 rounded-sm bg-stone" />
           </div>
         )}
         {/* @ts-expect-error - Web component is defined at runtime */}
         <realscout-advanced-search
           agent-encoded-id="QWdlbnQtMjI1MDUw"
           class={isWidgetLoaded ? 'opacity-100' : 'opacity-0'}
-          style={{ transition: 'opacity 0.3s ease-in-out' } as any}
+          style={{ transition: 'opacity 0.3s ease-in-out' } as CSSProperties}
         />
       </div>
-
-      <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200 mt-6">
-        <div className="text-center">
-          <div className="text-lg sm:text-2xl font-bold text-blue-600">6</div>
-          <div className="text-xs text-gray-600">Open Houses</div>
-        </div>
-        <div className="text-center">
-          <div className="text-lg sm:text-2xl font-bold text-blue-600">14</div>
-          <div className="text-xs text-gray-600">Avg Days</div>
-        </div>
-        <div className="text-center">
-          <div className="text-lg sm:text-2xl font-bold text-blue-600">98%</div>
-          <div className="text-xs text-gray-600">Success Rate</div>
-        </div>
-      </div>
-
-      <div className="mt-4 text-center">
+      <div className="mt-5 border-t border-stone pt-4 text-center">
         <ExternalLink
           href="https://drjanduffy.realscout.com"
-          className="inline-block py-2.5 text-sm text-blue-600 hover:text-blue-700 font-medium"
+          className="inline-flex min-h-11 items-center justify-center text-sm font-semibold text-forest transition-colors hover:text-olive"
           showIcon={false}
         >
-          Advanced Search Options →
+          Open the full home search <span aria-hidden="true">→</span>
         </ExternalLink>
       </div>
     </div>
   )
 }
-
-

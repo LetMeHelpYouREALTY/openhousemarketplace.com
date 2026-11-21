@@ -1,156 +1,77 @@
-'use client'
-
 import Link from 'next/link'
-import Image from 'next/image'
-import { Home, Phone, MapPin, Calendar } from 'lucide-react'
-import { useState } from 'react'
-import CalendlyPopupLink from '@/components/CalendlyPopupLink'
-import ExternalLink from '@/components/ExternalLink'
+import { ArrowUpRight, MapPin, Phone } from 'lucide-react'
+import { GBP, GBP_SERVICE_AREA, getGoogleMapsDirectionsUrlToOffice } from '@/config/gbp'
 import { SITE_NAME } from '@/config/site'
-import { FACEBOOK_PAGE_URL, GBP, GBP_SERVICE_AREA, getGoogleMapsDirectionsUrlToOffice } from '@/config/gbp'
 
-const BUSINESS = {
-  name: GBP.name,
-  phone: GBP.phone,
-  phoneLink: `tel:${GBP.phoneE164}`,
-  address: `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`,
-  directionsUrl: getGoogleMapsDirectionsUrlToOffice(),
-  serviceArea: GBP_SERVICE_AREA.label,
-}
+const neighborhoodLinks = [
+  { href: '/neighborhoods/the-ridges', label: 'The Ridges' },
+  { href: '/neighborhoods/red-rock-country-club', label: 'Red Rock Country Club' },
+  { href: '/neighborhoods/summerlin-centre', label: 'Summerlin Centre' },
+  { href: '/neighborhoods/sun-city-summerlin', label: 'Sun City Summerlin' },
+]
+
+const resourceLinks = [
+  { href: '/open-houses', label: 'Open houses' },
+  { href: '/luxury-homes', label: 'Luxury homes' },
+  { href: '/market-report', label: 'Market report' },
+  { href: '/buyers', label: 'Buyer resources' },
+]
 
 export default function Footer() {
-  const [logoError, setLogoError] = useState(false)
-
   return (
-    <footer className="bg-gray-800 text-gray-300 py-10 border-t-4 border-blue-600" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Office / Search Listings – first position on every page */}
-          <div>
-            <h3 className="font-semibold text-white mb-3">Office</h3>
-            <ul className="text-sm space-y-2">
-              <li>
-                <ExternalLink
-                  href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
-                  className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
-                >
-                  Search Listings
-                </ExternalLink>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-red-500" aria-hidden />
-                <a href={BUSINESS.phoneLink} className="min-h-[44px] inline-flex items-center hover:text-white">{BUSINESS.phone}</a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 shrink-0 text-red-500 mt-0.5" aria-hidden />
-                <span>
-                  {BUSINESS.address}
-                  <span className="block text-gray-400 mt-2 text-xs leading-relaxed">
-                    <span className="font-medium text-gray-300">Service area:</span> {BUSINESS.serviceArea}
-                  </span>
-                </span>
-              </li>
-              <li>
-                <ExternalLink
-                  href={FACEBOOK_PAGE_URL}
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
-                >
-                  Facebook
-                </ExternalLink>
-              </li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
-              <li><Link href="/open-houses" className="hover:text-white transition-colors">Summerlin open houses</Link></li>
-              <li><Link href="/book-tour" className="hover:text-white transition-colors">Schedule a private showing</Link></li>
-              <li><Link href="/schedule-consultation" className="hover:text-white transition-colors">Schedule a free consultation</Link></li>
-              <li>
-                <CalendlyPopupLink className="inline-flex min-h-[44px] items-center justify-center gap-2 mt-2 px-4 py-2 rounded-lg bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold text-sm transition-colors">
-                  <Calendar className="h-4 w-4" aria-hidden />
-                  Schedule a private showing
-                </CalendlyPopupLink>
-              </li>
-            </ul>
-          </div>
-
-          {/* Neighborhoods */}
-          <div>
-            <h3 className="font-semibold text-white mb-3">Neighborhoods</h3>
-            <ul className="text-sm space-y-1">
-              <li><Link href="/neighborhoods/the-ridges" className="hover:text-white transition-colors">The Ridges</Link></li>
-              <li><Link href="/neighborhoods/red-rock-country-club" className="hover:text-white transition-colors">Red Rock Country Club</Link></li>
-              <li><Link href="/neighborhoods/summerlin-centre" className="hover:text-white transition-colors">Summerlin Centre</Link></li>
-              <li><Link href="/neighborhoods/sun-city-summerlin" className="hover:text-white transition-colors">Sun City Summerlin</Link></li>
-              <li><Link href="/neighborhoods/the-trails" className="hover:text-white transition-colors">The Trails</Link></li>
-              <li><Link href="/neighborhoods/willows" className="hover:text-white transition-colors">Willows</Link></li>
-              <li><Link href="/neighborhoods/mesa-ridge" className="hover:text-white transition-colors">Mesa Ridge</Link></li>
-              <li><Link href="/neighborhoods/siena" className="hover:text-white transition-colors">Siena</Link></li>
-              <li><Link href="/neighborhoods/regency" className="hover:text-white transition-colors">Regency</Link></li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="font-semibold text-white mb-3">Resources</h3>
-            <ul className="text-sm space-y-1">
-              <li><Link href="/market-report" className="hover:text-white transition-colors">Market Reports</Link></li>
-              <li><Link href="/buyers" className="hover:text-white transition-colors">Buyer Tools</Link></li>
-              <li><Link href="/review-us" className="hover:text-white transition-colors">Review us on Google</Link></li>
-              <li><Link href="/open-house-guide" className="hover:text-white transition-colors">Open House Guide</Link></li>
-              <li><Link href="/amenity-map" className="hover:text-white transition-colors">Amenity Map</Link></li>
-              <li><Link href="/store-locations" className="hover:text-white transition-colors">Find Our Stores</Link></li>
-              <li><Link href="/directions" className="hover:text-white transition-colors">Get Directions</Link></li>
-              <li><Link href="/resources/home-buying-guide" className="hover:text-white transition-colors">Home Buying Guide</Link></li>
-              <li><Link href="/schools" className="hover:text-white transition-colors">School Information</Link></li>
-              <li><Link href="/resources/hoa-communities" className="hover:text-white transition-colors">HOA Communities</Link></li>
-              <li><Link href="/resources/lifestyle-guide" className="hover:text-white transition-colors">Lifestyle Guide</Link></li>
-              <li><Link href="/resources/new-construction" className="hover:text-white transition-colors">New Construction</Link></li>
-              <li><Link href="/luxury-homes" className="hover:text-white transition-colors">Luxury Homes</Link></li>
-              <li><Link href="/new-construction" className="hover:text-white transition-colors">New Construction Homes</Link></li>
-            </ul>
-          </div>
-
-          {/* Brand + more links */}
-          <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              {!logoError ? (
-                <Image
-                  src="/images/logo/logo.svg"
-                  alt="Open House Market Place logo"
-                  width={170}
-                  height={28}
-                  className="h-7 w-auto max-w-[170px] object-contain object-left"
-                  onError={() => setLogoError(true)}
-                  unoptimized
-                />
-              ) : (
-                <Home className="h-6 w-6 text-red-500 shrink-0" aria-hidden />
-              )}
-              <span className="font-bold text-white">{SITE_NAME}</span>
-            </Link>
-            <p className="text-sm mb-3">
-              Your premier destination for Summerlin West open house listings and real estate with {BUSINESS.name}.
-            </p>
-            <ul className="text-sm space-y-1">
-              <li><Link href="/about" className="hover:text-white transition-colors">About Dr. Jan Duffy</Link></li>
-              <li><Link href="/review-us" className="hover:text-white transition-colors">Review us on Google</Link></li>
-              <li><Link href="/open-houses" className="hover:text-white transition-colors">Open Houses</Link></li>
-              <li><Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link></li>
-            </ul>
-          </div>
+    <footer className="bg-[#202923] text-white/75" role="contentinfo">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.25fr_0.8fr_0.8fr_1.15fr] lg:gap-12 lg:px-12 lg:py-16">
+        <div>
+          <Link href="/" className="inline-flex min-h-11 items-center gap-3 text-white" aria-label="Dr. Jan Duffy home">
+            <span className="flex size-10 items-center justify-center bg-white/10 font-serif text-2xl" aria-hidden="true">J</span>
+            <span className="font-serif text-xl tracking-wide">DR. JAN DUFFY</span>
+          </Link>
+          <p className="mt-4 max-w-xs text-sm leading-6 text-white/65">
+            A thoughtful real estate experience, grounded in local knowledge of Summerlin and Las Vegas.
+          </p>
+          <p className="mt-4 text-xs leading-5 text-white/55">{SITE_NAME} · Berkshire Hathaway HomeServices Nevada Properties</p>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
-          <p className="mb-1">Las Vegas Open Houses | Summerlin West • Henderson • North Las Vegas</p>
-          <p className="mb-1">Dr. Jan Duffy | 30+ Years Open House Experience</p>
-          <p className="mb-1">Nevada License #S.0197614.LLC</p>
-          <p className="mb-1">Berkshire Hathaway HomeServices Nevada Properties</p>
-          <p className="mb-2">&copy; {new Date().getFullYear()} {SITE_NAME}</p>
-          <p className="mb-2">MLS Listings | Equal Housing Opportunity</p>
-          <div className="flex flex-wrap justify-center gap-4 text-xs">
-            <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
-          </div>
+        <div>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">Explore</h2>
+          <ul className="mt-4 flex flex-col gap-2.5 text-sm">
+            {neighborhoodLinks.map((item) => <li key={item.href}><Link className="transition-colors hover:text-white" href={item.href}>{item.label}</Link></li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">Resources</h2>
+          <ul className="mt-4 flex flex-col gap-2.5 text-sm">
+            {resourceLinks.map((item) => <li key={item.href}><Link className="transition-colors hover:text-white" href={item.href}>{item.label}</Link></li>)}
+            <li><Link className="transition-colors hover:text-white" href="/contact">Contact</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">A conversation, at your pace</h2>
+          <a href={`tel:${GBP.phoneE164}`} className="mt-4 inline-flex min-h-11 items-center gap-2 text-lg font-medium text-white hover:text-white/75">
+            <Phone className="size-4" aria-hidden="true" /> {GBP.phone}
+          </a>
+          <p className="mt-2 flex gap-2 text-sm leading-6 text-white/65">
+            <MapPin className="mt-1 size-4 shrink-0" aria-hidden="true" />
+            <span>{GBP.address.street}, {GBP.address.locality}, {GBP.address.region} {GBP.address.postalCode}<br />{GBP_SERVICE_AREA.label}</span>
+          </p>
+          <Link href="/book-tour" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white underline decoration-white/35 underline-offset-4 hover:decoration-white">
+            Arrange a private tour <ArrowUpRight className="size-4" aria-hidden="true" />
+          </Link>
+          <a href={getGoogleMapsDirectionsUrlToOffice()} target="_blank" rel="noreferrer" className="mt-2 inline-flex min-h-11 items-center text-sm text-white/65 underline decoration-white/25 underline-offset-4 hover:text-white hover:decoration-white">Get directions</a>
+        </div>
+      </div>
+
+      <div className="border-t border-white/15">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 text-xs text-white/55 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-12">
+          <p>© {new Date().getFullYear()} {SITE_NAME}. Nevada License S.0197614.LLC.</p>
+          <nav className="flex flex-wrap gap-x-5 gap-y-2" aria-label="Legal and utility links">
+            <Link href="/privacy-policy" className="hover:text-white">Privacy</Link>
+            <Link href="/terms-of-service" className="hover:text-white">Terms</Link>
+            <Link href="/disclaimer" className="hover:text-white">Disclaimer</Link>
+            <Link href="/sitemap.xml" className="hover:text-white">Sitemap</Link>
+          </nav>
         </div>
       </div>
     </footer>

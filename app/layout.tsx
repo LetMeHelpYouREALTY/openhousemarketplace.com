@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: 'Open House Market Place',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: [{ url: `${SITE_URL}/images/og/og-image.jpg`, width: 1200, height: 630, alt: 'Summerlin Las Vegas Open Houses - Dr. Jan Duffy Real Estate' }],
+    images: [{ url: `${SITE_URL}/images/luxury-summerlin-hero.png`, width: 1200, height: 630, alt: 'Luxury home in Summerlin with Red Rock Canyon views' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#2563eb',
+  themeColor: '#f4f1e9',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -80,7 +80,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
         ) : null}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="preload" href="/images/team/dr-jan-duffy.jpg" as="image" fetchPriority="high" />
         <noscript>
           <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         </noscript>

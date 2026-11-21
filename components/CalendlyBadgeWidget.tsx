@@ -11,7 +11,7 @@ const CALENDLY_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js'
 const BADGE_CONFIG = {
   url: CALENDLY_OPEN_HOUSE_TOUR_URL,
   text: 'Schedule a private showing',
-  color: '#0069ff',
+  color: '#293b32',
   textColor: '#ffffff',
   branding: true,
 } as const

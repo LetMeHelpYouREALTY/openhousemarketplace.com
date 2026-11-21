@@ -4,13 +4,14 @@
  * NAP and business name still come from config/gbp.ts (Google Business Profile).
  */
 
-/** Target phrase for Summerlin + Las Vegas open house intent */
+/** Primary homepage search phrase for Summerlin open house intent. */
 export const SEO_PRIMARY_KEYWORD = 'Summerlin Las Vegas Open Houses' as const
+export const SEO_TARGET_KEYWORD = 'open house' as const
 
-export const SEO_HOME_TITLE = 'Summerlin Las Vegas Open Houses | Dr. Jan Duffy Real Estate' as const
+export const SEO_HOME_TITLE = 'Summerlin Open Houses & Luxury Homes | Dr. Jan Duffy' as const
 
 export const SEO_HOME_DESCRIPTION =
-  'Summerlin Las Vegas open houses this weekend in Summerlin West—The Ridges, Red Rock Country Club, Summerlin Centre, and more. Search MLS listings, tour homes, and schedule a private showing with Dr. Jan Duffy at Open House Market Place.'
+  'Find a Summerlin open house and explore Las Vegas listings with Dr. Jan Duffy. Discover local neighborhoods and arrange a private home tour with an experienced real estate advisor.'
 
 export const SEO_OPEN_HOUSES_TITLE =
   'Summerlin Las Vegas Open Houses | Weekend Tours & Private Showings' as const
@@ -45,21 +46,21 @@ export const OPEN_HOUSES_PAGE_FAQS = [
   },
 ] as const
 
-/** Visible + JSON-LD FAQ for homepage (AEO / rich results) */
+/** Visible + JSON-LD FAQ for the homepage. */
 export const HOME_PAGE_FAQS = [
   {
-    question: 'What are Summerlin Las Vegas open houses?',
+    question: 'What areas does Dr. Jan Duffy serve?',
     answer:
-      'Summerlin Las Vegas open houses are scheduled showings of homes for sale in Summerlin, Nevada—usually on weekends—where buyers can tour a property during posted hours. Open House Market Place lists Summerlin open houses, connects you to MLS search, and helps you book a private showing with Dr. Jan Duffy (Berkshire Hathaway HomeServices Nevada Properties, License S.0197614.LLC).',
+      'Dr. Jan Duffy works with buyers and sellers in Summerlin and the greater Las Vegas Valley, including nearby communities such as Henderson. Contact her to discuss a specific neighborhood or property.',
   },
   {
-    question: 'Where can I find open houses in Summerlin, Las Vegas?',
+    question: 'How do I find open houses in Summerlin?',
     answer:
-      'Open houses are held across Summerlin West and surrounding Summerlin villages, including The Ridges, Red Rock Country Club, Summerlin Centre, The Trails, and Sun City Summerlin, plus zip codes 89135, 89138, and 89144. Use this site’s Open Houses page, featured weekend list, and home search to find current Summerlin Las Vegas open houses.',
+      'Use the open houses page to find scheduled property tours and the home search to browse current listings. When you are ready, Dr. Jan Duffy can help you compare homes and plan a visit around your priorities.',
   },
   {
-    question: 'How do I schedule a private showing instead of an open house?',
+    question: 'Can I arrange a private home tour?',
     answer:
-      'Use the contact form, Calendly scheduling links, or call Open House Market Place at (702) 200-3422. Dr. Jan Duffy can arrange a private tour of Summerlin and Las Vegas listings that match your budget and neighborhood preferences.',
+      'Yes. Use the private tour or contact links on this site, or call (702) 200-3422. Dr. Jan Duffy can help coordinate a tour of homes in Summerlin and the Las Vegas Valley.',
   },
 ] as const

@@ -1,344 +1,240 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowRight, ArrowUpRight, MapPin, Phone } from 'lucide-react'
 import OptimizedImage from './OptimizedImage'
-import { Calendar, Home, Star, Phone, Award } from 'lucide-react'
 import RealScoutSearchCard from './RealScoutSearchCard'
 import { GBP } from '@/config/gbp'
-import { HOME_PAGE_FAQS, SEO_PRIMARY_KEYWORD } from '@/config/seo'
+import { HOME_PAGE_FAQS } from '@/config/seo'
 
-const ExitIntentPopup = dynamic(() => import('./ExitIntentPopup'))
+const neighborhoods = [
+  {
+    name: 'The Ridges',
+    description: 'Private, design-forward living beneath the Red Rock mountains.',
+    href: '/neighborhoods/the-ridges',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1000&h=700&fit=crop',
+    imageAlt: 'Contemporary desert home with clean architectural lines',
+    note: 'GUARD-GATED LIVING',
+  },
+  {
+    name: 'Red Rock Country Club',
+    description: 'A distinctive setting shaped by golf, views, and resort amenities.',
+    href: '/neighborhoods/red-rock-country-club',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&h=700&fit=crop',
+    imageAlt: 'Elegant home opening to a landscaped outdoor living area',
+    note: 'GOLF & COUNTRY CLUB',
+  },
+  {
+    name: 'Summerlin Centre',
+    description: 'Walkable conveniences and a lively sense of neighborhood.',
+    href: '/neighborhoods/summerlin-centre',
+    image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1000&h=700&fit=crop',
+    imageAlt: 'Warm modern interior with natural materials and large windows',
+    note: 'CONNECTED & CONVENIENT',
+  },
+]
 
-const SummerlinOpenHouseWebsite = () => {
-  const [showExitPopup, setShowExitPopup] = useState(false)
-  const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
-  const [isPageReady, setIsPageReady] = useState(false)
-  const [heroPhotoError, setHeroPhotoError] = useState(false)
-  // Buyer tools moved into BuyerToolsSection
-
-  // Delay page ready state to ensure Google Analytics loads first
-  useEffect(() => {
-    // Wait 15 seconds before allowing exit intent popup to show
-    // This gives Google Analytics time to load and be detected
-    const timer = setTimeout(() => {
-      setIsPageReady(true)
-    }, 15000) // 15 seconds delay
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  // Exit intent detection - only after page is ready
-  useEffect(() => {
-    if (!isPageReady) return // Don't show popup until page is ready
-
-    const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !hasShownExitPopup) {
-        setShowExitPopup(true)
-        setHasShownExitPopup(true)
-      }
-    }
-
-    const handleBeforeUnload = () => {
-      if (!hasShownExitPopup) {
-        setShowExitPopup(true)
-        setHasShownExitPopup(true)
-      }
-    }
-
-    document.addEventListener('mouseleave', handleMouseLeave)
-    window.addEventListener('beforeunload', handleBeforeUnload)
-
-    return () => {
-      document.removeEventListener('mouseleave', handleMouseLeave)
-      window.removeEventListener('beforeunload', handleBeforeUnload)
-    }
-  }, [hasShownExitPopup, isPageReady])
-
+export default function SummerlinOpenHouseWebsite() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-       <section className="bg-gradient-to-r from-blue-600 to-red-600 text-white py-10 sm:py-12 lg:py-16 rounded-b-3xl">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-             {/* Left Column - Content */}
-             <div className="text-left">
-               <div className="flex items-center mb-6">
-                 <div className="w-16 h-16 rounded-full overflow-hidden bg-white/20 shrink-0 mr-4 ring-2 ring-white/30">
-                  {!heroPhotoError ? (
-                    <Image
-                      src="/images/team/dr-jan-duffy.jpg"
-                      alt="Dr. Jan Duffy, real estate agent serving Summerlin West and Las Vegas"
-                      width={64}
-                      height={64}
-                      sizes="64px"
-                      className="w-full h-full object-cover"
-                      priority
-                      fetchPriority="high"
-                      onError={() => setHeroPhotoError(true)}
-                    />
-                   ) : (
-                     <div className="w-full h-full flex items-center justify-center">
-                       <Home className="h-8 w-8 text-white" aria-hidden />
-                     </div>
-                   )}
-                 </div>
-                 <div>
-                   <p className="text-blue-200 text-sm font-medium">DR. JAN DUFFY</p>
-                   <p className="text-white text-lg font-semibold">Your Local Research-Driven Expert</p>
-                 </div>
-               </div>
-               
-               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                 {SEO_PRIMARY_KEYWORD}
-               </h1>
-               <p className="text-lg sm:text-xl font-semibold text-blue-100 mb-4">
-                 Your local research-driven expert for Summerlin West &amp; Las Vegas—Dr. Jan Duffy, {GBP.name}
-               </p>
-               <p className="text-base sm:text-xl mb-4 text-white">
-                 Get instant access to this weekend&apos;s premium open houses with personalized alerts and market insights.
-               </p>
-               <p className="text-base mb-8 text-white">
-                 <Link href="/open-houses" className="text-white font-semibold underline hover:no-underline">
-                   Browse all Summerlin Las Vegas open houses
-                 </Link>{' '}
-                 this weekend.
-               </p>
-               
-               {/* Trust indicators: avoid unsubstantiated performance stats (E-E-A-T). */}
-               <div className="flex flex-wrap items-center gap-6 mb-8">
-                 <div className="flex items-center">
-                   <Star className="h-5 w-5 text-yellow-400 mr-2 shrink-0" aria-hidden />
-                   <span className="text-sm">Deep local knowledge: Summerlin West &amp; Las Vegas Valley</span>
-                 </div>
-                 <div className="flex items-center">
-                   <Award className="h-5 w-5 text-yellow-400 mr-2 shrink-0" aria-hidden />
-                   <span className="text-sm">Nevada license S.0197614.LLC · Berkshire Hathaway HomeServices Nevada Properties</span>
-                 </div>
-               </div>
-               
-               {/* Primary CTA: RealScout / Search Listings */}
-               <Link
-                 href="/tour/mls"
-                 className="inline-flex items-center justify-center min-h-[44px] bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
-               >
-                 Search Summerlin Listings
-               </Link>
-             </div>
-             
-              {/* Right Column - Advanced Home Search */}
-              <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                <h3 className="text-gray-900 text-xl font-bold mb-4">Find Your Perfect Home</h3>
-                <RealScoutSearchCard />
-              </div>
-           </div>
-         </div>
-       </section>
+    <div className="overflow-hidden bg-cream text-ink">
+      <section className="relative isolate flex min-h-[660px] items-end bg-forest sm:min-h-[720px] lg:min-h-[780px]" aria-labelledby="home-hero-title">
+        <Image
+          src="/images/luxury-summerlin-hero.png"
+          alt="Contemporary luxury home in Summerlin with Red Rock Canyon in the distance"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" aria-hidden="true" />
+        <div className="relative mx-auto w-full max-w-7xl px-5 pb-14 pt-36 sm:px-8 sm:pb-20 lg:px-12 lg:pb-24">
+          <div className="max-w-3xl text-white">
+            <p className="mb-5 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.24em] text-white/85 sm:text-sm">
+              <MapPin className="size-4 text-brass" aria-hidden="true" />
+              Summerlin open houses · Las Vegas, Nevada
+            </p>
+            <h1 id="home-hero-title" className="max-w-3xl font-serif text-5xl leading-[0.98] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+              Find your place in the extraordinary.
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">
+              Discover Summerlin open houses and exceptional homes across the Las Vegas Valley—with thoughtful guidance from a local advisor.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link
+                href="/tour/mls"
+                className="inline-flex min-h-12 items-center justify-center gap-2 bg-cream px-6 py-3 text-sm font-semibold tracking-wide text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                Explore homes <ArrowUpRight className="size-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/book-tour"
+                className="inline-flex min-h-12 items-center justify-center border border-white/70 px-6 py-3 text-sm font-semibold tracking-wide text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                Arrange a private tour
+              </Link>
+            </div>
+            <p className="mt-8 text-xs tracking-wide text-white/75">
+              Dr. Jan Duffy <span className="px-2 text-brass">/</span> Berkshire Hathaway HomeServices Nevada Properties
+            </p>
+          </div>
+        </div>
+        <div className="absolute bottom-8 right-8 hidden items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-white/75 lg:flex">
+          <span className="h-px w-12 bg-white/60" />
+          A local perspective, personally delivered
+        </div>
+      </section>
 
-      {/* AEO / GEO: visible answers matching homepage FAQPage JSON-LD */}
-      <section className="border-b border-gray-200 bg-white py-10 sm:py-12" aria-labelledby="home-open-house-faq-heading">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 id="home-open-house-faq-heading" className="text-2xl font-bold text-gray-900 sm:text-3xl">
-            Summerlin Las Vegas open houses: quick answers
-          </h2>
-          <p className="mt-2 text-gray-600">
-            Straightforward facts for buyers searching Summerlin and Las Vegas—aligned with how people ask voice assistants and AI search.
-          </p>
-          <dl className="mt-8 space-y-6">
+      <section className="border-b border-stone bg-paper" aria-label="Professional credentials">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 py-7 sm:grid-cols-3 sm:px-8 lg:px-12">
+          <div className="border-b border-stone pb-5 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-6">
+            <p className="font-serif text-2xl text-forest">30+ years</p>
+            <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">Open house experience</p>
+          </div>
+          <div className="border-b border-stone pb-5 sm:border-b-0 sm:border-r sm:px-6 sm:pb-0">
+            <p className="font-serif text-2xl text-forest">Summerlin to Henderson</p>
+            <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">A deeply local point of view</p>
+          </div>
+          <div className="sm:pl-6">
+            <p className="font-serif text-2xl text-forest">Nevada licensed</p>
+            <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">S.0197614.LLC</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-24" aria-labelledby="neighborhoods-title">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+          <div className="mb-9 flex flex-col gap-5 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-olive">A sense of place</p>
+              <h2 id="neighborhoods-title" className="mt-3 font-serif text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+                Find the neighborhood that feels like you.
+              </h2>
+            </div>
+            <Link href="/neighborhoods" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-forest hover:text-olive">
+              Discover Summerlin <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {neighborhoods.map((neighborhood, index) => (
+              <article key={neighborhood.href} className="group bg-paper">
+                <Link href={neighborhood.href} className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-stone">
+                    <OptimizedImage
+                      src={neighborhood.image}
+                      alt={neighborhood.imageAlt}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      priority={index === 0}
+                    />
+                  </div>
+                  <div className="px-5 pb-6 pt-5 sm:px-6">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-olive">{neighborhood.note}</p>
+                    <h3 className="mt-2 font-serif text-2xl text-ink">{neighborhood.name}</h3>
+                    <p className="mt-2 min-h-12 text-sm leading-6 text-muted-foreground">{neighborhood.description}</p>
+                    <span className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-forest">
+                      Explore neighborhood <ArrowUpRight className="size-4" aria-hidden="true" />
+                    </span>
+                  </div>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="find-a-home" className="bg-paper py-16 sm:py-24" aria-labelledby="search-title">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16 lg:px-12">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-olive">The right home, thoughtfully found</p>
+            <h2 id="search-title" className="mt-3 font-serif text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+              Begin with what matters to you.
+            </h2>
+            <p className="mt-5 max-w-lg text-base leading-7 text-muted-foreground">
+              Explore current listings and open houses, then work with a local advisor to narrow the search around your priorities.
+            </p>
+            <Link href="/open-houses" className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-forest hover:text-olive">
+              See upcoming open houses <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="border border-stone bg-white p-5 sm:p-8">
+            <h3 className="mb-5 font-serif text-2xl text-ink">Search Las Vegas homes</h3>
+            <RealScoutSearchCard />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-24" aria-labelledby="advisor-title">
+        <div className="mx-auto grid max-w-7xl gap-9 px-5 sm:px-8 md:grid-cols-[0.72fr_1.28fr] md:items-center md:gap-16 lg:px-12">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden bg-stone md:max-w-none">
+            <Image
+              src="/images/team/dr-jan-duffy.jpg"
+              alt="Dr. Jan Duffy, Las Vegas real estate advisor"
+              fill
+              sizes="(max-width: 768px) 90vw, 35vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-olive">A more personal approach</p>
+            <h2 id="advisor-title" className="mt-3 font-serif text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
+              Local knowledge. A relationship that lasts.
+            </h2>
+            <p className="mt-5 text-base leading-7 text-muted-foreground">
+              Buying or selling a home is personal. Dr. Jan Duffy brings more than three decades of open-house experience, a research-minded approach, and a deep understanding of Summerlin and the Las Vegas Valley to every conversation.
+            </p>
+            <p className="mt-4 text-base leading-7 text-muted-foreground">
+              Every move begins with listening—then a clear plan shaped around your timing, goals, and the details that make a place feel like home.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link href="/about" className="inline-flex min-h-12 items-center justify-center gap-2 bg-forest px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-olive">
+                Meet Dr. Jan <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+              <a href={`tel:${GBP.phoneE164}`} className="inline-flex min-h-12 items-center justify-center gap-2 border border-stone px-6 py-3 text-sm font-semibold text-forest transition-colors hover:border-forest">
+                <Phone className="size-4" aria-hidden="true" /> {GBP.phone}
+              </a>
+            </div>
+            <p className="mt-6 text-xs leading-5 text-muted-foreground">
+              Berkshire Hathaway HomeServices Nevada Properties · Nevada License {"S.0197614.LLC"}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-stone bg-paper py-16 sm:py-20" aria-labelledby="faq-title">
+        <div className="mx-auto max-w-4xl px-5 sm:px-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-olive">A few useful details</p>
+          <h2 id="faq-title" className="mt-3 font-serif text-4xl text-ink sm:text-5xl">Before you make your move.</h2>
+          <dl className="mt-8 divide-y divide-stone">
             {HOME_PAGE_FAQS.map((faq) => (
-              <div key={faq.question}>
-                <dt className="font-semibold text-gray-900">{faq.question}</dt>
-                <dd className="mt-2 text-gray-700 leading-relaxed">{faq.answer}</dd>
+              <div key={faq.question} className="py-5">
+                <dt className="font-medium text-ink">{faq.question}</dt>
+                <dd className="mt-2 text-sm leading-6 text-muted-foreground">{faq.answer}</dd>
               </div>
             ))}
           </dl>
-          <p className="mt-8 text-center">
-            <Link href="/open-houses" className="font-semibold text-blue-600 hover:underline">
-              Open Houses hub: tours, FAQs, and scheduling →
-            </Link>
+        </div>
+      </section>
+
+      <section className="bg-forest px-5 py-16 text-center text-white sm:px-8 sm:py-20" aria-labelledby="private-tour-title">
+        <div className="mx-auto max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/65">Your next chapter starts here</p>
+          <h2 id="private-tour-title" className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
+            A considered move begins with a conversation.
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-white/75">
+            Tell us what you are looking for. We will help you make a thoughtful plan for your home in Las Vegas.
           </p>
-        </div>
-      </section>
-
-      {/* Live MLS: one RealScout embed set site-wide in layout (#office-listings-bands) — avoids duplicate grids on the homepage */}
-      <section className="bg-gray-50 py-8 sm:py-12" aria-labelledby="home-live-listings-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 id="home-live-listings-heading" className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-              Live listings: Summerlin Las Vegas open houses &amp; homes for sale
-            </h2>
-            <p className="text-lg text-gray-600">
-              Browse{' '}
-              <a href="#office-listings-bands" className="font-semibold text-blue-600 hover:underline">
-                office MLS listings
-              </a>{' '}
-              ($400K–$900K), or use the full{' '}
-              <Link href="/tour/mls" className="font-semibold text-blue-600 hover:underline">
-                MLS property search
-              </Link>{' '}
-              and{' '}
-              <Link href="/open-houses" className="font-semibold text-blue-600 hover:underline">
-                open houses hub
-              </Link>
-              . For market context, see the{' '}
-              <Link href="/market-report" className="font-semibold text-blue-600 hover:underline">
-                market report
-              </Link>{' '}
-              or{' '}
-              <Link href="/book-tour" className="font-semibold text-blue-600 hover:underline">
-                schedule a showing
-              </Link>
-              .
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Neighborhood Spotlight */}
-      <section className="bg-white py-10 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Summerlin West Neighborhoods
-            </h2>
-            <p className="text-lg text-gray-600">
-              Explore Las Vegas's premier master-planned community
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "The Ridges",
-                description: "Luxury custom homes with stunning mountain and city views",
-                priceRange: "$1.5M - $5M+",
-                highlights: ["Guard-gated", "Custom lots", "Mountain views"],
-                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=250&fit=crop"
-              },
-              {
-                name: "Red Rock Country Club",
-                description: "Championship golf course living with resort-style amenities",
-                priceRange: "$800K - $3M",
-                highlights: ["Golf course", "Country club", "Tennis"],
-                image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=250&fit=crop"
-              },
-              {
-                name: "Summerlin Centre",
-                description: "Family-friendly community with parks and top-rated schools",
-                priceRange: "$500K - $900K",
-                highlights: ["Great schools", "Parks", "Family-friendly"],
-                image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop"
-              }
-            ].map((neighborhood, index) => {
-              const neighborhoodUrls: Record<string, string> = {
-                'The Ridges': '/neighborhoods/the-ridges',
-                'Red Rock Country Club': '/neighborhoods/red-rock-country-club',
-                'Summerlin Centre': '/neighborhoods/summerlin-centre',
-              }
-              const neighborhoodUrl = neighborhoodUrls[neighborhood.name] || '#'
-              
-              return (
-                <div key={neighborhood.name} className="bg-gray-50 rounded-lg overflow-hidden">
-                  <Link href={neighborhoodUrl}>
-                    <OptimizedImage
-                      src={neighborhood.image}
-                      alt={`${neighborhood.name} - Summerlin West neighborhood`}
-                      className="hover:opacity-90 transition-opacity"
-                      priority={index === 0}
-                    />
-                  </Link>
-                  <div className="p-6">
-                    <Link href={neighborhoodUrl}>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600">{neighborhood.name}</h3>
-                    </Link>
-                    <p className="text-gray-600 mb-3">{neighborhood.description}</p>
-                    <p className="text-blue-600 font-semibold mb-3">{neighborhood.priceRange}</p>
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {neighborhood.highlights.map(highlight => (
-                        <span key={highlight} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
-                          {highlight}
-                        </span>
-                      ))}
-                    </div>
-                    <Link 
-                      href={neighborhoodUrl}
-                      className="inline-block text-blue-600 hover:text-blue-800 font-medium text-sm"
-                    >
-                      Explore {neighborhood.name} →
-                    </Link>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-          <div className="text-center mt-6 flex flex-wrap justify-center gap-x-4 gap-y-1">
-            <Link href="/neighborhoods" className="text-blue-600 font-semibold hover:underline">
-              Explore all neighborhoods →
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link href="/book-tour" className="inline-flex min-h-12 items-center justify-center gap-2 bg-cream px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-white">
+              Arrange a private tour <ArrowUpRight className="size-4" aria-hidden="true" />
             </Link>
-            <Link href="/sitemap" className="text-blue-600 font-semibold hover:underline">
-              Browse full sitemap
+            <Link href="/contact" className="inline-flex min-h-12 items-center justify-center border border-white/50 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+              Get in touch
             </Link>
           </div>
         </div>
       </section>
-
-      {/* Short testimonial strip */}
-      <section className="bg-gray-50 py-8 sm:py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-lg text-gray-700 italic max-w-2xl mx-auto mb-2">
-            &ldquo;Dr. Jan found us the perfect home in The Ridges within 2 weeks. Her market knowledge is incredible!&rdquo; — Sarah & Mike Johnson
-          </p>
-          <Link href="/review-us" className="text-blue-600 font-semibold hover:underline">
-            Read more reviews
-          </Link>
-        </div>
-      </section>
-
-      {/* Compact RealScout CTA band */}
-      <section className="bg-blue-600 text-white py-8 sm:py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-2xl font-bold mb-2">Never miss your dream home</h3>
-          <p className="text-white mb-4">Get instant alerts for new listings, price drops, and open houses in Summerlin West.</p>
-          <Link
-            href="/tour/mls"
-            className="inline-flex items-center justify-center min-h-[44px] bg-white text-blue-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-bold transition-colors"
-          >
-            Search Listings & Get Alerts
-          </Link>
-        </div>
-      </section>
-
-      {/* Compact contact strip */}
-      <section className="bg-gray-900 text-white py-8 sm:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-xl font-bold mb-2">Work with Dr. Jan Duffy</h3>
-          <p className="text-gray-300 mb-4 max-w-xl mx-auto">
-            Your trusted Summerlin West real estate expert. Summerlin West & Las Vegas · Certified Luxury Home Specialist
-          </p>
-          <p className="text-gray-400 text-sm mb-4">{GBP.address.street}, {GBP.address.locality}, {GBP.address.region} {GBP.address.postalCode}</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href={`tel:${GBP.phoneE164}`} className="inline-flex items-center justify-center min-h-[44px] gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-lg font-medium">
-              <Phone className="h-4 w-4" aria-hidden />
-              Call {GBP.phone}
-            </a>
-            <Link href="/book-tour" className="inline-flex items-center justify-center min-h-[44px] gap-2 bg-[#0069ff] hover:bg-[#0052cc] px-5 py-2.5 rounded-lg font-medium text-white">
-              <Calendar className="h-4 w-4" aria-hidden />
-              Schedule a showing
-            </Link>
-          </div>
-        </div>
-      </section>
-
-       {/* Exit Intent Popup */}
-       <ExitIntentPopup
-         isVisible={showExitPopup}
-         onClose={() => setShowExitPopup(false)}
-       />
-
-     </div>
-   )
- }
-
-export default SummerlinOpenHouseWebsite
+    </div>
+  )
+}
